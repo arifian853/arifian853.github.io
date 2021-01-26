@@ -413,3 +413,84 @@ img.img1 {
         border-radius: 0;
         margin-bottom: -1px;
       }
+    /*Newly added for skills bar*/
+#myProgress {
+  width : 100% ;
+  background-color: #03102A ; 
+}
+    
+#myBar {
+  width: 90% ;
+  height : 30px ;
+  background-color: aquamarine;
+  text-align : center;
+  color: black ;
+    }
+
+    #myProgress {
+      width : 100% ;
+      background-color: #03102A ; 
+    }
+        
+    #myBar1 {
+      width: 75% ;
+      height : 30px ;
+      background-color: aquamarine;
+      text-align : center;
+      color: black ;
+        }
+        #myProgress1 {
+          width : 100% ;
+          background-color: #03102A ; 
+        }
+            
+        #myBar2 {
+          width: 15% ;
+          height : 30px ;
+          background-color: aquamarine;
+          text-align : center;
+          color: black ;
+            }
+            #myProgress2 {
+              width : 75% ;
+              background-color: #03102A ; 
+            }
+                
+            #myBar3 {
+              width: 45% ;
+              height : 30px ;
+              background-color: aquamarine;
+              text-align : center;
+              color: black ;
+                }
+                #myProgress3 {
+                  width : 100% ;
+                  background-color: #03102A ; 
+                }
+                    
+                #myBar4 {
+                  width: 10% ;
+                  height : 30px ;
+                  background-color: aquamarine;
+                  text-align : center;
+                  color: black ;
+                }
+                #myProgress4 {
+                    width : 100% ;
+                    background-color: #03102A ; 
+                  }
+                      
+                  #myBar5 {
+                    width: 50% ;
+                    height : 30px ;
+                    background-color: aquamarine;
+                    text-align : center;
+                    color: black ;
+                  }
+                    #myProgress5 {
+                      width : 100% ;
+                      background-color: #03102A ; 
+                    }
+section.sect1 {
+  padding: 20px;
+}
