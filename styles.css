@@ -510,5 +510,6 @@ section.sec1 {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  border-radius:12px;
 }
 
