@@ -65,7 +65,6 @@ body {
 }
 
 
-
 .masthead {
     position: relative;
     width: 100%;
@@ -90,10 +89,6 @@ body {
 div.div1 {
     background-color: #555 ;
     opacity: 0.75;
-}
-img.img1 {
-    width:500px;
-    height : 250px;
 }
 
 .projects-section {
@@ -429,11 +424,13 @@ img.img1 {
   background-color: aquamarine;
   text-align : center;
   color: black ;
+  border-radius: 12px;
     }
 
     #myProgress {
       width : 100% ;
-      background-color: #03102A ; 
+      background-color: #03102A ;
+      border-radius: 12px; 
     }
         
     #myBar1 {
@@ -442,10 +439,12 @@ img.img1 {
       background-color: aquamarine;
       text-align : center;
       color: black ;
+      border-radius: 12px; 
         }
         #myProgress1 {
           width : 100% ;
-          background-color: #03102A ; 
+          background-color: #03102A ;
+          border-radius: 12px;  
         }
         #myBar2 {
           width: 15% ;
@@ -453,10 +452,12 @@ img.img1 {
           background-color: aquamarine;
           text-align : center;
           color: black ;
+          border-radius: 12px; 
             }
             #myProgress2 {
               width : 100% ;
-              background-color: #03102A ; 
+              background-color: #03102A ;
+              border-radius: 12px;  
             }
 
                 
@@ -466,10 +467,12 @@ img.img1 {
               background-color: aquamarine;
               text-align : center;
               color: black ;
+              border-radius: 12px; 
                 }
                 #myProgress3 {
                   width : 100% ;
-                  background-color: #03102A ; 
+                  background-color: #03102A ;
+                  border-radius: 12px;  
                 }
                     
                 #myBar4 {
@@ -478,10 +481,12 @@ img.img1 {
                   background-color: aquamarine;
                   text-align : center;
                   color: black ;
+                  border-radius: 12px; 
                 }
                 #myProgress4 {
                     width : 100% ;
-                    background-color: #03102A ; 
+                    background-color: #03102A ;
+                    border-radius: 12px;  
                   }
                       
                   #myBar5 {
@@ -490,10 +495,12 @@ img.img1 {
                     background-color: aquamarine;
                     text-align : center;
                     color: black ;
+                    border-radius: 12px; 
                   }
                     #myProgress5 {
                       width : 100% ;
-                      background-color: #03102A ; 
+                      background-color: #03102A ;
+                      border-radius: 12px;  
                     }
 section.sect1 {
   padding: 20px;
