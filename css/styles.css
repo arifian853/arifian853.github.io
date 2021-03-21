@@ -161,6 +161,16 @@ body {
     display: block;
 }
 
+.attribution {
+    color:black;
+    align-items: center;
+}
+
+.att-link {
+    text-decoration: none;
+    color: white;
+}
+
 footer {
     background-color: #7F6A93;
     padding: 20px;
@@ -272,7 +282,7 @@ footer {
             scroll-snap-type: none;
         }
     .row-who {
-        display: block;
+        display: inline-block;
         align-self: center;
     }
     .greeting {
