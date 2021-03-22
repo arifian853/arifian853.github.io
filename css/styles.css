@@ -12,7 +12,7 @@ html {
 }
 body {
     padding: 0;
-    background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
+    background-image: linear-gradient(180deg, #7F6A93 , #9DB5B2);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -53,8 +53,8 @@ body {
     background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
     padding: 60px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-    border-radius: 12px;
-    margin-bottom:10px ;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius:10px ;
 }
 
 .who {
@@ -62,7 +62,6 @@ body {
     padding: 60px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
-    margin-bottom: 10px;
     font-size: large;
     text-align: center;
 }
@@ -93,7 +92,6 @@ body {
     padding: 20px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
-    margin-bottom: 10px;
     font-size: large;
 }
 
@@ -110,17 +108,13 @@ body {
 .project-link {
     text-decoration: none;
     color: black;
-    border: 5px solid #9DB5B2;
-    background-color: #9DB5B2;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .skills {
-    background-image: linear-gradient(180deg, #7F6A93 , #878E99);
     padding: 70px;
-    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
-    margin-bottom: 10px;
     font-size: large;
 }
 
@@ -129,7 +123,6 @@ body {
     padding: 70px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
-    margin-bottom: 10px;
     font-size: small;
     align-items: center;
     display: block;
@@ -138,14 +131,10 @@ body {
 .contact-column {
     display: inline;
     margin: 12px;
-    font-size: large;
-    text-align: center;
-    color: black;
-    text-decoration: none;
 }
 
-.contact-column:hover {   
-    opacity: 0.7; 
+.img-contact:hover {   
+    opacity: 0.6; 
 }
 .img-contact {
     width : 45px;
@@ -164,6 +153,7 @@ body {
 .attribution {
     color:black;
     align-items: center;
+    font-size: large;
 }
 
 .att-link {
@@ -212,7 +202,7 @@ footer {
             border-radius: 12px;  
           }
           #myBar2 {
-            width: 15% ;
+            width: 25% ;
             height : 30px ;
             background-color: #9DB5B2;
             text-align : center;
@@ -241,7 +231,7 @@ footer {
                   }
                       
                   #myBar4 {
-                    width: 10% ;
+                    width: 25% ;
                     height : 30px ;
                     background-color: #9DB5B2;
                     text-align : center;
@@ -278,7 +268,7 @@ footer {
 /*MOBILE*/
     @media screen and (max-width: 768px) {
         body, html {
-            scroll-behavior: none;
+            scroll-behavior: smooth;
             scroll-snap-type: none;
         }
     .row-who {
@@ -297,11 +287,8 @@ footer {
         border-radius: 12px;
     }
     .skills {
-        background-image: linear-gradient(180deg, #7F6A93 , #878E99);
         padding: 20px;
-        box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
         border-radius: 12px;
-        margin: 12px;
         font-size: large;
     }
     
