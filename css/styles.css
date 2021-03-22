@@ -113,9 +113,12 @@ body {
 }
 
 .skills {
+    background-image: linear-gradient(180deg, #7F6A93 , #878E99);
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     padding: 70px;
     border-radius: 12px;
     font-size: large;
+    display: block;
 }
 
 .contact {
@@ -144,10 +147,29 @@ body {
     background-image: linear-gradient(180deg, #878E99 ,#7F6A93);
     padding: 70px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-    border-radius: 12px;
     font-size: small;
     align-items: center;
     display: block;
+}
+
+.e-mail {
+    text-decoration: none;
+}
+.contact-button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: #7F6A93;
+    text-align: center;
+    cursor: pointer;
+    width: 250px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.contact-button:hover {
+    opacity: 0.7;
 }
 
 .attribution {
@@ -165,6 +187,7 @@ footer {
     background-color: #7F6A93;
     padding: 20px;
     text-align: center;
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
 }
 /*Skills bar*/
 
