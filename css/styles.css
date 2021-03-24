@@ -47,8 +47,8 @@ body {
 }
 
 .greeting {
-    margin-top: 160px;
-    margin-bottom: 160px;
+    margin-top: 175px;
+    margin-bottom: 175px;
     font-size: x-large;
 }
 .landing-page {
@@ -114,13 +114,42 @@ body {
     cursor: pointer;
 }
 
-.skills {
+.achievement {
     background-image: linear-gradient(180deg, #7F6A93 , #878E99);
+    padding: 70px;
+    padding-left: 70px;
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
+    border-radius: 12px;
+    font-size: large;
+    align-items: center;
+}
+
+.row-achievement {
+    display: inline-block;
+    align-items: center;
+}
+
+.card {
+    background-color: #9DB5B2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    display: inline-block;
+    margin: 12px;
+    align-items: center;
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
+}
+
+.card-img {
+    width: 299px;
+    height: 200px;
+}
+
+.skills {
+    background-image: linear-gradient(180deg, #878E99 , #7F6A93);
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     padding: 70px;
     border-radius: 12px;
     font-size: large;
-    display: block;
 }
 
 .contact {
@@ -130,7 +159,6 @@ body {
     border-radius: 12px;
     font-size: small;
     align-items: center;
-    display: block;
 }
 
 .contact-column {
@@ -303,6 +331,16 @@ footer {
         display: inline-block;
         align-self: center;
     }
+
+    .card {
+        display: inline-block;
+        align-items: center;
+        margin: 12px;
+    }
+    .card-img {
+        width: 280px;
+        height: 170px;
+    }
     
    .landing-page {
     background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
@@ -326,4 +364,3 @@ footer {
         border-radius: 12px;
         font-size: large;
     }
-    
