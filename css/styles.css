@@ -331,9 +331,11 @@ footer {
         display: inline-block;
         align-self: center;
     }
-
+    .row-achievement {
+    display: inline-block;
+    align-items: center;
+    }
     .card {
-        display: inline-block;
         align-items: center;
         margin: 12px;
     }
