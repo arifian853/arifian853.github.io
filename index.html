@@ -123,22 +123,17 @@
           <h1 data-aos="fade-left" data-aos-duration="700" align="center">Achievement</h1>
             <br />
             <br />
-            <div class="row row-achievement">
-
-            <div data-aos="zoom-in" data-aos-duration="1000" class="card mb-3" style="max-width: 300px;">
-              <div class="no-gutters">
-                <div class="col-md-4">
-                  <img src="img/ach1.png" class="card-img" alt="...">
-                </div>
-                <div class="font-italic">
-                  <div class="card-body">
-                    <h5 class="card-title font-weight-bold">Re-Cloud Challenges Indonesia 2021</h5>
-                    <p class="card-text">A web challenge held by CodePolitan and Alibaba Cloud.</p>
-                    <p class="card-text"><small class="text-muted">Jan 2021 to Feb 2021</small></p>
+            <div class="container" data-aos="fade-left" data-aos-duration="700">
+              <!-- Featured Achievement Row-->
+              <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                  <div class="col-xl-8 col-lg-7"><img class="img-fluid img-ach mb-3 mb-lg-0" src="img/ach1.png" alt="" /></div>
+                  <div class="col-xl-4 col-lg-5">
+                      <div class="featured-text text-center text-lg-left">
+                          <h4 data-aos="fade-left" data-aos-duration="1000">Re-Cloud Challenge Indonesia</h4>
+                          <p data-aos="fade-left" data-aos-duration="1000" class="text-black-50 mb-0">An online challenge that held by CodePolitan and Alibaba Cloud.</p>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
           
           </div>
           <hr />
@@ -147,42 +142,29 @@
 <!--end of Achievement-->
 <!--Skills-->
         <div class="skills">
-          <h2 data-aos="fade-right" data-aos-duration="1000" align="center">What are my skills right now ?</h2>
-          <h4 data-aos="fade-right" data-aos-duration="700"> A skills that experienced most on internet and highschool project , and also , by using itself :</h4>
-          <h3 data-aos="zoom-in" data-aos-duration="1000">- Web programming skills :</h3>
-          <p>HTML</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar"> 90% </div>
+          <h1 align="center">Skills</h1>
+          <br />
+          <hr />
+          <br />
+          <div class="row no-gutters">
+          <div data-aos="fade-left" data-aos-duration="700" class="skills-child col-lg">
+            <br />
+            <h3 align="center">Web Programming skills</h3>
+          <br />
+          <br />
+          <canvas id="myChart" width="100px" height="100px"></canvas>
           </div>
+
           <br />
-          <p>CSS</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress1">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar1"> 75% </div>
+
+          <div data-aos="fade-left" data-aos-duration="700" class="skills-child col-lg">
+            <br />
+            <h3 align="center">Programming skills</h3>
+          <br />
+          <br />
+          <canvas id="myChart2" width="100px" height="100px"></canvas>
           </div>
-          <br />
-          <p>JavaScript</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress2">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar2"> 25% </div>
-          </div>
-          <br />
-          <br />
-      <hr/>
-          <h3 data-aos="zoom-in" data-aos-duration="1000">- Programming languages skills : </h3>
-          <p>Python</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress3">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar3"> 45% </div>
-          </div>
-          <br />
-          <p>Java</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress4">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar4"> 25% </div>
-          </div>
-          <br />
-          <p>C++</p>
-          <div data-aos="fade-right" data-aos-duration="1000" id="myProgress5">
-          <div data-aos="fade-right" data-aos-duration="1000" id="myBar5"> 50% </div>
-          </div>
-          <br />
+        </div>
         </div>
 <!--end of skills-->
 
@@ -235,7 +217,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://profile.codersrank.io/widget/widget.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="script.js"></script>
+<script src="chart.js"></script>
+<script src="chart2.js"></script>
         <script>
           AOS.init();
         </script>  
