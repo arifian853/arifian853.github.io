@@ -17,8 +17,11 @@ body {
     padding: 0;
     background-image: linear-gradient(180deg, #7F6A93 , #9DB5B2);
     font-family: 'Montserrat', sans-serif;
+    
 }
-
+.aos-init:not(.aos-animate):after {
+    position: fixed;
+    }
 
 .navbar {
     z-index: 2;
@@ -124,9 +127,8 @@ body {
     align-items: center;
 }
 
-.row-achievement {
-    display: inline-block;
-    align-items: center;
+.featured-text {
+    padding-left: 20px;
 }
 
 .card {
@@ -147,9 +149,18 @@ body {
 .skills {
     background-image: linear-gradient(180deg, #878E99 , #7F6A93);
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-    padding: 70px;
+    padding: 40px;
     border-radius: 12px;
     font-size: large;
+}
+
+.skills-child {
+    background-color: #D3D5D4;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75); 
+    margin: 12px;
+    padding-right: 12px;
 }
 
 .contact {
@@ -219,97 +230,6 @@ footer {
     text-align: center;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
 }
-/*Skills bar*/
-
-#myProgress {
-    width : 100% ;
-    background-color: #03102A ; 
-  }
-      
-  #myBar {
-    width: 90% ;
-    height : 30px ;
-    background-color: #9DB5B2;
-    text-align : center;
-    color: black ;
-    border-radius: 12px;
-      }
-  
-      #myProgress {
-        width : 100% ;
-        background-color: #03102A ;
-        border-radius: 12px; 
-      }
-          
-      #myBar1 {
-        width: 75% ;
-        height : 30px ;
-        background-color: #9DB5B2;
-        text-align : center;
-        color: black ;
-        border-radius: 12px; 
-          }
-          #myProgress1 {
-            width : 100% ;
-            background-color: #03102A ;
-            border-radius: 12px;  
-          }
-          #myBar2 {
-            width: 25% ;
-            height : 30px ;
-            background-color: #9DB5B2;
-            text-align : center;
-            color: black ;
-            border-radius: 12px; 
-              }
-              #myProgress2 {
-                width : 100% ;
-                background-color: #03102A ;
-                border-radius: 12px;  
-              }
-  
-                  
-              #myBar3 {
-                width: 45% ;
-                height : 30px ;
-                background-color: #9DB5B2;
-                text-align : center;
-                color: black ;
-                border-radius: 12px; 
-                  }
-                  #myProgress3 {
-                    width : 100% ;
-                    background-color: #03102A ;
-                    border-radius: 12px;  
-                  }
-                      
-                  #myBar4 {
-                    width: 25% ;
-                    height : 30px ;
-                    background-color: #9DB5B2;
-                    text-align : center;
-                    color: black ;
-                    border-radius: 12px; 
-                  }
-                  #myProgress4 {
-                      width : 100% ;
-                      background-color: #03102A ;
-                      border-radius: 12px;  
-                    }
-                        
-                    #myBar5 {
-                      width: 50% ;
-                      height : 30px ;
-                      background-color: #9DB5B2;
-                      text-align : center;
-                      color: black ;
-                      border-radius: 12px; 
-                    }
-                      #myProgress5 {
-                        width : 100% ;
-                        background-color: #03102A ;
-                        border-radius: 12px;  
-                      }
 
 @media all and (min-width: 992px) {
         .navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
@@ -331,11 +251,8 @@ footer {
         display: inline-block;
         align-self: center;
     }
-    .row-achievement {
-    display: inline-block;
-    align-items: center;
-    }
     .card {
+        display: inline-block;
         align-items: center;
         margin: 12px;
     }
@@ -343,7 +260,6 @@ footer {
         width: 280px;
         height: 170px;
     }
-    
    .landing-page {
     background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
     padding: 45px;
