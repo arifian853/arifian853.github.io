@@ -157,6 +157,8 @@ body {
 .skills-child {
     background-color: #D3D5D4;
     padding: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
     border-radius: 12px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75); 
     margin: 12px;
@@ -281,4 +283,15 @@ footer {
         padding: 20px;
         border-radius: 12px;
         font-size: large;
+    }
+    .featured-text {
+        padding-top: 20px;
+    }
+    .skills-child {
+        background-color: #D3D5D4;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75); 
+        margin: 12px;
+        padding-right: 12px;
     }
