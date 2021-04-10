@@ -55,7 +55,7 @@ body {
     font-size: x-large;
 }
 .landing-page {
-    background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
+    background-image: linear-gradient(180deg, #9DB5B2, #9db5b3 );
     padding: 60px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-bottom-left-radius: 10px;
@@ -63,7 +63,8 @@ body {
 }
 
 .who {
-    background-image: linear-gradient(180deg, #7F6A93 , #878E99);
+    background-color:  #2A363B ;
+    color: #9DB5B2;
     padding: 60px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
@@ -74,6 +75,7 @@ body {
 .row-who {
     display: flex;
     align-self: center;
+    color: #2A363B;
 }
 
 .column-who {
@@ -93,7 +95,7 @@ body {
 }
 
 .carousel-project {
-    background-image: linear-gradient(180deg, #878E99 ,#7F6A93);
+    background-image: linear-gradient(180deg, #9DB5B2, #9db5b3);
     padding: 20px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 12px;
@@ -118,7 +120,8 @@ body {
 }
 
 .achievement {
-    background-image: linear-gradient(180deg, #7F6A93 , #878E99);
+    background-color:  #2A363B ;
+    color: #9DB5B2;
     padding: 70px;
     padding-left: 70px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
@@ -129,6 +132,7 @@ body {
 
 .featured-text {
     padding-left: 20px;
+    color: #9DB5B2;
 }
 
 .card {
@@ -147,7 +151,7 @@ body {
 }
 
 .skills {
-    background-image: linear-gradient(180deg, #878E99 , #7F6A93);
+    background-image: linear-gradient(180deg, #9DB5B2, #9db5b3);
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     padding: 40px;
     border-radius: 12px;
@@ -155,21 +159,18 @@ body {
 }
 
 .skills-child {
-    background-color: #D3D5D4;
+    color: #2A363B;
     padding: 40px;
     padding-left: 12px;
     padding-right: 12px;
-    border-radius: 12px;
-    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75); 
-    margin: 12px;
-    padding-right: 12px;
+    margin: 15px;
 }
 
 .contact {
-    background-image: linear-gradient(180deg, #7F6A93 , #878E99);
+    background-color: #2A363B ;
+    color: #9DB5B2;
     padding: 70px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-    border-radius: 12px;
     font-size: small;
     align-items: center;
 }
@@ -181,13 +182,14 @@ body {
 
 .img-contact:hover {   
     opacity: 0.6; 
+    box-shadow: -1px -7px 28px -10px rgba(157,181,178,0.85);
 }
 .img-contact {
     width : 45px;
     height: auto;
 }
 .thanks {
-    background-image: linear-gradient(180deg, #878E99 ,#7F6A93);
+    background-image: linear-gradient(180deg, #9DB5B2, #9db5b3);
     padding: 70px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     font-size: small;
@@ -202,8 +204,8 @@ body {
     border: none;
     outline: 0;
     padding: 8px;
-    color: white;
-    background-color: #7F6A93;
+    color: #2A363B ;
+    background-color: #9DB5B2;
     text-align: center;
     cursor: pointer;
     width: 250px;
@@ -213,6 +215,7 @@ body {
 
 .contact-button:hover {
     opacity: 0.7;
+    box-shadow: -1px -7px 28px -10px rgba(157,181,178,0.85);
 }
 
 .attribution {
@@ -227,15 +230,18 @@ body {
 }
 
 footer {
-    background-color: #7F6A93;
+    background-color:  #2A363B ;
     padding: 20px;
     text-align: center;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
+    color: #9DB5B2;
 }
 
 @media all and (min-width: 992px) {
         .navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
-        .navbar .nav-item:hover .nav-link{ color: #7F6A93; }
+        .navbar .nav-item:hover .nav-link{ 
+            color: #2A363B; 
+        }
         .navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
         .navbar .dropdown-menu.fade-up{ top:180%;  }
         .navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
@@ -263,7 +269,7 @@ footer {
         height: 170px;
     }
    .landing-page {
-    background-image: linear-gradient(180deg, #9DB5B2 , #7F6A93);
+    background-image: linear-gradient(180deg, #9DB5B2, #9db5b3);
     padding: 45px;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-bottom-left-radius: 10px;
@@ -286,9 +292,11 @@ footer {
     }
     .featured-text {
         padding-top: 20px;
+        padding-right: 10px;
     }
     .skills-child {
-        background-color: #D3D5D4;
+        background-color: #2A363B;
+        color: #9DB5B2;
         padding: 40px;
         border-radius: 12px;
         box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75); 
