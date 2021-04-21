@@ -1,6 +1,6 @@
     var i=0,text;
     
-    var text = "Hello ! ";
+    var text = " Hello World ! ";
     
     function typing() {
         if(i<text.length){
