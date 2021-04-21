@@ -112,7 +112,7 @@ body {
 
 .project-link {
     text-decoration: none;
-    color: black;
+    color: #2A363B;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -128,7 +128,7 @@ body {
 }
 
 .img-ach:hover {
-    box-shadow: 0px 0px 7px 7px;
+    box-shadow: 0px 0px 7px 21px;
 }
 
 .featured-text {
