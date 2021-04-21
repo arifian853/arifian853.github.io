@@ -110,10 +110,12 @@ body {
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
 }
 
-.project-link {
+a.project-link:hover {
     text-decoration: none;
-    color: #2A363B;
-    border-radius: 10px;
+    color: #9DB5B2;
+    background-color : #2A363B;
+    border : 1px solid black;
+    padding : 1px;
     cursor: pointer;
 }
 
@@ -231,9 +233,11 @@ a.att-link {
 
 a.att-link:hover {
     text-decoration: none;
-    color: #2A363B;
-    background-color : teal;
-    border : 1px solid #2A363B;
+    color: #9DB5B2;
+    background-color : #2A363B;
+    border : 1px solid black;
+    padding : 1px;
+    cursor: pointer;
 }
 
 .widget:hover {
