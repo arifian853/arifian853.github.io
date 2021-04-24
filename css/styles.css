@@ -1,3 +1,4 @@
+  
 html {
     scroll-behavior: smooth;
     margin: 0px;
@@ -108,13 +109,13 @@ body {
 .carousel-shadow {
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
 }
-
+a.project-link {
+    text-decoration: none;
+    color: #2A363B ;
+}
 a.project-link:hover {
     text-decoration: none;
-    color: #9DB5B2;
-    background-color : #2A363B;
-    border : 1px solid black;
-    padding : 1px;
+    color: black;
     cursor: pointer;
 }
 
@@ -129,7 +130,8 @@ a.project-link:hover {
 }
 
 .img-ach:hover {
-    box-shadow: 0px 0px 21px 7px;
+    box-shadow: 0px 0px 21px 5px;
+    cursor:pointer;
 }
 
 .featured-text {
@@ -165,6 +167,13 @@ a.project-link:hover {
     padding-left: 12px;
     padding-right: 12px;
     margin: 15px;
+}
+
+.skills-child:hover {
+    color: #9DB5B2;
+    background-color: #2A363B;
+    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
+    border-radius: 10px;
 }
 
 .contact {
@@ -232,10 +241,7 @@ a.att-link {
 
 a.att-link:hover {
     text-decoration: none;
-    color: #9DB5B2;
-    background-color : #2A363B;
-    border : 1px solid black;
-    padding : 1px;
+    color: black;
     cursor: pointer;
 }
 
@@ -250,6 +256,10 @@ footer {
     text-align: center;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     color: #9DB5B2;
+}
+
+hr.ach {
+    border-top: 5px solid #9DB5B2;
 }
 
 @media all and (min-width: 992px) {
