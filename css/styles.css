@@ -162,16 +162,12 @@ a.project-link:hover {
 }
 
 .skills-child {
-    color: #2A363B;
+    color: #9DB5B2;
+    background-color: #2A363B;
     padding: 40px;
     padding-left: 12px;
     padding-right: 12px;
     margin: 15px;
-}
-
-.skills-child:hover {
-    color: #9DB5B2;
-    background-color: #2A363B;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     border-radius: 10px;
 }
