@@ -1,5 +1,4 @@
-  
-html {
+ html {
     scroll-behavior: smooth;
     margin: 0px;
     padding: 0px;
@@ -104,6 +103,8 @@ body {
 .carousel-img {
     width: 1000px;
     height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .carousel-shadow {
