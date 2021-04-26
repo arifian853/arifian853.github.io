@@ -106,9 +106,6 @@ body {
     padding-right: 10px;
 }
 
-.carousel-shadow {
-    box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-}
 a.project-link {
     text-decoration: none;
     color: #2A363B ;
