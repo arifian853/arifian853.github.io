@@ -130,6 +130,8 @@ a.project-link:hover {
 .img-ach:hover {
     box-shadow: 0px 0px 21px 5px;
     cursor:pointer;
+    border-width:5px solid #2A363B;  
+    border-style:ridge;
 }
 
 .featured-text {
