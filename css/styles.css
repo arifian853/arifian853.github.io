@@ -18,7 +18,7 @@ body {
     z-index: 2;
     background-color: #9DB5B2;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
-    font-size: large;
+    font-size: larger;
 }
 .navbar-brand {
     margin-left: 20px;
