@@ -7,7 +7,7 @@ html {
 body {
     padding: 0;
     background-image: linear-gradient(180deg, #7F6A93 , #9DB5B2);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     
 }
 .aos-init:not(.aos-animate):after {
@@ -32,13 +32,17 @@ body {
     padding: 0
 }
 .navbar .link-0 a:hover {
-    color: #00B8E2 ;
     text-decoration: none;
 }
 
 .img-logo-navbar {
     width: 60px;
     height: auto;
+}
+
+.img-logo-social {
+    width: 27px;
+    height: 27px;
 }
 
 .greeting {
@@ -98,7 +102,15 @@ body {
     padding-left: 5px;
     padding-right: 5px;
 }
+.link-list ul li {
+    display: inline-block;
+    list-style: none;
+}
 
+.link-list li {
+    padding: 12px; 
+    border: 2px solid #2A363B;
+}
 a.project-link {
     text-decoration: none;
     color: #2A363B ;
@@ -292,6 +304,11 @@ hr.ach {
     .carousel-img {
         width: 335px;
         height: auto;
+    }
+
+    .link-list li {
+        padding: 2px; 
+        border: none;
     }
     .skills {
         padding: 20px;
