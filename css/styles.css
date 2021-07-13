@@ -172,35 +172,289 @@ body {
     padding: 70px;
     font-size: large;
     text-align: center;
-    padding-left: 90px;
-    padding-right: 90px;
 }
 .container {
     width: 100%;
     background-color: var(--cadet_blue_crayola);
 }
   
-.skills-percentage {
-    text-align: right;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 5px;
-    color: var(--charcoal);
+.skills-child {
+    background-color: var(--charcoal);
+    color: var(--periwinkle_crayola);
+    padding: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 15px;
+    box-shadow: -1px -7px 28px -10px var(--charcoal);
+    border-radius: 10px;
 }
 
-  .html {width: 80%; background-color: #04AA6D;}
-  .css {width: 70%; background-color: #2196F3;}
-  .js {width: 35%; background-color: #f44336;}
-  .cplusplus {width: 40%; background-color: #04AA6D;}
-  .py {width: 30%; background-color: #2196F3;}
-  .java {width: 15%; background-color: #f44336;}
+/*SKILLS*/
+.achievements {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 12%, rgba(0, 0, 0, 0.7) 85%, #000000 100%) ,url('bg_achievements.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;;
+    color: var(--periwinkle_crayola);
+    padding: 20px;
+    font-size: large;
+    text-align: center;
+}
+
+.achievement-img {
+    height: 80vh;
+    width: 120vh;
+    margin: 15px;
+    box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.75);
+}
+
+.achievement-img:hover {
+    box-shadow: 5px 5px 5px 1px var(--middle_gray);
+}
+
+/*TIMELINE*/
+
+.school-timeline {
+    background-color: var(--periwinkle_crayola);
+    color: var(--charcoal);
+    padding: 70px;
+    font-size: large;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+   }
+
+   .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+   }
+
+   .timeline::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: var(--charcoal);
+    color: var(--periwinkle_crayola);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+   }
+
+   .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+   }
+
+   .timeline-item::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -9px;
+    background-color: #4caf50;
+    border: 2px solid #fff;
+    top: 22px;
+    border-radius: 50%;
+    z-index: 1;
+   }
+
+   .left {
+    left: 0;
+   }
+
+   .right {
+    left: 50%;
+   }
+
+   .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+   }
+
+   .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+   }
+
+   .right::after {
+    left: -10px;
+   }
+
+   .content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+   }
+
+   /* Responsive on screens less than 600px wide */
+   @media screen and (max-width: 600px) {
+    .timeline::after {
+       left: 31px;
+    }
+
+    .timeline-item {
+       width: 100%;
+       padding-left: 70px;
+       padding-right: 25px;
+    }
+
+    .timeline-item::before {
+       left: 60px;
+       border: medium solid white;
+       border-width: 10px 10px 10px 0;
+       border-color: transparent white transparent transparent;
+    }
+
+    .left::after,
+    .right::after {
+       left: 21px;
+    }
+
+    .right {
+       left: 0%;
+    }
+   }
 
 
+/*CONTACT*/
+.contact {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 12%, rgba(0, 0, 0, 0.7) 85%, #000000 100%) ,url('bg_contact.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;;
+    color: var(--periwinkle_crayola);
+    padding: 20px;
+    font-size: large;
+    text-align: center;
+}
+
+.it-contacts {
+    color: var(--periwinkle_crayola);
+    padding: 20px;
+    font-size: large;
+    text-align: center;
+}
+
+.it-contacts a {
+    color: var(--periwinkle_crayola);
+    text-decoration: none;
+}
+
+.it-contacts a img {
+    margin: 2px;
+    margin-bottom: 6px;
+    width: 30px;
+    height: 30px;
+    filter: invert();
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    max-width: 275px;
+    margin: auto;
+    text-align: center;
+    background-color:var(--periwinkle_crayola);
+    color: var(--charcoal);
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.title {
+    color:black;
+    font-size: 18px;
+}
+.contact-button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 70%;
+    font-size: 18px;
+    border-radius: 12px;
+}
+  
+a.med-soc {
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+}
+  
+button:hover, a:hover {
+    opacity: 0.9;
+  }
+
+.media-social {
+    display: block;
+}
+
+.img-profile {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.img-social {
+    width: 20px;
+    height: 20px;
+}
+
+.e-mail {
+    text-decoration: none;
+}
+
+.name-institutions {
+    color:var(--charcoal);
+    text-decoration: none;
+}
+.attribution {
+    opacity: 0.5;
+}
+
+.role {
+    font-size: 14px;
+    font-style: italic;
+    color: #040438;
+    font-weight: 500;
+}
+/*CLOSURE*/
+
+.closure {
+    background-color: var(--periwinkle_crayola);
+    color: var(--charcoal);
+    padding: 70px;
+    font-size: large;
+    text-align: center;
+}
 /*FOOTER*/
 
 footer {
     background-color:  var(--charcoal);
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     box-shadow: -1px -7px 28px -10px rgba(0,0,0,0.75);
     color: white;
@@ -236,6 +490,7 @@ footer {
 
     .landing-page {
         padding: 10px;
+        padding-bottom: 70px;
     }
 
     .greetings {
@@ -252,5 +507,28 @@ footer {
     .carousel-img {
         width: 335px;
         height: auto;
+    }
+
+    .skills {
+        background-color: var(--periwinkle_crayola);
+        color: var(--charcoal);
+        padding: 10px;
+        font-size: large;
+        text-align: center;
+    }
+
+    .skills-child {
+        background-color: var(--charcoal);
+        color: var(--periwinkle_crayola);
+        padding: 50px;
+        border-radius: 12px;
+        box-shadow: -1px -7px 28px -10px var(--charcoal); 
+        margin: 12px;
+        padding-right: 12px;
+    }
+
+    .achievement-img {
+        height: 200px;
+        width: 320px;
     }
 }
