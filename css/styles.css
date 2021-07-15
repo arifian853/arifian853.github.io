@@ -356,11 +356,13 @@ body {
     padding: 20px;
     font-size: large;
     text-align: center;
+    display: inline-flex;
 }
 
 .it-contacts a {
     color: var(--periwinkle_crayola);
     text-decoration: none;
+    margin: 10px;
 }
 
 .it-contacts a img {
@@ -371,8 +373,11 @@ body {
     filter: invert();
 }
 
+.it-contacts a img:hover {
+    filter:drop-shadow(0 0 0.75rem crimson);
+}
+
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
     max-width: 275px;
     margin: auto;
     text-align: center;
@@ -380,6 +385,10 @@ body {
     color: var(--charcoal);
     padding-left: 16px;
     padding-right: 16px;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 5px 1px var(--charcoal);
 }
 .title {
     color:black;
@@ -450,6 +459,14 @@ button:hover, a:hover {
     font-size: large;
     text-align: center;
 }
+
+.widget {
+    padding-bottom: 12px;
+    border: 2px solid var(--charcoal);
+    padding: 2px;
+    box-shadow: 5px 5px 5px 1px var(--charcoal);
+}
+
 /*FOOTER*/
 
 footer {
