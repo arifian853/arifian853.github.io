@@ -1,0 +1,134 @@
+[
+  {
+    "id": "a0da90dha8d7c8cahah8",
+    "title": "Exploring AI in Modern Web Development",
+    "author": "Arifian",
+    "date_released": "27 July 2023, Thursday, 12.30 WIB",
+    "content": "Artificial Intelligence (AI) has revolutionized modern web development. From chatbots to personalized content recommendations, AI is transforming the way we interact with websites and applications. In this article, we will explore various AI technologies used in web development, their benefits, and how developers can integrate AI into their projects to create more intelligent and user-friendly web experiences.",
+    "tags": [
+      "AI",
+      "Web Development",
+      "Tech"
+    ]
+  },
+  {
+    "id": "u8d9an7d7adw7j89d9a8w",
+    "title": "Introduction to Machine Learning Algorithms",
+    "author": "Arifian",
+    "date_released": "28 July 2023, Thursday, 09.15 WIB",
+    "content": "Machine learning algorithms are at the core of many AI-powered applications. These algorithms enable systems to learn from data, identify patterns, and make decisions without explicit programming. In this article, we will introduce the fundamentals of machine learning, various types of machine learning algorithms, and how they can be applied to solve real-world problems in web development and other domains.",
+    "tags": [
+      "Machine Learning",
+      "Tech",
+      "Web Development"
+    ]
+  },
+  {
+    "id": "j87d7ad8a0d9an8d9axn",
+    "title": "The Impact of Internet on Society",
+    "author": "Arifian",
+    "date_released": "29 July 2023, Thursday, 15.20 WIB",
+    "content": "The Internet has transformed society in profound ways. From communication to access to information, the Internet has reshaped how we live, work, and interact with one another. In this article, we will explore the positive and negative impacts of the Internet on society, discussing its role in education, politics, economy, and culture. Understanding the Internet's impact is essential in shaping its responsible and beneficial usage.",
+    "tags": [
+      "Internet",
+      "Society",
+      "Tech"
+    ]
+  },
+  {
+    "id": "j8a8d7a8d8a0d9a8d0a8s",
+    "title": "Understanding Web Development Frameworks",
+    "author": "Arifian",
+    "date_released": "30 July 2023, Thursday, 17.00 WIB",
+    "content": "Web development frameworks play a crucial role in streamlining the development process and building robust web applications. In this article, we will dive into the world of web development frameworks, understanding their purpose, advantages, and how to choose the right one for your projects. Whether you are a beginner or an experienced developer, learning about web development frameworks is essential to stay competitive in the ever-evolving tech landscape.",
+    "tags": [
+      "Web Development",
+      "Tech",
+      "Frameworks"
+    ]
+  },
+  {
+    "id": "89d90ad8a9wd0ad9a0d9a",
+    "title": "The Future of Artificial Intelligence",
+    "author": "Arifian",
+    "date_released": "31 July 2023, Thursday, 13.45 WIB",
+    "content": "The future of artificial intelligence is both exciting and challenging. AI is expected to continue advancing in various fields, from autonomous vehicles to healthcare and beyond. In this article, we will discuss the potential applications of AI in the future, the ethical considerations surrounding AI development, and how society can prepare for the opportunities and challenges that lie ahead in this era of intelligent machines.",
+    "tags": [
+      "AI",
+      "Future",
+      "Tech"
+    ]
+  },
+  {
+    "id": "9da8a0d8a0d98ad0ad9a8d",
+    "title": "The Role of Machine Learning in Web Development",
+    "author": "Arifian",
+    "date_released": "1 August 2023, Monday, 09.00 WIB",
+    "content": "Machine learning is revolutionizing web development by enabling personalized experiences and data-driven decision-making. In this article, we will explore how machine learning is used in web development, from content recommendations to predictive analytics. By harnessing the power of machine learning, web developers can create more engaging and efficient web applications that cater to users' unique preferences and needs.",
+    "tags": [
+      "Machine Learning",
+      "Web Development",
+      "Tech"
+    ]
+  },
+  {
+    "id": "87ad09a8d7d0ad89a8d7",
+    "title": "Next.js vs. Nuxt.js: Choosing the Right Framework for Your Project",
+    "author": "Arifian",
+    "date_released": "2 August 2023, Tuesday, 11.30 WIB",
+    "content": "Choosing the right framework is a critical decision in web development. Next.js and Nuxt.js are popular frameworks for building server-side rendered (SSR) and static websites with React and Vue.js, respectively. In this article, we will compare Next.js and Nuxt.js in terms of performance, features, and ease of use, helping you make an informed choice for your next web development project.",
+    "tags": [
+      "Web Development",
+      "Tech",
+      "Frameworks"
+    ]
+  },
+  {
+    "id": "9a8d8a7d90ad8a7d90ad7",
+    "title": "The Rise of Low-Code Development Platforms",
+    "author": "Arifian",
+    "date_released": "3 August 2023, Wednesday, 14.15 WIB",
+    "content": "Low-code development platforms are gaining popularity as they enable developers to build applications with minimal manual coding. These platforms offer visual development tools and pre-built components, streamlining the development process and reducing time-to-market. In this article, we will explore the benefits and challenges of using low-code platforms, and how they are reshaping the landscape of web development.",
+    "tags": [
+      "Web Development",
+      "Tech",
+      "Low-Code"
+    ]
+  },
+  {
+    "id": "a8d7a8d7a9d8a8d7ad90",
+    "title": "The Internet of Things (IoT) in Web Development",
+    "author": "Arifian",
+    "date_released": "4 August 2023, Thursday, 09.45 WIB",
+    "content": "The Internet of Things (IoT) is bridging the gap between the physical and digital worlds, and its impact extends to web development. IoT devices generate vast amounts of data that can be leveraged to create smart and interconnected web applications. In this article, we will explore how web developers can harness IoT data to build innovative applications that cater to the needs of a connected world.",
+    "tags": [
+      "Internet of Things",
+      "Web Development",
+      "Tech"
+    ]
+  },
+  {
+    "id": "98ad8d90a7d8a0d8a8ad",
+    "title": "Deep Learning for Natural Language Processing (NLP)",
+    "author": "Arifian",
+    "date_released": "5 August 2023, Friday, 16.20 WIB",
+    "content": "Natural Language Processing (NLP) is revolutionizing how machines understand and interact with human language. Deep learning models, such as recurrent neural networks (RNNs) and transformer-based architectures like BERT, have shown remarkable performance in various NLP tasks. In this article, we will explore the concepts of deep learning in NLP and how they are applied to tasks like sentiment analysis, language translation, and text generation.",
+    "tags": [
+      "Deep Learning",
+      "Natural Language Processing",
+      "Machine Learning"
+    ]
+  },
+  {
+    "id": "ad8a8d9a7d8a0d7a8d0a8",
+    "title": "WebAssembly: A New Era of Web Development Performance",
+    "author": "Arifian",
+    "date_released": "6 August 2023, Saturday, 12.00 WIB",
+    "content": "WebAssembly (Wasm) is a game-changer in web development performance. By enabling high-performance execution of code in the browser, Wasm allows developers to run complex applications at near-native speed. In this article, we will explore what WebAssembly is, how it works, and its potential applications in web development, from gaming to computational tasks. With WebAssembly, web developers can deliver more responsive and powerful web experiences to their users.",
+    "tags": [
+      "WebAssembly",
+      "Web Development",
+      "Tech"
+    ]
+  }
+]
