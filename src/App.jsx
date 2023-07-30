@@ -50,7 +50,6 @@ function App() {
         style: {
           background: '#14384E',
           color: '#F7F7F7',
-          border: '1px solid #F7F7F7',
           fontFamily: 'Open Sans, sans-serif',
           fontSize: '14px',
         },
@@ -65,7 +64,6 @@ function App() {
         style: {
           background: '#F7F7F7',
           color: '#14384E',
-          border: '1px solid #14384E',
           fontFamily: 'Open Sans, sans-serif',
           fontSize: '14px',
         },
