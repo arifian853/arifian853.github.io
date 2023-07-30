@@ -4,15 +4,6 @@ import { FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export const BlogsLayout = ({ articles }) => {
-    const renderNoData = () => {
-
-        return (
-            <div className='no-data'>
-                <h3>There is no data, try refreshing the page </h3> <span class="loader"></span>
-            </div>
-        )
-    }
-
     return (
         <div className='blog-layout-container' id='light'>
             <div className="proj-title">
@@ -39,7 +30,9 @@ export const BlogsLayout = ({ articles }) => {
                                 </div>
                             </div>
                         ))
-                    ) : renderNoData()
+                    ) : <div className='no-data'>
+                        <h3>There is no data, try refreshing the page </h3> <span class="loader"></span>
+                    </div>
                 }
 
             </div>

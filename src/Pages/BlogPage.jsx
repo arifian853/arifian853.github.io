@@ -6,15 +6,6 @@ import { BsArrowRightShort } from 'react-icons/bs'
 import { FaArrowLeft } from 'react-icons/fa'
 
 export const BlogPage = ({ theme, toggleTheme, articles }) => {
-    const renderNoData = () => {
-
-        return (
-            <div className='no-data'>
-                <h3>There is no data, try refreshing the page</h3> <span class="loader"></span>
-            </div>
-        )
-    }
-
     return (
         <div id={theme}>
             <Navbar theme={theme} toggleTheme={toggleTheme} />
@@ -50,7 +41,9 @@ export const BlogPage = ({ theme, toggleTheme, articles }) => {
                                     </div>
                                 </div>
                             ))
-                        ) : renderNoData()
+                        ) : <div className='no-data'>
+                            <h3>There is no data, try refreshing the page</h3> <span class="loader"></span>
+                        </div>
                     }
                 </div>
             </div>
