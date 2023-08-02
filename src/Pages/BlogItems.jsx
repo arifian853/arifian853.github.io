@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 import { Navbar } from '../Components/Layout/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
@@ -6,9 +6,25 @@ import { FaArrowLeft } from 'react-icons/fa'
 
 export const BlogItems = ({ theme, toggleTheme, articles }) => {
     let { id } = useParams()
+    const [loading, setLoading] = useState(true);
     const article = articles.filter((item) => {
         return item.id === id;
     })
+
+    useEffect(() => {
+        setLoading(true);
+        fetch(`https://personal-api.cyclic.app/api/articles/${id}`)
+            .then((response) => response.json())
+            .then((article) => {
+                setLoading(false);
+            });
+    }, [id]);
+
+    if (loading) {
+        return <div className='no-data-full'>
+                    <h3 className='text-3xl'>Loading</h3> <span class="loader"></span> 
+                </div>;
+    }
 
     const { title, date_released, content, author, tags } = article[0]
 
@@ -26,10 +42,10 @@ export const BlogItems = ({ theme, toggleTheme, articles }) => {
                 <br />
                 <h1 className='text-3xl blog-title'>{title}</h1>
                 <p className='opacity-80 text-sm'>Author : {author}</p>
-                <p className='opacity-80 text-sm'> {date_released}</p>
-                <hr className='hr-bold'/>
+                <p className='opacity-80 text-sm'> {date_released}</p> 
+                <hr className='hr-bold' />
                 {content} <br />
-               
+
                 <p className='opacity-80 text-sm'>Tags : {tags.join(', ')} <br /> </p>
             </div>
         </div>
