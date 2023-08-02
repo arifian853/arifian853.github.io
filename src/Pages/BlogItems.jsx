@@ -39,7 +39,7 @@ export const BlogItems = ({ theme, toggleTheme, articles }) => {
                 <Navbar theme={theme} toggleTheme={toggleTheme} />
                 <Helmet>
                 <meta charSet="utf-8" />
-                <title>Blogs {title}</title>
+                <title>Blogs - {title}</title>
             </Helmet>
             </>
             <div className='main-article p-10 flex flex-col gap-3' key={id}>
