@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { Navbar } from '../Components/Layout/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
+import { Helmet } from 'react-helmet'
 // import { BsArrowRightShort } from 'react-icons/bs'
 
 export const BlogItems = ({ theme, toggleTheme, articles }) => {
@@ -22,6 +23,10 @@ export const BlogItems = ({ theme, toggleTheme, articles }) => {
 
     if (loading) {
         return <div className='no-data-full'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Page Not Found</title>
+            </Helmet>
                     <h3 className='text-3xl'>Loading</h3> <span class="loader"></span> 
                 </div>;
     }
@@ -32,6 +37,10 @@ export const BlogItems = ({ theme, toggleTheme, articles }) => {
         <div id={theme}>
             <>
                 <Navbar theme={theme} toggleTheme={toggleTheme} />
+                <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blogs {title}</title>
+            </Helmet>
             </>
             <div className='main-article p-10 flex flex-col gap-3' key={id}>
                 <div className="btn-bottom flex flex-row items-center justify-between">

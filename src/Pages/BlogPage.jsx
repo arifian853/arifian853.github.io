@@ -4,6 +4,7 @@ import { Footer } from '../Components/Layout/Footer'
 import { Link } from 'react-router-dom'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { FaArrowLeft } from 'react-icons/fa'
+import { Helmet } from 'react-helmet'
 
 export const BlogPage = ({ theme, toggleTheme, articles }) => {
     return (
@@ -19,6 +20,10 @@ export const BlogPage = ({ theme, toggleTheme, articles }) => {
             <div className='blog-layout-container' id='light'>
                 <div className="proj-title">
                     <h1 className='gradient-title p-1 titles'> Blog</h1>
+                    <Helmet>
+                        <meta charSet="utf-8" />
+                        <title>Blog</title>
+                    </Helmet>
                 </div>
                 <div className="main-blog-layout">
                     {
@@ -42,7 +47,8 @@ export const BlogPage = ({ theme, toggleTheme, articles }) => {
                                 </div>
                             ))
                         ) : <div className='no-data'>
-                            <h3>There is no data, try refreshing the page</h3> <span class="loader"></span>
+                            <h3>There is no data, try refreshing the page</h3>
+                            <span class="loader"></span>
                         </div>
                     }
                 </div>

@@ -4,16 +4,21 @@ import React from 'react'
 import { Navbar } from '../Components/Layout/Navbar'
 import { LandingPage } from '../Components/Layout/LandingPage'
 import { About } from '../Components/Layout/About'
-import { Projects } from '../Components/Layout/Projects'    
+import { Projects } from '../Components/Layout/Projects'
 import { Achievements } from '../Components/Layout/Achievements'
 import { BlogsLayout } from '../Components/Layout/BlogsLayout'
 import { Contact } from '../Components/Layout/Contact'
 import { Footer } from '../Components/Layout/Footer'
+import { Helmet } from 'react-helmet'
 
-export const Home = ({theme, toggleTheme, articles}) => {
+export const Home = ({ theme, toggleTheme, articles }) => {
   return (
     <div id={theme}>
-        <>
+      <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Arifian Saputra - Home</title>
+        </Helmet>
         {/*Layout components */}
 
         <section id={theme}>
@@ -21,31 +26,31 @@ export const Home = ({theme, toggleTheme, articles}) => {
         </section>
 
         <section id='landing-page'>
-            <LandingPage />
+          <LandingPage />
         </section>
 
         <section id='about'>
-            <About />
+          <About />
         </section>
 
         <section id='projects'>
-            <Projects />
+          <Projects />
         </section>
 
         <section id='achievements'>
-            <Achievements />
+          <Achievements />
         </section>
 
         <section id='blog'>
-            <BlogsLayout articles={articles}/>
+          <BlogsLayout articles={articles} />
         </section>
 
         <section id='contacts'>
-            <Contact />
+          <Contact />
         </section>
 
         <section id='footer'>
-            <Footer toggleTheme={toggleTheme} theme={theme}/>
+          <Footer toggleTheme={toggleTheme} theme={theme} />
         </section>
       </>
     </div>
