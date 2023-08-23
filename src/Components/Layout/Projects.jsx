@@ -20,7 +20,7 @@ export const Projects = () => {
     {
       name: "MovieBuddy AI ChatBot",
       year: "2023",
-      description: "A movie app for searching movie titles and info with the help of AI chatbot from IBM Watson Assistant.",
+      description: "A movie app for searching movie titles and info with the help of AI chatbot from IBM Watson Assistant. \n (Bot not working anymore).",
       stacks: <> <FaReact /> </>,
       img_url: "/img/moviebuddy.png",
       repo: <a href='https://github.com/arifian853/MovieBuddy' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,

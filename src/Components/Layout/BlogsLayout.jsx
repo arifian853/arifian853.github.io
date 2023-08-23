@@ -12,8 +12,8 @@ export const BlogsLayout = ({ articles }) => {
             <div className="main-blog-layout">
                 {
                     articles.length ? (
-                        articles.slice(0, 3).map(article => (
-                            <div className="blog-points shadow-lg" key={article.id}>
+                        articles.slice(0, 3).reverse().map(article => (
+                            <div data-aos="fade-right" data-aos-duration="1000" className="blog-points shadow-lg" key={article.id}>
                                 <div className="title">
                                     <Link to={`/blog/${article.id}`}>
                                         <h1 className="font-bold text-1xl">{article.title}</h1>

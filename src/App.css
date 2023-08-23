@@ -782,6 +782,30 @@ footer {
   border-radius: 0px 0px 10px 10px;
 }
 
+#light .timeline-time {
+  color: var(--black-base);
+}
+
+#dark .timeline-time {
+  color: var(--white-base);
+}
+
+#light .timeline-title {
+  color: var(--black-base);
+}
+
+#dark .timeline-title {
+  color: var(--white-base);
+}
+
+#light .timeline-body {
+  color: var(--black-base);
+}
+
+#dark .timeline-body {
+  color: var(--white-base);
+}
+
 /*Blog Layout section*/
 
 .blog-page {

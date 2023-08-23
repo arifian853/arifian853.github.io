@@ -148,7 +148,8 @@ export const About = () => {
         <div data-aos="fade-right" data-aos-duration="1000" className="myself-data">
           <img src="/arifian_profile.jpg" alt="" />
           <h1 className='text-1xl font-bold tracking-widest'>Arifian Saputra</h1>
-          <p>Front End Web Developer and undergraduate college student. Focusing on Full-Stack Web Development and Linux System Administrator.</p>
+          <p className='opacity-80 text-xs'>Front End Web Developer | RHCSA | RHCI </p> 
+            <p> Currently focusing as an instructor of IBM Academy for Hybrid Cloud and AI. With a goal to become a Full-Stack Web Developer and a better instructor.</p>
           <a href="#contacts"><button className='contact-btn'>Stay in Touch</button></a>
         </div>
       </div>

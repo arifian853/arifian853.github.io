@@ -28,7 +28,7 @@ export const BlogPage = ({ theme, toggleTheme, articles }) => {
                 <div className="main-blog-layout">
                     {
                         articles.length ? (
-                            articles.map(article => (
+                            articles.slice().reverse().map(article => (
                                 <div className="blog-points shadow-lg" key={article.id}>
                                     <div className="title">
                                         <Link to={`/blog/${article.id}`}>

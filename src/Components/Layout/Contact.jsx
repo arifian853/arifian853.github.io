@@ -4,7 +4,7 @@ import { SiFacebook, SiGmail, SiInstagram, SiLinkedin, SiTwitter } from 'react-i
 export const Contact = () => {
     return (
         <div className='contact-container' id='light'>
-            <div className="contact-main">
+            <div className="contact-main" data-aos="fade-top" data-aos-duration="1000">
                 <h1 className='text-3xl  gradient-title'>Stay in Touch</h1>
                 <p>Want to collaborate? Find me on :</p>
                 <div className="contact-items">

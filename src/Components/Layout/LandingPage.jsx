@@ -7,7 +7,7 @@ export const LandingPage = () => {
                 <div className="greeting">
                     <h1 className='font-bold text-1xl tracking-wider'>Hello! I'm Arifian Saputra</h1>
                     <br />
-                    <p className='tracking-wider'>Welcome to my Portfolio! I am a Front End Web Developer that focusing on some tech stacks, scroll down to see what I’ve made.</p>
+                    <p className='tracking-wider'>Hail and well met, visitors, to this humble portfolio of mine own! Arifian, a Web Developer of this very realm gonna say : "May you satisfied with the content!"</p>
                     <br />
                     <a href="#about"><button className='discover-btn'>Discover</button></a>
                 </div>
