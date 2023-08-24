@@ -3,6 +3,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { Timeline } from 'flowbite-react'
 import { HiCalendar } from 'react-icons/hi'
 
+
 export const Achievements = () => {
   return (
     <div className='achievement-container' id='light'>
