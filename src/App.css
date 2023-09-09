@@ -503,19 +503,19 @@ footer {
   flex-wrap: wrap;
   gap: 10px;
   width: 80%;
-  margin: 1em;
 }
 
 .points {
   background-color: var(--blue);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content:center;
   align-items: center;
-  gap: 10px;
+  gap: 1em;
   color: var(--white-base);
   font-family: var(--body-font);
-  padding: 6px 16px 6px 16px;
-  border-radius: 30px;
+  padding: 7px 18px 7px 18px;
+  border-radius: 10px;
 }
 
 /*Project page section*/

@@ -97,7 +97,7 @@ export const Projects = () => {
       stacks: <> <IoLogoHtml5 /> <IoLogoCss3 /> <SiJavascript /> </>,
       repo: <a href='https://github.com/arifian853/GDSC-movie-info' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
       demo: <a href='https://arifian853.github.io/GDSC-movie-info/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
-      id: "002" 
+      id: "002"
     },
     {
       name: "Simple Weather App",
@@ -106,25 +106,25 @@ export const Projects = () => {
       stacks: <> <FaReact /> <SiBootstrap /> </>,
       repo: <a href='https://github.com/arifian853/simple-weather-app' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
       demo: <a href='https://arifian853.github.io/simple-weather-app/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
-      id: "003" 
+      id: "003"
     },
     {
       name: "Software Development Project (API-RMU)",
       year: "2022",
       description: "API for Room Usage Monitoring app at Faculty of Engineering, for giving data to Web and Android App.",
-      stacks: <> <SiMongodb/> < SiExpress/> <IoLogoNodejs/> </>,
+      stacks: <> <SiMongodb /> < SiExpress /> <IoLogoNodejs /> </>,
       repo: <a href='https://gitlab.com/tekad-matulatan/api-rmu' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
-      demo: "" ,
-      id: "004" 
+      demo: "",
+      id: "004"
     },
     {
       name: "LoginAuth (Edge />)",
       year: "2022",
       description: "React App frontend for registering an account and login an account. (API not deployed)",
-      stacks: <> <SiMongodb/> < SiExpress/> <FaReact /> <IoLogoNodejs/> </>,
+      stacks: <> <SiMongodb /> < SiExpress /> <FaReact /> <IoLogoNodejs /> </>,
       repo: <a href='https://github.com/arifian853/loginAuth-frontend' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo (FE)</button> </a>,
-      demo: <a href='https://arifian853.github.io/loginAuth-frontend-build/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a> ,
-      id: "005" 
+      demo: <a href='https://arifian853.github.io/loginAuth-frontend-build/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
+      id: "005"
     },
     {
       name: "Bookshelf App",
@@ -132,8 +132,8 @@ export const Projects = () => {
       description: "Simple Bookshelf App with HTML,CSS,JavaScript with localStorage functionality and DOM manipulation.",
       stacks: <> <IoLogoHtml5 /> <IoLogoCss3 /> <SiJavascript /></>,
       repo: <a href='https://github.com/arifian853/bookshelf-app-js' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
-      demo: <a href='https://arifian853.github.io/bookshelf-app-js/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a> ,
-      id: "006" 
+      demo: <a href='https://arifian853.github.io/bookshelf-app-js/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
+      id: "006"
     },
     {
       name: "CariFilm",
@@ -141,8 +141,8 @@ export const Projects = () => {
       description: "Web for searching film titles with TMDB API and Webpack Environment.",
       stacks: <> <IoLogoHtml5 /> <IoLogoCss3 /> <SiJavascript /> <SiWebpack /> </>,
       repo: <a href='https://github.com/arifian853/CariFilm-Webpack' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo</button> </a>,
-      demo: <a href='https://arifian853.github.io/CariFilm/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a> ,
-      id: "007" 
+      demo: <a href='https://arifian853.github.io/CariFilm/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
+      id: "007"
     },
     {
       name: "My Notes",
@@ -150,11 +150,11 @@ export const Projects = () => {
       description: "Simple Notes app using State & Props",
       stacks: <> <FaReact /> </>,
       repo: <a href='https://github.com/arifian853/my-notes-react' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo</button> </a>,
-      demo: <a href='https://my-notes-react.vercel.app/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a> ,
-      id: "007" 
+      demo: <a href='https://my-notes-react.vercel.app/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button> </a>,
+      id: "007"
     },
   ]
-  
+
   return (
     <div className='project-container' id='light'>
       <div className="proj-title">
@@ -164,9 +164,10 @@ export const Projects = () => {
         <div className="proj-title">
           <h1 className='gradient-title text-2xl p-1'> Featured </h1>
         </div>
+
         {
           featuredProj.map((featured => (
-            <div data-aos="zoom-in" data-aos-duration="1000" className='featured-project-point shadow-lg' key={featured.id}>
+            <div className='featured-project-point shadow-lg' key={featured.id}>
               <div className="name-stack"><h1 className='text-3xl flex flex-wrap'>{featured.name} ({featured.year})</h1> <p className='text-3xl flex gap-2'>{featured.stacks}</p> </div>
               <br />
               <div className="proj-info">
@@ -181,6 +182,9 @@ export const Projects = () => {
             </div>
           )))
         }
+
+
+
       </div>
       <div className="proj-point-container">
         <div className="proj-title">
@@ -191,19 +195,20 @@ export const Projects = () => {
             anotherProj.map((another => (
               <div data-aos="zoom-in" data-aos-duration="1000" className='featured-project-point2 shadow-lg' key={another.id}>
                 <div className="name-stack2"><h1 className='text-2xl'>{another.name} <br /> ({another.year})</h1> </div>
-                <hr className='hr-bold'/>
+                <hr className='hr-bold' />
                 <div className="proj-info2">
                   <p className='desc-another'>{another.description}</p>
                   <div className="flex align-middle gap-3 justify-center"> {another.repo} {another.demo} </div>
                 </div>
-                <hr className='hr-bold'/>
+                <hr className='hr-bold' />
                 <p className='text-3xl flex justify-center gap-2'>{another.stacks}</p>
               </div>
             )))
           }
+
         </div>
         <br />
-          <a href="https://github.com/arifian853" target='_blank' rel='noopener noreferrer'><button className='btn-proj'>All projects on GitHub <FaArrowRight /> </button></a>
+        <a href="https://github.com/arifian853" target='_blank' rel='noopener noreferrer'><button className='btn-proj'>All projects on GitHub <FaArrowRight /> </button></a>
         <br />
       </div>
     </div>
