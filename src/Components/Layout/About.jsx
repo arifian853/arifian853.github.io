@@ -4,8 +4,6 @@ import { SiBootstrap, SiTailwindcss, SiMongodb, SiExpress, SiJavascript, SiLinux
 import { FaNpm, FaReact } from 'react-icons/fa'
 import { Tabs } from 'flowbite-react'
 import { BsGit, BsTerminalFill, BsWordpress } from 'react-icons/bs'
-import { TbBrandCpp } from 'react-icons/tb'
-import { DiAtom } from 'react-icons/di'
 
 export const About = () => {
 
@@ -73,12 +71,6 @@ export const About = () => {
       exp: "1 Year",
     },
     {
-      id: "0987654321",
-      name: "Linux",
-      icon: <SiLinux />,
-      exp: "6 Months+",
-    },
-    {
       id: "9876543210",
       name: "Flutter",
       icon: <SiFlutter />,
@@ -101,10 +93,10 @@ export const About = () => {
       exp: "3 Years",
     },
     {
-      id: "0123456789",
-      name: "DevC++ / MinGW",
-      icon: <TbBrandCpp />,
-      exp: "1 Year",
+      id: "0987654321",
+      name: "Linux",
+      icon: <SiLinux />,
+      exp: "6 Months+",
     },
     {
       id: "8765432109",
@@ -120,15 +112,9 @@ export const About = () => {
     },
     {
       id: "6543210987",
-      name: "Linux Terminal",
+      name: "CLI",
       icon: <BsTerminalFill />,
       exp: "6 Months",
-    },
-    {
-      id: "5432109876",
-      name: "Windows Terminal",
-      icon: <BsTerminalFill />,
-      exp: "2 Years",
     },
     {
       id: "4321098765",
@@ -140,12 +126,6 @@ export const About = () => {
       id: "3210987654",
       name: "Wordpress",
       icon: <BsWordpress />,
-      exp: "1 Year",
-    },
-    {
-      id: "2109876543",
-      name: "Atom Code Editor",
-      icon: <DiAtom />,
       exp: "1 Year",
     },
   ];
@@ -176,7 +156,7 @@ export const About = () => {
             title="Tech stacks"
             data-aos="zoom-in" data-aos-duration="1000"
           >
-            <div data-aos="zoom-in" data-aos-duration="1000" className='flex flex-col justify-center items-center'>
+            <div data-aos="fade-right" data-aos-duration="1000" className='flex flex-col justify-center items-center'>
               <div className="stacks-point">
                 {
                   stacksData.map((stack) => (
@@ -197,7 +177,7 @@ export const About = () => {
             title="Tools"
             data-aos="zoom-in" data-aos-duration="1000"
           >
-            <div data-aos="zoom-in" data-aos-duration="1000" className='flex flex-col justify-center items-center'>
+            <div data-aos="fade-right" data-aos-duration="1000" className='flex flex-col justify-center items-center'>
               <div className="stacks-point">
                 {
                   toolsData.map((tool) => (

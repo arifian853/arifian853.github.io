@@ -498,24 +498,54 @@ footer {
 }
 
 .stacks-point {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   width: 80%;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.8s;
+}
+
+@keyframes animatetop {
+  from {
+    right: -300px;
+    opacity: 0
+  }
+
+  to {
+    right: 0;
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 .points {
   background-color: var(--blue);
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   gap: 1em;
   color: var(--white-base);
   font-family: var(--body-font);
   padding: 7px 18px 7px 18px;
   border-radius: 10px;
+  width: auto;
 }
 
 /*Project page section*/
@@ -940,7 +970,7 @@ footer {
   align-items: center;
   flex-direction: column;
   gap: 1em;
-  height:50vh;
+  height: 50vh;
 }
 
 .contact-items {
