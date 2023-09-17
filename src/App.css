@@ -504,32 +504,32 @@ footer {
   flex-wrap: wrap;
   gap: 10px;
   width: 80%;
-  -webkit-animation-name: animatetop;
+  -webkit-animation-name: animateStacks;
   -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
+  animation-name: animateStacks;
   animation-duration: 0.8s;
 }
 
-@keyframes animatetop {
+@keyframes animateStacks {
   from {
-    right: -300px;
+    left: -300px;
     opacity: 0
   }
 
   to {
-    right: 0;
+    left: 0;
     opacity: 1
   }
 }
 
-@-webkit-keyframes animatetop {
+@-webkit-keyframes animateStacks {
   from {
-    top: -300px;
+    left: -300px;
     opacity: 0
   }
 
   to {
-    top: 0;
+    left: 0;
     opacity: 1
   }
 }
@@ -622,7 +622,7 @@ footer {
 
 .featured-project-point2 {
   width: 300px;
-  height: 340px;
+  height: 310px;
   border: 2px solid var(--dark-blue);
   color: var(--dark-blue);
   padding: 1em;
@@ -643,7 +643,7 @@ footer {
 }
 
 .desc-another {
-  height: 70px;
+  height: 60px;
   overflow: auto;
 }
 
@@ -655,7 +655,7 @@ footer {
 }
 
 .name-stack2 {
-  height: 75px;
+  height: 55px;
   overflow: auto;
   padding: 5px;
 }
@@ -1109,6 +1109,9 @@ Desktops: 1025px to 1200px
   /*Projects*/
   .featured-project-point {
     width: 90%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
   }
 
   .featured-project-point h1 {

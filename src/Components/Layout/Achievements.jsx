@@ -20,13 +20,16 @@ export const Achievements = () => {
 
             <Timeline.Item>
               <Timeline.Point icon={HiCalendar} />
-              <Timeline.Content>
+              <Timeline.Content data-aos="fade-left" data-aos-duration="1000" className='ml-1 md:ml-2'>
                 <Timeline.Time className='timeline-time opacity-70'>
                   August 2022 - Present
-                </Timeline.Time>
+                </Timeline.Time> 
                 <Timeline.Title className='timeline-title'>
                   Instructor for IBM Academy and Hybrid Cloud & AI
                 </Timeline.Title>
+                <Timeline.Time className='timeline-time opacity-70 font-semibold'>
+                  <a href="https://www.infinitelearning.id/" target='_blank' rel='noreferrer noopener'> @ Infinite Learning Indonesia</a>
+                </Timeline.Time>
                 <Timeline.Body className='timeline-body opacity-70'>
                   <p>
                     Starting my role as a mentor for a contract internship program held by Infinite Learning with a responsibility to make sure my students (mentee) to achieve knowledge about how to become a RedHat Enterprise Linux as a Linux System Administrator and also knowledge about AI and its ethics, history and the development of AI in the industry. Beside that, the knowledge of Cybersecurity is an essential knowledge for my students (mentee) to achieve in advance to make sure their digital lifestyle is safe. Also, I have responsibility to make sure my students is commit and have the knowledge delivered to them, has a skill to collaborate with others, communicate better, has a critical thinking to make the world a better place.
@@ -37,13 +40,16 @@ export const Achievements = () => {
 
             <Timeline.Item>
               <Timeline.Point icon={HiCalendar} />
-              <Timeline.Content>
+              <Timeline.Content data-aos="fade-left" data-aos-duration="1000" className='ml-1 md:ml-2'>
                 <Timeline.Time className='timeline-time opacity-70'>
                   February 2023 - July 2023
                 </Timeline.Time>
                 <Timeline.Title className='timeline-title'>
                   Studi Independen Bersertifikat Red Hat Certified System Administrator - IBM AI & Cybersecurity
                 </Timeline.Title>
+                <Timeline.Time className='timeline-time opacity-70 font-semibold'>
+                  <a href="https://www.infinitelearning.id/" target='_blank' rel='noreferrer noopener'> @ Infinite Learning Indonesia</a>
+                </Timeline.Time>
                 <Timeline.Body className='timeline-body opacity-70'>
                   <p>
                     This program is an Independent Study (activity that similar as Apprenticeship) that held by Infinite Learning with collaboration with the Indonesian Ministry of Education and Culture. This activity includes the training of these certification: <br />
@@ -58,13 +64,16 @@ export const Achievements = () => {
 
             <Timeline.Item>
               <Timeline.Point icon={HiCalendar} />
-              <Timeline.Content>
+              <Timeline.Content data-aos="fade-left" data-aos-duration="1000" className='ml-1 md:ml-2'>
                 <Timeline.Time className='timeline-time opacity-70'>
                   August 2022 - December 2022
                 </Timeline.Time>
                 <Timeline.Title className='timeline-title'>
                   Studi Independen Bersertifikat (MSIB Kampus Merdeka x Dicoding) - Pengembang Front-End Web dan React
                 </Timeline.Title>
+                <Timeline.Time className='timeline-time opacity-70 font-semibold'>
+                  <a href="https://www.dicoding.com/" target='_blank' rel='noreferrer noopener'> @ Dicoding Indonesia </a>
+                </Timeline.Time>
                 <Timeline.Body className='timeline-body opacity-70'>
                   <p>
                     This program is an Independent Study (activity that similar as Apprenticeship) that held by Dicoding Indonesia with collaboration with the Indonesian Ministry of Education and Culture. This activity includes the training of these skills: <br />
@@ -79,13 +88,16 @@ export const Achievements = () => {
 
             <Timeline.Item>
               <Timeline.Point icon={HiCalendar} />
-              <Timeline.Content>
+              <Timeline.Content data-aos="fade-left" data-aos-duration="1000" className='ml-1 md:ml-2'>
                 <Timeline.Time className='timeline-time opacity-70'>
                   September 2021 - August 2022
                 </Timeline.Time>
                 <Timeline.Title className='timeline-title'>
-                  Google Developer Student Club (Peserta) - Insititut Teknologi Bandung
+                  Google Developer Student Club - Insititut Teknologi Bandung
                 </Timeline.Title>
+                <Timeline.Time className='timeline-time opacity-70 font-semibold'>
+                  <a href="https://gdsc.community.dev/institut-teknologi-bandung/" target='_blank' rel='noreferrer noopener'> @ GDSC ITB </a>
+                </Timeline.Time>
                 <Timeline.Body className='timeline-body opacity-70'>
                   <p>
                     Participant of the annual Google Developer Student Club event organized by the Bandung Institute of Technology (ITB). Activities take place online using an online conference application by discussing various kinds of technological material along with workshops and project assignments. Some of the topics discussed are: <br />
@@ -102,13 +114,16 @@ export const Achievements = () => {
 
             <Timeline.Item>
               <Timeline.Point icon={HiCalendar} />
-              <Timeline.Content>
+              <Timeline.Content data-aos="fade-left" data-aos-duration="1000" className='ml-1 md:ml-2'>
                 <Timeline.Time className='timeline-time opacity-70'>
                 January 2021 - February 2021
                 </Timeline.Time>
                 <Timeline.Title className='timeline-title'>
                 Re-Cloud ID Challenges (Codepolitan x Alibaba Cloud) 2021
                 </Timeline.Title>
+                <Timeline.Time className='timeline-time opacity-70 font-semibold'>
+                  <a href="https://codepolitan.com/" target='_blank' rel='noreferrer noopener'> @ CodePolitan </a>
+                </Timeline.Time>
                 <Timeline.Body className='timeline-body opacity-70'>
                   <p>
                   A web building competition that held by Codepolitan on a collaboration with Alibaba Cloud that has a purpose of introducing about how to host a static website on an ECS (Elastic Cloud System) from Alibaba Cloud and how to configure and managing the cloud systems remotely.

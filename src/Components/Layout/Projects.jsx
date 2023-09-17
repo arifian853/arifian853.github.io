@@ -3,6 +3,7 @@ import { IoLogoHtml5, IoLogoCss3, IoLogoWordpress, IoLogoNodejs } from 'react-ic
 import { SiBootstrap, SiMongodb, SiExpress, SiJavascript, SiFirebase, SiCsharp, SiFlask, SiWebpack, SiFlutter, SiDart } from 'react-icons/si'
 import { FaArrowRight, FaReact, FaUnity, FaWindows } from 'react-icons/fa'
 import { DiAndroid } from 'react-icons/di'
+import { Carousel } from 'flowbite-react'
 
 export const Projects = () => {
 
@@ -16,16 +17,6 @@ export const Projects = () => {
       repo: <a href='https://github.com/arifian853/RhythmPlayer' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
       demo: <a href='https://drive.google.com/file/d/1uJt_jfDJ8cc9hdlqCRH9p-BdkmxtSL9c/view?usp=sharing' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo2 flex justify-center items-center gap-2'> Download <DiAndroid /> </button>  </a>,
       id: "007"
-    },
-    {
-      name: "MovieBuddy AI ChatBot",
-      year: "2023",
-      description: "A movie app for searching movie titles and info with the help of AI chatbot from IBM Watson Assistant. \n (Bot not working anymore).",
-      stacks: <> <FaReact /> </>,
-      img_url: "/img/moviebuddy.png",
-      repo: <a href='https://github.com/arifian853/MovieBuddy' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
-      demo: <a href='https://movie-buddy-capstone.vercel.app/' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Demo </button>  </a>,
-      id: "006"
     },
     {
       name: "Herbal.in",
@@ -70,7 +61,7 @@ export const Projects = () => {
     {
       name: "#PeduliCOVID-19",
       year: "2021",
-      description: "Site about COVID-19 Global Pandemic informations, world pandemic history, hygiene suggestion and the New Normal information.",
+      description: "Site about COVID-19 Global Pandemic informations, world pandemic history, and the New Normal.",
       stacks: <> <IoLogoHtml5 /> <IoLogoCss3 /> <SiJavascript /> </>,
       img_url: "/img/pedulicovid19.png",
       repo: <a href='https://github.com/arifian853/pedulicovid-19' target='_blank' rel='noopener noreferrer'> <button className='btn-repo-demo'> Repo </button> </a>,
@@ -160,31 +151,29 @@ export const Projects = () => {
       <div className="proj-title">
         <h1 className='gradient-title text-5xl p-1'> Projects</h1>
       </div>
-      <div className="proj-point-container">
+      <div className="proj-point-container md:h-screen ">
         <div className="proj-title">
           <h1 className='gradient-title text-2xl p-1'> Featured </h1>
         </div>
-
-        {
-          featuredProj.map((featured => (
-            <div className='featured-project-point shadow-lg' key={featured.id}>
-              <div className="name-stack"><h1 className='text-3xl flex flex-wrap'>{featured.name} ({featured.year})</h1> <p className='text-3xl flex gap-2'>{featured.stacks}</p> </div>
-              <br />
-              <div className="proj-info">
-                <div className="info-left">
-                  <img className='featured-proj-img' src={featured.img_url} alt={featured.name} />
-                </div>
-                <div className="info-right">
-                  <p>{featured.description}</p>
-                  <div className="mt-3 flex align-middle gap-3 justify-center"> {featured.repo} {featured.demo} </div>
+        <Carousel data-aos="zoom-in" data-aos-duration="1000" slideInterval={3500} className='h-screen md:w-3/4'>
+          {
+            featuredProj.map((featured => (
+              <div className='featured-project-point shadow-lg' key={featured.id}>
+                <div className="name-stack"><h6 className='font-bold text-sm md:text-3xl flex flex-wrap'>{featured.name} ({featured.year})</h6> <p className='text-sm md:text-3xl flex gap-2'>{featured.stacks}</p> </div>
+                <br />
+                <div className="proj-info">
+                  <div className="info-left">
+                    <img className='featured-proj-img' src={featured.img_url} alt={featured.name} />
+                  </div>
+                  <div className="info-right">
+                    <p className='text-sm'>{featured.description}</p>
+                    <div className="mt-3 flex align-middle gap-3 justify-center text-sm"> {featured.repo} {featured.demo} </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )))
-        }
-
-
-
+            )))
+          }
+        </Carousel>
       </div>
       <div className="proj-point-container">
         <div className="proj-title">
@@ -194,14 +183,14 @@ export const Projects = () => {
           {
             anotherProj.map((another => (
               <div data-aos="zoom-in" data-aos-duration="1000" className='featured-project-point2 shadow-lg' key={another.id}>
-                <div className="name-stack2"><h1 className='text-2xl'>{another.name} <br /> ({another.year})</h1> </div>
+                <div className="name-stack2"><h1 className='text-1xl'>{another.name} <br /> ({another.year})</h1> </div>
                 <hr className='hr-bold' />
                 <div className="proj-info2">
-                  <p className='desc-another'>{another.description}</p>
-                  <div className="flex align-middle gap-3 justify-center"> {another.repo} {another.demo} </div>
+                  <p className='desc-another text-sm'>{another.description}</p>
+                  <div className="flex align-middle gap-3 justify-center text-sm"> {another.repo} {another.demo} </div>
                 </div>
                 <hr className='hr-bold' />
-                <p className='text-3xl flex justify-center gap-2'>{another.stacks}</p>
+                <p className='text-2xl flex justify-center gap-2'>{another.stacks}</p>
               </div>
             )))
           }
