@@ -138,7 +138,7 @@ export const About = () => {
           <img src="/arifian_profile.jpg" alt="" />
           <h1 className='text-1xl font-bold tracking-widest'>Arifian Saputra</h1>
           <p className='opacity-80 text-xs'>Front End Web Developer | RHCSA | RHCI </p>
-          <p> Currently focusing as an instructor of IBM Academy for Hybrid Cloud and AI. With a goal to become a Full-Stack Web Developer and a better instructor.</p>
+          <p> Currently focusing as an instructor of IBM Academy for Hybrid Cloud and AI @ Infinite Learning. With a goal to become a Full-Stack Web Developer and a better instructor.</p>
           <a href="#contacts"><button className='contact-btn'>Stay in Touch</button></a>
         </div>
       </div>
