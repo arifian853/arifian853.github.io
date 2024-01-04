@@ -155,10 +155,10 @@ export const Projects = () => {
         <div className="proj-title">
           <h1 className='gradient-title text-2xl p-1'> Featured </h1>
         </div>
-        <Carousel data-aos="zoom-in" data-aos-duration="1000" slideInterval={3500} className='h-screen md:w-3/4'>
+        <Carousel data-aos="zoom-in" data-aos-duration="1000" slideInterval={3500} className='h-screen md:h-screen md:w-3/4'>
           {
             featuredProj.map((featured => (
-              <div className='featured-project-point shadow-lg' key={featured.id}>
+              <div className='featured-project-point shadow-lg h-auto' key={featured.id}>
                 <div className="name-stack"><h6 className='font-bold text-sm md:text-3xl flex flex-wrap'>{featured.name} ({featured.year})</h6> <p className='text-sm md:text-3xl flex gap-2'>{featured.stacks}</p> </div>
                 <br />
                 <div className="proj-info">
