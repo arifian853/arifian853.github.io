@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <div className="header-font p-5 rounded-md flex justify-between items-center" style={themeStyles}>
             <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, rem.
+                Under construction
             </span>
             <Select onValueChange={handleThemeChange}>
                 <SelectTrigger className="w-[180px]">
