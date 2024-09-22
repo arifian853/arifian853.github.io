@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&family=Montserrat&display=swap');
+
+:root {
+  --white: #E0E0E0;
+  --gray: #BABFBF;
+  --black: #30323D;
+  --black-dark: #1C1D24;
+}
+
+html,
+body {
+  background-color: var(--white);
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+
+.display-font {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+
+.notes {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 82.5%, 91.4% 100%, 0% 100%, 0% 50%);
+}
+
+/*Scrollbar*/
+/* Width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Background */
+::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+
+/*The Scrollbar itself*/
+::-webkit-scrollbar-thumb {
+  background: var(--black-dark);
+  border: #E0E0E0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white);
+}
