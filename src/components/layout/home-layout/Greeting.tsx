@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 
 export const Greeting = () => {
- 
+
   const now = new Date();
   const currentHour = now.getHours();
 
@@ -24,13 +24,13 @@ export const Greeting = () => {
       <div className="flex md:flex-row flex-col gap-3 justify-center items-center h-96">
 
         <div className="md:w-1/2 w-full p-10 md:pl-20 pl-5">
-          <h1 data-aos="zoom-out" className="display-font text-xl">
+          <h1 data-aos="fade-in" className="display-font text-xl">
             Good {timeOfDay}! I'm <span className='text-red-500'>Arifian!</span>
           </h1>
 
-          <p data-aos="zoom-out">Welcome to my portfolio! See all my <span className="text-red-500">works</span> here!</p>
+          <p data-aos="fade-in">Welcome to my portfolio! <br /> See all my <span className="text-red-500">works</span> here!</p>
           <a href="#aboutself">
-            <Button data-aos="zoom-out" className="mt-2">
+            <Button data-aos="fade-in" className="mt-2">
               Get Started
             </Button>
           </a>
