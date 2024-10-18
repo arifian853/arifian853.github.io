@@ -2,7 +2,6 @@ import '@/App.css'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from '@/pages/Home'
-import { Navbar } from '@/components/layout/Navbar'
 import { About } from '@/pages/About'
 import { NotFound } from '@/pages/NotFound'
 import { Footer } from '@/components/layout/Footer'
@@ -18,7 +17,6 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="bg-[#E0E0E0] dark:bg-[#30323D] h-auto pt-1 pb-1">
-        <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
 

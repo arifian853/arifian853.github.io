@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Navbar } from "../Navbar";
 
 
 export const Greeting = () => {
@@ -19,27 +20,23 @@ export const Greeting = () => {
   const timeOfDay = getTimeOfDay(currentHour);
 
   return (
-    <div className="bg-[#E0E0E0] dark:bg-[#30323D] h-screen p-5">
+    <div className="bg-[#E0E0E0] dark:bg-[#30323D] h-screen">
+      <Navbar />
+      <div className="flex md:flex-row flex-col md:justify-start justify-center h-full items-center gap-4">
 
-      <div className="flex md:flex-row flex-col gap-3 justify-center items-center h-96">
-
-        <div className="md:w-1/2 w-full p-10 md:pl-20 pl-5">
-          <h1 data-aos="fade-in" className="display-font text-xl">
+        <div className="md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0">
+          <h1 data-aos="fade-in" className="display-font text-xl my-3">
             Good {timeOfDay}! I'm <span className='text-red-500'>Arifian!</span>
           </h1>
 
           <p data-aos="fade-in">Welcome to my portfolio! <br /> See all my <span className="text-red-500">works</span> here!</p>
           <a href="#aboutself">
-            <Button data-aos="fade-in" className="mt-2">
+            <Button data-aos="fade-in" className="mt-3">
               Get Started
             </Button>
           </a>
         </div>
-
-        <div className="h-40 md:w-1/2 w-full">
-
-        </div>
-
+        <div className="h-10 w-10 md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0"> </div>
       </div>
 
     </div>

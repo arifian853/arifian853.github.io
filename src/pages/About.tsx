@@ -1,9 +1,11 @@
+import { Navbar } from '@/components/layout/Navbar';
 import { Helmet } from 'react-helmet';
 
 export const About = () => {
 
   return (
     <>
+      <Navbar />
       <Helmet>
         <title>Arifian Saputra - About</title>
       </Helmet>
