@@ -1,12 +1,11 @@
 // Web Tech Stack
 import {
-    FaHtml5, FaNpm, FaCss3Alt, FaReact, FaBootstrap, FaNodeJs, FaPython,
-    FaLinux, FaGitAlt, FaWordpress, FaRedhat
+    FaReact, FaBootstrap, FaNodeJs, FaPython, FaLinux, FaRedhat
 } from "react-icons/fa";
 
 import {
-    SiJavascript, SiExpress, SiMongodb, SiTailwindcss, SiShadcnui, SiTensorflow,
-    SiKeras, SiPandas, SiNumpy, SiVisualstudiocode, SiXampp, SiPostman
+    SiExpress, SiMongodb, SiTailwindcss, SiShadcnui, SiTensorflow,
+    SiKeras
 } from "react-icons/si";
 
 
@@ -25,9 +24,9 @@ export const AboutSelf = () => {
                 </div>
 
                 <div className="h-full w-full p-5 text-center flex items-center justify-center">
-                    <div className="text-4xl m-3 flex flex-wrap gap-4 justify-center items-center">
-                        <FaHtml5 /> <FaCss3Alt /> <SiJavascript /> <FaReact /> <FaNodeJs /> <SiExpress /> <SiMongodb /> <FaBootstrap /> <SiTailwindcss /> <SiShadcnui />
-                        <FaPython /> <SiTensorflow /> <SiKeras /> <SiPandas /> <SiNumpy /> <FaRedhat /> <SiVisualstudiocode />  <FaLinux /> <FaNpm /> <SiXampp /> <FaGitAlt /> <SiPostman /> <FaWordpress />
+                    <div className="text-4xl m-3 flex flex-wrap gap-4 justify-center items-center w-2/3">
+                        <FaReact /> <FaNodeJs /> <SiExpress /> <SiMongodb /> <FaBootstrap /> <SiTailwindcss /> <SiShadcnui />
+                        <FaPython /> <SiTensorflow /> <SiKeras /> <FaRedhat /> <FaLinux />
                     </div>
                 </div>
 
