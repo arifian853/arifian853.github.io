@@ -26,13 +26,13 @@ export const Greeting = () => {
 
         <div className="md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0">
           <h1 data-aos="fade-in" className="display-font text-xl my-3">
-            Good {timeOfDay}! I'm <span className='text-red-500'>Arifian!</span>
+            Good {timeOfDay}! <br /> <span className="font-bold">I'm <span className='text-red-500'>Arifian!</span></span>
           </h1>
 
-          <p data-aos="fade-in">Welcome to my portfolio! <br /> See all my <span className="text-red-500">works</span> here!</p>
+          <p data-aos="fade-in">Welcome to my portfolio site! <br /> See all my <span className="text-red-500">works</span> here!</p>
           <a href="#aboutself">
             <Button data-aos="fade-in" className="mt-3">
-              Get Started
+              Get Started!
             </Button>
           </a>
         </div>

@@ -1,6 +1,6 @@
 // Web Tech Stack
 import {
-    FaReact, FaBootstrap, FaNodeJs, FaPython, FaLinux, FaRedhat
+    FaReact, FaBootstrap, FaNodeJs, FaPython, FaRedhat
 } from "react-icons/fa";
 
 import {
@@ -26,7 +26,7 @@ export const AboutSelf = () => {
                 <div className="h-full w-full p-5 text-center flex items-center justify-center">
                     <div className="text-4xl m-3 flex flex-wrap gap-4 justify-center items-center w-2/3">
                         <FaReact /> <FaNodeJs /> <SiExpress /> <SiMongodb /> <FaBootstrap /> <SiTailwindcss /> <SiShadcnui />
-                        <FaPython /> <SiTensorflow /> <SiKeras /> <FaRedhat /> <FaLinux />
+                        <FaPython /> <SiTensorflow /> <SiKeras /> <FaRedhat />
                     </div>
                 </div>
 
