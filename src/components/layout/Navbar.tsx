@@ -26,8 +26,8 @@ export const Navbar = () => {
           }
         </div>
         <ul className={`bg-[#BABFBF] dark:bg-[#1C1D24] md:border-none border rounded-lg md:shadow-none shadow-lg md:m-0 p-5 m-5 md:p-0 flex flex-col items-center gap-4 md:flex-row absolute md:static md:z-auto z-[2] md:right-0 right-0 w-[200px] md:w-auto md:pl-0 transition-all duration-100 ease-in-out ${toggle ? 'top-24 opacity-100' : 'top-24 z-[-99] opacity-0 md:opacity-100'}`}>
-          <li className="border-b border-[#1C1D24] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/about'>About</Link></li>
-          <li className="border-b border-[#1C1D24] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/nowhere'>Where</Link></li>
+          <li className="border-b p-1 transition-all duration-100 ease-in delay-100 border-[#1C1D24] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/about'>About</Link></li>
+          <li className="border-b p-1 transition-all duration-100 ease-in delay-100 border-[#1C1D24] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/chat'>Arifian.AI</Link></li>
           <li className="text-3xl hover:text-red-500"><a href="https://github.com/arifian853" rel="noopener noreferrer" target="blank"><FaGithub /></a></li>
         </ul>
       </div>

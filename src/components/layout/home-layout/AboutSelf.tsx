@@ -1,4 +1,5 @@
 // Web Tech Stack
+import { Button } from "@/components/ui/button";
 import {
     FaReact, FaBootstrap, FaNodeJs, FaPython, FaRedhat
 } from "react-icons/fa";
@@ -7,8 +8,14 @@ import {
     SiExpress, SiMongodb, SiTailwindcss, SiShadcnui, SiTensorflow,
     SiKeras
 } from "react-icons/si";
+import { Link } from "react-router-dom";
 
-
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export const AboutSelf = () => {
     return (
@@ -21,12 +28,131 @@ export const AboutSelf = () => {
                     <p className="display-font text-xl text-center">Arifian Saputra</p>
                     <p className="text-sm opacity-75">AI Technical Mentor | Web Developer | RHCSA</p>
                     <p className="md:w-2/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified.</p>
+                    <Link to='/about'> <Button> More info</Button> </Link>
                 </div>
 
                 <div className="h-full w-full p-5 text-center flex items-center justify-center">
                     <div className="text-4xl m-3 flex flex-wrap gap-4 justify-center items-center w-2/3">
-                        <FaReact /> <FaNodeJs /> <SiExpress /> <SiMongodb /> <FaBootstrap /> <SiTailwindcss /> <SiShadcnui />
-                        <FaPython /> <SiTensorflow /> <SiKeras /> <FaRedhat />
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <FaReact className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>React</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <FaNodeJs className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Node.js</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiExpress className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Express.js</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiMongodb className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>MongoDB</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <FaBootstrap className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Bootstrap</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiTailwindcss className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Tailwind CSS</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiShadcnui className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Shadcn/UI</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <FaPython className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Python</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiTensorflow className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>TensorFlow</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <SiKeras className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Keras</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <FaRedhat className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Red Hat</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     </div>
                 </div>
 

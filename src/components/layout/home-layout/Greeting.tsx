@@ -29,7 +29,7 @@ export const Greeting = () => {
             Good {timeOfDay}! <br /> <span className="font-bold">I'm <span className='text-red-500'>Arifian!</span></span>
           </h1>
 
-          <p data-aos="fade-in">Welcome to my portfolio site! <br /> See all my <span className="text-red-500">works</span> here!</p>
+          <p data-aos="fade-in">Welcome to my portfolio site! <br /> See all my <span className="text-red-500">works</span> and <span className="text-red-500">experiences</span> here!</p>
           <a href="#aboutself">
             <Button data-aos="fade-in" className="mt-3">
               Get Started!
