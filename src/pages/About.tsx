@@ -25,8 +25,8 @@ export const About = () => {
       <Helmet>
         <title>Arifian Saputra - About</title>
       </Helmet>
-      <div data-aos="fade-in" className="bg-[#E0E0E0] dark:bg-[#30323D] h-screen p-5 flex items-center justify-center">
-        <div className="flex flex-col items-center justify h-auto gap-5">
+      <div className="bg-[#E0E0E0] dark:bg-[#30323D] h-screen p-5 flex items-center justify-center">
+        <div data-aos="fade-in" data-aos-duration='800' className="flex flex-col items-center justify h-auto gap-5">
 
           <div className="w-full p-5 text-center flex flex-col items-center justify-center gap-3">
             <img className="h-32 w-32" src="/user.png" alt="" />

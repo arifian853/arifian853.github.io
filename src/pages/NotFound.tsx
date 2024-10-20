@@ -10,7 +10,7 @@ export const NotFound = () => {
             <Helmet>
                 <title>Arifian Saputra - Not Found</title>
             </Helmet>
-            <div data-aos="zoom-out" className="w-10/12 md:w-96 bg-[#BABFBF] dark:bg-[#1C1D24] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
+            <div data-aos="zoom-out" data-aos-duration='500' className="w-10/12 md:w-96 bg-[#BABFBF] dark:bg-[#1C1D24] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
                 <h1 className="display-font font-semibold text-xl"><span className="text-red-500">404</span> | Page not found</h1>
 
                 <Button className="display-font font-semibold w-24" onClick={() => navigate(-1)}>
