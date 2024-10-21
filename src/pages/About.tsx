@@ -31,7 +31,7 @@ export const About = () => {
           <div className="w-full p-5 text-center flex flex-col items-center justify-center gap-3">
             <img className="h-32 w-32" src="/user.png" alt="" />
             <p className="display-font text-xl text-center border-red-500 border-b">Arifian Saputra</p>
-            <p className="text-sm opacity-75">AI Technical Mentor | Web Developer | RHCSA</p>
+            <p className="text-sm opacity-75">AI Technical Mentor | Full - Stack Web Developer | RHCSA</p>
             <p className="md:w-1/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified.</p>
           </div>
 
