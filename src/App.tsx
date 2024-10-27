@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
 import { useEffect } from 'react'
+import { ProjectPage } from './pages/ProjectPage'
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,8 @@ function App() {
           <Route path='*' element={<NotFound />} />
 
           <Route path='/about' element={<About />} />
+
+          <Route path='/project/:id' element={<ProjectPage />}/>
 
         </Routes>
         <Footer />
