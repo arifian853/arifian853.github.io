@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Link } from "react-router-dom";
 
-import { FaPython, FaReact, FaNodeJs  } from "react-icons/fa6";
+import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
 import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
@@ -45,13 +45,13 @@ export const Project = () => {
             <CardHeader>
               <CardTitle className="display-font truncate"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
               <CardDescription className="truncate">{project.description}</CardDescription>
-              
+              <Link to={`/project/${project.id}`}><p className="underline">Detail</p></Link>
             </CardHeader>
             <CardContent>
               <img className="w-[300px] h-[170px] rounded-md" src={project.image} alt="" />
             </CardContent>
             <CardFooter>
-              <p className="flex justify-center items-center gap-3"> <Button><a href={project.link} target="_blank" rel="noopener noreferrer"> Repository</a></Button> <Button><a href={project.demo} target="_blank" rel="noopener noreferrer"> Demo</a></Button> <Link to={`/project/${project.id}`}><p className="underline">Detail</p></Link></p>
+              <p className="flex justify-center items-center gap-3 w-full"> <Button><a href={project.link} target="_blank" rel="noopener noreferrer"> Repository</a></Button> <Button><a href={project.demo} target="_blank" rel="noopener noreferrer"> Demo</a></Button></p>
             </CardFooter>
             <span className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">{project.tags}</span>
           </Card>
