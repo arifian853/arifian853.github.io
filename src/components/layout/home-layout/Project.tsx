@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Link } from "react-router-dom";
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
-import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux } from "react-icons/si";
+import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch} from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 interface Project {
@@ -33,15 +33,26 @@ const featured_projects = [
     link: "https://github.com/arifian853/InfiniteTalk",
     demo: "#",
     tags: [<FaReact />, <SiTailwindcss />, <SiMongodb />, <SiExpress />, <FaNodeJs />, <SiRedux />]
-  }
+  },
+  {
+    id: 3,
+    title: "AI Real-Time Audio Translation",
+    description: "Developing a generative AI project using AMD PC AI technologies for the international AMD Pervasive AI Developer Contest with Hackster, in collaboration with a team of IBM Academy: Advance AI mentors from Infinite Learning. Open-Source pre-trained models used in this projects are : **OpenAI Whisper** as **Automatic Speech Recognition (ASR)** Pre-trained Model, **MarianMT** as **Machine Translation (MT)** Pre-trained Model, **tacotron2-DDC** as **Text to Speech (TTS)** Pre-trained Model, and **HiFi-GAN** as **vocoder** Model.",
+    image: "/project3.png",
+    link: "https://github.com/arifian853/realtime-audio-translation",
+    demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
+    tags: [<FaReact />, <SiTailwindcss />, <SiFlask />, <SiPytorch />]
+  },
+  
 ]
 
 export const Project = () => {
   return (
-    <div className="bg-[#E0E0E0] dark:bg-[#30323D] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5 gap-4" id="aboutself">
+    <div className="flex justify-center items-center">
+      <div className="bg-[#E0E0E0] dark:bg-[#30323D] flex md:flex-row flex-col items-center justify-center min-h-screen h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
       {
         featured_projects.map((project => (
-          <Card key={project.id} className="w-[350px] bg-[#BABFBF] dark:bg-[#1C1D24]">
+          <Card data-aos="fade-out" data-aos-duration='800' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#1C1D24]">
             <CardHeader>
               <CardTitle className="display-font truncate"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
               <CardDescription className="truncate">{project.description}</CardDescription>
@@ -57,8 +68,7 @@ export const Project = () => {
           </Card>
         )))
       }
-
-
+    </div>
     </div>
   )
 }
