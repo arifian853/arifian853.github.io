@@ -63,12 +63,13 @@ export const ProjectPage = () => {
         <>
             <Navbar />
             <Helmet>
-                <title>Project 1</title>
+                <title>{project.title} | Arifian Saputra</title>
+                <meta name="description" content={project.description.slice(0, 155)} />
             </Helmet>
             <div data-aos="fade-out" data-aos-duration='800' className="flex flex-col items-center justify-center">
 
                 <div key={project.id} className="bg-[#BABFBF] dark:bg-[#1C1D24] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
-                    <img className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5" src={project.image} alt="" />
+                    <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5" src={project.image} alt="" />
                     <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-b border-[#1C1D24] dark:border-[#BABFBF]">{project.title}</h1>
                     <span className="text-2xl md:text-3xl flex flex-row gap-3 flex-wrap items-center justify-center">{project.tags}</span>
                     <p> <Button><a href={project.link} target="_blank" rel="noopener noreferrer"> Repository</a></Button> <Button><a href={project.demo} target="_blank" rel="noopener noreferrer"> Demo</a></Button></p>
