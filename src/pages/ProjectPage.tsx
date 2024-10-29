@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
-import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch } from "react-icons/si";
+import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini } from "react-icons/si";
 
 import Markdown from 'react-markdown'
 
@@ -36,6 +36,15 @@ const featured_projects = [
         demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
         tags: [<FaReact />, <SiTailwindcss />, <SiFlask />, <SiPytorch />]
     },
+    {
+        id: 4,
+        title: "Simple AI Chat with Google Generative Language API (Gemini API)",
+        description: "Just a simple chatbot (without history) for asking anything to **Google Gemini** model with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
+        image: "/project4.png",
+        link: "https://github.com/arifian853/simple-ai-chat",
+        demo: "https://ai-chat-lite.vercel.app/",
+        tags: [<FaReact />, <SiTailwindcss />, <SiGooglegemini />]
+      },
 ]
 
 
