@@ -83,7 +83,7 @@ const featured_projects = [
     tags: [
       { icon: <FaReact />, name: "React" },
       { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-      { icon: <SiGooglegemini />, name: "Google Gemini" }
+      { icon: <SiGooglegemini />, name: "Google Gemini API" }
     ]
   }
 
@@ -121,7 +121,7 @@ export const Project = () => {
                   {project.tags.map((tag, index) => (
                     <Tooltip key={index}>
                       <TooltipTrigger>
-                        <span>{tag.icon}</span>
+                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
                       </TooltipTrigger>
                       <TooltipContent className="flex flex-row items-center justify-center gap-2">
                         {tag.icon} {tag.name}
