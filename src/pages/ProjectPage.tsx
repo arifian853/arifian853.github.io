@@ -35,6 +35,33 @@ const featured_projects = [
     },
     {
         id: 2,
+        title: "AI Real-Time Audio Translation",
+        description: "Developing a generative AI project using AMD PC AI technologies for the international **AMD Pervasive AI Developer Contest** with **Hackster**, in collaboration with a team of IBM Academy: Advance AI mentors from Infinite Learning. Open-Source pre-trained models used in this projects are : **OpenAI Whisper** as **Automatic Speech Recognition (ASR)** Pre-trained Model, **MarianMT** as **Machine Translation (MT)** Pre-trained Model, **tacotron2-DDC** as **Text to Speech (TTS)** Pre-trained Model, and **HiFi-GAN** as **vocoder** Model. Device used in this development is: Minisforum Venus UM790 Pro with AMD Ryzen™ 9 with Ryzen 9 7940HS as a hardware sponsorship.",
+        image: "/project3.png",
+        link: "https://github.com/arifian853/realtime-audio-translation",
+        demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
+        tags: [
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+            { icon: <SiFlask />, name: "Flask" },
+            { icon: <SiPytorch />, name: "PyTorch" }
+        ]
+    },
+    {
+        id: 3,
+        title: "Simple AI Chat with Google Generative Language API (Gemini API)",
+        description: "Just a simple chatbot (without history) for asking anything to **Google Gemini** model (Gemini 1.5 Flash 002) with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
+        image: "/project4.png",
+        link: "https://github.com/arifian853/simple-ai-chat",
+        demo: "https://ai-chat-lite.vercel.app/",
+        tags: [
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+            { icon: <SiGooglegemini />, name: "Google Gemini API" }
+        ]
+    },
+    {
+        id: 4,
         title: "InfiniteTalk: A place for Mentors and Mentee connect and grow!",
         description: "A place for Mentors and Mentees connect and grow! This is a mini-forum for mentors and mentees from Infinite Learning to collaborate and connect. In this forum, mentors and mentees can make posts and comment on each other's posts to help or share information! This site is built with **React + Vite**, **Tailwind CSS**, and **Flowbite React** for the frontend. Global state management in this site uses **Redux** with **React Query** for database data management and **Axios** for API handling. The backend is built with **Node.js** and **Express.js**, with a security system implemented using **BCryptJS** and **JSON Web Token (JWT)**. The database used in this system is **MongoDB**.",
         image: "/project2.png",
@@ -49,33 +76,6 @@ const featured_projects = [
             { icon: <SiRedux />, name: "Redux" }
         ]
     },
-    {
-        id: 3,
-        title: "AI Real-Time Audio Translation",
-        description: "Developing a generative AI project using AMD PC AI technologies for the international **AMD Pervasive AI Developer Contest** with **Hackster**, in collaboration with a team of IBM Academy: Advance AI mentors from Infinite Learning. Open-Source pre-trained models used in this projects are : **OpenAI Whisper** as **Automatic Speech Recognition (ASR)** Pre-trained Model, **MarianMT** as **Machine Translation (MT)** Pre-trained Model, **tacotron2-DDC** as **Text to Speech (TTS)** Pre-trained Model, and **HiFi-GAN** as **vocoder** Model. Device used in this development is: Minisforum Venus UM790 Pro with AMD Ryzen™ 9 with Ryzen 9 7940HS as a hardware sponsorship.",
-        image: "/project3.png",
-        link: "https://github.com/arifian853/realtime-audio-translation",
-        demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
-        tags: [
-            { icon: <FaReact />, name: "React" },
-            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-            { icon: <SiFlask />, name: "Flask" },
-            { icon: <SiPytorch />, name: "PyTorch" }
-        ]
-    },
-    {
-        id: 4,
-        title: "Simple AI Chat with Google Generative Language API (Gemini API)",
-        description: "Just a simple chatbot (without history) for asking anything to **Google Gemini** model with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
-        image: "/project4.png",
-        link: "https://github.com/arifian853/simple-ai-chat",
-        demo: "https://ai-chat-lite.vercel.app/",
-        tags: [
-            { icon: <FaReact />, name: "React" },
-            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-            { icon: <SiGooglegemini />, name: "Google Gemini API" }
-        ]
-    }
 ]
 
 
@@ -110,7 +110,7 @@ export const ProjectPage = () => {
                 <div data-aos="fade-out" data-aos-duration='800' className="flex flex-col items-center justify-center w-full md:w-4/5">
                     <div key={project.id} className="bg-[#BABFBF] dark:bg-[#1C1D24] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
                         <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5" src={project.image} alt="" />
-                        <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-b border-[#1C1D24] dark:border-[#BABFBF]">{project.title}</h1>
+                        <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-red-500 border-b">{project.title}</h1>
 
                         <TooltipProvider>
                             <div className="text-2xl md:text-3xl flex flex-row gap-3 flex-wrap items-center justify-center">

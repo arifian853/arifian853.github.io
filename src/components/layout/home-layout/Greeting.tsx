@@ -8,12 +8,20 @@ export const Greeting = () => {
   const currentHour = now.getHours();
 
   const getTimeOfDay = (hour: number) => {
-    if (hour >= 4 && hour < 11) {
-      return "Morning";
-    } else if (hour >= 11 && hour < 18) {
-      return "Afternoon";
+    if (hour >= 0 && hour < 4) {
+      return "Peaceful Night";
+    } else if (hour >= 4 && hour < 6) {
+      return "Early Morning";
+    } else if (hour >= 6 && hour < 11) {
+      return "Good Morning";
+    } else if (hour >= 11 && hour < 15) {
+      return "Good Noon";
+    } else if (hour >= 15 && hour < 18) {
+      return "Good Afternoon";
+    } else if (hour >= 18 && hour < 20) {
+      return "Good Evening";
     } else {
-      return "Evening";
+      return "Peaceful Night";
     }
   }
 
@@ -26,7 +34,7 @@ export const Greeting = () => {
 
         <div className="md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0">
           <h1 data-aos="fade-in" data-aos-duration='800' className="display-font text-xl my-3">
-            Good {timeOfDay}! <br /> <span className="font-bold">I'm <span className='border-red-500 border-b'>Arifian!</span></span>
+            {timeOfDay}! <br /> <span className="font-bold">I'm <span className='border-red-500 border-b'>Arifian!</span></span>
           </h1>
 
           <p data-aos="fade-in">Welcome to my portfolio site! <br /> See all my <span className="text-red-500">works</span> and <span className="text-red-500">experiences</span> here!</p>
