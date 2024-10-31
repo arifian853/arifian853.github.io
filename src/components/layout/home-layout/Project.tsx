@@ -90,7 +90,7 @@ const featured_projects = [
 export const Project = () => {
   return (
     <div className="flex justify-center items-center flex-col">
-      <h1 data-aos="fade-out" data-aos-duration='600' className="display-font text-4xl border-red-500 border-b">Projects</h1>
+      <h1 data-aos="fade-out" data-aos-duration='600' className="display-font text-4xl border-red-500 border-b mb-3">Projects</h1>
       <div className="bg-[#E0E0E0] dark:bg-[#30323D] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
       
         {
