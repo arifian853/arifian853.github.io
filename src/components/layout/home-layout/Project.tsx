@@ -39,8 +39,6 @@ const featured_projects = [
       { icon: <SiKeras />, name: "Keras" },
       { icon: <SiScikitlearn />, name: "Scikit-learn" },
       { icon: <SiFlask />, name: "Flask" },
-      { icon: <FaReact />, name: "React" },
-      { icon: <SiTailwindcss />, name: "Tailwind CSS" },
     ]
   },
   {
