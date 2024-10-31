@@ -3,10 +3,18 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Navbar } from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 
-import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
+import { FaPython, FaReact, FaNodeJs, FaArrowLeft } from "react-icons/fa6";
 import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini } from "react-icons/si";
 
 import Markdown from 'react-markdown'
+import { HiOutlineExternalLink } from "react-icons/hi";
+
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const featured_projects = [
     {
@@ -16,7 +24,16 @@ const featured_projects = [
         image: "/project1.png",
         link: "https://github.com/arifian853/rainfall-predict-lstm-attention",
         demo: "https://colab.research.google.com/drive/19z8MfcXmCLceR8rKIeCDZSHNxUnvU1oH?usp=sharing",
-        tags: [<FaPython />, <FaReact />, <SiTailwindcss />, <SiJupyter />, <SiFlask />, <SiTensorflow />, <SiKeras />, <SiScikitlearn />]
+        tags: [
+            { icon: <FaPython />, name: "Python" },
+            { icon: <SiJupyter />, name: "Jupyter" },
+            { icon: <SiTensorflow />, name: "TensorFlow" },
+            { icon: <SiKeras />, name: "Keras" },
+            { icon: <SiScikitlearn />, name: "Scikit-learn" },
+            { icon: <SiFlask />, name: "Flask" },
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+        ]
     },
     {
         id: 2,
@@ -25,7 +42,14 @@ const featured_projects = [
         image: "/project2.png",
         link: "https://github.com/arifian853/InfiniteTalk",
         demo: "/nowhere",
-        tags: [<FaReact />, <SiTailwindcss />, <SiMongodb />, <SiExpress />, <FaNodeJs />, <SiRedux />]
+        tags: [
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+            { icon: <SiMongodb />, name: "MongoDB" },
+            { icon: <SiExpress />, name: "Express.js" },
+            { icon: <FaNodeJs />, name: "Node.js" },
+            { icon: <SiRedux />, name: "Redux" }
+        ]
     },
     {
         id: 3,
@@ -34,7 +58,12 @@ const featured_projects = [
         image: "/project3.png",
         link: "https://github.com/arifian853/realtime-audio-translation",
         demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
-        tags: [<FaReact />, <SiTailwindcss />, <SiFlask />, <SiPytorch />]
+        tags: [
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+            { icon: <SiFlask />, name: "Flask" },
+            { icon: <SiPytorch />, name: "PyTorch" }
+        ]
     },
     {
         id: 4,
@@ -43,8 +72,12 @@ const featured_projects = [
         image: "/project4.png",
         link: "https://github.com/arifian853/simple-ai-chat",
         demo: "https://ai-chat-lite.vercel.app/",
-        tags: [<FaReact />, <SiTailwindcss />, <SiGooglegemini />]
-      },
+        tags: [
+            { icon: <FaReact />, name: "React" },
+            { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+            { icon: <SiGooglegemini />, name: "Google Gemini" }
+        ]
+    }
 ]
 
 
@@ -75,17 +108,33 @@ export const ProjectPage = () => {
                 <title>{project.title} | Arifian Saputra</title>
                 <meta name="description" content={project.description.slice(0, 155)} />
             </Helmet>
-            <div data-aos="fade-out" data-aos-duration='800' className="flex flex-col items-center justify-center">
+            <div className="flex justify-center items-center">
+                <div data-aos="fade-out" data-aos-duration='800' className="flex flex-col items-center justify-center w-full md:w-4/5">
+                    <div key={project.id} className="bg-[#BABFBF] dark:bg-[#1C1D24] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
+                        <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5" src={project.image} alt="" />
+                        <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-b border-[#1C1D24] dark:border-[#BABFBF]">{project.title}</h1>
 
-                <div key={project.id} className="bg-[#BABFBF] dark:bg-[#1C1D24] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
-                    <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5" src={project.image} alt="" />
-                    <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-b border-[#1C1D24] dark:border-[#BABFBF]">{project.title}</h1>
-                    <span className="text-2xl md:text-3xl flex flex-row gap-3 flex-wrap items-center justify-center">{project.tags}</span>
-                    <p> <Button><a href={project.link} target="_blank" rel="noopener noreferrer"> Repository</a></Button> <Button><a href={project.demo} target="_blank" rel="noopener noreferrer"> Demo</a></Button></p>
-                    <p className="text-justify md:p-0 p-5"><Markdown>{project.description}</Markdown></p>
-                    <Link to='/'> <Button className="md:m-0 mb-5"> Back </Button> </Link>
+                        <TooltipProvider>
+                            <div className="text-2xl md:text-3xl flex flex-row gap-3 flex-wrap items-center justify-center">
+                                {project.tags.map((tag, index) => (
+                                    <Tooltip key={index}>
+                                        <TooltipTrigger>
+                                            <span>{tag.icon}</span>
+                                        </TooltipTrigger>
+                                        <TooltipContent className="flex flex-row items-center justify-center gap-2">
+                                            {tag.icon} {tag.name}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                ))}
+                            </div>
+                        </TooltipProvider>
+                        <p className="flex justify-center items-center gap-3 w-full"> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.link} target="_blank" rel="noopener noreferrer"> Repository <HiOutlineExternalLink /> </a></Button> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.demo} target="_blank" rel="noopener noreferrer"> Demo <HiOutlineExternalLink /></a></Button></p>
+                        <p className="text-justify md:p-0 p-5"><Markdown>{project.description}</Markdown></p>
+                        <Link to='/'> <Button className="md:m-0 mb-5 flex flex-row justify-center items-center gap-1"> <FaArrowLeft /> Back </Button> </Link>
+                    </div>
                 </div>
             </div>
+
         </>
 
     )
