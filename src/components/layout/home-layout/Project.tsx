@@ -5,6 +5,8 @@ import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
 import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
+import { HiOutlineExternalLink } from "react-icons/hi";
+
 interface Project {
   id: number;
   title: string;
@@ -71,7 +73,7 @@ export const Project = () => {
               <img className="w-[300px] h-[170px] rounded-md" src={project.image} alt="" />
             </CardContent>
             <CardFooter>
-              <p className="flex justify-center items-center gap-3 w-full"> <Button><a href={project.link} target="_blank" rel="noopener noreferrer"> Repository</a></Button> <Button><a href={project.demo} target="_blank" rel="noopener noreferrer"> Demo</a></Button></p>
+              <p className="flex justify-center items-center gap-3 w-full"> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.link} target="_blank" rel="noopener noreferrer"> Repository <HiOutlineExternalLink /> </a></Button> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.demo} target="_blank" rel="noopener noreferrer"> Demo <HiOutlineExternalLink /></a></Button></p>
             </CardFooter>
             <span className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">{project.tags}</span>
           </Card>
