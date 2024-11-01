@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Link } from "react-router-dom";
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
-import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini } from "react-icons/si";
+import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter  } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
@@ -28,6 +28,7 @@ const featured_projects = [
   {
     id: 1,
     title: "Rainfall Prediction with LSTM + Attention",
+    year: "2024",
     description: "This project explores the use of LSTM (Long Short-Term Memory) and LSTM with an Attention Layer to predict daily rainfall rates in Batam City. The primary goal is to assess the performance difference between the two models when the Attention Layer is implemented. The study leverages the BMKG DataOnline climate dataset and aims to improve prediction accuracy, especially in the context of dynamic and extreme weather changes. Below is the abstract and the results of the study: \n \n The rainy season in Batam City significantly impacts various aspects of life, such as agriculture, food security, and clean water availability. Therefore, it is crucial to accurately predict rainfall patterns, especially in the face of increasingly dynamic and extreme weather changes. This study aims to determine whether the Attention Mechanism layer in the Long Short-Term Memory (LSTM) algorithm can improve the accuracy of daily rainfall prediction using a web application. LSTM with the Attention Mechanism layer is a regular LSTM algorithm enhanced with an additional Attention layer to observe input variations and give special attention to specific inputs. The study results show that the LSTM model with the additional Attention layer produces the best predictions and competitive error metrics compared to the LSTM model without Attention. The best results show a variability value (**R²** of **0.2986** compared to the regular LSTM with a value of **0.2580**), an **MSE** value of **0.0091** compared to the regular LSTM with a value of **0.0097**, an **RMSE** value of **0.0957** compared to the regular LSTM with a value of **0.0985**, and an **MAE** value slightly below the regular LSTM with a value of **0.0528** compared to **0.0516** for the regular LSTM. The percentage increase in accuracy based on variability is that the LSTM model with Attention achieves an improvement of **15.74%**, based on **MSE**, it improves by **6.19%**, based on **RMSE**, it improves by **2.84%**, and according to **MAE**, it decreases by **2.33%**, indicating that **MAE** is not too suitable for the LSTM with Attention model. The conclusion is that the LSTM model with Attention provides a significant increase in accuracy for rainfall prediction in Batam City.",
     image: "/project1.png",
     link: "https://github.com/arifian853/rainfall-predict-lstm-attention",
@@ -44,6 +45,7 @@ const featured_projects = [
   {
     id: 2,
     title: "AI Real-Time Audio Translation",
+    year: "2024",
     description: "Developing a generative AI project using AMD PC AI technologies for the international **AMD Pervasive AI Developer Contest** with **Hackster**, in collaboration with a team of IBM Academy: Advance AI mentors from Infinite Learning. Open-Source pre-trained models used in this projects are : **OpenAI Whisper** as **Automatic Speech Recognition (ASR)** Pre-trained Model, **MarianMT** as **Machine Translation (MT)** Pre-trained Model, **tacotron2-DDC** as **Text to Speech (TTS)** Pre-trained Model, and **HiFi-GAN** as **vocoder** Model. Device used in this development is: Minisforum Venus UM790 Pro with AMD Ryzen™ 9 with Ryzen 9 7940HS as a hardware sponsorship.",
     image: "/project3.png",
     link: "https://github.com/arifian853/realtime-audio-translation",
@@ -58,6 +60,7 @@ const featured_projects = [
   {
     id: 3,
     title: "Simple AI Chat with Google Generative Language API (Gemini API)",
+    year: "2024",
     description: "Just a simple chatbot (without history) for asking anything to **Google Gemini** model (Gemini 1.5 Flash 002) with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
     image: "/project4.png",
     link: "https://github.com/arifian853/simple-ai-chat",
@@ -71,6 +74,7 @@ const featured_projects = [
   {
     id: 4,
     title: "InfiniteTalk: A place for Mentors and Mentee connect and grow!",
+    year: "2023",
     description: "A place for Mentors and Mentees connect and grow! This is a mini-forum for mentors and mentees from Infinite Learning to collaborate and connect. In this forum, mentors and mentees can make posts and comment on each other's posts to help or share information! This site is built with **React + Vite**, **Tailwind CSS**, and **Flowbite React** for the frontend. Global state management in this site uses **Redux** with **React Query** for database data management and **Axios** for API handling. The backend is built with **Node.js** and **Express.js**, with a security system implemented using **BCryptJS** and **JSON Web Token (JWT)**. The database used in this system is **MongoDB**.",
     image: "/project2.png",
     link: "https://github.com/arifian853/InfiniteTalk",
@@ -84,7 +88,19 @@ const featured_projects = [
       { icon: <SiRedux />, name: "Redux" }
     ]
   },
-
+  {
+    id: 5,
+    title: "RhythmPlayer Music App: Music Player",
+    year: "2023",
+    description: "Simple Android app for playing music made with **Flutter** and **Dart.**",
+    image: "/project5.png",
+    link: "https://github.com/arifian853/RhythmPlayer",
+    demo: "https://drive.google.com/file/d/1uJt_jfDJ8cc9hdlqCRH9p-BdkmxtSL9c/view",
+    tags: [
+      { icon: <SiFlutter  />, name: "Flutter" },
+      { icon: <SiDart  />, name: "Dart" },
+    ]
+  },
 ]
 
 export const Project = () => {
@@ -103,11 +119,11 @@ export const Project = () => {
                       <CardTitle className="display-font truncate hover:underline"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>{project.title}</p>
+                      <p>{project.title} ({project.year})</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-                <CardDescription className="truncate">{project.description}</CardDescription>
+                <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
                 <Link to={`/project/${project.id}`}><p className="underline">Detail</p></Link>
               </CardHeader>
               <CardContent>
@@ -128,6 +144,7 @@ export const Project = () => {
                       </TooltipContent>
                     </Tooltip>
                   ))}
+                  
                 </div>
               </TooltipProvider>
             </Card>

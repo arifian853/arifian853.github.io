@@ -13,7 +13,7 @@ export const Navbar = () => {
       <div className="flex justify-between items-center">
 
         <div className="flex items-center justify-between gap-3">
-          <Link to='/'><span className="font-semibold display-font">Arifian Saputra</span></Link> <ModeToggle />
+          <Link to='/'><span className="font-semibold display-font hover:border-b hover:border-red-500">Arifian Saputra</span></Link> <ModeToggle />
         </div>
         
         <div onClick={() => setToggle(!toggle)} className='text-3xl cursor-pointer md:hidden transition-all duration-900 ease'>

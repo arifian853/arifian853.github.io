@@ -8,14 +8,14 @@ export function ModeToggle() {
     const isDarkMode = theme === "dark"
 
     return (
-        <div className="flex items-center space-x-2 text-sm">
-            <Sun className="text-sm" />
+        <div className="flex items-center space-x-2">
+            <Sun />
             <Switch
                 checked={isDarkMode}
                 onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
                 id="mode-toggle"
             />
-            <Moon className="text-sm" />
+            <Moon />
 
         </div>
     )
