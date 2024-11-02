@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Link } from "react-router-dom";
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
-import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter  } from "react-icons/si";
+import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
@@ -31,8 +31,12 @@ const featured_projects = [
     year: "2024",
     description: "This project explores the use of LSTM (Long Short-Term Memory) and LSTM with an Attention Layer to predict daily rainfall rates in Batam City. The primary goal is to assess the performance difference between the two models when the Attention Layer is implemented. The study leverages the BMKG DataOnline climate dataset and aims to improve prediction accuracy, especially in the context of dynamic and extreme weather changes. Below is the abstract and the results of the study: \n \n The rainy season in Batam City significantly impacts various aspects of life, such as agriculture, food security, and clean water availability. Therefore, it is crucial to accurately predict rainfall patterns, especially in the face of increasingly dynamic and extreme weather changes. This study aims to determine whether the Attention Mechanism layer in the Long Short-Term Memory (LSTM) algorithm can improve the accuracy of daily rainfall prediction using a web application. LSTM with the Attention Mechanism layer is a regular LSTM algorithm enhanced with an additional Attention layer to observe input variations and give special attention to specific inputs. The study results show that the LSTM model with the additional Attention layer produces the best predictions and competitive error metrics compared to the LSTM model without Attention. The best results show a variability value (**R²** of **0.2986** compared to the regular LSTM with a value of **0.2580**), an **MSE** value of **0.0091** compared to the regular LSTM with a value of **0.0097**, an **RMSE** value of **0.0957** compared to the regular LSTM with a value of **0.0985**, and an **MAE** value slightly below the regular LSTM with a value of **0.0528** compared to **0.0516** for the regular LSTM. The percentage increase in accuracy based on variability is that the LSTM model with Attention achieves an improvement of **15.74%**, based on **MSE**, it improves by **6.19%**, based on **RMSE**, it improves by **2.84%**, and according to **MAE**, it decreases by **2.33%**, indicating that **MAE** is not too suitable for the LSTM with Attention model. The conclusion is that the LSTM model with Attention provides a significant increase in accuracy for rainfall prediction in Batam City.",
     image: "/project1.png",
-    link: "https://github.com/arifian853/rainfall-predict-lstm-attention",
-    demo: "https://colab.research.google.com/drive/19z8MfcXmCLceR8rKIeCDZSHNxUnvU1oH?usp=sharing",
+    link: [
+      { repo_link: "https://github.com/arifian853/rainfall-predict-lstm-attention", btn_name: "Repository" }
+    ],
+    demo: [
+      { demo_link: "https://colab.research.google.com/drive/19z8MfcXmCLceR8rKIeCDZSHNxUnvU1oH?usp=sharing", btn_name: "Notebook" }
+    ],
     tags: [
       { icon: <FaPython />, name: "Python" },
       { icon: <SiJupyter />, name: "Jupyter" },
@@ -48,8 +52,12 @@ const featured_projects = [
     year: "2024",
     description: "Developing a generative AI project using AMD PC AI technologies for the international **AMD Pervasive AI Developer Contest** with **Hackster**, in collaboration with a team of IBM Academy: Advance AI mentors from Infinite Learning. Open-Source pre-trained models used in this projects are : **OpenAI Whisper** as **Automatic Speech Recognition (ASR)** Pre-trained Model, **MarianMT** as **Machine Translation (MT)** Pre-trained Model, **tacotron2-DDC** as **Text to Speech (TTS)** Pre-trained Model, and **HiFi-GAN** as **vocoder** Model. Device used in this development is: Minisforum Venus UM790 Pro with AMD Ryzen™ 9 with Ryzen 9 7940HS as a hardware sponsorship.",
     image: "/project3.png",
-    link: "https://github.com/arifian853/realtime-audio-translation",
-    demo: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020",
+    link: [
+      { repo_link: "https://github.com/arifian853/realtime-audio-translation", btn_name: "Repository" }
+    ],
+    demo: [
+      { demo_link: "https://www.hackster.io/arifian-saputra/ai-real-time-audio-translation-dcb020", btn_name: "Submission" }
+    ],
     tags: [
       { icon: <FaReact />, name: "React" },
       { icon: <SiTailwindcss />, name: "Tailwind CSS" },
@@ -58,49 +66,59 @@ const featured_projects = [
     ]
   },
   {
-    id: 3,
-    title: "Simple AI Chat with Google Generative Language API (Gemini API)",
-    year: "2024",
-    description: "Just a simple chatbot (without history) for asking anything to **Google Gemini** model (Gemini 1.5 Flash 002) with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
-    image: "/project4.png",
-    link: "https://github.com/arifian853/simple-ai-chat",
-    demo: "https://ai-chat-lite.vercel.app/",
-    tags: [
-      { icon: <FaReact />, name: "React" },
-      { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-      { icon: <SiGooglegemini />, name: "Google Gemini API" }
+    "id": 3,
+    "title": "Simple AI Chat with Google Generative Language API (Gemini API)",
+    "year": "2024",
+    "description": "Just a simple chatbot (without history) for asking anything to **Google Gemini** model (Gemini 1.5 Flash 002) with **Google Generative Language API (Gemini API)** from Google AI Studio. This site is protected by Vercel Security Checkpoint for security.",
+    "image": "/project4.png",
+    "link": [
+      { "repo_link": "https://github.com/arifian853/simple-ai-chat", "btn_name": "Repository" }
+    ],
+    "demo": [
+      { "demo_link": "https://ai-chat-lite.vercel.app/", "btn_name": "Live Demo" }
+    ],
+    "tags": [
+      { "icon": <FaReact />, "name": "React" },
+      { "icon": <SiTailwindcss />, "name": "Tailwind CSS" },
+      { "icon": <SiGooglegemini />, "name": "Google Gemini API" }
     ]
   },
   {
-    id: 4,
-    title: "InfiniteTalk: A place for Mentors and Mentee connect and grow!",
-    year: "2023",
-    description: "A place for Mentors and Mentees connect and grow! This is a mini-forum for mentors and mentees from Infinite Learning to collaborate and connect. In this forum, mentors and mentees can make posts and comment on each other's posts to help or share information! This site is built with **React + Vite**, **Tailwind CSS**, and **Flowbite React** for the frontend. Global state management in this site uses **Redux** with **React Query** for database data management and **Axios** for API handling. The backend is built with **Node.js** and **Express.js**, with a security system implemented using **BCryptJS** and **JSON Web Token (JWT)**. The database used in this system is **MongoDB**.",
-    image: "/project2.png",
-    link: "https://github.com/arifian853/InfiniteTalk",
-    demo: "/nowhere",
-    tags: [
-      { icon: <FaReact />, name: "React" },
-      { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-      { icon: <SiMongodb />, name: "MongoDB" },
-      { icon: <SiExpress />, name: "Express.js" },
-      { icon: <FaNodeJs />, name: "Node.js" },
-      { icon: <SiRedux />, name: "Redux" }
+    "id": 4,
+    "title": "InfiniteTalk: A place for Mentors and Mentee connect and grow!",
+    "year": "2023",
+    "description": "A place for Mentors and Mentees connect and grow! This is a mini-forum for mentors and mentees from Infinite Learning to collaborate and connect. In this forum, mentors and mentees can make posts and comment on each other's posts to help or share information! This site is built with **React + Vite**, **Tailwind CSS**, and **Flowbite React** for the frontend. Global state management in this site uses **Redux** with **React Query** for database data management and **Axios** for API handling. The backend is built with **Node.js** and **Express.js**, with a security system implemented using **BCryptJS** and **JSON Web Token (JWT)**. The database used in this system is **MongoDB**.",
+    "image": "/project2.png",
+    "link": [
+      { "repo_link": "https://github.com/arifian853/InfiniteTalk", "btn_name": "Repository" }
+    ],
+    "demo": [],
+    "tags": [
+      { "icon": <FaReact />, "name": "React" },
+      { "icon": <SiTailwindcss />, "name": "Tailwind CSS" },
+      { "icon": <SiMongodb />, "name": "MongoDB" },
+      { "icon": <SiExpress />, "name": "Express.js" },
+      { "icon": <FaNodeJs />, "name": "Node.js" },
+      { "icon": <SiRedux />, "name": "Redux" }
     ]
   },
   {
-    id: 5,
-    title: "RhythmPlayer Music App: Music Player",
-    year: "2023",
-    description: "Simple Android app for playing music made with **Flutter** and **Dart.**",
-    image: "/project5.png",
-    link: "https://github.com/arifian853/RhythmPlayer",
-    demo: "https://drive.google.com/file/d/1uJt_jfDJ8cc9hdlqCRH9p-BdkmxtSL9c/view",
-    tags: [
-      { icon: <SiFlutter  />, name: "Flutter" },
-      { icon: <SiDart  />, name: "Dart" },
+    "id": 5,
+    "title": "RhythmPlayer Music App: Music Player",
+    "year": "2023",
+    "description": "Simple Android app for playing music made with **Flutter** and **Dart.** This project is made for **Mobile Programming** subject in college back in 6th semester at 2023.",
+    "image": "/project5.png",
+    "link": [
+      { "repo_link": "https://github.com/arifian853/RhythmPlayer", "btn_name": "Repository" }
+    ],
+    "demo": [
+      { "demo_link": "https://drive.google.com/file/d/1uJt_jfDJ8cc9hdlqCRH9p-BdkmxtSL9c/view", "btn_name": "APK Download" }
+    ],
+    "tags": [
+      { "icon": <SiFlutter />, "name": "Flutter" },
+      { "icon": <SiDart />, "name": "Dart" }
     ]
-  },
+  }
 ]
 
 export const Project = () => {
@@ -130,7 +148,18 @@ export const Project = () => {
                 <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border" src={project.image} alt="" /></Link>
               </CardContent>
               <CardFooter>
-                <p className="flex justify-center items-center gap-3 w-full"> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.link} target="_blank" rel="noopener noreferrer"> Repository <HiOutlineExternalLink /> </a></Button> <Button><a className="flex flex-row justify-center items-center gap-1" href={project.demo} target="_blank" rel="noopener noreferrer"> Demo <HiOutlineExternalLink /></a></Button></p>
+                <p className="flex justify-center items-center gap-3 w-full">
+                  {
+                    project.link.map((links, index) => (
+                      <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                    ))
+                  }
+                  {
+                    project.demo.map((links, index) => (
+                      <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                    ))
+                  }
+                </p>
               </CardFooter>
               <TooltipProvider>
                 <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
@@ -144,7 +173,7 @@ export const Project = () => {
                       </TooltipContent>
                     </Tooltip>
                   ))}
-                  
+
                 </div>
               </TooltipProvider>
             </Card>
