@@ -142,7 +142,7 @@ export const Project = () => {
                   </Tooltip>
                 </TooltipProvider>
                 <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
-                <Link to={`/project/${project.id}`}><p className="underline">Detail</p></Link>
+                <Link to={`/project/${project.id}`}><p className="w-12 border-b border-red-500 opacity-75">More...</p></Link>
               </CardHeader>
               <CardContent>
                 <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border" src={project.image} alt="" /></Link>
