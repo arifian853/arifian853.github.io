@@ -33,12 +33,12 @@ const tech_stacks = [
 
 export const AboutSelf = () => {
     return (
-        <div className="bg-[#E0E0E0] dark:bg-[#30323D] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5" id="aboutself">
+        <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5" id="aboutself">
 
             <div data-aos="fade-in" data-aos-duration='800' className="flex md:flex-row flex-col items-center md:h-[500px] justify-center">
 
                 <div className=" h-full w-full p-5 text-center flex flex-col items-center justify-center gap-3">
-                    <img className="h-32 w-32" src="/user.png" alt="" />
+                    <img className="h-32 w-32 rounded-full border-2 border-red-500" src="/user.jpeg" alt="" />
                     <p className="display-font text-xl text-center border-red-500 border-b">Arifian Saputra</p>
                     <p className="text-sm opacity-75 ">AI Technical Mentor | Full - Stack Web Developer | RHCSA</p>
                     <p className="md:w-2/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified. Currently served as a mentor of IBM Academy: Advance AI program at Infinite Learning.</p>

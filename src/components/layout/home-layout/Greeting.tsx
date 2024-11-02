@@ -28,7 +28,7 @@ export const Greeting = () => {
   const timeOfDay = getTimeOfDay(currentHour);
 
   return (
-    <div className="bg-[#E0E0E0] dark:bg-[#30323D] h-screen">
+    <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen">
       <Navbar />
       <div className="flex md:flex-row flex-col md:justify-start justify-center h-full items-center gap-4">
 

@@ -125,11 +125,11 @@ export const Project = () => {
   return (
     <div className="flex justify-center items-center flex-col">
       <h1 data-aos="fade-out" data-aos-duration='600' className="display-font text-4xl border-red-500 border-b mb-3">Projects</h1>
-      <div className="bg-[#E0E0E0] dark:bg-[#30323D] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
+      <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
 
         {
           featured_projects.map((project => (
-            <Card data-aos="fade-out" data-aos-duration='800' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#1C1D24]">
+            <Card data-aos="fade-out" data-aos-duration='800' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D]">
               <CardHeader>
                 <TooltipProvider>
                   <Tooltip>
