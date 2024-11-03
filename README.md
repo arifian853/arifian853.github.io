@@ -28,6 +28,11 @@ http://localhost:5173
 http://localhost:5173/about
 ```
 
+- Projects
+```
+http://localhost:5173/project
+```
+
 - Project Details
 ```
 http://localhost:5173/project/:id
