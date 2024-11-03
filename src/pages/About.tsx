@@ -69,7 +69,7 @@ export const About = () => {
                 </TooltipProvider>
               ))
             }
-             <Link to='/'> <Button className="mt-5 flex flex-row justify-center items-center gap-1"> <FaArrowLeft /> Back </Button> </Link>
+            <Link to='/'> <Button className="mt-5 flex flex-row justify-center items-center gap-1"> <FaArrowLeft /> Back </Button> </Link>
           </div>
 
         </div>
