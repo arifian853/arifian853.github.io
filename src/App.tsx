@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react'
 import { ProjectPage } from './pages/ProjectPage'
 import { Chat } from './pages/Chat'
+import { Projects } from './pages/Projects'
 
 function App() {
   useEffect(() => {
@@ -26,9 +27,11 @@ function App() {
 
           <Route path='/about' element={<About />} />
 
-          <Route path='/project/:id' element={<ProjectPage />}/>
+          <Route path='/project' element={<Projects />} />
 
-          <Route path='/chat-ai' element={<Chat />}/>
+          <Route path='/project/:id' element={<ProjectPage />} />
+
+          <Route path='/chat-ai' element={<Chat />} />
 
         </Routes>
         <Footer />
