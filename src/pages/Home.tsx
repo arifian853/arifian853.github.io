@@ -1,4 +1,6 @@
 import { AboutSelf } from "@/components/layout/home-layout/AboutSelf"
+import { Educations } from "@/components/layout/home-layout/Educations"
+import { Experiences } from "@/components/layout/home-layout/Experiences"
 import { Greeting } from "@/components/layout/home-layout/Greeting"
 import { Project } from "@/components/layout/home-layout/Project"
 import { Helmet } from "react-helmet"
@@ -13,6 +15,10 @@ export const Home = () => {
                 <Greeting />
                 <AboutSelf />
                 <Project />
+                <br />
+                <Experiences />
+                <br />
+                <Educations />
             </div>
         </>
     )
