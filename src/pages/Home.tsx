@@ -1,4 +1,5 @@
 import { AboutSelf } from "@/components/layout/home-layout/AboutSelf"
+import { Contact } from "@/components/layout/home-layout/Contact"
 import { Educations } from "@/components/layout/home-layout/Educations"
 import { Experiences } from "@/components/layout/home-layout/Experiences"
 import { Greeting } from "@/components/layout/home-layout/Greeting"
@@ -19,6 +20,8 @@ export const Home = () => {
                 <Experiences />
                 <br />
                 <Educations />
+                <br />
+                <Contact />
             </div>
         </>
     )
