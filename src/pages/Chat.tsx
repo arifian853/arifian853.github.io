@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Helmet } from "react-helmet";
+import { FaArrowLeft } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
@@ -16,8 +17,8 @@ export const Chat = () => {
                 <p>See the development here: </p>
 
                 <a href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noreferrer noopener"> <Button className="display-font font-semibold w-full flex flex-row justify-center items-center gap-1">Development Repository <HiOutlineExternalLink /></Button></a>
-                <Button className="display-font font-semibold w-24" onClick={() => navigate(-1)}>
-                    Go back
+                <Button onClick={() => navigate(-1)} className="flex flex-row justify-center items-center gap-1">
+                    <FaArrowLeft /> Go Back
                 </Button>
             </div>
 
