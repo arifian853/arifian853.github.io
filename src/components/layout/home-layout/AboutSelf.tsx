@@ -35,7 +35,7 @@ export const AboutSelf = () => {
     return (
         <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5" id="aboutself">
 
-            <div data-aos="fade-in" data-aos-duration='800' className="flex md:flex-row flex-col items-center md:h-[500px] justify-center">
+            <div data-aos="fade-in" data-aos-duration='900' className="flex md:flex-row flex-col items-center md:h-[500px] justify-center">
 
                 <div className=" h-full w-full p-5 text-center flex flex-col items-center justify-center gap-3">
                     <img className="h-32 w-32 rounded-full border-2 border-red-500" src="/user.jpeg" alt="" />

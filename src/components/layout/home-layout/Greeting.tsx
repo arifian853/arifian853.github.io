@@ -33,7 +33,7 @@ export const Greeting = () => {
       <div className="flex md:flex-row flex-col md:justify-start justify-center h-full items-center gap-4">
 
         <div className="md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0">
-          <h1 data-aos="fade-in" data-aos-duration='800' className="display-font text-xl my-3">
+          <h1 data-aos="fade-in" data-aos-duration='900' className="display-font text-xl my-3">
             <b>{timeOfDay}!</b> <br /> <span className="font-bold">I'm <span className='border-red-500 border-b'>Arifian!</span></span>
           </h1>
 
