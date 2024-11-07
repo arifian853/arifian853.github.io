@@ -9,7 +9,7 @@ export const Chat = () => {
     return (
         <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen flex justify-center items-center p-5">
             <Helmet>
-                <title>Soon! | Arifian.AI </title>
+                <title>Soon! | Arifian.AI</title>
             </Helmet>
             <div data-aos="zoom-out" data-aos-duration='600' className="w-11/12 md:w-96 bg-[#BABFBF] dark:bg-[#30323D] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
                 <h1 className="display-font font-semibold text-xl"><span className="text-red-500">Soon!</span> | Arifian<span className="text-red-500">.AI</span></h1>

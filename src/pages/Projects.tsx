@@ -241,7 +241,7 @@ export const Projects = () => {
                                     <Link to={`/project/${project.id}`}><p className="w-12 border-b border-red-500 opacity-75">More...</p></Link>
                                 </CardHeader>
                                 <CardContent>
-                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border" src={project.image} alt="" /></Link>
+                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border border-white" src={project.image} alt="" /></Link>
                                 </CardContent>
                                 <CardFooter>
                                     <p className="flex justify-center items-center gap-3 w-full">

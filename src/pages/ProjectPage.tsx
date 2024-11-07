@@ -240,7 +240,7 @@ export const ProjectPage = () => {
             <div className="flex justify-center items-center">
                 <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full md:w-4/5">
                     <div key={project.id} className="bg-[#BABFBF] dark:bg-[#30323D] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
-                        <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5 shadow-lg hover:border-red-500 hover:border" src={project.image} alt="" />
+                        <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5 shadow-lg hover:border-red-500 border border-white" src={project.image} alt="" />
                         <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-red-500 border-b">{project.title}</h1>
                         <p className="opacity-75">({project.year})</p>
                         <TooltipProvider>
