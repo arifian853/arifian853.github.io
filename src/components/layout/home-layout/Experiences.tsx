@@ -14,26 +14,53 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
-// const experiences = [
-//     {
-//         "id": 1,
-//         "position" : "Lead Mentor for IBM Academy Advance Artificial Intelligence",
-//         "company": "Infinite Learning Indonesia",
-//         "type" : "Contract",
-//         "time": "July 2024 - Present",
-//         "location": "Batam, Riau Islands, Indonesia",
-//         "description": "As a lead mentor at IBM Academy Advanced AI @ Infinite Learning, I am responsible for guiding the mentor team and ensuring mentees master various crucial aspects, from IBM Soft Skills Training, Machine Learning, AI Governance, Generative AI, Deep Learning, to the use of WatsonX.ai on the IBM Cloud platform. My responsibilities include developing mentees' project management skills particularly for the 3M Project in the MSIB program, ensuring they can build and implement robust machine learning models, guiding them in dataset preparation, and managing the mentor team to collaborate effectively while maintaining a positive work environment."
-//     },
-//     {
-//         "id": 1,
-//         "position" : "Mentor for IBM Academy Advance Artificial Intelligence",
-//         "company": "Infinite Learning Indonesia",
-//         "type" : "Contract",
-//         "time": "February 2024 - July 2024",
-//         "location": "Batam, Riau Islands, Indonesia",
-//         "description": "As a lead mentor at IBM Academy Advanced AI @ Infinite Learning, I am responsible for guiding the mentor team and ensuring mentees master various crucial aspects, from IBM Soft Skills Training, Machine Learning, AI Governance, Generative AI, Deep Learning, to the use of WatsonX.ai on the IBM Cloud platform. My responsibilities include developing mentees' project management skills particularly for the 3M Project in the MSIB program, ensuring they can build and implement robust machine learning models, guiding them in dataset preparation, and managing the mentor team to collaborate effectively while maintaining a positive work environment."
-//     },
-// ]
+const experiences = [
+    {
+        "id": 1,
+        "position": "Lead Mentor for IBM Academy: Advance Artificial Intelligence",
+        "company": "Infinite Learning Indonesia",
+        "type": "Contract",
+        "time": "July 2024 - Present",
+        "location": "Batam, Riau Islands, Indonesia | On-site",
+        "description": "As a lead mentor at IBM Academy Advanced AI @ Infinite Learning, I am responsible for guiding the mentor team and ensuring mentees master various crucial aspects, from IBM Soft Skills Training, Machine Learning, AI Governance, Generative AI, Deep Learning, to the use of WatsonX.ai on the IBM Cloud platform. My responsibilities include developing mentees' project management skills particularly for the 3M Project in the MSIB program, ensuring they can build and implement robust machine learning models, guiding them in dataset preparation, and managing the mentor team to collaborate effectively while maintaining a positive work environment."
+    },
+    {
+        "id": 2,
+        "position": "Mentor for IBM Academy: Advance Artificial Intelligence",
+        "company": "Infinite Learning Indonesia",
+        "type": "Contract",
+        "time": "February 2024 - July 2024",
+        "location": "Batam, Riau Islands, Indonesia | On-site",
+        "description": "Continuing my journey to become an instructor at IBM Academy, now focusing on Advanced Artificial Intelligence, a division previously based on Hybrid Cloud and AI. My duty is to ensure my mentees understand Data Science, Generative AI, Machine Learning, and Deep Learning using IBM Cloud technologies."
+    },
+    {
+        "id": 3,
+        "position": "Mentor for IBM Academy: Hybrid Cloud and AI",
+        "company": "Infinite Learning Indonesia",
+        "type": "Contract | Internship",
+        "time": "Aug 2023 - Feb 2024",
+        "location": "Batam, Riau Islands, Indonesia | On-site",
+        "description": "Starting my role as a mentor for a contract internship program held by Infinite Learning with a responsibility to make sure my students (mentee) to achieve knowledge about how to become a RedHat Enterprise Linux as a Linux System Administrator and also knowledge about AI and its ethics, history and the development of AI in the industry. Beside that, the knowledge of Cybersecurity is an essential knowledge for my students (mentee) to achieve in advance to make sure their digital lifestyle is safe. Also, I have responsibility to make sure my students is commit and have the knowledge delivered to them, has a skill to collaborate with others, communicate better, has a critical thinking to make the world a better place."
+    },
+    {
+        "id": 4,
+        "position": "Mentee of Red Hat Certified System Administrator - IBM AI & Cybersecurity",
+        "company": "Infinite Learning Indonesia",
+        "type": "Apprenticeship | Independent Study",
+        "time": "Feb 2023 - Jul 2023",
+        "location": "Batam, Riau Islands, Indonesia | Hybrid",
+        "description": "This independent study program, similar to an apprenticeship, is a collaboration between Infinite Learning and the Indonesian Ministry of Education and Culture. It offers comprehensive certification training including the RedHat Certified System Administrator course (3 months remote plus 2 weeks onsite), IBM's Artificial Intelligence Practitioner Certification (2 weeks onsite), IBM's Cybersecurity Practitioner Certification (2 weeks onsite), and culminates in a capstone project focusing on AI or Cybersecurity using IBM Cloud services (2 weeks remote)."
+    },
+    {
+        "id": 5,
+        "position": "Mentee of Pengembang Front-End Web dan React",
+        "company": "Dicoding Indonesia",
+        "type": "Apprenticeship | Independent Study",
+        "time": "Aug 2022 - Dec 2022",
+        "location": "Tanjungpinang, Riau Islands, Indonesia | Remote",
+        "description": "This independent study program, similar to an apprenticeship, is a collaboration between Dicoding Indonesia and the Indonesian Ministry of Education and Culture. The program provides comprehensive training in web development skills, encompassing the fundamentals of Front-End Web Development, ReactJS basics, Progressive Web Application (PWA) development principles, and website deployment techniques."
+    },
+]
 
 
 
@@ -43,34 +70,38 @@ export const Experiences = () => {
             <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-red-500 border-b mb-3">Experiences</h1>
             <p className="text-sm opacity-75 md:mb-6 mb-3 md:w-full w-2/3 text-center">Work experiences, interns, and independent study</p>
             <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto p-5 gap-5 md:w-4/5 w-full" id="aboutself">
-                <Accordion type="multiple" className="md:w-2/3 w-full bg-[#BABFBF] dark:bg-[#30323D] p-5 rounded-md">
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger> Lead Mentor for IBM Academy Advance Artificial Intelligence</AccordionTrigger>
-                        <AccordionContent>
-                            <Table>
-                                <TableRow>
-                                    <TableCell className="font-medium">Company</TableCell>
-                                    <TableCell>Infinite Learning Indonesia</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="font-medium">Type</TableCell>
-                                    <TableCell>Contract</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="font-medium">Time</TableCell>
-                                    <TableCell>July 2024 - Present</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="font-medium">Location | Type</TableCell>
-                                    <TableCell>Batam, Riau Island, Indonesia | On-site</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell className="font-medium">Description</TableCell>
-                                    <TableCell>As a lead mentor at IBM Academy Advanced AI @ Infinite Learning, I am responsible for guiding the mentor team and ensuring mentees master various crucial aspects, from IBM Soft Skills Training, Machine Learning, AI Governance, Generative AI, Deep Learning, to the use of WatsonX.ai on the IBM Cloud platform. My responsibilities include developing mentees' project management skills particularly for the 3M Project in the MSIB program, ensuring they can build and implement robust machine learning models, guiding them in dataset preparation, and managing the mentor team to collaborate effectively while maintaining a positive work environment.</TableCell>
-                                </TableRow>
-                            </Table>
-                        </AccordionContent>
-                    </AccordionItem>
+                <Accordion data-aos="fade-out" data-aos-duration='900' type="multiple" className="md:w-2/3 w-full bg-[#BABFBF] dark:bg-[#30323D] p-5 rounded-md">
+                    {
+                        experiences.map((exp, index) => (
+                            <AccordionItem value={`item-${index}`} key={index}>
+                                <AccordionTrigger className="text-left"> {exp.position}</AccordionTrigger>
+                                <AccordionContent>
+                                    <Table>
+                                        <TableRow>
+                                            <TableCell className="font-medium">Company</TableCell>
+                                            <TableCell>{exp.company}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell className="font-medium">Type</TableCell>
+                                            <TableCell>{exp.type}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell className="font-medium">Time</TableCell>
+                                            <TableCell>{exp.time}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell className="font-medium">Location | Type</TableCell>
+                                            <TableCell>{exp.location}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell className="font-medium">Description</TableCell>
+                                            <TableCell>{exp.description}</TableCell>
+                                        </TableRow>
+                                    </Table>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))
+                    }
                 </Accordion>
 
             </div>
