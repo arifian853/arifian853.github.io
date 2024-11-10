@@ -25,7 +25,7 @@ export const Navbar = () => {
             )
           }
         </div>
-        <ul className={`bg-[#BABFBF] dark:bg-[#30323D] md:border-none border rounded-lg md:shadow-none shadow-lg md:m-0 p-5 m-5 md:p-0 flex flex-col items-center gap-4 md:flex-row absolute md:static md:z-auto z-[2] md:right-0 right-0 w-[200px] md:w-auto md:pl-0 transition-all duration-100 ease-in-out ${toggle ? 'top-24 opacity-100' : 'top-24 z-[-99] opacity-0 md:opacity-100'}`}>
+        <ul className={`bg-[#BABFBF] dark:bg-[#30323D] md:border-none border rounded-lg md:shadow-none shadow-lg md:m-0 p-5 m-5 md:p-0 flex flex-col items-center gap-4 md:flex-row absolute md:static md:z-auto z-[2] md:right-0 right-0 w-[200px] md:w-auto md:pl-0 transition-all duration-100 ease-in-out ${toggle ? 'top-24 opacity-100' : 'top-24 z-[-99] right-72 opacity-0 md:opacity-100'}`}>
           <li className="border-b p-1 transition-all duration-100 ease-in delay-100 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/about'>About</Link></li>
           <li className="border-b p-1 transition-all duration-100 ease-in delay-100 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/project'>Projects</Link></li>
           <li className="border-b p-1 transition-all duration-100 ease-in delay-100 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/chat-ai'>Arifian.AI</Link></li>
