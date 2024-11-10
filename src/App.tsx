@@ -11,6 +11,8 @@ import { useEffect } from 'react'
 import { ProjectPage } from './pages/ProjectPage'
 import { Chat } from './pages/Chat'
 import { Projects } from './pages/Projects'
+import ScrollToTop from './components/scroll-to-top'
+import ScrollToTopButton from './components/scroll-btn'
 
 function App() {
   useEffect(() => {
@@ -20,7 +22,10 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-auto pt-1 pb-1">
+        <ScrollToTop />
+        <ScrollToTopButton />
         <Routes>
+
           <Route path='/' element={<Home />} />
 
           <Route path='*' element={<NotFound />} />
