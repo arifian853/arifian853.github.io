@@ -210,14 +210,6 @@ const featured_projects = [
     },
 ]
 
-
-
-const shuffled = [...featured_projects];
-for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-}
-
 export const ProjectPage = () => {
     const { id } = useParams<{ id: string }>();
     const project = featured_projects.find((project) => project.id.toString() === id);
@@ -285,7 +277,7 @@ export const ProjectPage = () => {
                 <h1 className="text-2xl">View another project</h1>
                 <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap">
                     {
-                        shuffled.slice(0, 3).map((project => (
+                        featured_projects.sort(() => 0.5 - Math.random()).slice(0, 3).map((project => (
                             <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D]">
                                 <CardHeader>
                                     <TooltipProvider>
