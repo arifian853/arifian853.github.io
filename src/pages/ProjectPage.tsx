@@ -234,7 +234,7 @@ export const ProjectPage = () => {
         <>
             <Navbar />
             <Helmet>
-                <title>{project.title} | Arifian Saputra</title>
+                <title>{project.title}</title>
                 <meta name="description" content={project.description.slice(0, 155)} />
             </Helmet>
             <div className="flex flex-col justify-center items-center">
