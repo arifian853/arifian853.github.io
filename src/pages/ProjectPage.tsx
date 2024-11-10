@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet"
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Navbar } from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +16,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { FaArrowLeft } from "react-icons/fa";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ProjectPage {
     id: number;
@@ -210,11 +211,18 @@ const featured_projects = [
 ]
 
 
+
+const shuffled = [...featured_projects];
+for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+}
+
 export const ProjectPage = () => {
     const { id } = useParams<{ id: string }>();
     const project = featured_projects.find((project) => project.id.toString() === id);
-
     const navigate = useNavigate();
+
     if (!project) {
         return <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen flex justify-center items-center p-5">
             <Helmet>
@@ -237,7 +245,7 @@ export const ProjectPage = () => {
                 <title>{project.title} | Arifian Saputra</title>
                 <meta name="description" content={project.description.slice(0, 155)} />
             </Helmet>
-            <div className="flex justify-center items-center">
+            <div className="flex flex-col justify-center items-center">
                 <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full md:w-4/5">
                     <div key={project.id} className="bg-[#BABFBF] dark:bg-[#30323D] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
                         <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5 shadow-lg hover:border-red-500 border border-white" src={project.image} alt="" />
@@ -274,7 +282,62 @@ export const ProjectPage = () => {
                         <Button className="md:m-0 mb-5 flex flex-row justify-center items-center gap-1" onClick={() => navigate(-1)}> <FaArrowLeft /> Back </Button>
                     </div>
                 </div>
+                <h1 className="text-2xl">View another project</h1>
+                <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap">
+                    {
+                        shuffled.slice(0, 3).map((project => (
+                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D]">
+                                <CardHeader>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger>
+                                                <CardTitle className="display-font truncate hover:underline text-left"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{project.title} ({project.year})</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                    <CardDescription className="truncate"> ({project.year}) <br /> {project.description} <Link to={`/project/${project.id}`}><p className="hover:underline">Read More...</p></Link> </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border" src={project.image} alt="" /></Link>
+                                </CardContent>
+                                <CardFooter>
+                                    <p className="flex justify-center items-center gap-3 w-full">
+                                        {
+                                            project.link.map((links, index) => (
+                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                            ))
+                                        }
+                                        {
+                                            project.demo.map((links, index) => (
+                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                            ))
+                                        }
+                                    </p>
+                                </CardFooter>
+                                <TooltipProvider>
+                                    <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
+                                        {project.tags.map((tag, index) => (
+                                            <Tooltip key={index}>
+                                                <TooltipTrigger>
+                                                    <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
+                                                </TooltipTrigger>
+                                                <TooltipContent className="flex flex-row items-center justify-center gap-2">
+                                                    {tag.icon} {tag.name}
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        ))}
+
+                                    </div>
+                                </TooltipProvider>
+                            </Card>
+                        )))
+                    }
+                </div>
             </div>
+
 
         </>
 
