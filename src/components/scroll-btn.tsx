@@ -29,7 +29,7 @@ const ScrollToTopButton = () => {
         isVisible && (
             <button
                 onClick={ScrollBtn}
-                className=" bg-[#BABFBF] dark:bg-[#30323D] fixed bottom-8 right-5 p-3 rounded-full transition duration-300 w-12 h-12 flex justify-center items-center text-5xl"
+                className=" bg-[#BABFBF] dark:bg-[#30323D] fixed bottom-8 right-5 p-3 rounded-full transition duration-300 w-12 h-12 flex justify-center items-center text-5xl z-[99] hover:border dark:border-zinc-300 border-black"
             >
                 <MdArrowDropUp />
             </button>
