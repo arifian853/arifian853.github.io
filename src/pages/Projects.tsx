@@ -212,7 +212,6 @@ const featured_projects = [
 ]
 
 export const Projects = () => {
-
     return (
         <>
             <Navbar />
@@ -280,7 +279,6 @@ export const Projects = () => {
                     <Button className="flex flex-row justify-center items-center gap-1"> <FaArrowLeft /> Back </Button>
                 </Link>
             </div>
-
         </>
     )
 }
