@@ -58,7 +58,7 @@ export const Chat = () => {
                 <Helmet>
                     <title>Soon! | Arifian.AI</title>
                 </Helmet>
-                <div className="min-h-dvh max-h-dvh w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
+                <div className="min-h-screen w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
                     <h1 className="text-4xl text-center p-5">Hello! Welcome to Arifian.AI</h1>
                     <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with ***** </p>
                     <Card className="max-h-dvh md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
