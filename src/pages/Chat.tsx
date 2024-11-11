@@ -61,8 +61,8 @@ export const Chat = () => {
                 <div className="min-h-screen w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
                     <h1 className="text-4xl text-center p-5">Hello! Welcome to Arifian.AI</h1>
                     <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with ***** </p>
-                    <Card className="max-h-dvh md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
-                        <div className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[350px]">
+                    <Card className="md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
+                        <div className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[300px]">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
