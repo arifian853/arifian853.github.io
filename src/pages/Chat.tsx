@@ -64,11 +64,11 @@ export const Chat = () => {
             <Navbar />
             <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen flex justify-center items-center p-5">
                 <Helmet>
-                    <title>Soon! | Arifian.AI</title>
+                    <title>Arifian.AI</title>
                 </Helmet>
                 <div className="min-h-screen max-h-[auto] w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
-                    <h1 className="text-4xl text-center p-5">Hello! Welcome to Arifian.AI</h1>
-                    <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with ***** </p>
+                    <h1 className="text-4xl text-center p-5">Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span></h1>
+                    <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with <span className="text-red-500">*****</span> </p>
                     <Card className="md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
                         <div ref={chatContainerRef}  className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[300px]">
                             {messages.map((message, index) => (
@@ -105,19 +105,19 @@ export const Chat = () => {
                         <div className="flex items-center mb-2 border-t p-3 justify-center md:flex-row flex-col gap-2">
                             <a
                                 onClick={() => handleSuggestionClick('Siapakah kamu, Arifian?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Siapakah kamu, Arifian?
                             </a>
                             <a
                                 onClick={() => handleSuggestionClick('Kapan kamu lahir?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Kapan kamu lahir?
                             </a>
                             <a
                                 onClick={() => handleSuggestionClick('Dari mana kamu berasal?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Dari mana kamu berasal?
                             </a>
