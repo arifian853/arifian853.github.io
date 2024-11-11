@@ -224,7 +224,7 @@ export const Projects = () => {
                 <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
                     {
                         featured_projects.map((project => (
-                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D]">
+                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg border-none">
                                 <CardHeader>
                                     <TooltipProvider>
                                         <Tooltip>
