@@ -62,7 +62,7 @@ export const Chat = () => {
                     <h1 className="text-4xl text-center p-5">Hello! Welcome to Arifian.AI</h1>
                     <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with ***** </p>
                     <Card className="max-h-dvh md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
-                        <div className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[550px]">
+                        <div className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[350px]">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
@@ -94,7 +94,7 @@ export const Chat = () => {
                             ))}
 
                         </div>
-                        <div className="flex items-center mb-2 border-t p-3 justify-center">
+                        <div className="flex items-center mb-2 border-t p-3 justify-center md:flex-row flex-col">
                             <a
                                 onClick={() => handleSuggestionClick('Siapakah kamu, Arifian?')}
                                 className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
