@@ -68,7 +68,7 @@ export const Chat = () => {
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-4xl text-2xl text-center p-5">Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span></h1>
-                    <p data-aos="fade-out" data-aos-duration='800' className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with <span className="text-red-500">*****</span> </p>
+                    <p data-aos="fade-out" data-aos-duration='800' className="text-center w-2/3">This AI chatbot is an impersonation of myself. <br /> Build with <span className="border-b border-red-500">T5 (Text-to-Text Transfer Transformer) and USE (Universal Sentence Encoder)</span> </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div ref={chatContainerRef}  className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
                             {messages.map((message, index) => (
@@ -106,21 +106,21 @@ export const Chat = () => {
                             <a
                                 data-aos="zoom-in" data-aos-duration='400'
                                 onClick={() => handleSuggestionClick('Siapakah kamu, Arifian?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Siapakah kamu, Arifian?
                             </a>
                             <a
                                 data-aos="zoom-in" data-aos-duration='400'
                                 onClick={() => handleSuggestionClick('Kapan kamu lahir?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Kapan kamu lahir?
                             </a>
                             <a
                                 data-aos="zoom-in" data-aos-duration='400'
                                 onClick={() => handleSuggestionClick('Dari mana kamu berasal?')}
-                                className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
+                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
                             >
                                 Dari mana kamu berasal?
                             </a>
@@ -139,6 +139,7 @@ export const Chat = () => {
                             </Button>
                         </div>
                     </Card>
+                    <p className="text-center w-2/3 opacity-55 text-xs">The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
                 </div>
             </div>
         </>
