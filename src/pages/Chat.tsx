@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { SetStateAction, useState } from 'react';
+import { SetStateAction, useEffect, useRef, useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ export const Chat = () => {
         simulateBotResponse('Model belum tersedia :) Mohon menunggu!');
     };
 
-    const simulateBotResponse = (responseText: string | never[]) => {
+    const simulateBotResponse = (responseText: string) => {
         setIsResponding(true);
         setMessages((prev) => [...prev, { sender: 'bot', text: '' }]); // Tambahkan elemen pesan kosong untuk diupdate
 
@@ -51,6 +51,14 @@ export const Chat = () => {
         setInput(suggestedText);
     };
 
+    const chatContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [messages]);
+
     return (
         <>
             <Navbar />
@@ -58,11 +66,11 @@ export const Chat = () => {
                 <Helmet>
                     <title>Soon! | Arifian.AI</title>
                 </Helmet>
-                <div className="min-h-screen w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
+                <div className="min-h-screen max-h-[auto] w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
                     <h1 className="text-4xl text-center p-5">Hello! Welcome to Arifian.AI</h1>
                     <p className="text-center w-2/3">This AI chatbot is an impersonation of myself. Build with ***** </p>
                     <Card className="md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg">
-                        <div className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[300px]">
+                        <div ref={chatContainerRef}  className="overflow-y-auto mb-4 md:max-h-[700px] max-h-[300px]">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
