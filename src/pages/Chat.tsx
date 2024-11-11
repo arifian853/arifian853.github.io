@@ -94,7 +94,7 @@ export const Chat = () => {
                             ))}
 
                         </div>
-                        <div className="flex items-center mb-2 border-t p-3 justify-center md:flex-row flex-col">
+                        <div className="flex items-center mb-2 border-t p-3 justify-center md:flex-row flex-col gap-2">
                             <a
                                 onClick={() => handleSuggestionClick('Siapakah kamu, Arifian?')}
                                 className={`mr-2 bg-[#1C1D24] text-white px-3 py-1 rounded-full text-sm hover:cursor-pointer ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
