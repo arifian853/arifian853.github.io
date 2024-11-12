@@ -36,7 +36,7 @@ export const Educations = () => {
                             <CardHeader>
                                 <CardTitle className="display-font">SMA Negeri 1 Bintan Utara</CardTitle>
                                 <CardDescription>
-                                    A Senior High School at Tanjunguban. Riau Islands.
+                                    A Senior High School at Tanjunguban, Riau Islands.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>

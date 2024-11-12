@@ -1,4 +1,3 @@
-// Web Tech Stack
 import { Button } from "@/components/ui/button";
 import {
     FaReact, FaBootstrap, FaNodeJs, FaPython, FaRedhat
@@ -51,7 +50,7 @@ export const AboutSelf = () => {
                             tech_stacks.map((tag, index) => (
                                 <TooltipProvider>
                                     <Tooltip key={index}>
-                                        <TooltipTrigger>
+                                        <TooltipTrigger data-aos="fade-out" data-aos-duration='900'>
                                             <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
                                         </TooltipTrigger>
                                         <TooltipContent className="flex flex-row items-center justify-center gap-2">

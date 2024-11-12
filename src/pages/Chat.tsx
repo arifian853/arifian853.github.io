@@ -1,9 +1,11 @@
 import { Helmet } from "react-helmet";
-import { SetStateAction, useEffect, useRef, useState } from 'react';
+import { SetStateAction, useEffect, useRef, useState, useMemo } from 'react';
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
+import { MdRefresh, MdSend } from "react-icons/md";
+import { BsStars } from "react-icons/bs";
 
 export const Chat = () => {
     const [messages, setMessages] = useState([
@@ -59,6 +61,28 @@ export const Chat = () => {
         }
     }, [messages]);
 
+    const [suggestionsKey, setSuggestionsKey] = useState(0);
+
+    const renderedSuggestions = useMemo(() => {
+        const suggestedMessage = [
+            { "message": "Siapakah kamu, Arifian?" },
+            { "message": "Kapan kamu lahir, Arifian?" },
+            { "message": "Dari mana kamu berasal?" },
+            { "message": "Apa pekerjaanmu?" },
+            { "message": "Dimana kamu tinggal?" },
+            { "message": "Apa hobimu?" },
+            { "message": "Apa keahlianmu?" },
+            { "message": "Apakah kamu ada keahlian AI?" }
+        ];
+
+        return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [suggestionsKey]);
+
+    const handleNewSuggestions = () => {
+        setSuggestionsKey(prevKey => prevKey + 1); // Update kunci untuk memicu useMemo
+    };
+
     return (
         <>
             <Navbar />
@@ -67,10 +91,18 @@ export const Chat = () => {
                     <title>Arifian.AI</title>
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
-                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-4xl text-2xl text-center p-5">Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span></h1>
-                    <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full">This AI chatbot is an impersonation of myself. <br /> Build with <span className="border-b border-red-500">T5 (Text-to-Text Transfer Transformer) and USE (Universal Sentence Encoder)</span> </p>
-                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full p-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
-                        <div ref={chatContainerRef}  className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
+                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-4xl text-2xl text-center p-5">
+                        Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
+                    </h1>
+                    <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full">
+                        This AI chatbot is an impersonation of myself. <br />
+                        Build with <span className="border-b border-red-500">T5 (Text-to-Text Transfer Transformer) and USE (Universal Sentence Encoder)</span>
+                    </p>
+                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
+                        <div className="flex items-center mb-2 border-b p-4 justify-center gap-2">
+                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.1 Beta </span> <BsStars />
+                        </div>
+                        <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
@@ -100,46 +132,50 @@ export const Chat = () => {
                                     )}
                                 </div>
                             ))}
-
                         </div>
-                        <div className="flex items-center mb-2 border-t p-3 justify-center md:flex-row flex-col gap-2">
-                            <a
-                                data-aos="zoom-in" data-aos-duration='400'
-                                onClick={() => handleSuggestionClick('Siapakah kamu, Arifian?')}
-                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
-                            >
-                                Siapakah kamu, Arifian?
-                            </a>
-                            <a
-                                data-aos="zoom-in" data-aos-duration='400'
-                                onClick={() => handleSuggestionClick('Kapan kamu lahir?')}
-                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
-                            >
-                                Kapan kamu lahir?
-                            </a>
-                            <a
-                                data-aos="zoom-in" data-aos-duration='400'
-                                onClick={() => handleSuggestionClick('Dari mana kamu berasal?')}
-                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500 ${isResponding ? 'pointer-events-none opacity-50' : ''}`}
-                            >
-                                Dari mana kamu berasal?
-                            </a>
+                        <div className="flex items-center border-t p-4 justify-center md:flex-row flex-col gap-2">
+                            {
+                                isResponding ? (
+                                    <>...</>
+                                ) : (
+                                    renderedSuggestions.map((text, index) => (
+                                        <a
+                                            key={index}
+                                            data-aos="fade-in"
+                                            data-aos-duration='900'
+                                            onClick={() => handleSuggestionClick(text.message)}
+                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                        >
+                                            {text.message}
+                                        </a>
+                                    ))
+                                )
+                            }
+                            {
+                                isResponding ? (
+                                    <></>
+                                ) : (
+                                    <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
+                                )
+                            }
                         </div>
                         <div className="flex items-center">
                             <Input
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}
-                                placeholder="Ketik pesan..."
-                                className="flex-1"
-                                disabled={isResponding} // Nonaktifkan input saat isResponding true
+                                placeholder="Write message...."
+                                className="flex-1 md:text-base text-sm"
+                                disabled={isResponding}
                             />
-                            <Button onClick={handleSend} className="ml-2" disabled={isResponding}>
-                                Kirim
+                            <Button onClick={handleSend} className="ml-2 flex gap-2 justify-center items-center" disabled={isResponding}>
+                                Send <MdSend />
                             </Button>
                         </div>
                     </Card>
-                    <p className="text-center w-2/3 opacity-55 text-xs"><span className="border-b border-yellow-500">Warning:</span> The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
+                    <p className="text-center w-2/3 opacity-55 text-xs">
+                        <span className="border-b border-yellow-500">Warning:</span> The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
+                    </p>
                 </div>
             </div>
         </>
