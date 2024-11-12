@@ -139,7 +139,7 @@ export const Chat = () => {
                             </Button>
                         </div>
                     </Card>
-                    <p className="text-center w-2/3 opacity-55 text-xs">The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
+                    <p className="text-center w-2/3 opacity-55 text-xs"><span className="border-b border-yellow-500">Warning:</span> The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
                 </div>
             </div>
         </>
