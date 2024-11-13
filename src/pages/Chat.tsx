@@ -14,22 +14,37 @@ export const Chat = () => {
     const [input, setInput] = useState('');
     const [isResponding, setIsResponding] = useState(false);
 
-    const handleSend = () => {
+    const handleSend = async () => {
         if (input.trim() === '') return;
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
-        simulateBotResponse('Model belum tersedia :) Mohon menunggu!');
+        try {
+            const response = await fetch("http://127.0.0.1:5000/ask", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: input })
+            });
+
+            const data = await response.json();
+            const botResponse = data.answer;
+
+            simulateBotResponse(botResponse);
+        } catch (error) {
+            console.error("Error fetching chatbot response:", error);
+            simulateBotResponse("Sorry, server error.");
+        }
     };
 
     const simulateBotResponse = (responseText: string) => {
         setIsResponding(true);
-        setMessages((prev) => [...prev, { sender: 'bot', text: '' }]); // Tambahkan elemen pesan kosong untuk diupdate
+        setMessages((prev) => [...prev, { sender: 'bot', text: '' }]);
 
         let index = 0;
         const interval = setInterval(() => {
             if (index < responseText.length) {
                 setMessages((prev) => {
-                    // Update pesan terakhir dari bot
                     const updatedMessages = [...prev];
                     updatedMessages[updatedMessages.length - 1].text += responseText[index];
                     return updatedMessages;
@@ -37,9 +52,9 @@ export const Chat = () => {
                 index++;
             } else {
                 clearInterval(interval);
-                setIsResponding(false); // Set isResponding menjadi false setelah bot selesai merespons
+                setIsResponding(false);
             }
-        }, 50); // Durasi streaming (50 ms per karakter)
+        }, 30);
     };
 
     const handleKeyDown = (e: { key: string; preventDefault: () => void; }) => {
@@ -66,13 +81,17 @@ export const Chat = () => {
     const renderedSuggestions = useMemo(() => {
         const suggestedMessage = [
             { "message": "Siapakah kamu, Arifian?" },
-            { "message": "Kapan kamu lahir, Arifian?" },
+            { "message": "Tanggal berapa kamu lahir, Arifian?" },
             { "message": "Dari mana kamu berasal?" },
             { "message": "Apa pekerjaanmu?" },
             { "message": "Dimana kamu tinggal?" },
             { "message": "Apa hobimu?" },
-            { "message": "Apa keahlianmu?" },
-            { "message": "Apakah kamu ada keahlian AI?" }
+            { "message": "Apa keahlian utama kamu?" },
+            { "message": "Apa kamu ada keahlian AI?" },
+            { "message": "Berapa umurmu?" },
+            { "message": "Apa profil Instagram Anda?" },
+            { "message": "Apa profil LinkedIn Anda?" },
+            { "message": "Apa yang kamu gemari?" },
         ];
 
         return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
@@ -100,7 +119,7 @@ export const Chat = () => {
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 justify-center gap-2">
-                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.1 Beta </span> <BsStars />
+                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.2 Beta </span> <BsStars />
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
                             {messages.map((message, index) => (
@@ -174,7 +193,7 @@ export const Chat = () => {
                         </div>
                     </Card>
                     <p className="text-center w-2/3 opacity-55 text-xs">
-                        <span className="border-b border-yellow-500">Warning:</span> The model of this AI chatbot is not yet finished. You can see the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
+                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may resulting in an awkward or poor result, prioritize using suggested message. See the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">repository.</a>
                     </p>
                 </div>
             </div>
