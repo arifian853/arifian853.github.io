@@ -33,7 +33,7 @@ export const Chat = () => {
             simulateBotResponse(botResponse);
         } catch (error) {
             console.error("Error fetching chatbot response:", error);
-            simulateBotResponse("Sorry, server error.");
+            simulateBotResponse("Sorry, model not yet deployed.");
         }
     };
 
@@ -119,7 +119,7 @@ export const Chat = () => {
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 justify-center gap-2">
-                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.2 Beta </span> <BsStars />
+                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.3 Beta </span> <BsStars />
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
                             {messages.map((message, index) => (
