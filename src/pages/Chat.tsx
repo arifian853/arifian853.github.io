@@ -83,15 +83,17 @@ export const Chat = () => {
             { "message": "Siapakah kamu, Arifian?" },
             { "message": "Tanggal berapa kamu lahir, Arifian?" },
             { "message": "Dari mana kamu berasal?" },
-            { "message": "Apa pekerjaanmu?" },
+            { "message": "Kamu bekerja dimana?" },
             { "message": "Dimana kamu tinggal?" },
             { "message": "Apa hobimu?" },
-            { "message": "Apa keahlian utama kamu?" },
+            { "message": "Apa keahlian utama Anda?" },
             { "message": "Apa kamu ada keahlian AI?" },
             { "message": "Berapa umurmu?" },
             { "message": "Apa profil Instagram Anda?" },
             { "message": "Apa profil LinkedIn Anda?" },
             { "message": "Apa yang kamu gemari?" },
+            { "message": "Halo, Arifian!" },
+            { "message": "Bagaimana latar belakang pendidikanmu?" },
         ];
 
         return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
