@@ -62,6 +62,14 @@ export const About = () => {
             <p className="display-font text-xl text-center border-red-500 border-b">Arifian Saputra</p>
             <p className="text-sm opacity-75">AI Technical Mentor | Full - Stack Web Developer | RHCSA</p>
             <p className="md:w-1/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified. Currently served as a mentor of IBM Academy: Advance AI program at Infinite Learning.</p>
+            <div className="flex gap-3">
+              <a data-aos="fade-out" data-aos-duration='900' href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                <Button className="flex flex-row justify-center items-center gap-1"> CV </Button>
+              </a>
+              <a data-aos="fade-out" data-aos-duration='900' href="/abstract.pdf" target="_blank" rel="noopener noreferrer">
+                <Button className="flex flex-row justify-center items-center gap-1"> Thesis Abstract </Button>
+              </a>
+            </div>
           </div>
 
           <h1 className="display-font text-xl text-center border-red-500 border-b">Tech Stacks</h1>
@@ -83,8 +91,6 @@ export const About = () => {
             }
           </div>
 
-          <br />
-
           <h1 className="display-font text-xl text-center border-red-500 border-b">Stay in Touch</h1>
           <div className='text-4xl flex flex-wrap gap-4 justify-center items-center w-[300px]'>
             {
@@ -102,8 +108,6 @@ export const About = () => {
               ))
             }
           </div>
-
-          <br />
 
           <div className="flex gap-3">
             <a data-aos="fade-out" data-aos-duration='900' href="mailto:arifiansaputra43@gmail.com" target="_blank" rel="noopener noreferrer">

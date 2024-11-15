@@ -17,8 +17,6 @@ import {
 import { MdLibraryBooks } from "react-icons/md";
 import { GiGraduateCap } from "react-icons/gi";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import { Link } from "react-router-dom";
-
 
 export const Educations = () => {
     return (
@@ -64,7 +62,6 @@ export const Educations = () => {
                                     <li className="flex justify-start gap-2 items-center"><MdLibraryBooks /> Informatics Engineering</li>
                                     <li className="flex justify-start gap-2 items-center"><GiGraduateCap />2020 - 2024</li>
                                     <li className="flex justify-start gap-2 items-center"><IoIosCheckmarkCircleOutline />3.52</li>
-                                    <li className="flex justify-start gap-2 items-center"><MdLibraryBooks /> Thesis : <Link to={'/thesis'}>See here</Link></li>
                                 </ul> 
                             </CardContent>
                             <CardFooter>
