@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 
 export const Chat = () => {
     const [messages, setMessages] = useState([
@@ -13,6 +14,7 @@ export const Chat = () => {
     ]);
     const [input, setInput] = useState('');
     const [isResponding, setIsResponding] = useState(false);
+    const [responseTime, setResponseTime] = useState(0);
 
     const handleSend = async () => {
         if (input.trim() === '') return;
@@ -38,6 +40,7 @@ export const Chat = () => {
     };
 
     const simulateBotResponse = (responseText: string) => {
+        const startTime = Date.now();
         setIsResponding(true);
         setMessages((prev) => [...prev, { sender: 'bot', text: '' }]);
 
@@ -52,6 +55,8 @@ export const Chat = () => {
                 index++;
             } else {
                 clearInterval(interval);
+                const endTime = Date.now();
+                setResponseTime(endTime - startTime);
                 setIsResponding(false);
             }
         }, 30);
@@ -101,8 +106,13 @@ export const Chat = () => {
     }, [suggestionsKey]);
 
     const handleNewSuggestions = () => {
-        setSuggestionsKey(prevKey => prevKey + 1); // Update kunci untuk memicu useMemo
+        setSuggestionsKey(prevKey => prevKey + 1); 
     };
+
+    // const handleClearChat = () => {
+    //     setMessages([]); 
+    // };
+
 
     return (
         <>
@@ -120,10 +130,11 @@ export const Chat = () => {
                         Build with <span className="border-b border-red-500">T5 (Text-to-Text Transfer Transformer) and USE (Universal Sentence Encoder)</span>
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
-                        <div className="flex items-center mb-2 border-b p-4 justify-center gap-2">
-                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.3 Beta </span> <BsStars />
+                        <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
+                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.3 Beta </span> <BsStars /> <HiOutlineDotsVertical />
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
+
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
@@ -154,7 +165,15 @@ export const Chat = () => {
                                 </div>
                             ))}
                         </div>
+                        <div className="flex justify-center items-center gap-2 p-4">
+                            {responseTime > 0 && (
+                                <p className="text-xs text-gray-500">
+                                    Model response time: {responseTime} ms
+                                </p>
+                            )}
+                        </div>
                         <div className="flex items-center border-t p-4 justify-center md:flex-row flex-col gap-2">
+
                             {
                                 isResponding ? (
                                     <>...</>
