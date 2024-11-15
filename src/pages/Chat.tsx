@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
-import { HiOutlineDotsVertical } from "react-icons/hi";
+import { FaTrash } from "react-icons/fa6";
 
 export const Chat = () => {
     const [messages, setMessages] = useState([
@@ -106,12 +106,13 @@ export const Chat = () => {
     }, [suggestionsKey]);
 
     const handleNewSuggestions = () => {
-        setSuggestionsKey(prevKey => prevKey + 1); 
+        setSuggestionsKey(prevKey => prevKey + 1);
     };
 
-    // const handleClearChat = () => {
-    //     setMessages([]); 
-    // };
+    const handleClearChat = () => {
+        setMessages([]); 
+        window.location.reload();
+    };
 
 
     return (
@@ -131,7 +132,8 @@ export const Chat = () => {
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className="display-font">Arifian<span className="text-red-500">.AI</span> v0.3 Beta </span> <BsStars /> <HiOutlineDotsVertical />
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1">Arifian<span className="text-red-500">.AI</span> v0.3 Beta  <BsStars /> </span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
+                               
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
 
@@ -176,7 +178,7 @@ export const Chat = () => {
 
                             {
                                 isResponding ? (
-                                    <>...</>
+                                    <div className="loader"></div>
                                 ) : (
                                     renderedSuggestions.map((text, index) => (
                                         <a
