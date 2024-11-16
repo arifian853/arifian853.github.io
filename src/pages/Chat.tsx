@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
-import { BsStars } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa6";
 
 export const Chat = () => {
@@ -110,7 +109,7 @@ export const Chat = () => {
     };
 
     const handleClearChat = () => {
-        setMessages([]); 
+        setMessages([]);
         window.location.reload();
     };
 
@@ -127,13 +126,12 @@ export const Chat = () => {
                         Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full">
-                        This AI chatbot is an impersonation of myself. <br />
-                        Build with <span className="border-b border-red-500">T5 (Text-to-Text Transfer Transformer) and USE (Universal Sentence Encoder)</span>
+                        Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1">Arifian<span className="text-red-500">.AI</span> v0.3 Beta  <BsStars /> </span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
-                               
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.3 </span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
+
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
 
@@ -216,6 +214,7 @@ export const Chat = () => {
                         </div>
                     </Card>
                     <p className="text-center w-2/3 opacity-55 text-xs">
+                        <span>This AI chatbot is an impersonation of me. Not all answers will be true or accurate.<br /></span>
                         <span className="border-b border-yellow-500">Warning:</span> Using your own words may resulting in an awkward or poor result, prioritize using suggested message. <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
                     </p>
                 </div>
