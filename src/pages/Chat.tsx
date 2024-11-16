@@ -216,7 +216,7 @@ export const Chat = () => {
                         </div>
                     </Card>
                     <p className="text-center w-2/3 opacity-55 text-xs">
-                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may resulting in an awkward or poor result, prioritize using suggested message. See the development <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">repository.</a>
+                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may resulting in an awkward or poor result, prioritize using suggested message. <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
                     </p>
                 </div>
             </div>
