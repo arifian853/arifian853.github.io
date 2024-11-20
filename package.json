@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": false,
-  "base": "https://arifian853.github.io/",
+  "base": "/",
   "version": "4.0.0",
   "type": "module",
   "scripts": {
