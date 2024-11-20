@@ -20,7 +20,7 @@ export const Chat = () => {
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
         try {
-            const response = await fetch("http://127.0.0.1:5000/ask", {
+            const response = await fetch("", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
