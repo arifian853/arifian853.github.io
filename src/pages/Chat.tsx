@@ -130,7 +130,7 @@ export const Chat = () => {
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 </span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.3 </span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
 
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
