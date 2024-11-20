@@ -151,7 +151,7 @@ export const Chat = () => {
                                         className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg ${message.sender === 'bot'
                                             ? 'bg-gray-300 dark:bg-gray-700'
                                             : 'bg-[#1C1D24] text-white'
-                                            }`}
+                                            }`} 
                                     >
                                         {message.text}
                                     </div>
