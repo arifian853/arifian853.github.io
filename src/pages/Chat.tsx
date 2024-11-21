@@ -20,7 +20,7 @@ export const Chat = () => {
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
         try {
-            const response = await fetch(`${import.meta.env.VITE_MODEL_ENDPOINT}`, {
+            const response = await fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
