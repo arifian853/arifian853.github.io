@@ -20,7 +20,7 @@ export const Chat = () => {
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
         try {
-            const response = await fetch("", {
+            const response = await fetch(`${import.meta.env.VITE_MODEL_ENDPOINT}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -91,7 +91,7 @@ export const Chat = () => {
             { "message": "Dimana kamu tinggal?" },
             { "message": "Apa hobi kamu?" },
             { "message": "Apa keahlian utama Anda?" },
-            { "message": "Apa kamu ada keahlian AI?" },
+            { "message": "Chatbot apa ini?" },
             { "message": "Berapa umurmu?" },
             { "message": "Apa profil Instagram Anda?" },
             { "message": "Apa profil LinkedIn Anda?" },
