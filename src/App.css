@@ -41,12 +41,13 @@ body {
 
 /*The Scrollbar itself*/
 ::-webkit-scrollbar-thumb {
-  background: var(--black-dark);
+  background: black;
   border: #E0E0E0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--white);
+  background: #312e2e;
+  cursor: pointer;
 }
 
 .loader {

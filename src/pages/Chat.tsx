@@ -34,7 +34,7 @@ export const Chat = () => {
     }, []);
 
     const handleDontShowAgain = () => {
-        // localStorage.setItem("hideChangelog", "true");
+        localStorage.setItem("hideChangelog", "true");
     };
 
     const handleSend = async () => {
