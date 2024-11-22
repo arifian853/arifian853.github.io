@@ -7,6 +7,16 @@ import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
 import { FaTrash } from "react-icons/fa6";
 
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+
 export const Chat = () => {
     const [messages, setMessages] = useState([
         { sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }
@@ -125,13 +135,28 @@ export const Chat = () => {
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-4xl text-2xl text-center p-5">
                         Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
                     </h1>
-                    <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full">
+                    <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest</span> <span className="hover:cursor-pointer hover:text-red-500" onClick={handleClearChat}><FaTrash /></span>
-
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest</span>
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <FaTrash className="hover:cursor-pointer hover:text-red-500" />
+                                </DialogTrigger>
+                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                                    <DialogHeader>
+                                        <DialogTitle className="display-font">Delete all chat?</DialogTitle>
+                                        <DialogDescription>
+                                            Your chat will be deleted permanently.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <DialogFooter>
+                                        <Button onClick={handleClearChat} className="flex justify-center items-center gap-1 hover:bg-red-500">Delete <FaTrash /></Button>
+                                    </DialogFooter>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
 
@@ -151,7 +176,7 @@ export const Chat = () => {
                                         className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg ${message.sender === 'bot'
                                             ? 'bg-gray-300 dark:bg-gray-700'
                                             : 'bg-[#1C1D24] text-white'
-                                            }`} 
+                                            }`}
                                     >
                                         {message.text}
                                     </div>
@@ -214,8 +239,8 @@ export const Chat = () => {
                         </div>
                     </Card>
                     <p className="text-center w-2/3 opacity-55 text-xs">
-                        <span>This AI chatbot is an impersonation of me. Not all answers will be true or accurate.<br /></span>
-                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may resulting in an awkward or poor result, prioritize using suggested message. <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
+                        <span>This AI chatbot is an impersonation of Arifian. Not all answers are guaranteed to be true or accurate.<br /></span>
+                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages. <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
                     </p>
                 </div>
             </div>
