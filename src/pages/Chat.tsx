@@ -24,6 +24,18 @@ export const Chat = () => {
     const [input, setInput] = useState('');
     const [isResponding, setIsResponding] = useState(false);
     const [responseTime, setResponseTime] = useState(0);
+    const [showChangelog, setShowChangelog] = useState(false);
+
+    useEffect(() => {
+        const dontShowAgain = localStorage.getItem("hideChangelog");
+        if (!dontShowAgain) {
+            setShowChangelog(true);
+        }
+    }, []);
+
+    const handleDontShowAgain = () => {
+        // localStorage.setItem("hideChangelog", "true");
+    };
 
     const handleSend = async () => {
         if (input.trim() === '') return;
@@ -244,6 +256,100 @@ export const Chat = () => {
                     </p>
                 </div>
             </div>
+            <Dialog open={showChangelog} onOpenChange={setShowChangelog}>
+                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                    <DialogHeader>
+                        <DialogTitle className="display-font">Changelog</DialogTitle>
+                        <DialogDescription className="overflow-y-scroll h-48">
+                            <ul className="list-disc ml-5">
+                                <li>
+                                    <strong>v0.4.1 Latest: Performance Boost with 20 Epochs</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.6640</li>
+                                        <li>ROUGE-2: 0.5327</li>
+                                        <li>ROUGE-L: 0.6441</li>
+                                        <li>BLEU Score: 52.0508</li>
+                                        <li>20 Epochs</li>
+                                        <li>Count of question-answer pair: 297</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.4: Performance Details with 16 Epochs</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.6647</li>
+                                        <li>ROUGE-2: 0.5067</li>
+                                        <li>ROUGE-L: 0.6386</li>
+                                        <li>BLEU Score: 50.0938</li>
+                                        <li>16 Epochs</li>
+                                        <li>Count of question-answer pair: 297</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.3.1: Improved Performance with 12 Epochs</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.5903</li>
+                                        <li>ROUGE-2: 0.4748</li>
+                                        <li>ROUGE-L: 0.5678</li>
+                                        <li>BLEU Score: 42.4546</li>
+                                        <li>12 Epochs</li>
+                                        <li>Count of question-answer pair: 270</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.3: Increased Q&A Data with Higher BLEU Score</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.5548</li>
+                                        <li>ROUGE-2: 0.4657</li>
+                                        <li>ROUGE-L: 0.5456</li>
+                                        <li>BLEU Score: 39.2361</li>
+                                        <li>12 Epochs</li>
+                                        <li>Count of question-answer pair: 268</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.2: Quality Improved Despite Fewer Data Compared to v0.1</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.5797</li>
+                                        <li>ROUGE-2: 0.3899</li>
+                                        <li>ROUGE-L: 0.5502</li>
+                                        <li>BLEU Score: 26.8416</li>
+                                        <li>12 Epochs</li>
+                                        <li>Count of question-answer pair: 81</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.1: First Version with ROUGE and BLEU Score Details</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>ROUGE-1: 0.4902</li>
+                                        <li>ROUGE-2: 0.2448</li>
+                                        <li>ROUGE-L: 0.4419</li>
+                                        <li>BLEU Score: 24.6660</li>
+                                        <li>12 Epochs</li>
+                                        <li>Count of question-answer pair: 104</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <div className="flex justify-between w-full">
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    id="dont-show"
+                                    onChange={handleDontShowAgain}
+                                    className="mr-2"
+                                />
+                                <label htmlFor="dont-show" className="text-sm">
+                                    Don't show this again
+                                </label>
+                            </div>
+                            <Button onClick={() => setShowChangelog(false)}>Close</Button>
+                        </div>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </>
     );
 };
