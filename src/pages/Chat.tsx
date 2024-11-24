@@ -259,8 +259,8 @@ export const Chat = () => {
             <Dialog open={showChangelog} onOpenChange={setShowChangelog}>
                 <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
                     <DialogHeader>
-                        <DialogTitle className="display-font">Changelog</DialogTitle>
-                        <DialogDescription className="overflow-y-scroll h-48">
+                        <DialogTitle className="display-font text-left">Changelog</DialogTitle>
+                        <DialogDescription className="overflow-y-scroll h-52 text-left">
                             <ul className="list-disc ml-5">
                                 <li>
                                     <strong>v0.4.1 Latest: Performance Boost with 20 Epochs</strong>
