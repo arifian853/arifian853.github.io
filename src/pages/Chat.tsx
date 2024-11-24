@@ -107,7 +107,7 @@ export const Chat = () => {
     const renderedSuggestions = useMemo(() => {
         const suggestedMessage = [
             { "message": "Siapakah kamu, Arifian?" },
-            { "message": "Tanggal berapa kamu lahir, Arifian?" },
+            { "message": "Tanggal berapa kamu lahir?" },
             { "message": "Dari mana kamu berasal?" },
             { "message": "Kamu bekerja dimana?" },
             { "message": "Dimana kamu tinggal?" },
@@ -119,7 +119,7 @@ export const Chat = () => {
             { "message": "Apa profil LinkedIn Anda?" },
             { "message": "Apa yang kamu gemari?" },
             { "message": "Halo, Arifian!" },
-            { "message": "Bagaimana latar belakang pendidikanmu?" },
+            { "message": "Kamu kuliah dimana?" },
         ];
 
         return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
@@ -134,7 +134,6 @@ export const Chat = () => {
         setMessages([]);
         window.location.reload();
     };
-
 
     return (
         <>
@@ -161,7 +160,7 @@ export const Chat = () => {
                                     <DialogHeader>
                                         <DialogTitle className="display-font">Delete all chat?</DialogTitle>
                                         <DialogDescription>
-                                            Your chat will be deleted permanently.
+                                            Your chat will be deleted permanently. This action cannot be undone.
                                         </DialogDescription>
                                     </DialogHeader>
                                     <DialogFooter>
@@ -221,7 +220,7 @@ export const Chat = () => {
                                             data-aos="fade-in"
                                             data-aos-duration='900'
                                             onClick={() => handleSuggestionClick(text.message)}
-                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
                                         >
                                             {text.message}
                                         </a>
