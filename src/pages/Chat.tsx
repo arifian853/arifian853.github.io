@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet";
-import { SetStateAction, useEffect, useRef, useState, useMemo } from 'react';
+import { SetStateAction, useEffect, useRef, useState, useMemo, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,9 +19,15 @@ import {
 } from "@/components/ui/dialog"
 
 export const Chat = () => {
-    const [messages, setMessages] = useState([
-        { sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }
-    ]);
+    const [messages, setMessages] = useState(() => {
+        const savedMessages = localStorage.getItem("chatMessages");
+        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("chatMessages", JSON.stringify(messages));
+    }, [messages]);
+
     const [input, setInput] = useState('');
     const [isResponding, setIsResponding] = useState(false);
     const [responseTime, setResponseTime] = useState(0);
@@ -63,12 +70,12 @@ export const Chat = () => {
     const simulateBotResponse = (responseText: string) => {
         const startTime = Date.now();
         setIsResponding(true);
-        setMessages((prev) => [...prev, { sender: 'bot', text: '' }]);
+        setMessages((prev: any) => [...prev, { sender: 'bot', text: '' }]);
 
         let index = 0;
         const interval = setInterval(() => {
             if (index < responseText.length) {
-                setMessages((prev) => {
+                setMessages((prev: any) => {
                     const updatedMessages = [...prev];
                     updatedMessages[updatedMessages.length - 1].text += responseText[index];
                     return updatedMessages;
@@ -131,7 +138,9 @@ export const Chat = () => {
     };
 
     const handleClearChat = () => {
-        setMessages([]);
+        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }];
+        setMessages(initialMessage);
+        localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
     };
 
@@ -171,7 +180,7 @@ export const Chat = () => {
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
 
-                            {messages.map((message, index) => (
+                            {messages.map((message: { sender: string; text: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }, index: Key | null | undefined) => (
                                 <div
                                     key={index}
                                     className={`mb-2 flex ${message.sender === 'bot' ? 'justify-start' : 'justify-end'}`}
@@ -248,10 +257,13 @@ export const Chat = () => {
                                 Send <MdSend />
                             </Button>
                         </div>
+                        <p className="text-xs text-gray-500 text-center mt-4">
+                            Your chat only stored in this device.
+                        </p>
                     </Card>
-                    <p className="text-center w-2/3 opacity-55 text-xs">
-                        <span>This AI chatbot is an impersonation of Arifian. Not all answers are guaranteed to be true or accurate.<br /></span>
-                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages. <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
+                    <p className="text-center w-full opacity-55 text-xs">
+                        <span>This AI chatbot is an impersonation of Arifian. Not all answers are guaranteed to be true or accurate. Your chat only stored in this device.<br /></span> <br />
+                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages. <br /> <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
                     </p>
                 </div>
             </div>
