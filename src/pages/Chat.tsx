@@ -21,7 +21,7 @@ import {
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
         const savedMessages = localStorage.getItem("chatMessages");
-        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }];
+        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
     });
 
     useEffect(() => {
@@ -138,7 +138,7 @@ export const Chat = () => {
     };
 
     const handleClearChat = () => {
-        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang bisa saya bantu?' }];
+        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
         setMessages(initialMessage);
         localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
