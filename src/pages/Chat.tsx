@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
-import { FaTrash } from "react-icons/fa6";
+import { FaGear, FaTrash } from "react-icons/fa6";
 
 import {
     Dialog,
@@ -17,6 +17,14 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { FaInfoCircle } from "react-icons/fa";
 
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
@@ -166,22 +174,50 @@ export const Chat = () => {
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
                             <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
-                            <Dialog>
-                                <DialogTrigger asChild>
-                                    <FaTrash className="hover:cursor-pointer hover:text-red-500" />
-                                </DialogTrigger>
-                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
-                                    <DialogHeader>
-                                        <DialogTitle className="display-font">Delete all chat?</DialogTitle>
-                                        <DialogDescription>
-                                            Your chat will be deleted permanently. This action cannot be undone.
-                                        </DialogDescription>
-                                    </DialogHeader>
-                                    <DialogFooter>
-                                        <Button onClick={handleClearChat} className="flex justify-center items-center gap-1 hover:bg-red-500">Delete <FaTrash /></Button>
-                                    </DialogFooter>
-                                </DialogContent>
-                            </Dialog>
+                            <div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger><FaGear /></DropdownMenuTrigger>
+                                    <DropdownMenuContent className="bg-[#BABFBF] dark:bg-[#30323D]">
+                                        <DropdownMenuItem className="hover:cursor-pointer hover:text-red-500">
+                                            <Dialog>
+                                                <DialogTrigger onClick={(e) => e.stopPropagation()} className="hover:cursor-pointer hover:text-red-500">
+                                                    <span className="flex items-center justify-center gap-2">
+                                                        <FaTrash /> Delete all chat
+                                                    </span>
+                                                </DialogTrigger>
+                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                                                    <DialogHeader>
+                                                        <DialogTitle className="display-font">Delete all chat?</DialogTitle>
+                                                        <DialogDescription>
+                                                            Your chat will be deleted permanently. This action cannot be undone.
+                                                        </DialogDescription>
+                                                    </DialogHeader>
+                                                    <DialogFooter>
+                                                        <Button onClick={handleClearChat} className="flex justify-center items-center gap-1 hover:bg-red-500">Delete <FaTrash /></Button>
+                                                    </DialogFooter>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Dialog>
+                                                <DialogTrigger onClick={(e) => e.stopPropagation()}>
+                                                    <span className="flex items-center justify-center gap-2">
+                                                        <FaInfoCircle /> About
+                                                    </span>
+                                                </DialogTrigger>
+                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                                                    <DialogHeader>
+                                                        <DialogTitle className="display-font">About this chatbot</DialogTitle>
+                                                        <DialogDescription>
+                                                            TBA
+                                                        </DialogDescription>
+                                                    </DialogHeader>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
                         </div>
                         <div ref={chatContainerRef} className="overflow-y-auto md:max-h-[700px] max-h-[500px] md:p-3 p-2">
 
