@@ -48,23 +48,28 @@ export const Chat = () => {
         if (input.trim() === '') return;
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
+
         try {
-            const response = await fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
+            const timeout = new Promise((_, reject) =>
+                setTimeout(() => reject(new Error("Service is starting, please wait... Ask again after 5-6 minutes.")), 5000)
+            );
+            const fetchResponse = fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ question: input })
-            });
+            }).then(response => response.json());
 
-            const data = await response.json();
+            const data = await Promise.race([fetchResponse, timeout]);
             const botResponse = data.answer;
 
             simulateBotResponse(botResponse);
         } catch (error) {
-            console.error("Error fetching chatbot response:", error);
-            simulateBotResponse("Sorry, model not yet deployed.");
+            console.error("Service is starting, please wait... Ask again after 5-6 minutes.", error);
+            simulateBotResponse("Service is starting, please wait... Ask again after 5-6 minutes.");
         }
+
     };
 
     const simulateBotResponse = (responseText: string) => {
@@ -160,7 +165,7 @@ export const Chat = () => {
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest</span>
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
                             <Dialog>
                                 <DialogTrigger asChild>
                                     <FaTrash className="hover:cursor-pointer hover:text-red-500" />
@@ -211,6 +216,9 @@ export const Chat = () => {
                             ))}
                         </div>
                         <div className="flex justify-center items-center gap-2 p-4">
+                            <p className="text-xs text-center text-gray-500">
+                                If the bot does not respond within 5 seconds, please wait for about 5-6 minutes as the server is starting the service.
+                            </p>
                             {responseTime > 0 && (
                                 <p className="text-xs text-gray-500">
                                     Model response time: {responseTime} ms
