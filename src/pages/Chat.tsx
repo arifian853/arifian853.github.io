@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
-import { FaGear, FaTrash } from "react-icons/fa6";
+import { FaTrash } from "react-icons/fa6";
 
 import {
     Dialog,
@@ -25,6 +25,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { FaInfoCircle } from "react-icons/fa";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
@@ -176,7 +177,7 @@ export const Chat = () => {
                             <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
                             <div>
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger><FaGear /></DropdownMenuTrigger>
+                                    <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-red-500" /></DropdownMenuTrigger>
                                     <DropdownMenuContent className="bg-[#BABFBF] dark:bg-[#30323D]">
                                         <DropdownMenuItem className="hover:cursor-pointer hover:text-red-500">
                                             <Dialog>
@@ -208,8 +209,25 @@ export const Chat = () => {
                                                 <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
                                                     <DialogHeader>
                                                         <DialogTitle className="display-font">About this chatbot</DialogTitle>
-                                                        <DialogDescription>
-                                                            TBA
+                                                        <DialogDescription className="py-3 text-left">
+                                                            <p>Arifian.ai is a personalized my-own-AI-persona chatbot designed to answer general or public questions about myself.</p>
+                                                            <br />
+                                                            <p className="font-bold">Technologies used: </p>
+                                                            <ol>
+                                                                <li>- Google T5-Small</li>
+                                                                <li>- Universal Sentence Encoder (USE)</li>
+                                                                <li>- Flask</li>
+                                                                <li>- Docker</li>
+                                                                <li>- Hosted as serverless service at IBM Cloud Code Engine for a limited time</li>
+                                                            </ol>
+                                                            <br />
+                                                            <p className="font-bold">Tips</p>
+                                                            <p>- If the bot does not respond within 5 seconds, please wait for about 5-6 minutes as the server is starting the service instance.</p>
+                                                            <p>- Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages.</p>
+                                                            <br />
+                                                            <p>Chat is stored at localStorage, not in server, your chat is always private.</p>
+                                                            <br />
+                                                            <p>See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
                                                         </DialogDescription>
                                                     </DialogHeader>
                                                 </DialogContent>
@@ -252,9 +270,6 @@ export const Chat = () => {
                             ))}
                         </div>
                         <div className="flex justify-center items-center gap-2 p-4">
-                            <p className="text-xs text-center text-gray-500">
-                                If the bot does not respond within 5 seconds, please wait for about 5-6 minutes as the server is starting the service.
-                            </p>
                             {responseTime > 0 && (
                                 <p className="text-xs text-gray-500">
                                     Model response time: {responseTime} ms
@@ -302,12 +317,11 @@ export const Chat = () => {
                             </Button>
                         </div>
                         <p className="text-xs text-gray-500 text-center mt-4">
-                            Your chat only stored in this device.
+                            This AI chatbot is an experimental project. Not all answers are guaranteed to be true or accurate.
                         </p>
                     </Card>
                     <p className="text-center w-full opacity-55 text-xs">
-                        <span>This AI chatbot is an impersonation of Arifian. Not all answers are guaranteed to be true or accurate. Your chat only stored in this device.<br /></span> <br />
-                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages. <br /> <br /> See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a>
+                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. <br /> Prioritize using the suggested messages. <br />
                     </p>
                 </div>
             </div>
