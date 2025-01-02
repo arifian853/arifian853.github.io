@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet";
-import { SetStateAction, useEffect, useRef, useState, useMemo, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
+import { useEffect, useRef, useState, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
-import { MdRefresh, MdSend } from "react-icons/md";
+import { MdSend } from "react-icons/md";
 import { FaTrash } from "react-icons/fa6";
 
 import {
