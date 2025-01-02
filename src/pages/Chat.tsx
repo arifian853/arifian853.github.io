@@ -30,7 +30,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
         const savedMessages = localStorage.getItem("chatMessages");
-        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
+        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Maaf, chatbot ini sedang dalam maintenance. Silakan coba lagi nanti.' }];
     });
 
     useEffect(() => {
@@ -127,20 +127,21 @@ export const Chat = () => {
 
     const renderedSuggestions = useMemo(() => {
         const suggestedMessage = [
-            { "message": "Siapakah kamu, Arifian?" },
-            { "message": "Tanggal berapa kamu lahir?" },
-            { "message": "Dari mana kamu berasal?" },
-            { "message": "Kamu bekerja dimana?" },
-            { "message": "Dimana kamu tinggal?" },
-            { "message": "Apa hobi kamu?" },
-            { "message": "Apa keahlian utama Anda?" },
-            { "message": "Chatbot apa ini?" },
-            { "message": "Berapa umurmu?" },
-            { "message": "Apa profil Instagram Anda?" },
-            { "message": "Apa profil LinkedIn Anda?" },
-            { "message": "Apa yang kamu gemari?" },
-            { "message": "Halo, Arifian!" },
-            { "message": "Kamu kuliah dimana?" },
+            { "message": "Maaf, chatbot ini sedang dalam maintenance. Silakan coba lagi nanti." },
+            // { "message": "Siapakah kamu, Arifian?" },
+            // { "message": "Tanggal berapa kamu lahir?" },
+            // { "message": "Dari mana kamu berasal?" },
+            // { "message": "Kamu bekerja dimana?" },
+            // { "message": "Dimana kamu tinggal?" },
+            // { "message": "Apa hobi kamu?" },
+            // { "message": "Apa keahlian utama Anda?" },
+            // { "message": "Chatbot apa ini?" },
+            // { "message": "Berapa umurmu?" },
+            // { "message": "Apa profil Instagram Anda?" },
+            // { "message": "Apa profil LinkedIn Anda?" },
+            // { "message": "Apa yang kamu gemari?" },
+            // { "message": "Halo, Arifian!" },
+            // { "message": "Kamu kuliah dimana?" },
         ];
 
         return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
@@ -152,7 +153,7 @@ export const Chat = () => {
     };
 
     const handleClearChat = () => {
-        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
+        const initialMessage = [{ sender: 'bot', text: 'Maaf, chatbot ini sedang dalam maintenance. Silakan coba lagi nanti.' }];
         setMessages(initialMessage);
         localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
@@ -310,7 +311,7 @@ export const Chat = () => {
                                 onKeyDown={handleKeyDown}
                                 placeholder="Write message...."
                                 className="flex-1 md:text-base text-sm"
-                                disabled={isResponding}
+                                disabled
                             />
                             <Button onClick={handleSend} className="ml-2 flex gap-2 justify-center items-center" disabled={isResponding}>
                                 Send <MdSend />
