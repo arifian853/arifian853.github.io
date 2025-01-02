@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet";
 import { SetStateAction, useEffect, useRef, useState, useMemo, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
@@ -30,7 +31,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
         const savedMessages = localStorage.getItem("chatMessages");
-        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Maaf, chatbot ini sedang dalam maintenance. Silakan coba lagi nanti.' }];
+        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Chatbot is offline' }];
     });
 
     useEffect(() => {
@@ -111,9 +112,9 @@ export const Chat = () => {
         }
     };
 
-    const handleSuggestionClick = (suggestedText: SetStateAction<string>) => {
-        setInput(suggestedText);
-    };
+    // const handleSuggestionClick = (suggestedText: SetStateAction<string>) => {
+    //     setInput(suggestedText);
+    // };
 
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -123,37 +124,37 @@ export const Chat = () => {
         }
     }, [messages]);
 
-    const [suggestionsKey, setSuggestionsKey] = useState(0);
+    // const [suggestionsKey, setSuggestionsKey] = useState(0);
 
-    const renderedSuggestions = useMemo(() => {
-        const suggestedMessage = [
-            { "message": "Offline" },
-            // { "message": "Siapakah kamu, Arifian?" },
-            // { "message": "Tanggal berapa kamu lahir?" },
-            // { "message": "Dari mana kamu berasal?" },
-            // { "message": "Kamu bekerja dimana?" },
-            // { "message": "Dimana kamu tinggal?" },
-            // { "message": "Apa hobi kamu?" },
-            // { "message": "Apa keahlian utama Anda?" },
-            // { "message": "Chatbot apa ini?" },
-            // { "message": "Berapa umurmu?" },
-            // { "message": "Apa profil Instagram Anda?" },
-            // { "message": "Apa profil LinkedIn Anda?" },
-            // { "message": "Apa yang kamu gemari?" },
-            // { "message": "Halo, Arifian!" },
-            // { "message": "Kamu kuliah dimana?" },
-        ];
+    // const renderedSuggestions = useMemo(() => {
+    //     const suggestedMessage = [
+    //         { "message": "Offline" },
+    //         // { "message": "Siapakah kamu, Arifian?" },
+    //         // { "message": "Tanggal berapa kamu lahir?" },
+    //         // { "message": "Dari mana kamu berasal?" },
+    //         // { "message": "Kamu bekerja dimana?" },
+    //         // { "message": "Dimana kamu tinggal?" },
+    //         // { "message": "Apa hobi kamu?" },
+    //         // { "message": "Apa keahlian utama Anda?" },
+    //         // { "message": "Chatbot apa ini?" },
+    //         // { "message": "Berapa umurmu?" },
+    //         // { "message": "Apa profil Instagram Anda?" },
+    //         // { "message": "Apa profil LinkedIn Anda?" },
+    //         // { "message": "Apa yang kamu gemari?" },
+    //         // { "message": "Halo, Arifian!" },
+    //         // { "message": "Kamu kuliah dimana?" },
+    //     ];
 
-        return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [suggestionsKey]);
+    //     return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [suggestionsKey]);
 
-    const handleNewSuggestions = () => {
-        setSuggestionsKey(prevKey => prevKey + 1);
-    };
+    // const handleNewSuggestions = () => {
+    //     setSuggestionsKey(prevKey => prevKey + 1);
+    // };
 
     const handleClearChat = () => {
-        const initialMessage = [{ sender: 'bot', text: 'Maaf, chatbot ini sedang dalam maintenance. Silakan coba lagi nanti.' }];
+        const initialMessage = [{ sender: 'bot', text: 'Sorry, chatbot is offline.' }];
         setMessages(initialMessage);
         localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
@@ -283,27 +284,27 @@ export const Chat = () => {
                                 isResponding ? (
                                     <div className="loader"></div>
                                 ) : (
-                                    renderedSuggestions.map((text, index) => (
-                                        <a
-                                            key={index}
-                                            data-aos="fade-in"
-                                            data-aos-duration='900'
-                                            onClick={() => handleSuggestionClick(text.message)}
-                                            aria-disabled={true}
-                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
-                                        >
-                                            {text.message}
-                                        </a>
-                                    ))
+                                    // renderedSuggestions.map((text, index) => (
+                                    //     <a
+                                    //         key={index}
+                                    //         data-aos="fade-in"
+                                    //         data-aos-duration='900'
+                                    //         onClick={() => handleSuggestionClick(text.message)}
+                                    //         className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                    //     >
+                                    //         {text.message}
+                                    //     </a>
+                                    // ))
+                                    <a className="mr-2 text-sm opacity-50 hover:cursor-pointer">Chatbot is offline</a>
                                 )
                             }
-                            {
+                            {/* {
                                 isResponding ? (
                                     <></>
                                 ) : (
                                     <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
                                 )
-                            }
+                            } */}
                         </div>
                         <div className="flex items-center">
                             <Input
