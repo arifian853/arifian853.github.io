@@ -60,4 +60,13 @@ Technologies used:
 - Docker
 - Hosted as serverless service at IBM Cloud Code Engine for a limited time
 
-Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai)
+Latest version performance (v0.4.1) : 
+
+- ROUGE-1: 0.6640
+- ROUGE-2: 0.5327
+- ROUGE-L: 0.6441
+- BLEU Score: 52.0508%
+- Average Training Loss: 0.0819
+
+Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai) repository
+
