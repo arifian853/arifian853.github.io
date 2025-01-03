@@ -15,7 +15,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between gap-3">
           <Link to='/'><span className="font-semibold display-font hover:border-b hover:border-red-500">Arifian Saputra</span></Link> <ModeToggle />
         </div>
-        
+
         <div onClick={() => setToggle(!toggle)} className='text-3xl cursor-pointer md:hidden transition-all duration-900 ease'>
           {
             toggle === false ? (
@@ -29,6 +29,7 @@ export const Navbar = () => {
           <li className="border-b p-1 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/about'>About</Link></li>
           <li className="border-b p-1 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/project'>Projects</Link></li>
           <li className="border-b p-1 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/chat-ai'>Arifian.AI</Link></li>
+          <li className="border-b p-1 border-[#30323D] dark:border-[#BABFBF] hover:border-red-500 dark:hover:border-red-500"><Link to='/write'>Write</Link></li>
           <li className="text-3xl hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500"><a href="https://github.com/arifian853" rel="noopener noreferrer" target="blank"><FaGithub /></a></li>
         </ul>
       </div>
