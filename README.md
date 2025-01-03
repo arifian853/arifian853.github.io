@@ -38,7 +38,13 @@ http://localhost:5173/project
 http://localhost:5173/project/:id
 ```
 
-- Arifian.AI (soon)
+- Arifian.AI  (Now offline)
 ```
 http://localhost:5173/chat-ai
 ```
+
+- Say something to me! (Soon)
+```
+http://localhost:5173/say
+```
+
