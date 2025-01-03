@@ -48,3 +48,16 @@ http://localhost:5173/chat-ai
 http://localhost:5173/say
 ```
 
+### Chatbot tech stack
+
+Arifian.ai is a personalized my-own-AI-persona chatbot designed to answer general or public questions about myself.
+
+Technologies used:
+
+- Google T5-Small
+- Universal Sentence Encoder (USE)
+- Flask
+- Docker
+- Hosted as serverless service at IBM Cloud Code Engine for a limited time
+
+Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai)
