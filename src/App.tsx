@@ -13,6 +13,7 @@ import { Chat } from './pages/Chat'
 import { Projects } from './pages/Projects'
 import ScrollToTop from './components/scroll-to-top'
 import ScrollToTopButton from './components/scroll-btn'
+import { Say } from './pages/Say'
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,8 @@ function App() {
           <Route path='/project/:id' element={<ProjectPage />} />
 
           <Route path='/chat-ai' element={<Chat />} />
+
+          <Route path='/say' element={<Say />} />
 
         </Routes>
         <Footer />

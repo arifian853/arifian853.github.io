@@ -68,5 +68,5 @@ Latest version performance (v0.4.1) :
 - BLEU Score: 52.0508%
 - Average Training Loss: 0.0819
 
-Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai) repository
+Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai) repository.
 
