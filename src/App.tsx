@@ -13,7 +13,7 @@ import { Chat } from './pages/Chat'
 import { Projects } from './pages/Projects'
 import ScrollToTop from './components/scroll-to-top'
 import ScrollToTopButton from './components/scroll-btn'
-import { Say } from './pages/Say'
+import { Write } from './pages/Write'
 
 function App() {
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
 
           <Route path='/chat-ai' element={<Chat />} />
 
-          <Route path='/say' element={<Say />} />
+          <Route path='/write' element={<Write />} />
 
         </Routes>
         <Footer />
