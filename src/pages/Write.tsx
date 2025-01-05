@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Navbar } from '@/components/layout/Navbar'
+import { MdSend } from 'react-icons/md'
 
 interface Message {
   id: number
@@ -94,13 +95,14 @@ export const Write = () => {
               <button 
                 type="submit"
                 disabled={loading || !message.trim()}
-                className={`w-full py-2 rounded-lg font-semibold transition-all duration-300
+                className={`w-full flex items-center gap-2 justify-center py-2 rounded-lg transition-all duration-300
                           ${loading || !message.trim() 
                             ? 'bg-gray-400 cursor-not-allowed' 
                             : 'bg-[#1C1D24]  dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
                           }`}
               >
-                {loading ? 'Sending...' : 'Send Message'}
+                {loading ? 'Sending...' : 'Send Message'} <MdSend />
+
               </button>
             </form>
 
