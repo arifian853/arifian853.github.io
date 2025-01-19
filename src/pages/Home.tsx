@@ -12,7 +12,7 @@ export const Home = () => {
             <Helmet>
                 <title>Arifian Saputra</title>
             </Helmet>
-            <div className="bg-[#E0E0E0] dark:bg-[#1C1D24]">
+            <div className="bg-[#E0E0E0] dark:bg-[#121212]">
                 <Greeting />
                 <AboutSelf />
                 <Project />

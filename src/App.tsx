@@ -22,7 +22,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-auto pt-1 pb-1">
+      <div className="bg-[#E0E0E0] dark:bg-[#121212] h-auto pt-1 pb-1">
         <ScrollToTop />
         <ScrollToTopButton />
         <Routes>

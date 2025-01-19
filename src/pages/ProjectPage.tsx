@@ -216,7 +216,7 @@ export const ProjectPage = () => {
     const navigate = useNavigate();
 
     if (!project) {
-        return <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen flex justify-center items-center p-5">
+        return <div className="bg-[#E0E0E0] dark:bg-[#121212] h-screen flex justify-center items-center p-5">
             <Helmet>
                 <title>Project Not Found</title>
             </Helmet>
@@ -275,7 +275,7 @@ export const ProjectPage = () => {
                     </div>
                 </div>
                 <h1 className="text-xl">More project</h1>
-                <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto py-5 gap-5 md:w-4/5 w-full flex-wrap">
+                <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto py-5 gap-5 md:w-4/5 w-full flex-wrap">
                     {
                         featured_projects.sort(() => 0.5 - Math.random()).slice(0, 3).map((project => (
                             <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg border-none">

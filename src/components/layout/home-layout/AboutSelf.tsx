@@ -32,7 +32,7 @@ const tech_stacks = [
 
 export const AboutSelf = () => {
     return (
-        <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5" id="aboutself">
+        <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center md:h-screen h-auto p-5" id="aboutself">
 
             <div data-aos="fade-in" data-aos-duration='900' className="flex md:flex-row flex-col items-center md:h-[500px] justify-center">
 

@@ -163,13 +163,13 @@ export const Chat = () => {
     return (
         <>
             <Navbar />
-            <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-auto flex justify-center items-center p-5">
+            <div className="bg-[#E0E0E0] dark:bg-[#121212] h-auto flex justify-center items-center p-5">
                 <Helmet>
                     <title>Arifian.AI</title>
                 </Helmet>
-                <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#1C1D24]">
-                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-4xl text-2xl text-center p-5">
-                        Hello! <br /> Welcome to <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
+                <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
+                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-2xl text-2xl text-center p-5">
+                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>

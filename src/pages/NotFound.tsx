@@ -7,7 +7,7 @@ export const NotFound = () => {
 
     const navigate = useNavigate();
     return (
-        <div className="bg-[#E0E0E0] dark:bg-[#1C1D24] h-screen flex justify-center items-center p-5">
+        <div className="bg-[#E0E0E0] dark:bg-[#121212] h-screen flex justify-center items-center p-5">
             <Helmet>
                 <title>Arifian Saputra - Not Found</title>
             </Helmet>
