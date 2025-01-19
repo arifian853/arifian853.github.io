@@ -31,7 +31,7 @@ export const Educations = () => {
                         <TabsTrigger className="text-left" value="college">College</TabsTrigger>
                     </TabsList>
                     <TabsContent value="highschool">
-                        <Card data-aos="fade-out" data-aos-duration='900' className="min-h-[200px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg border-none md:w-[500px] w-full">
+                        <Card data-aos="fade-out" data-aos-duration='900' className="min-h-[200px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none md:w-[500px] w-full">
                             <CardHeader>
                                 <CardTitle className="display-font">SMA Negeri 1 Bintan Utara</CardTitle>
                                 <CardDescription>
@@ -50,7 +50,7 @@ export const Educations = () => {
                         </Card>
                     </TabsContent>
                     <TabsContent value="college">
-                        <Card data-aos="fade-out" data-aos-duration='900' className="min-h-[200px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg border-none md:w-[500px] w-full">
+                        <Card data-aos="fade-out" data-aos-duration='900' className="min-h-[200px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none md:w-[500px] w-full">
                             <CardHeader>
                                 <CardTitle className="display-font">Universitas Maritim Raja Ali Haji</CardTitle>
                                 <CardDescription>

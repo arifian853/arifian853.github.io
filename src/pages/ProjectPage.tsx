@@ -220,7 +220,7 @@ export const ProjectPage = () => {
             <Helmet>
                 <title>Project Not Found</title>
             </Helmet>
-            <div data-aos="zoom-out" data-aos-duration='900' className="w-10/12 md:w-96 bg-[#BABFBF] dark:bg-[#30323D] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
+            <div data-aos="zoom-out" data-aos-duration='900' className="w-10/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
                 <h1 className="display-font font-semibold text-xl"><span className="text-red-500">404</span> | Project not found</h1>
 
                 <Button className="display-font font-semibold w-24" onClick={() => navigate(-1)}>
@@ -239,7 +239,7 @@ export const ProjectPage = () => {
             </Helmet>
             <div className="flex flex-col justify-center items-center">
                 <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full md:w-4/5">
-                    <div key={project.id} className="bg-[#BABFBF] dark:bg-[#30323D] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
+                    <div key={project.id} className="bg-[#EFEFEF] dark:bg-[#1C1C1C] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
                         <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5 shadow-lg hover:border-red-500 border border-white" src={project.image} alt="" />
                         <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-red-500 border-b">{project.title}</h1>
                         <p className="opacity-75">({project.year})</p>
@@ -278,7 +278,7 @@ export const ProjectPage = () => {
                 <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto py-5 gap-5 md:w-4/5 w-full flex-wrap">
                     {
                         featured_projects.sort(() => 0.5 - Math.random()).slice(0, 3).map((project => (
-                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg border-none">
+                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none">
                                 <CardHeader>
                                     <TooltipProvider>
                                         <Tooltip>

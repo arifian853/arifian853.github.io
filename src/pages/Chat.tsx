@@ -174,13 +174,13 @@ export const Chat = () => {
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
                     </p>
-                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#30323D] shadow-lg rounded-lg border-none">
+                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#EFEFEF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
                             <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
                             <div>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-red-500" /></DropdownMenuTrigger>
-                                    <DropdownMenuContent className="bg-[#BABFBF] dark:bg-[#30323D]">
+                                    <DropdownMenuContent className="bg-[#EFEFEF] dark:bg-[#1C1C1C]">
                                         <DropdownMenuItem className="hover:cursor-pointer hover:text-red-500">
                                             <Dialog>
                                                 <DialogTrigger onClick={(e) => e.stopPropagation()} className="hover:cursor-pointer hover:text-red-500">
@@ -188,7 +188,7 @@ export const Chat = () => {
                                                         <FaTrash /> Delete all chat
                                                     </span>
                                                 </DialogTrigger>
-                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                                                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
                                                     <DialogHeader>
                                                         <DialogTitle className="display-font">Delete all chat?</DialogTitle>
                                                         <DialogDescription>
@@ -208,7 +208,7 @@ export const Chat = () => {
                                                         <FaInfoCircle /> About
                                                     </span>
                                                 </DialogTrigger>
-                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                                                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
                                                     <DialogHeader>
                                                         <DialogTitle className="display-font">About this chatbot</DialogTitle>
                                                         <DialogDescription className="py-3 text-left">
@@ -329,7 +329,7 @@ export const Chat = () => {
                 </div>
             </div>
             <Dialog open={showChangelog} onOpenChange={setShowChangelog}>
-                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
                     <DialogHeader>
                         <DialogTitle className="display-font text-left">Changelog</DialogTitle>
                         <DialogDescription className="overflow-y-scroll h-52 text-left">

@@ -59,7 +59,7 @@ export const Write = () => {
       <Navbar />
       <div className="min-h-screen p-5 md:p-10">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-[#BABFBF] dark:bg-[#30323D] p-6 rounded-lg shadow-lg" data-aos="fade-out">
+          <div className="bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg" data-aos="fade-out">
             <h1 className="text-2xl md:text-xl mb-6 text-center display-font">
               Write me an anonymous message
             </h1>
@@ -69,7 +69,7 @@ export const Write = () => {
               {messages.map((msg) => (
                 <div 
                   key={msg.id}
-                  className="bg-[#E0E0E0] dark:bg-[#1C1D24] p-4 rounded-lg shadow"
+                  className="bg-[#E0E0E0] dark:bg-gray-700 p-4 rounded-lg shadow"
                 >
                   <p className="text-gray-800 dark:text-gray-200">{msg.content}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{msg.timestamp}</p>
