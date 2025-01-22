@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from "react-helmet";
-import { useEffect, useRef, useState, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
+import { SetStateAction, useEffect, useRef, useState, useMemo, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
-import { MdSend } from "react-icons/md";
+import { MdRefresh, MdSend } from "react-icons/md";
 import { FaTrash } from "react-icons/fa6";
 
 import {
@@ -31,7 +30,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 export const Chat = () => {
     const [messages, setMessages] = useState(() => {
         const savedMessages = localStorage.getItem("chatMessages");
-        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Chatbot is offline' }];
+        return savedMessages ? JSON.parse(savedMessages) : [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
     });
 
     useEffect(() => {
@@ -112,9 +111,9 @@ export const Chat = () => {
         }
     };
 
-    // const handleSuggestionClick = (suggestedText: SetStateAction<string>) => {
-    //     setInput(suggestedText);
-    // };
+    const handleSuggestionClick = (suggestedText: SetStateAction<string>) => {
+        setInput(suggestedText);
+    };
 
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -124,37 +123,36 @@ export const Chat = () => {
         }
     }, [messages]);
 
-    // const [suggestionsKey, setSuggestionsKey] = useState(0);
+    const [suggestionsKey, setSuggestionsKey] = useState(0);
 
-    // const renderedSuggestions = useMemo(() => {
-    //     const suggestedMessage = [
-    //         { "message": "Offline" },
-    //         // { "message": "Siapakah kamu, Arifian?" },
-    //         // { "message": "Tanggal berapa kamu lahir?" },
-    //         // { "message": "Dari mana kamu berasal?" },
-    //         // { "message": "Kamu bekerja dimana?" },
-    //         // { "message": "Dimana kamu tinggal?" },
-    //         // { "message": "Apa hobi kamu?" },
-    //         // { "message": "Apa keahlian utama Anda?" },
-    //         // { "message": "Chatbot apa ini?" },
-    //         // { "message": "Berapa umurmu?" },
-    //         // { "message": "Apa profil Instagram Anda?" },
-    //         // { "message": "Apa profil LinkedIn Anda?" },
-    //         // { "message": "Apa yang kamu gemari?" },
-    //         // { "message": "Halo, Arifian!" },
-    //         // { "message": "Kamu kuliah dimana?" },
-    //     ];
+    const renderedSuggestions = useMemo(() => {
+        const suggestedMessage = [
+            { "message": "Siapakah kamu, Arifian?" },
+            { "message": "Tanggal berapa kamu lahir?" },
+            { "message": "Dari mana kamu berasal?" },
+            { "message": "Kamu bekerja dimana?" },
+            { "message": "Dimana kamu tinggal?" },
+            { "message": "Apa hobi kamu?" },
+            { "message": "Apa keahlian utama Anda?" },
+            { "message": "Chatbot apa ini?" },
+            { "message": "Berapa umurmu?" },
+            { "message": "Apa profil Instagram Anda?" },
+            { "message": "Apa profil LinkedIn Anda?" },
+            { "message": "Apa yang kamu gemari?" },
+            { "message": "Halo, Arifian!" },
+            { "message": "Kamu kuliah dimana?" },
+        ];
 
-    //     return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [suggestionsKey]);
+        return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [suggestionsKey]);
 
-    // const handleNewSuggestions = () => {
-    //     setSuggestionsKey(prevKey => prevKey + 1);
-    // };
+    const handleNewSuggestions = () => {
+        setSuggestionsKey(prevKey => prevKey + 1);
+    };
 
     const handleClearChat = () => {
-        const initialMessage = [{ sender: 'bot', text: 'Sorry, chatbot is offline.' }];
+        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
         setMessages(initialMessage);
         localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
@@ -168,19 +166,19 @@ export const Chat = () => {
                     <title>Arifian.AI</title>
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
-                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-2xl text-2xl text-center p-5">
-                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
+                    <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-3xl text-2xl text-center p-5">
+                       <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
                     </p>
-                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#EFEFEF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
+                    <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
                             <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
                             <div>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-red-500" /></DropdownMenuTrigger>
-                                    <DropdownMenuContent className="bg-[#EFEFEF] dark:bg-[#1C1C1C]">
+                                    <DropdownMenuContent className="bg-[#BABFBF] dark:bg-[#1C1C1C]">
                                         <DropdownMenuItem className="hover:cursor-pointer hover:text-red-500">
                                             <Dialog>
                                                 <DialogTrigger onClick={(e) => e.stopPropagation()} className="hover:cursor-pointer hover:text-red-500">
@@ -188,7 +186,7 @@ export const Chat = () => {
                                                         <FaTrash /> Delete all chat
                                                     </span>
                                                 </DialogTrigger>
-                                                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
+                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
                                                     <DialogHeader>
                                                         <DialogTitle className="display-font">Delete all chat?</DialogTitle>
                                                         <DialogDescription>
@@ -208,7 +206,7 @@ export const Chat = () => {
                                                         <FaInfoCircle /> About
                                                     </span>
                                                 </DialogTrigger>
-                                                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
+                                                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
                                                     <DialogHeader>
                                                         <DialogTitle className="display-font">About this chatbot</DialogTitle>
                                                         <DialogDescription className="py-3 text-left">
@@ -220,7 +218,8 @@ export const Chat = () => {
                                                                 <li>- Universal Sentence Encoder (USE)</li>
                                                                 <li>- Flask</li>
                                                                 <li>- Docker</li>
-                                                                <li>- Hosted as serverless service at IBM Cloud Code Engine for a limited time</li>
+                                                                <li>- Hosted as serverless service at IBM Cloud Code Engine for a limited time (2024).</li>
+                                                                <li>- Hosted as serverless service HuggingFace Spaces (2025).</li>
                                                             </ol>
                                                             <br />
                                                             <p className="font-bold">Tips</p>
@@ -256,7 +255,7 @@ export const Chat = () => {
                                     <div
                                         className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg ${message.sender === 'bot'
                                             ? 'bg-gray-300 dark:bg-gray-700'
-                                            : 'bg-[#1C1D24] text-white'
+                                            : 'bg-gray-800 text-white'
                                             }`}
                                     >
                                         {message.text}
@@ -284,27 +283,26 @@ export const Chat = () => {
                                 isResponding ? (
                                     <div className="loader"></div>
                                 ) : (
-                                    // renderedSuggestions.map((text, index) => (
-                                    //     <a
-                                    //         key={index}
-                                    //         data-aos="fade-in"
-                                    //         data-aos-duration='900'
-                                    //         onClick={() => handleSuggestionClick(text.message)}
-                                    //         className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
-                                    //     >
-                                    //         {text.message}
-                                    //     </a>
-                                    // ))
-                                    <a className="mr-2 text-sm opacity-50 hover:cursor-pointer">Chatbot is offline</a>
+                                    renderedSuggestions.map((text, index) => (
+                                        <a
+                                            key={index}
+                                            data-aos="fade-in"
+                                            data-aos-duration='900'
+                                            onClick={() => handleSuggestionClick(text.message)}
+                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                        >
+                                            {text.message}
+                                        </a>
+                                    ))
                                 )
                             }
-                            {/* {
+                            {
                                 isResponding ? (
                                     <></>
                                 ) : (
                                     <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
                                 )
-                            } */}
+                            }
                         </div>
                         <div className="flex items-center">
                             <Input
@@ -313,7 +311,7 @@ export const Chat = () => {
                                 onKeyDown={handleKeyDown}
                                 placeholder="Write message...."
                                 className="flex-1 md:text-base text-sm"
-                                disabled
+                                disabled={isResponding}
                             />
                             <Button onClick={handleSend} className="ml-2 flex gap-2 justify-center items-center" disabled={isResponding}>
                                 Send <MdSend />
@@ -329,7 +327,7 @@ export const Chat = () => {
                 </div>
             </div>
             <Dialog open={showChangelog} onOpenChange={setShowChangelog}>
-                <DialogContent className="md:w-full w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg rounded-md">
+                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
                     <DialogHeader>
                         <DialogTitle className="display-font text-left">Changelog</DialogTitle>
                         <DialogDescription className="overflow-y-scroll h-52 text-left">
