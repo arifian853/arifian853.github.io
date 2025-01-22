@@ -69,7 +69,7 @@ export const Write = () => {
               {messages.map((msg) => (
                 <div 
                   key={msg.id}
-                  className="bg-[#E0E0E0] dark:bg-gray-700 p-4 rounded-lg shadow"
+                  className="bg-gray-300 text-black dark:bg-gray-800 dark:text-white p-4 rounded-lg shadow"
                 >
                   <p className="text-gray-800 dark:text-gray-200">{msg.content}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{msg.timestamp}</p>
