@@ -41,6 +41,7 @@ export const Chat = () => {
     const [isResponding, setIsResponding] = useState(false);
     const [responseTime, setResponseTime] = useState(0);
     const [showChangelog, setShowChangelog] = useState(false);
+    const [isWaitingResponse, setIsWaitingResponse] = useState(false);
 
     useEffect(() => {
         const dontShowAgain = localStorage.getItem("hideChangelog");
@@ -57,32 +58,38 @@ export const Chat = () => {
         if (input.trim() === '') return;
         setMessages([...messages, { sender: 'user', text: input }]);
         setInput('');
+        setIsWaitingResponse(true);
+
+        const startTime = Date.now();
 
         try {
-            const timeout = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error("Service is starting, please wait... Ask again after 5-6 minutes.")), 5000)
-            );
-            const fetchResponse = fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
+            const response = await fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ question: input })
-            }).then(response => response.json());
+            });
 
-            const data = await Promise.race([fetchResponse, timeout]);
-            const botResponse = data.answer;
+            const endTime = Date.now();
+            setResponseTime(endTime - startTime);
 
-            simulateBotResponse(botResponse);
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            setIsWaitingResponse(false);
+            simulateBotResponse(data.answer);
         } catch (error) {
-            console.error("Service is starting, please wait... Ask again after 5-6 minutes.", error);
-            simulateBotResponse("Service is starting, please wait... Ask again after 5-6 minutes.");
+            console.error("Error fetching response:", error);
+            setIsWaitingResponse(false);
+            simulateBotResponse("There was an issue connecting to the service. Please try again later.");
         }
-
     };
 
+
     const simulateBotResponse = (responseText: string) => {
-        const startTime = Date.now();
         setIsResponding(true);
         setMessages((prev: any) => [...prev, { sender: 'bot', text: '' }]);
 
@@ -97,8 +104,6 @@ export const Chat = () => {
                 index++;
             } else {
                 clearInterval(interval);
-                const endTime = Date.now();
-                setResponseTime(endTime - startTime);
                 setIsResponding(false);
             }
         }, 30);
@@ -167,7 +172,7 @@ export const Chat = () => {
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-3xl text-2xl text-center p-5">
-                       <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
+                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
@@ -269,18 +274,32 @@ export const Chat = () => {
                                     )}
                                 </div>
                             ))}
+                            {
+                                isWaitingResponse && (
+                                    <div className="flex justify-start items-center">
+                                        <img
+                                            src="/user.jpeg"
+                                            alt="Bot"
+                                            className="w-8 h-8 rounded-full mr-2"
+                                        />
+                                        <span className="animate-spin rounded-full h-6 w-6 border-2 border-t-red-500 border-b-red-500"></span>
+                                        <p className="ml-2 text-sm text-gray-500">Thinking... may take about 30s++...</p>
+                                    </div>
+                                )
+                            }
+
                         </div>
                         <div className="flex justify-center items-center gap-2 p-4">
                             {responseTime > 0 && (
                                 <p className="text-xs text-gray-500">
-                                    Model response time: {responseTime} ms
+                                    Server response time: {responseTime} ms
                                 </p>
                             )}
                         </div>
                         <div className="flex items-center border-t p-4 justify-center md:flex-row flex-col gap-2">
 
                             {
-                                isResponding ? (
+                                isResponding || isWaitingResponse ? (
                                     <div className="loader"></div>
                                 ) : (
                                     renderedSuggestions.map((text, index) => (
@@ -297,7 +316,7 @@ export const Chat = () => {
                                 )
                             }
                             {
-                                isResponding ? (
+                                isResponding || isWaitingResponse ? (
                                     <></>
                                 ) : (
                                     <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
@@ -311,9 +330,9 @@ export const Chat = () => {
                                 onKeyDown={handleKeyDown}
                                 placeholder="Write message...."
                                 className="flex-1 md:text-base text-sm"
-                                disabled={isResponding}
+                                disabled={isResponding || isWaitingResponse}
                             />
-                            <Button onClick={handleSend} className="ml-2 flex gap-2 justify-center items-center" disabled={isResponding}>
+                            <Button onClick={handleSend} className="ml-2 flex gap-2 justify-center items-center" disabled={isResponding || isWaitingResponse}>
                                 Send <MdSend />
                             </Button>
                         </div>
