@@ -88,7 +88,6 @@ export const Chat = () => {
         }
     };
 
-
     const simulateBotResponse = (responseText: string) => {
         setIsResponding(true);
         setMessages((prev: any) => [...prev, { sender: 'bot', text: '' }]);

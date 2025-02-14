@@ -14,6 +14,7 @@ import { Projects } from './pages/Projects'
 import ScrollToTop from './components/scroll-to-top'
 import ScrollToTopButton from './components/scroll-btn'
 import { Write } from './pages/Write'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
       <div className="bg-[#E0E0E0] dark:bg-[#121212] h-auto pt-1 pb-1">
         <ScrollToTop />
         <ScrollToTopButton />
+        <Analytics />
         <Routes>
 
           <Route path='/' element={<Home />} />
