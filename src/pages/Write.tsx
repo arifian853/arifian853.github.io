@@ -13,13 +13,13 @@ const formatDate = (date: Date): string => {
     'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
     'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
   ]
-  
+
   const d = date.getDate()
   const m = months[date.getMonth()]
   const y = date.getFullYear()
   const h = String(date.getHours()).padStart(2, '0')
   const min = String(date.getMinutes()).padStart(2, '0')
-  
+
   return `${d} ${m} ${y}, ${h}:${min}`
 }
 
@@ -67,7 +67,7 @@ export const Write = () => {
             {/* Messages Display Area */}
             <div className="mb-8 space-y-4 max-h-[400px] overflow-y-auto">
               {messages.map((msg) => (
-                <div 
+                <div
                   key={msg.id}
                   className="bg-gray-300 text-black dark:bg-gray-800 dark:text-white p-4 rounded-lg shadow"
                 >
@@ -80,7 +80,7 @@ export const Write = () => {
             {/* Input Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <textarea 
+                <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full h-24 p-4 rounded-lg bg-[#E0E0E0] dark:bg-[#1C1D24] 
@@ -92,14 +92,14 @@ export const Write = () => {
                 />
               </div>
 
-              <button 
+              <button
                 type="submit"
                 disabled={loading || !message.trim()}
                 className={`w-full flex items-center gap-2 justify-center py-2 rounded-lg transition-all duration-300
-                          ${loading || !message.trim() 
-                            ? 'bg-gray-400 cursor-not-allowed' 
-                            : 'bg-[#1C1D24]  dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
-                          }`}
+                          ${loading || !message.trim()
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-[#1C1D24]  dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
+                  }`}
               >
                 {loading ? 'Sending...' : 'Send Message'} <MdSend />
 
