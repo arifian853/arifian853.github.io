@@ -40,7 +40,7 @@ export const AboutSelf = () => {
                     <img className="h-32 w-32 rounded-full border-2 border-red-500" src="/user.jpeg" alt="" />
                     <p className="display-font text-xl text-center border-red-500 border-b">Arifian Saputra</p>
                     <p className="text-sm opacity-75 ">AI Technical Mentor | Full - Stack Web Developer | RHCSA</p>
-                    <p className="md:w-2/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified. Currently served as a mentor of IBM Academy: Advance AI program at Infinite Learning.</p>
+                    <p className="md:w-2/3 w-full">Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified. Currently served as a Head Mentor of AI Development program at Infinite Learning.</p>
                     <Link to='/about'> <Button> More info</Button> </Link>
                 </div>
 

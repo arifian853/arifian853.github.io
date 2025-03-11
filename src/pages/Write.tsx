@@ -61,7 +61,7 @@ export const Write = () => {
         <div className="max-w-2xl mx-auto">
           <div className="bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg" data-aos="fade-out">
             <h1 className="text-2xl md:text-xl mb-6 text-center display-font">
-              Write me an anonymous message
+              Write me an anonymous message (Soon!)
             </h1>
 
             {/* Messages Display Area */}
@@ -108,7 +108,7 @@ export const Write = () => {
 
             <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
               <p>Your message will be sent anonymously.</p>
-              <p className='text-red-500'>Backend not yet implemented!</p>
+              <p className='text-red-500'>SOON!</p>
             </div>
           </div>
         </div>

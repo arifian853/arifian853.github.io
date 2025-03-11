@@ -27,6 +27,25 @@ interface Project {
 
 const featured_projects = [
   {
+    "id": 0,
+    "title": "Arifian.AI",
+    "year": "2025",
+    "description": "TBA",
+    "image": "/project0.jpg",
+    "link": [
+      { "repo_link": "https://github.com/arifian853/arifian.ai", "btn_name": "Repo" }
+    ],
+    "demo": [
+      { "demo_link": "https://arifian853.vercel.app/chat-ai", "btn_name": "Demo" }
+    ],
+    "tags": [
+      { "icon": <FaPython />, "name": "Python" },
+      { "icon": <SiTensorflow />, "name": "TensorFlow" },
+      { "icon": <SiFlask />, "name": "Flask" },
+      { "icon": <SiPytorch />, "name": "PyTorch" }
+    ]
+  },
+  {
     "id": 1,
     "title": "Rainfall Prediction with LSTM + Attention",
     "year": "2024",

@@ -223,12 +223,12 @@ export const Chat = () => {
                                                                 <li>- Flask</li>
                                                                 <li>- Docker</li>
                                                                 <li>- Hosted as serverless service at IBM Cloud Code Engine for a limited time (2024).</li>
-                                                                <li>- Hosted as serverless service HuggingFace Spaces (2025).</li>
+                                                                <li>- Hosted as a Spaces service at HuggingFace Spaces (2025)</li>
                                                             </ol>
                                                             <br />
                                                             <p className="font-bold">Tips</p>
                                                             <p>- If the bot does not respond within 5 seconds, please wait for about 5-6 minutes as the server is starting the service instance.</p>
-                                                            <p>- Using your own words may result in awkward or inaccurate responses. Prioritize using the suggested messages.</p>
+                                                            <p>- Using your own words may result in awkward or inaccurate responses. Prioritize using the <b>suggested messages</b>.</p>
                                                             <br />
                                                             <p>Chat is stored at localStorage, not in server, your chat is always private.</p>
                                                             <br />
@@ -295,32 +295,34 @@ export const Chat = () => {
                                 </p>
                             )}
                         </div>
-                        <div className="flex items-center border-t p-4 justify-center md:flex-row flex-col gap-2">
-
-                            {
-                                isResponding || isWaitingResponse ? (
-                                    <div className="loader"></div>
-                                ) : (
-                                    renderedSuggestions.map((text, index) => (
-                                        <a
-                                            key={index}
-                                            data-aos="fade-in"
-                                            data-aos-duration='900'
-                                            onClick={() => handleSuggestionClick(text.message)}
-                                            className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
-                                        >
-                                            {text.message}
-                                        </a>
-                                    ))
-                                )
-                            }
-                            {
-                                isResponding || isWaitingResponse ? (
-                                    <></>
-                                ) : (
-                                    <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
-                                )
-                            }
+                        <div className="border-t">
+                            <p className="text-xs text-center pt-3 opacity-65 font-extralight">Suggested messages (recommended)</p>
+                            <div className="flex items-center p-4 justify-center md:flex-row flex-col gap-2">
+                                {
+                                    isResponding || isWaitingResponse ? (
+                                        <div className="loader"></div>
+                                    ) : (
+                                        renderedSuggestions.map((text, index) => (
+                                            <a
+                                                key={index}
+                                                data-aos="fade-in"
+                                                data-aos-duration='900'
+                                                onClick={() => handleSuggestionClick(text.message)}
+                                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                            >
+                                                {text.message}
+                                            </a>
+                                        ))
+                                    )
+                                }
+                                {
+                                    isResponding || isWaitingResponse ? (
+                                        <></>
+                                    ) : (
+                                        <a onClick={() => handleNewSuggestions()} className="mr-2 hover:cursor-pointer text-xl"><MdRefresh /></a>
+                                    )
+                                }
+                            </div>
                         </div>
                         <div className="flex items-center">
                             <Input

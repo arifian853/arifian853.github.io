@@ -16,11 +16,23 @@ import {
 
 const experiences = [
     {
+        "id": 0,
+        "position": "Head of AI Development Program",
+        "company": "Infinite Learning Indonesia",
+        "type": "Contract | On-site",
+        "time": "February 2025 - Present",
+        "location": "Batam, Riau Islands, Indonesia",
+        "description": "Serving as Head AI Technical Mentor at the AI Development KMM Program @ Infinite Learning, I oversee mentees' learning in Machine Learning, AI Applications, Data Science, Python, Deep Learning, and Model Deployment. I ensure they develop strong project management, collaboration, and presentation skills, particularly for the Capstone Project. Additionally, I guide them in building, fine-tuning, and deploying machine learning models while ensuring proper dataset preparation. I also manage mentor team collaboration, program understanding, and resource allocation, fostering a positive and productive learning environment.",
+        "skillset": [
+            "Team Management", "Leadership", "Collaboration", "Communication", "AI Development", "Data Science", "TensorFlow", "Keras", "Python", "Flask"
+        ]
+    },
+    {
         "id": 1,
         "position": "Lead Mentor for IBM Academy: Advance Artificial Intelligence",
         "company": "Infinite Learning Indonesia",
         "type": "Contract | On-site",
-        "time": "July 2024 - Present",
+        "time": "July 2024 - February 2025",
         "location": "Batam, Riau Islands, Indonesia",
         "description": "As a lead mentor at IBM Academy Advanced AI @ Infinite Learning, I am responsible for guiding the mentor team and ensuring mentees master various crucial aspects, from IBM Soft Skills Training, Machine Learning, AI Governance, Generative AI, Deep Learning, to the use of WatsonX.ai on the IBM Cloud platform. My responsibilities include developing mentees' project management skills particularly for the 3M Project in the MSIB program, ensuring they can build and implement robust machine learning models, guiding them in dataset preparation, and managing the mentor team to collaborate effectively while maintaining a positive work environment.",
         "skillset": [
@@ -83,37 +95,37 @@ export const Experiences = () => {
     return (
         <div className="flex justify-center items-center flex-col md:my-16 my-8">
             <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-red-500 border-b mb-3">Experiences</h1>
-            <p className="text-sm opacity-75 md:mb-6 mb-3 md:w-full w-2/3 text-center">Work experiences, interns, and independent study</p>
+            <p className="text-sm opacity-75 md:mb-6 mb-3 md:w-full w-2/3 text-center">Work, Internships, and Independent Study</p>
             <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto p-5 gap-5 md:w-4/5 w-full" id="aboutself">
                 <Accordion data-aos="fade-out" data-aos-duration='900' type="single" collapsible className="md:w-2/3 w-full bg-[#EFEFEF] dark:bg-[#1C1C1C] p-5 rounded-md">
                     {
                         experiences.map((exp, index) => (
                             <AccordionItem value={`item-${index}`} key={index}>
-                                <AccordionTrigger className="text-left"> <span className="border-b hover:border-red-500">{exp.position}</span> </AccordionTrigger>
+                                <AccordionTrigger className="text-left"> <span>{exp.position}</span> </AccordionTrigger>
                                 <AccordionContent>
                                     <Table>
                                         <TableRow>
-                                            <TableCell className="font-medium">Company</TableCell>
+                                            <TableCell className="font-semibold">Company</TableCell>
                                             <TableCell>{exp.company}</TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell className="font-medium">Type</TableCell>
+                                            <TableCell className="font-semibold">Type</TableCell>
                                             <TableCell>{exp.type}</TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell className="font-medium">Time</TableCell>
+                                            <TableCell className="font-semibold">Time</TableCell>
                                             <TableCell>{exp.time}</TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell className="font-medium">Location</TableCell>
+                                            <TableCell className="font-semibold">Location</TableCell>
                                             <TableCell>{exp.location}</TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell className="font-medium">Description</TableCell>
+                                            <TableCell className="font-semibold">Description</TableCell>
                                             <TableCell>{exp.description}</TableCell>
                                         </TableRow>
                                         <TableRow>
-                                            <TableCell className="font-medium">Skillset</TableCell>
+                                            <TableCell className="font-semibold">Skillset</TableCell>
                                             <TableCell>{exp.skillset.join(", ")}</TableCell>
                                         </TableRow>
                                     </Table>
