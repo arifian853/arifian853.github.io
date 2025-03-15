@@ -30,7 +30,7 @@ const featured_projects = [
     "id": 0,
     "title": "Arifian.AI",
     "year": "2025",
-    "description": "TBA",
+    "description": "Personal my-own-AI-persona Chatbot made from Google T5-small and USE Feature Extraction.",
     "image": "/project0.jpg",
     "link": [
       { "repo_link": "https://github.com/arifian853/arifian.ai", "btn_name": "Repo" }

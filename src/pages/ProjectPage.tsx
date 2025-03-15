@@ -28,7 +28,27 @@ interface ProjectPage {
     tags: string[];
 }
 
+// Featured projects data remains unchanged
 const featured_projects = [
+    {
+        "id": 0,
+        "title": "Arifian.AI",
+        "year": "2025",
+        "description": "Personal my-own-AI-persona Chatbot made from Google T5-small and USE Feature Extraction.",
+        "image": "/project0.jpg",
+        "link": [
+            { "repo_link": "https://github.com/arifian853/arifian.ai", "btn_name": "Repo" }
+        ],
+        "demo": [
+            { "demo_link": "https://arifian853.vercel.app/chat-ai", "btn_name": "Demo" }
+        ],
+        "tags": [
+            { "icon": <FaPython />, "name": "Python" },
+            { "icon": <SiTensorflow />, "name": "TensorFlow" },
+            { "icon": <SiFlask />, "name": "Flask" },
+            { "icon": <SiPytorch />, "name": "PyTorch" }
+        ]
+    },
     {
         "id": 1,
         "title": "Rainfall Prediction with LSTM + Attention",
@@ -218,18 +238,19 @@ export const ProjectPage = () => {
     if (!project) {
         return <div className="bg-[#E0E0E0] dark:bg-[#121212] h-screen flex justify-center items-center p-5">
             <Helmet>
-                <title>Project Not Found</title>
+                <title>Arifian Saputra - Not Found</title>
             </Helmet>
-            <div data-aos="zoom-out" data-aos-duration='900' className="w-10/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
+            <div data-aos="zoom-out" data-aos-duration='600' className="w-11/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
                 <h1 className="display-font font-semibold text-xl"><span className="text-red-500">404</span> | Project not found</h1>
 
-                <Button className="display-font font-semibold w-24" onClick={() => navigate(-1)}>
-                    Go back
+                <Button onClick={() => navigate(-1)} className="flex flex-row justify-center items-center gap-1">
+                    <FaArrowLeft /> Go Back
                 </Button>
             </div>
 
-        </div>;
+        </div>
     }
+
     return (
         <>
             <Navbar />
@@ -237,96 +258,141 @@ export const ProjectPage = () => {
                 <title>{project.title}</title>
                 <meta name="description" content={project.description.slice(0, 155)} />
             </Helmet>
-            <div className="flex flex-col justify-center items-center">
-                <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full md:w-4/5">
-                    <div key={project.id} className="bg-[#EFEFEF] dark:bg-[#1C1C1C] md:p-10 p-0 m-5 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
-                        <img loading="lazy" className="md:w-[560px] md:h-[300px] w-[290px] h-[160px] rounded-md mb-3 mt-5 shadow-lg hover:border-red-500 border border-white" src={project.image} alt="" />
-                        <h1 className="text-center display-font md:text-2xl text-xl md:mx-0 mx-5 font-semibold border-red-500 border-b">{project.title}</h1>
-                        <p className="opacity-75">({project.year})</p>
-                        <TooltipProvider>
-                            <div className="text-2xl md:text-3xl flex flex-row gap-3 flex-wrap items-center justify-center">
-                                {project.tags.map((tag, index) => (
-                                    <Tooltip key={index}>
-                                        <TooltipTrigger>
-                                            <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
-                                        </TooltipTrigger>
-                                        <TooltipContent className="flex flex-row items-center justify-center gap-2">
-                                            {tag.icon} {tag.name}
-                                        </TooltipContent>
-                                    </Tooltip>
-                                ))}
-                            </div>
-                        </TooltipProvider>
-                        <p className="flex justify-center items-center gap-3 w-full">
-                            {
-                                project.link.map((links, index) => (
-                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                ))
-                            }
-                            {
-                                project.demo.map((links, index) => (
-                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                ))
-                            }
-                        </p>
 
-                        <p className="text-justify md:p-0 p-5"><Markdown>{project.description}</Markdown></p>
-                        <Button className="md:m-0 mb-5 flex flex-row justify-center items-center gap-1" onClick={() => navigate(-1)}> <FaArrowLeft /> Back </Button>
-                    </div>
-                </div>
-                <h1 className="text-xl">More project</h1>
-                <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto py-5 gap-5 md:w-4/5 w-full flex-wrap">
-                    {
-                        featured_projects.sort(() => 0.5 - Math.random()).slice(0, 3).map((project => (
-                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none">
-                                <CardHeader>
-                                    <TooltipProvider>
-                                        <Tooltip>
+            <div className="flex flex-col justify-center items-center bg-[#E0E0E0] dark:bg-[#121212] py-8">
+                <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full max-w-5xl px-4">
+                    <div key={project.id} className="bg-[#EFEFEF] dark:bg-[#1C1C1C] rounded-xl shadow-lg flex flex-col items-center justify-center gap-6 overflow-hidden w-full">
+                        {/* Project Header with Image */}
+                        <div className="w-full relative">
+                            <div className="w-full h-[200px] md:h-[350px] overflow-hidden bg-gray-200 dark:bg-gray-800">
+                                <img
+                                    loading="lazy"
+                                    className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-500"
+                                    src={project.image}
+                                    alt={project.title}
+                                />
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#EFEFEF] dark:from-[#1C1C1C] h-16"></div>
+                        </div>
+
+                        <div className="px-6 md:px-10 w-full -mt-4">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                                <div>
+                                    <h1 className="text-center md:text-left display-font text-2xl md:text-3xl font-semibold">{project.title}</h1>
+                                    <p className="text-center md:text-left opacity-75 mt-1">({project.year})</p>
+                                </div>
+
+                                <div className="flex flex-wrap justify-center md:justify-end gap-2">
+                                    {project.link.map((links, index) => (
+                                        <Button key={index} className="transition-all hover:scale-105">
+                                            <a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer">
+                                                {links.btn_name} <HiOutlineExternalLink />
+                                            </a>
+                                        </Button>
+                                    ))}
+                                    {project.demo.map((links, index) => (
+                                        <Button key={index} className="transition-all hover:scale-105">
+                                            <a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer">
+                                                {links.btn_name} <HiOutlineExternalLink />
+                                            </a>
+                                        </Button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <TooltipProvider>
+                                <div className="text-2xl md:text-3xl flex flex-row gap-4 flex-wrap items-center justify-center md:justify-start mb-6 p-4 bg-[#E0E0E0] dark:bg-[#121212] rounded-lg">
+                                    <span className="text-sm font-medium mr-2 opacity-75">Tech Stack:</span>
+                                    {project.tags.map((tag, index) => (
+                                        <Tooltip key={index}>
                                             <TooltipTrigger>
-                                                <CardTitle className="display-font truncate hover:underline text-left"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
+                                                <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500 transition-all duration-300 transform hover:scale-110">{tag.icon}</span>
                                             </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p>{project.title} ({project.year})</p>
+                                            <TooltipContent className="flex flex-row items-center justify-center gap-2">
+                                                {tag.icon} {tag.name}
                                             </TooltipContent>
                                         </Tooltip>
-                                    </TooltipProvider>
-                                    <CardDescription className="truncate"> ({project.year}) <br /> {project.description} <Link to={`/project/${project.id}`}><p className="hover:underline">Read More...</p></Link> </CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border" src={project.image} alt="" /></Link>
-                                </CardContent>
-                                <CardFooter>
-                                    <p className="flex justify-center items-center gap-3 w-full">
-                                        {
-                                            project.link.map((links, index) => (
-                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                            ))
-                                        }
-                                        {
-                                            project.demo.map((links, index) => (
-                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                            ))
-                                        }
-                                    </p>
-                                </CardFooter>
-                                <TooltipProvider>
-                                    <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
-                                        {project.tags.map((tag, index) => (
-                                            <Tooltip key={index}>
+                                    ))}
+                                </div>
+                            </TooltipProvider>
+
+                            {/* Project Description */}
+                            <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none mb-8">
+                                <Markdown className="text-justify leading-relaxed">{project.description}</Markdown>
+                            </div>
+
+                            <div className="flex justify-center md:justify-start mb-8">
+                                <Button
+                                    className="flex flex-row justify-center items-center gap-1 px-6 py-5 transition-all hover:scale-105"
+                                    onClick={() => navigate(-1)}
+                                >
+                                    <FaArrowLeft className="mr-1" /> Back
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full max-w-6xl px-4 mt-12">
+                    <div className="flex items-center justify-center"><h2 className="text-2xl font-semibold display-font text-center mb-8 pb-2 border-b border-red-500">More Projects</h2></div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                        {featured_projects
+                            .filter(p => p.id.toString() !== id)
+                            .sort(() => 0.5 - Math.random())
+                            .slice(0, 3)
+                            .map((project => (
+                                <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none">
+                                    <CardHeader>
+                                        <TooltipProvider>
+                                            <Tooltip>
                                                 <TooltipTrigger>
-                                                    <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
+                                                    <CardTitle className="display-font truncate hover:underline text-left"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
                                                 </TooltipTrigger>
-                                                <TooltipContent className="flex flex-row items-center justify-center gap-2">
-                                                    {tag.icon} {tag.name}
+                                                <TooltipContent>
+                                                    <p>{project.title} ({project.year})</p>
                                                 </TooltipContent>
                                             </Tooltip>
-                                        ))}
+                                        </TooltipProvider>
+                                        <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
+                                        <Link to={`/project/${project.id}`}><p className="w-12 border-b border-red-500 opacity-75">More...</p></Link>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border border-white" src={project.image} alt="" /></Link>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <p className="flex justify-center items-center gap-3 w-full">
+                                            {
+                                                project.link.map((links, index) => (
+                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                ))
+                                            }
+                                            {
+                                                project.demo.map((links, index) => (
+                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                ))
+                                            }
+                                        </p>
+                                    </CardFooter>
+                                    <TooltipProvider>
+                                        <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
+                                            {project.tags.map((tag, index) => (
+                                                <Tooltip key={index}>
+                                                    <TooltipTrigger>
+                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent className="flex flex-row items-center justify-center gap-2">
+                                                        {tag.icon} {tag.name}
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            ))}
 
-                                    </div>
-                                </TooltipProvider>
-                            </Card>
-                        )))
-                    }
+                                        </div>
+                                    </TooltipProvider>
+                                </Card>
+                            )))
+                        }
+                    </div>
                 </div>
             </div>
         </>
