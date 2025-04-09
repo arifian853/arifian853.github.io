@@ -34,7 +34,7 @@ const featured_projects = [
         "id": 0,
         "title": "Arifian.AI",
         "year": "2025",
-        "description": "Personal my-own-AI-persona Chatbot made from Google T5-small and USE Feature Extraction.",
+        "description": "Arifian.ai is a personalized my-own-AI-persona chatbot designed to answer general or public questions about myself. Made from Google T5-small and USE Feature Extraction. Hosted as a Spaces to serve API backend functionality in HuggingFace Spaces.",
         "image": "/project0.jpg",
         "link": [
             { "repo_link": "https://github.com/arifian853/arifian.ai", "btn_name": "Repo" }

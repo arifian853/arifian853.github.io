@@ -10,7 +10,9 @@ const contacts = [
     { name: '@arifiansaputra_', logo: <FaInstagram />, link: 'https://www.instagram.com/arifiansaputra_/' },
     { name: '@ArifianSaputra0', logo: <FaXTwitter />, link: 'https://x.com/ArifianSaputra0' },
     { name: 'Arifian Saputra', logo: <FaLinkedin />, link: 'https://www.linkedin.com/in/arifian-saputra-08135a178/' },
-    { name: 'arifian853', logo: <FaGithub />, link: 'https://github.com/arifian853' },
+    { name: 'arifian853', logo: <FaGithub />, link: 'https://github.com/arifian853' }, 
+    // todo: add huggingface icons when FA6 is updated
+    // { name: 'arifian853', logo: <FaHuggingface />, link: 'https://huggingface.co/arifian853' },
 ]
 
 export const Contact = () => {
