@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { Navbar } from '@/components/layout/Navbar'
 import { MdSend, MdClose } from 'react-icons/md'
 
@@ -28,7 +28,7 @@ export const Write = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const MAX_MESSAGE_LENGTH = 500
+  const MAX_MESSAGE_LENGTH = 250
   
   // Dummy messages dengan format tanggal Indonesia
   const [messages, setMessages] = useState<Message[]>([
@@ -43,11 +43,6 @@ export const Write = () => {
       timestamp: "19 Maret 2024, 15:45"
     }
   ])
-
-  // Scroll to bottom when new messages are added
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -95,9 +90,10 @@ export const Write = () => {
       <Navbar />
       <div className="min-h-screen p-5 md:p-10">
         <div className="max-w-2xl mx-auto">
+          <h1 className='text-2xl text-center p-3'> Welcome! </h1>
           <div className="bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg" data-aos="fade-out">
-            <h1 className="text-2xl md:text-xl mb-6 text-center display-font">
-              Write me an anonymous message (Soon!)
+            <h1 className="mb-6 text-center display-font">
+              Write me something <b>anonymously!</b>
             </h1>
 
             {/* Messages Display Area */}
@@ -186,7 +182,7 @@ export const Write = () => {
 
             <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
               <p>Your message will be sent anonymously.</p>
-              <p className='text-red-500'>SOON!</p>
+              <p className='text-red-500'>SOON! | This is not yet online!</p>
             </div>
           </div>
         </div>
