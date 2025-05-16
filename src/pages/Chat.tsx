@@ -144,7 +144,7 @@ export const Chat = () => {
             { "message": "Apa profil LinkedIn Anda?" },
             { "message": "Apa yang kamu gemari?" },
             { "message": "Halo, Arifian!" },
-            { "message": "Kamu kuliah dimana?" },
+            { "message": "Kamu kuliah dimana??" },
         ];
 
         return suggestedMessage.sort(() => 0.5 - Math.random()).slice(0, 3);
