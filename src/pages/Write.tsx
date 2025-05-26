@@ -34,12 +34,12 @@ export const Write = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      content: "Hello, this is a sample anonymous message!",
+      content: "Halo ini adalah contoh pesan anonim 1",
       timestamp: "20 Maret 2024, 10:30"
     },
     {
       id: 2,
-      content: "Another anonymous message here...",
+      content: "Halo ini adalah contoh pesan anonim 2",
       timestamp: "19 Maret 2024, 15:45"
     }
   ])
