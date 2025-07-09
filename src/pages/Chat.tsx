@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
 import { FaTrash } from "react-icons/fa6";
+import ReactMarkdown from 'react-markdown';
 
 import {
     Dialog,
@@ -171,14 +172,14 @@ export const Chat = () => {
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-3xl text-2xl text-center p-5">
-                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span></span>
+                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span> V1 Alpha</span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
-                        Build with <span className="border-b border-red-500">fine-tuned Google T5-small and USE as feature extraction.</span>
+                        Build with RAG technology using <span className="border-b border-red-500">Google Gemini 2.5 Flash</span> with my own data and persona.
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v0.4.1 Latest </span>
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v1.0 alpha - Latest </span>
                             <div>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-red-500" /></DropdownMenuTrigger>
@@ -218,17 +219,14 @@ export const Chat = () => {
                                                             <br />
                                                             <p className="font-bold">Technologies used: </p>
                                                             <ol>
-                                                                <li>- Google T5-Small</li>
-                                                                <li>- Universal Sentence Encoder (USE)</li>
-                                                                <li>- Flask</li>
-                                                                <li>- Docker</li>
-                                                                <li>- Hosted as serverless service at IBM Cloud Code Engine for a limited time (2024).</li>
-                                                                <li>- Hosted as a Spaces service at HuggingFace Spaces (2025)</li>
+                                                                <li>- Google Gemini 2.5 Flash</li>
+                                                                <li>- Google Embedding 001</li>
+                                                                <li>- NodeJS + Express</li>
+                                                                <li>- MongoDB for storing Knowledge Base Vector</li>
                                                             </ol>
                                                             <br />
                                                             <p className="font-bold">Tips</p>
                                                             <p>- If the bot does not respond within 5 seconds, please wait for about 5-6 minutes as the server is starting the service instance.</p>
-                                                            <p>- Using your own words may result in awkward or inaccurate responses. Prioritize using the <b>suggested messages</b>.</p>
                                                             <br />
                                                             <p>Chat is stored at localStorage, not in server, your chat is always private.</p>
                                                             <br />
@@ -257,12 +255,36 @@ export const Chat = () => {
                                         />
                                     )}
                                     <div
-                                        className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg ${message.sender === 'bot'
+                                        className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg max-w-[80%] ${message.sender === 'bot'
                                             ? 'bg-gray-300 dark:bg-gray-700'
                                             : 'bg-gray-800 text-white'
                                             }`}
                                     >
-                                        {message.text}
+                                        {message.sender === 'bot' ? (
+                                            <ReactMarkdown 
+                                                className="prose prose-sm dark:prose-invert max-w-none"
+                                                components={{
+                                                    // Custom styling untuk elemen markdown
+                                                    p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
+                                                    h1: ({children}) => <h1 className="text-lg font-bold mb-2">{children}</h1>,
+                                                    h2: ({children}) => <h2 className="text-base font-bold mb-2">{children}</h2>,
+                                                    h3: ({children}) => <h3 className="text-sm font-bold mb-1">{children}</h3>,
+                                                    ul: ({children}) => <ul className="list-disc list-inside mb-2">{children}</ul>,
+                                                    ol: ({children}) => <ol className="list-decimal list-inside mb-2">{children}</ol>,
+                                                    li: ({children}) => <li className="mb-1">{children}</li>,
+                                                    code: ({children}) => <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">{children}</code>,
+                                                    pre: ({children}) => <pre className="bg-gray-200 dark:bg-gray-600 p-2 rounded text-xs overflow-x-auto mb-2">{children}</pre>,
+                                                    blockquote: ({children}) => <blockquote className="border-l-4 border-gray-400 pl-3 italic mb-2">{children}</blockquote>,
+                                                    strong: ({children}) => <strong className="font-bold">{children}</strong>,
+                                                    em: ({children}) => <em className="italic">{children}</em>,
+                                                    a: ({href, children}) => <a href={href} className="text-blue-500 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">{children}</a>
+                                                }}
+                                            >
+                                                {message.text as string}
+                                            </ReactMarkdown>
+                                        ) : (
+                                            message.text
+                                        )}
                                     </div>
                                     {message.sender === 'user' && (
                                         <img
@@ -296,7 +318,7 @@ export const Chat = () => {
                             )}
                         </div>
                         <div className="border-t">
-                            <p className="text-xs text-center pt-3 opacity-65 font-extralight">Suggested messages (recommended)</p>
+                            <p className="text-xs text-center pt-3 opacity-65 font-extralight">Suggested messages</p>
                             <div className="flex items-center p-4 justify-center md:flex-row flex-col gap-2">
                                 {
                                     isResponding || isWaitingResponse ? (
@@ -342,7 +364,7 @@ export const Chat = () => {
                         </p>
                     </Card>
                     <p className="text-center w-full opacity-55 text-xs">
-                        <span className="border-b border-yellow-500">Warning:</span> Using your own words may result in awkward or inaccurate responses. <br /> Prioritize using the suggested messages. <br />
+                        <span className="border-b border-yellow-500">Warning:</span> Do not abuse! <br />
                     </p>
                 </div>
             </div>
@@ -353,7 +375,20 @@ export const Chat = () => {
                         <DialogDescription className="overflow-y-scroll h-52 text-left">
                             <ul className="list-disc ml-5">
                                 <li>
-                                    <strong>v0.4.1 Latest: Performance Boost with 20 Epochs</strong>
+                                    <strong>v1.0 Alpha Latest: RAG Technology Implementation</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>Migrated from fine-tuned model to RAG (Retrieval-Augmented Generation)</li>
+                                        <li>Google Gemini 2.5 Flash as the base LLM</li>
+                                        <li>Google Embedding 001 for vector embeddings</li>
+                                        <li>NodeJS + Express backend architecture</li>
+                                        <li>MongoDB for vector database storage</li>
+                                        <li>Real-time knowledge retrieval and context injection</li>
+                                        <li>Improved response accuracy with dynamic knowledge base</li>
+                                        <li>Support for multiple file formats (PDF, JSON, TXT)</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>v0.4.1: Performance Boost with 20 Epochs (Deprecated)</strong>
                                     <ul className="list-disc ml-5">
                                         <li>ROUGE-1: 0.6640</li>
                                         <li>ROUGE-2: 0.5327</li>
@@ -361,10 +396,11 @@ export const Chat = () => {
                                         <li>BLEU Score: 52.0508</li>
                                         <li>20 Epochs</li>
                                         <li>Count of question-answer pair: 297</li>
+                                        <li>Note: Fine-tuned model approach, replaced by RAG in v1.0</li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <strong>v0.4: Performance Details with 16 Epochs</strong>
+                                    <strong>v0.4: Performance Details with 16 Epochs (Deprecated)</strong>
                                     <ul className="list-disc ml-5">
                                         <li>ROUGE-1: 0.6647</li>
                                         <li>ROUGE-2: 0.5067</li>

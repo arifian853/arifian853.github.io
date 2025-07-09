@@ -52,21 +52,41 @@ http://localhost:5173/say
 
 Arifian.ai is a personalized my-own-AI-persona chatbot designed to answer general or public questions about myself.
 
+**Current Version (v1.0 Alpha) - RAG Technology:**
+
 Technologies used:
 
-- Google T5-Small
+- **Google Gemini 2.5 Flash** (Base LLM)
+- **Google Embedding 001** (Vector embeddings)
+- **RAG (Retrieval-Augmented Generation)** architecture
+- **NodeJS + Express** (Backend)
+- **MongoDB** (Vector database storage)
+- **Real-time knowledge retrieval** with context injection
+- **Multi-format support** (PDF, JSON, TXT)
+- Hosted on **Hugging Face Spaces**
+
+**Major Update:** Migrated from fine-tuned T5-Small model to RAG technology for improved response accuracy and dynamic knowledge base.
+
+**Previous Version (v0.4.1) - Deprecated:**
+
+Technologies used:
+
+- Google T5-Small (Fine-tuned)
 - Universal Sentence Encoder (USE)
 - Flask
 - Docker
-- Hosted as serverless service at IBM Cloud Code Engine for a limited time
+- Hosted as serverless service at IBM Cloud Code Engine
 
-Latest version performance (v0.4.1) : 
+Latest fine-tuned model performance (v0.4.1):
 
 - ROUGE-1: 0.6640
 - ROUGE-2: 0.5327
 - ROUGE-L: 0.6441
 - BLEU Score: 52.0508%
 - Average Training Loss: 0.0819
+- Training Data: 297 question-answer pairs
 
-Check here : [Arifian.ai](https://github.com/arifian853/arifian.ai) repository.
+**Note:** The fine-tuned model approach has been replaced by RAG technology in v1.0 for better scalability and accuracy.
+
+Check here: [Arifian.ai](https://github.com/arifian853/arifian.ai) repository.
 
