@@ -44,7 +44,7 @@ const formatDate = (date: Date): string => {
 }
 
 // API Base URL - sesuaikan dengan backend URL Anda
-const API_BASE_URL = import.meta.env.VITE_CONFESS_API_URL || 'http://localhost:3000'
+const API_BASE_URL = import.meta.env.VITE_CONFESS_API_URL || 'https://arifian853-arifian-ai-v1.hf.space'
 
 export const Write = () => {
   const [message, setMessage] = useState('')
