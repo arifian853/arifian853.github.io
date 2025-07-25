@@ -59,14 +59,14 @@ export const About = () => {
 
           <div className="w-full p-5 text-center flex flex-col items-center justify-center gap-4">
             <img 
-              className="h-32 w-32 md:h-40 md:w-40 rounded-full border-2 border-red-500 object-cover shadow-md transition-transform hover:scale-105 duration-300" 
+              className="h-32 w-32 md:h-40 md:w-40 rounded-full border-2 border-teal-500 object-cover shadow-md transition-transform hover:scale-105 duration-300" 
               src="/user.jpeg" 
               alt="Arifian Saputra" 
             />
-            <p className="display-font text-xl md:text-2xl text-center border-red-500 border-b pb-1">Arifian Saputra</p>
-            <p className="text-sm md:text-base opacity-75 font-medium">AI Technical Mentor | Full - Stack Web Developer | RHCSA</p>
+            <p className="display-font text-xl md:text-2xl text-center border-teal-500 border-b pb-1">Arifian Saputra</p>
+            <p className="text-sm md:text-base opacity-75 font-medium">AI Technical Mentor | Full - Stack Web Developer</p>
             <p className="w-full max-w-xl md:max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. RHCSA certified. Currently served as a Head Mentor of AI Development program at Infinite Learning.
+              Informatics Engineering fresh graduate with a focus on Artificial Intelligence, Machine Learning, and Full Stack Web Development. Currently served as a Head Mentor of AI Development program at Infinite Learning.
             </p>
             <div className="flex flex-wrap gap-3 justify-center mt-2">
               <a data-aos="fade-out" data-aos-duration='900' href="/cv.pdf" target="_blank" rel="noopener noreferrer">
@@ -79,7 +79,7 @@ export const About = () => {
           </div>
 
           <div className="w-full">
-            <h1 className="display-font text-xl md:text-2xl text-center border-red-500 border-b pb-1 mb-6 max-w-xs mx-auto">Tech Stacks</h1>
+            <h1 className="display-font text-xl md:text-2xl text-center border-teal-500 border-b pb-1 mb-6 max-w-xs mx-auto">Tech Stacks</h1>
 
             <div className="text-3xl md:text-4xl flex flex-wrap gap-5 justify-center items-center max-w-md mx-auto">
               {
@@ -87,7 +87,7 @@ export const About = () => {
                   <TooltipProvider key={index}>
                     <Tooltip>
                       <TooltipTrigger data-aos="fade-out" data-aos-duration='900' className="transition-all duration-300">
-                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500 transform hover:scale-110 transition-all duration-300">{tag.icon}</span>
+                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500 transform hover:scale-110 transition-all duration-300">{tag.icon}</span>
                       </TooltipTrigger>
                       <TooltipContent className="flex flex-row items-center justify-center gap-2 text-sm">
                         {tag.icon} {tag.name}
@@ -100,7 +100,7 @@ export const About = () => {
           </div>
 
           <div className="w-full">
-            <h1 className="display-font text-xl md:text-2xl text-center border-red-500 border-b pb-1 mb-6 max-w-xs mx-auto">Stay in Touch</h1>
+            <h1 className="display-font text-xl md:text-2xl text-center border-teal-500 border-b pb-1 mb-6 max-w-xs mx-auto">Stay in Touch</h1>
             
             <div className='text-3xl md:text-4xl flex flex-wrap gap-5 justify-center items-center max-w-md mx-auto'>
               {
@@ -111,7 +111,7 @@ export const About = () => {
                         <a 
                           data-aos="fade-out" 
                           data-aos-duration='900' 
-                          className="text-3xl md:text-4xl hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500 transform hover:scale-110 transition-all duration-300" 
+                          className="text-3xl md:text-4xl hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500 transform hover:scale-110 transition-all duration-300" 
                           href={contact.link} 
                           target="_blank" 
                           rel="noopener noreferrer"

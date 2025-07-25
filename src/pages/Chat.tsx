@@ -172,21 +172,21 @@ export const Chat = () => {
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-3xl text-2xl text-center p-5">
-                        <span className="border-b border-red-500">Arifian<span className="text-red-500">.AI</span> V1 Alpha</span>
+                        <span className="border-b border-teal-500">Arifian<span className="text-teal-500">.AI</span> V1 Alpha</span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
-                        Build with RAG technology using <span className="border-b border-red-500">Google Gemini 2.5 Flash</span> with my own data and persona.
+                        Build with RAG technology using <span className="border-b border-teal-500">Google Gemini 2.5 Flash</span> with my own data and persona.
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
                             <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v1.0 alpha - Latest </span>
                             <div>
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-red-500" /></DropdownMenuTrigger>
+                                    <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-teal-500" /></DropdownMenuTrigger>
                                     <DropdownMenuContent className="bg-[#BABFBF] dark:bg-[#1C1C1C]">
-                                        <DropdownMenuItem className="hover:cursor-pointer hover:text-red-500">
+                                        <DropdownMenuItem className="hover:cursor-pointer hover:text-teal-500">
                                             <Dialog>
-                                                <DialogTrigger onClick={(e) => e.stopPropagation()} className="hover:cursor-pointer hover:text-red-500">
+                                                <DialogTrigger onClick={(e) => e.stopPropagation()} className="hover:cursor-pointer hover:text-teal-500">
                                                     <span className="flex items-center justify-center gap-2">
                                                         <FaTrash /> Delete all chat
                                                     </span>
@@ -199,7 +199,7 @@ export const Chat = () => {
                                                         </DialogDescription>
                                                     </DialogHeader>
                                                     <DialogFooter>
-                                                        <Button onClick={handleClearChat} className="flex justify-center items-center gap-1 hover:bg-red-500">Delete <FaTrash /></Button>
+                                                        <Button onClick={handleClearChat} className="flex justify-center items-center gap-1 hover:bg-teal-500">Delete <FaTrash /></Button>
                                                     </DialogFooter>
                                                 </DialogContent>
                                             </Dialog>
@@ -230,7 +230,7 @@ export const Chat = () => {
                                                             <br />
                                                             <p>Chat is stored at localStorage, not in server, your chat is always private.</p>
                                                             <br />
-                                                            <p>See the development repository <a className="border-b border-red-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
+                                                            <p>See the development repository <a className="border-b border-teal-500" href="https://github.com/arifian853/arifian.ai" target="_blank" rel="noopener noreferrer">here.</a></p>
                                                         </DialogDescription>
                                                     </DialogHeader>
                                                 </DialogContent>
@@ -303,7 +303,7 @@ export const Chat = () => {
                                             alt="Bot"
                                             className="w-8 h-8 rounded-full mr-2"
                                         />
-                                        <span className="animate-spin rounded-full h-6 w-6 border-2 border-t-red-500 border-b-red-500"></span>
+                                        <span className="animate-spin rounded-full h-6 w-6 border-2 border-t-teal-500 border-b-teal-500"></span>
                                         <p className="ml-2 text-sm text-gray-500">Thinking... may take about 30s++...</p>
                                     </div>
                                 )
@@ -330,7 +330,7 @@ export const Chat = () => {
                                                 data-aos="fade-in"
                                                 data-aos-duration='900'
                                                 onClick={() => handleSuggestionClick(text.message)}
-                                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-red-400 hover:border-red-500`}
+                                                className={`mr-2 dark:bg-[#1C1D24] bg-[#E0E0E0] dark:text-white text-black px-3 py-1 rounded-full text-sm text-center hover:cursor-pointer border border-teal-500 hover:border-teal-500`}
                                             >
                                                 {text.message}
                                             </a>

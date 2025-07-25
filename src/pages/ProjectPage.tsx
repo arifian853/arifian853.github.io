@@ -241,7 +241,7 @@ export const ProjectPage = () => {
                 <title>Arifian Saputra - Not Found</title>
             </Helmet>
             <div data-aos="zoom-out" data-aos-duration='600' className="w-11/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
-                <h1 className="display-font font-semibold text-xl"><span className="text-red-500">404</span> | Project not found</h1>
+                <h1 className="display-font font-semibold text-xl"><span className="text-teal-500">404</span> | Project not found</h1>
 
                 <Button onClick={() => navigate(-1)} className="flex flex-row justify-center items-center gap-1">
                     <FaArrowLeft /> Go Back
@@ -306,7 +306,7 @@ export const ProjectPage = () => {
                                     {project.tags.map((tag, index) => (
                                         <Tooltip key={index}>
                                             <TooltipTrigger>
-                                                <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500 transition-all duration-300 transform hover:scale-110">{tag.icon}</span>
+                                                <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500 transition-all duration-300 transform hover:scale-110">{tag.icon}</span>
                                             </TooltipTrigger>
                                             <TooltipContent className="flex flex-row items-center justify-center gap-2">
                                                 {tag.icon} {tag.name}
@@ -334,7 +334,7 @@ export const ProjectPage = () => {
                 </div>
 
                 <div className="w-full max-w-6xl px-4 mt-12">
-                    <div className="flex items-center justify-center"><h2 className="text-2xl font-semibold display-font text-center mb-8 pb-2 border-b border-red-500">More Projects</h2></div>
+                    <div className="flex items-center justify-center"><h2 className="text-2xl font-semibold display-font text-center mb-8 pb-2 border-b border-teal-500">More Projects</h2></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                         {featured_projects
@@ -355,10 +355,10 @@ export const ProjectPage = () => {
                                             </Tooltip>
                                         </TooltipProvider>
                                         <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
-                                        <Link to={`/project/${project.id}`}><p className="w-12 border-b border-red-500 opacity-75">More...</p></Link>
+                                        <Link to={`/project/${project.id}`}><p className="w-12 border-b border-teal-500 opacity-75">More...</p></Link>
                                     </CardHeader>
                                     <CardContent>
-                                        <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border border-white" src={project.image} alt="" /></Link>
+                                        <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-teal-500 border border-white" src={project.image} alt="" /></Link>
                                     </CardContent>
                                     <CardFooter>
                                         <p className="flex justify-center items-center gap-3 w-full">
@@ -379,7 +379,7 @@ export const ProjectPage = () => {
                                             {project.tags.map((tag, index) => (
                                                 <Tooltip key={index}>
                                                     <TooltipTrigger>
-                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
+                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500">{tag.icon}</span>
                                                     </TooltipTrigger>
                                                     <TooltipContent className="flex flex-row items-center justify-center gap-2">
                                                         {tag.icon} {tag.name}

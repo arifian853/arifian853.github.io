@@ -1,6 +1,6 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
-import { Switch } from "./ui/switch"
+import { Button } from "./ui/button" // Pastikan impor Button dari Shadcn/UI jika belum ada
 
 
 export function ModeToggle() {
@@ -8,15 +8,13 @@ export function ModeToggle() {
     const isDarkMode = theme === "dark"
 
     return (
-        <div className="flex items-center space-x-2">
-            <Sun />
-            <Switch
-                checked={isDarkMode}
-                onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-                id="mode-toggle"
-            />
-            <Moon />
-
-        </div>
+        <Button
+            variant="ghost" // Untuk tampilan minimalis dan elegan
+            size="icon"
+            onClick={() => setTheme(isDarkMode ? "light" : "dark")}
+            aria-label="Toggle theme"
+        >
+            {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        </Button>
     )
 }

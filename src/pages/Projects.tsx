@@ -238,7 +238,7 @@ export const Projects = () => {
                 <title>Arifian Saputra - Projects</title>
             </Helmet>
             <div className="flex justify-center items-center flex-col md:my-20 my-10">
-                <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-red-500 border-b mb-3">Projects</h1>
+                <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-teal-500 border-b mb-3">Projects</h1>
                 <p className="text-sm opacity-75 md:mb-6 mb-3">Latest featured projects</p>
                 <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
                     {
@@ -256,10 +256,10 @@ export const Projects = () => {
                                         </Tooltip>
                                     </TooltipProvider>
                                     <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
-                                    <Link to={`/project/${project.id}`}><p className="w-12 border-b border-red-500 opacity-75">More...</p></Link>
+                                    <Link to={`/project/${project.id}`}><p className="w-12 border-b border-teal-500 opacity-75">More...</p></Link>
                                 </CardHeader>
                                 <CardContent>
-                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-red-500 border border-white" src={project.image} alt="" /></Link>
+                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-teal-500 border border-white" src={project.image} alt="" /></Link>
                                 </CardContent>
                                 <CardFooter>
                                     <p className="flex justify-center items-center gap-3 w-full">
@@ -280,7 +280,7 @@ export const Projects = () => {
                                         {project.tags.map((tag, index) => (
                                             <Tooltip key={index}>
                                                 <TooltipTrigger>
-                                                    <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-red-500">{tag.icon}</span>
+                                                    <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500">{tag.icon}</span>
                                                 </TooltipTrigger>
                                                 <TooltipContent className="flex flex-row items-center justify-center gap-2">
                                                     {tag.icon} {tag.name}

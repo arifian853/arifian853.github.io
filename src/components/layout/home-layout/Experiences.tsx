@@ -94,7 +94,7 @@ const experiences = [
 export const Experiences = () => {
     return (
         <div className="flex justify-center items-center flex-col md:my-16 my-8">
-            <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-red-500 border-b mb-3">Experiences</h1>
+            <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-teal-500 border-b mb-3">Experiences</h1>
             <p className="text-sm opacity-75 md:mb-6 mb-3 md:w-full w-2/3 text-center">Works, Internships, and Independent Study experiences</p>
             <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[400px] h-auto p-5 gap-5 md:w-4/5 w-full" id="aboutself">
                 <Accordion data-aos="fade-out" data-aos-duration='900' type="single" collapsible className="md:w-2/3 w-full bg-[#EFEFEF] dark:bg-[#1C1C1C] p-5 rounded-md">
