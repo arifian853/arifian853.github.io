@@ -3,7 +3,7 @@ import { useTheme } from "@/components/theme-provider"
 import { Button } from "./ui/button" // Pastikan impor Button dari Shadcn/UI jika belum ada
 
 
-export function ModeToggle() {
+export function ThemeToggler() {
     const { theme, setTheme } = useTheme()
     const isDarkMode = theme === "dark"
 

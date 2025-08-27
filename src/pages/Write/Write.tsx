@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { Navbar } from '@/components/layout/Navbar'
 import { MdSend, MdClose, MdReply } from 'react-icons/md'
 
 interface Message {
@@ -127,94 +126,102 @@ export const Write = () => {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen p-5 md:p-10">
         <div className="max-w-4xl mx-auto">
           <h1 className='text-3xl text-center p-6 display-font'> Welcome! </h1>
           
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Form Section */}
-            <div className="bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg" data-aos="fade-right">
-              <h2 className="mb-6 text-center display-font text-xl">
-                Write me something <b>anonymously!</b>
-              </h2>
+          {/* Ubah grid: form menjadi sticky di kiri (lg), messages lebih lebar di kanan */}
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
+            {/* Form Section - Sticky */}
+            <div className="lg:col-span-1">
+              <div
+                className="sticky top-24 bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg"
+                data-aos="fade-right"
+              >
+                <h2 className="mb-6 text-center display-font text-xl">
+                  Write me something <b>anonymously!</b>
+                </h2>
 
-              {/* Error Message */}
-              {error && (
-                <div className="mb-4 p-3 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200 rounded-lg">
-                  {error}
-                </div>
-              )}
-
-              {/* Input Form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="relative">
-                  <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value.slice(0, MAX_MESSAGE_LENGTH))}
-                    className="w-full h-32 p-4 rounded-lg bg-[#E0E0E0] dark:bg-[#1C1D24] 
-                              border border-gray-300 dark:border-gray-600 
-                              focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                              resize-none transition-all duration-300"
-                    placeholder="Type your message here..."
-                    required
-                    disabled={loading}
-                    aria-label="Anonymous message"
-                    maxLength={MAX_MESSAGE_LENGTH}
-                  />
-                  {message && (
-                    <button
-                      type="button"
-                      onClick={handleClearMessage}
-                      className="absolute top-2 right-2 p-1 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
-                      aria-label="Clear message"
-                    >
-                      <MdClose size={16} />
-                    </button>
-                  )}
-                  <div className="text-xs text-right mt-1 text-gray-500 dark:text-gray-400">
-                    {message.length}/{MAX_MESSAGE_LENGTH}
+                {/* Error Message */}
+                {error && (
+                  <div className="mb-4 p-3 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200 rounded-lg">
+                    {error}
                   </div>
+                )}
+
+                {/* Input Form */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="relative">
+                    <textarea
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value.slice(0, MAX_MESSAGE_LENGTH))}
+                      className="w-full h-32 p-4 rounded-lg bg-[#E0E0E0] dark:bg-[#1C1D24] 
+                                border border-gray-300 dark:border-gray-600 
+                                focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                                resize-none transition-all duration-300"
+                      placeholder="Type your message here..."
+                      required
+                      disabled={loading}
+                      aria-label="Anonymous message"
+                      maxLength={MAX_MESSAGE_LENGTH}
+                    />
+                    {message && (
+                      <button
+                        type="button"
+                        onClick={handleClearMessage}
+                        className="absolute top-2 right-2 p-1 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
+                        aria-label="Clear message"
+                      >
+                        <MdClose size={16} />
+                      </button>
+                    )}
+                    <div className="text-xs text-right mt-1 text-gray-500 dark:text-gray-400">
+                      {message.length}/{MAX_MESSAGE_LENGTH}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={loading || !message.trim()}
+                    className={`w-full flex items-center gap-2 justify-center py-3 rounded-lg transition-all duration-300 font-medium
+                              ${loading || !message.trim()
+                        ? 'bg-gray-400 cursor-not-allowed text-gray-600'
+                        : 'bg-[#1C1D24] dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
+                      }`}
+                    aria-busy={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message <MdSend />
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+                  <p>Your message will be sent anonymously.</p>
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={loading || !message.trim()}
-                  className={`w-full flex items-center gap-2 justify-center py-3 rounded-lg transition-all duration-300 font-medium
-                            ${loading || !message.trim()
-                      ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                      : 'bg-[#1C1D24] dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
-                    }`}
-                  aria-busy={loading}
-                >
-                  {loading ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message <MdSend />
-                    </>
-                  )}
-                </button>
-              </form>
-
-              <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-                <p>Your message will be sent anonymously.</p>
               </div>
             </div>
 
-            {/* Messages Display Section */}
-            <div className="bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg" data-aos="fade-left">
+            {/* Messages Display Section - Wider */}
+            <div
+              className="lg:col-span-2 bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg"
+              data-aos="fade-left"
+            >
               <h2 className="mb-6 text-center display-font text-xl">
                 Recent Messages
               </h2>
               
-              <div className="space-y-4 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent pr-2">
+              <div className="space-y-4 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent pr-2">
                 {fetchingMessages ? (
                   <div className="text-center py-8 text-gray-500 dark:text-gray-400">
                     <div className="loader mx-auto mb-4"></div>

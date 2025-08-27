@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Link } from "react-router-dom";
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
-import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress, SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiCsharp } from "react-icons/si";
+import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress, SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
@@ -203,7 +203,7 @@ const featured_projects = [
     ],
     "tags": [
       { "icon": <SiUnity />, "name": "Unity" },
-      { "icon": <SiCsharp />, "name": "C# (C-Sharp)" },
+      { "icon": <SiSharp />, "name": "C# (C-Sharp)" },
     ]
   },
   {

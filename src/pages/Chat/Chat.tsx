@@ -4,7 +4,6 @@ import { SetStateAction, useEffect, useRef, useState, useMemo, JSXElementConstru
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/layout/Navbar";
 import { MdRefresh, MdSend } from "react-icons/md";
 import { FaTrash } from "react-icons/fa6";
 import ReactMarkdown from 'react-markdown';
@@ -165,7 +164,6 @@ export const Chat = () => {
 
     return (
         <>
-            <Navbar />
             <div className="bg-[#E0E0E0] dark:bg-[#121212] h-auto flex justify-center items-center p-5">
                 <Helmet>
                     <title>Arifian.AI</title>
@@ -369,7 +367,7 @@ export const Chat = () => {
                 </div>
             </div>
             <Dialog open={showChangelog} onOpenChange={setShowChangelog}>
-                <DialogContent className="md:w-full w-[330px] bg-[#BABFBF] dark:bg-[#30323D] shadow-lg rounded-md">
+                <DialogContent className="md:w-full w-[330px] bg-[#E0E0E0] dark:bg-[#121212] shadow-lg rounded-md">
                     <DialogHeader>
                         <DialogTitle className="display-font text-left">Changelog</DialogTitle>
                         <DialogDescription className="overflow-y-scroll h-52 text-left">

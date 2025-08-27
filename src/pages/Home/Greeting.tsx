@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Navbar } from "../../components/layout/Navbar";
-
 
 export const Greeting = () => {
 
@@ -29,7 +27,6 @@ export const Greeting = () => {
 
   return (
     <div className="h-screen">
-      <Navbar />
       <div className="flex md:flex-row flex-col md:justify-start justify-center h-full items-center gap-4">
 
         <div className="md:ml-48 ml-0 md:mb-32 mb-24 md:mt-0">
