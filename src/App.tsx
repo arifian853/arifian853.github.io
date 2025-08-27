@@ -1,19 +1,19 @@
 import '@/App.css'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
 import { Routes, Route } from 'react-router-dom'
-import { Home } from '@/pages/Home'
-import { About } from '@/pages/About'
-import { NotFound } from '@/pages/NotFound'
+import { Home } from '@/pages/Home/Home'
+import { About } from '@/pages/About/About'
+import { NotFound } from '@/pages/NotFound/NotFound'
 import { Footer } from '@/components/layout/Footer'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
 import { useEffect } from 'react'
-import { ProjectPage } from './pages/ProjectPage'
-import { Chat } from './pages/Chat'
-import { Projects } from './pages/Projects'
+import { ProjectPage } from './pages/Project/ProjectPage'
+import { Chat } from './pages/Chat/Chat'
+import { Projects } from './pages/Project/Projects'
 import ScrollToTop from './components/scroll-to-top'
 import ScrollToTopButton from './components/scroll-btn'
-import { Write } from './pages/Write'
+import { Write } from './pages/Write/Write'
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {

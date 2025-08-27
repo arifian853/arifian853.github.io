@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Navbar } from "../Navbar";
+import { Navbar } from "../../components/layout/Navbar";
 
 
 export const Greeting = () => {
@@ -28,7 +28,7 @@ export const Greeting = () => {
   const timeOfDay = getTimeOfDay(currentHour);
 
   return (
-    <div className="bg-[#E0E0E0] dark:bg-[#121212] h-screen">
+    <div className="h-screen">
       <Navbar />
       <div className="flex md:flex-row flex-col md:justify-start justify-center h-full items-center gap-4">
 

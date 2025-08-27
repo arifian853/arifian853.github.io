@@ -20,7 +20,7 @@ export const Contact = () => {
         <div className="flex justify-center items-center flex-col md:my-16 my-8">
             <h1 data-aos="fade-out" data-aos-duration='900' className="display-font text-4xl border-teal-500 border-b mb-3">Stay in Touch</h1>
             <p className="text-sm opacity-75 md:mb-6 mb-3 md:w-full w-2/3 text-center">Feel free to reach out!</p>
-            <div className="bg-[#E0E0E0] dark:bg-[#121212] flex flex-row items-center justify-center min-h-[250px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
+            <div className="flex flex-row items-center justify-center min-h-[250px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
                 {
                     contacts.map((contact, index) => (
                         <TooltipProvider>

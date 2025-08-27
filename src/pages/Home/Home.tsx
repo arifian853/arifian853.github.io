@@ -1,9 +1,9 @@
-import { AboutSelf } from "@/components/layout/home-layout/AboutSelf"
-import { Contact } from "@/components/layout/home-layout/Contact"
-import { Educations } from "@/components/layout/home-layout/Educations"
-import { Experiences } from "@/components/layout/home-layout/Experiences"
-import { Greeting } from "@/components/layout/home-layout/Greeting"
-import { Project } from "@/components/layout/home-layout/Project"
+import { AboutSelf } from "@/pages/Home/AboutSelf"
+import { Contact } from "@/pages/Home/Contact"
+import { Educations } from "@/pages/Home/Educations"
+import { Experiences } from "@/pages/Home/Experiences"
+import { Greeting } from "@/pages/Home/Greeting"
+import { Project } from "@/pages/Home/Project"
 import { Helmet } from "react-helmet"
 
 export const Home = () => {
