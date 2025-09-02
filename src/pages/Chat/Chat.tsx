@@ -249,13 +249,13 @@ export const Chat = () => {
                                         <img
                                             src="/user.jpeg"
                                             alt="Bot"
-                                            className="w-8 h-8 rounded-full mr-2"
+                                            className="w-8 h-8 rounded-full mr-2 border border-teal-300"
                                         />
                                     )}
                                     <div
                                         className={`md:text-base text-sm inline-block px-3 py-2 rounded-lg max-w-[80%] ${message.sender === 'bot'
-                                            ? 'bg-gray-300 dark:bg-gray-700'
-                                            : 'bg-gray-800 text-white'
+                                            ? 'bg-[#121212] dark:bg-[#E0E0E0] text-white dark:text-black border border-teal-300'
+                                            : 'bg-[#121212] dark:bg-[#E0E0E0] text-white dark:text-black'
                                             }`}
                                     >
                                         {message.sender === 'bot' ? (
@@ -288,7 +288,7 @@ export const Chat = () => {
                                         <img
                                             src="/guest.png"
                                             alt="User"
-                                            className="w-8 h-8 rounded-full ml-2"
+                                            className="w-8 h-8 rounded-full ml-2 border border-teal-300 dark:text-white text-black"
                                         />
                                     )}
                                 </div>

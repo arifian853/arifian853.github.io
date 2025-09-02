@@ -304,7 +304,7 @@ export const ProjectPage = () => {
                                     {project.tags.map((tag, index) => (
                                         <Tooltip key={index}>
                                             <TooltipTrigger>
-                                                <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500 transition-all duration-300 transform hover:scale-110">{tag.icon}</span>
+                                                <span className="hover:drop-shadow-[0_4px_4px_rgba(45, 212, 191, 0.5)] hover:text-teal-500 transition-all duration-300 transform hover:scale-110">{tag.icon}</span>
                                             </TooltipTrigger>
                                             <TooltipContent className="flex flex-row items-center justify-center gap-2">
                                                 {tag.icon} {tag.name}
@@ -377,7 +377,7 @@ export const ProjectPage = () => {
                                             {project.tags.map((tag, index) => (
                                                 <Tooltip key={index}>
                                                     <TooltipTrigger>
-                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500">{tag.icon}</span>
+                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(45, 212, 191, 0.5)] hover:text-teal-500">{tag.icon}</span>
                                                     </TooltipTrigger>
                                                     <TooltipContent className="flex flex-row items-center justify-center gap-2">
                                                         {tag.icon} {tag.name}

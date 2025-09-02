@@ -40,7 +40,7 @@ export const Navbar = () => {
           <li className="border-b p-1 border-[#1C1C1C] dark:border-[#EFEFEF] hover:border-teal-500 dark:hover:border-teal-500"><Link to='/project'>Projects</Link></li>
           <li className="border-b p-1 border-[#1C1C1C] dark:border-[#EFEFEF] hover:border-teal-500 dark:hover:border-teal-500"><Link to='/chat-ai'>Arifian.AI</Link></li>
           <li className="border-b p-1 border-[#1C1C1C] dark:border-[#EFEFEF] hover:border-teal-500 dark:hover:border-teal-500"><Link to='/write'>Write</Link></li>
-          <li className="text-3xl hover:drop-shadow-[0_4px_4px_rgba(239,68,68,0.5)] hover:text-teal-500"><a href="https://github.com/arifian853" rel="noopener noreferrer" target="blank"><FaGithub /></a></li>
+          <li className="text-3xl hover:drop-shadow-[0_4px_4px_rgba(45, 212, 191, 0.5)] hover:text-teal-500"><a href="https://github.com/arifian853" rel="noopener noreferrer" target="blank"><FaGithub /></a></li>
         </ul>
       </div>
     </nav>

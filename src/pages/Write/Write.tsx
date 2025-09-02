@@ -1,5 +1,7 @@
-import { useState, useRef, useEffect } from 'react'
-import { MdSend, MdClose, MdReply } from 'react-icons/md'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { EnvelopeCard } from '@/components/EnvelopeCard'
+import { WriteMessageModal } from '@/components/WriteMessageModal'
 
 interface Message {
   id: number
@@ -43,16 +45,12 @@ const formatDate = (date: Date): string => {
 }
 
 // API Base URL - sesuaikan dengan backend URL Anda
-const API_BASE_URL = import.meta.env.VITE_CONFESS_API_URL || 'https://arifian853-arifian-ai-v1.hf.space'
+const API_BASE_URL = import.meta.env.VITE_CONFESS_API_URL
 
 export const Write = () => {
-  const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [fetchingMessages, setFetchingMessages] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const MAX_MESSAGE_LENGTH = 250
-  
   const [messages, setMessages] = useState<Message[]>([])
 
   // Fetch messages from API
@@ -88,10 +86,7 @@ export const Write = () => {
     fetchMessages()
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!message.trim()) return
-    
+  const handleSubmitMessage = async (message: string) => {
     setLoading(true)
     setError(null)
     
@@ -101,7 +96,7 @@ export const Write = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: message.trim() })
+        body: JSON.stringify({ message })
       })
       
       if (!response.ok) {
@@ -109,165 +104,100 @@ export const Write = () => {
         throw new Error(errorData.error || 'Failed to send message')
       }
       
-      // Clear form and refresh messages
-      setMessage('')
-      await fetchMessages() // Refresh messages after successful submission
+      // Refresh messages after successful submission
+      await fetchMessages()
       
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred')
+      throw err // Re-throw to handle in modal
     } finally {
       setLoading(false)
     }
   }
 
-  const handleClearMessage = () => {
-    setMessage('')
-  }
-
   return (
-    <>
-      <div className="min-h-screen p-5 md:p-10">
-        <div className="max-w-4xl mx-auto">
-          <h1 className='text-3xl text-center p-6 display-font'> Welcome! </h1>
-          
-          {/* Ubah grid: form menjadi sticky di kiri (lg), messages lebih lebar di kanan */}
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Form Section - Sticky */}
-            <div className="lg:col-span-1">
-              <div
-                className="sticky top-24 bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg"
-                data-aos="fade-right"
+    <div className="min-h-screen p-5 md:p-10">
+      <div className="max-w-6xl mx-auto">
+        <motion.h1 
+          className='text-3xl text-center p-6 display-font'
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        > 
+          Welcome! 
+        </motion.h1>
+        
+        {/* Error Message */}
+        {error && (
+          <motion.div 
+            className="mb-6 p-4 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200 rounded-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+          >
+            {error}
+          </motion.div>
+        )}
+
+        <div className="space-y-8">
+          {/* Write Message Section */}
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <div className="flex justify-center">
+              <WriteMessageModal 
+                onSubmit={handleSubmitMessage} 
+                loading={loading} 
+              />
+            </div>
+          </motion.div>
+
+          {/* Messages Grid */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            <h2 className="mb-6 text-center display-font text-xl">
+              Recent Messages
+            </h2>
+            
+            {fetchingMessages ? (
+              <div className="text-center py-12">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  className="w-8 h-8 border-4 border-gray-300 border-t-teal-500 rounded-full mx-auto mb-4"
+                />
+                <p className="text-gray-500 dark:text-gray-400">Loading messages...</p>
+              </div>
+            ) : messages.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {messages.map((msg, index) => (
+                  <EnvelopeCard 
+                    key={msg.id} 
+                    message={msg} 
+                    index={index}
+                  />
+                ))}
+              </div>
+            ) : (
+              <motion.div 
+                className="text-center py-12 text-gray-500 dark:text-gray-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
               >
-                <h2 className="mb-6 text-center display-font text-xl">
-                  Write me something <b>anonymously!</b>
-                </h2>
 
-                {/* Error Message */}
-                {error && (
-                  <div className="mb-4 p-3 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200 rounded-lg">
-                    {error}
-                  </div>
-                )}
-
-                {/* Input Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative">
-                    <textarea
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value.slice(0, MAX_MESSAGE_LENGTH))}
-                      className="w-full h-32 p-4 rounded-lg bg-[#E0E0E0] dark:bg-[#1C1D24] 
-                                border border-gray-300 dark:border-gray-600 
-                                focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                                resize-none transition-all duration-300"
-                      placeholder="Type your message here..."
-                      required
-                      disabled={loading}
-                      aria-label="Anonymous message"
-                      maxLength={MAX_MESSAGE_LENGTH}
-                    />
-                    {message && (
-                      <button
-                        type="button"
-                        onClick={handleClearMessage}
-                        className="absolute top-2 right-2 p-1 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
-                        aria-label="Clear message"
-                      >
-                        <MdClose size={16} />
-                      </button>
-                    )}
-                    <div className="text-xs text-right mt-1 text-gray-500 dark:text-gray-400">
-                      {message.length}/{MAX_MESSAGE_LENGTH}
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading || !message.trim()}
-                    className={`w-full flex items-center gap-2 justify-center py-3 rounded-lg transition-all duration-300 font-medium
-                              ${loading || !message.trim()
-                        ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                        : 'bg-[#1C1D24] dark:bg-[#E0E0E0] text-white dark:text-black hover:bg-opacity-80'
-                      }`}
-                    aria-busy={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <MdSend />
-                      </>
-                    )}
-                  </button>
-                </form>
-
-                <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-                  <p>Your message will be sent anonymously.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Messages Display Section - Wider */}
-            <div
-              className="lg:col-span-2 bg-[#EFEFEF] dark:bg-[#1C1C1C] p-6 rounded-lg shadow-lg"
-              data-aos="fade-left"
-            >
-              <h2 className="mb-6 text-center display-font text-xl">
-                Recent Messages
-              </h2>
-              
-              <div className="space-y-4 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent pr-2">
-                {fetchingMessages ? (
-                  <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                    <div className="loader mx-auto mb-4"></div>
-                    Loading messages...
-                  </div>
-                ) : messages.length > 0 ? (
-                  messages.map((msg) => (
-                    <div key={msg.id} className="space-y-3">
-                      {/* Original Message */}
-                      <div className="bg-gray-300 text-black dark:bg-gray-800 dark:text-white p-4 rounded-lg shadow transition-all duration-300 hover:shadow-md">
-                        <p className="text-gray-800 dark:text-gray-200 break-words leading-relaxed">{msg.content}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{msg.timestamp}</p>
-                      </div>
-                      
-                      {/* Admin Reply */}
-                      {msg.reply && (
-                        <div className="ml-6 bg-[#EFEFEF] dark:bg-[#1C1C1C] p-4 rounded-lg border-l-4 border-[#121212] dark:border-[#E0E0E0]">
-                          <div className="flex items-start gap-2">
-                            <MdReply className="text-[#121212] dark:text-[#E0E0E0] mt-1 flex-shrink-0" size={16} />
-                            <div className="flex-1">
-                              <p className="text-sm font-medium text-[#121212] dark:text-[#E0E0E0] mb-1">
-                                Arifian replied:
-                              </p>
-                              <p className="text-gray-700 dark:text-gray-300 break-words text-sm leading-relaxed">
-                                {msg.reply}
-                              </p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                                {msg.replyTimestamp}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                    No messages yet. Be the first to send one!
-                  </div>
-                )}
-                <div ref={messagesEndRef} />
-              </div>
-            </div>
-          </div>
+                <p>No messages yet. Be the first to send one!</p>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
