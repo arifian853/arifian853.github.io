@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet"
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion';
 
 import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
 import { SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn, SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch, SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress, SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp } from "react-icons/si";
@@ -239,13 +240,17 @@ export const ProjectPage = () => {
             <Helmet>
                 <title>Arifian Saputra - Not Found</title>
             </Helmet>
-            <div data-aos="zoom-out" data-aos-duration='600' className="w-11/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
+            <motion.div 
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="w-11/12 md:w-96 bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg p-5 flex justify-center items-center flex-col gap-4 rounded-md">
                 <h1 className="display-font font-semibold text-xl"><span className="text-teal-500">404</span> | Project not found</h1>
 
                 <Button onClick={() => navigate(-1)} className="flex flex-row justify-center items-center gap-1">
                     <FaArrowLeft /> Go Back
                 </Button>
-            </div>
+            </motion.div>
 
         </div>
     }
@@ -258,8 +263,12 @@ export const ProjectPage = () => {
             </Helmet>
 
             <div className="flex flex-col justify-center items-center bg-[#E0E0E0] dark:bg-[#121212] py-8">
-                <div data-aos="fade-out" data-aos-duration='900' className="flex flex-col items-center justify-center w-full max-w-5xl px-4">
-                    <div key={project.id} className="bg-[#EFEFEF] dark:bg-[#1C1C1C] rounded-xl shadow-lg flex flex-col items-center justify-center gap-6 overflow-hidden w-full">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.9 }}
+                  className="flex flex-col items-center justify-center w-full max-w-5xl px-4">
+                    <div key={project.id} className="bg-[#EFEFEF] dark:bg-[#1C1C1C] rounded-xl shadow-lg flex flex-col items-center justify-center gap-6 overflow-hidden w-full relative">
                         {/* Project Header with Image */}
                         <div className="w-full relative">
                             <div className="w-full h-[200px] md:h-[350px] overflow-hidden bg-gray-200 dark:bg-gray-800">
@@ -283,16 +292,16 @@ export const ProjectPage = () => {
                                 <div className="flex flex-wrap justify-center md:justify-end gap-2">
                                     {project.link.map((links, index) => (
                                         <Button key={index} className="transition-all hover:scale-105">
-                                            <a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer">
+                                            <motion.a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer">
                                                 {links.btn_name} <HiOutlineExternalLink />
-                                            </a>
+                                            </motion.a>
                                         </Button>
                                     ))}
                                     {project.demo.map((links, index) => (
                                         <Button key={index} className="transition-all hover:scale-105">
-                                            <a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer">
+                                            <motion.a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer">
                                                 {links.btn_name} <HiOutlineExternalLink />
-                                            </a>
+                                            </motion.a>
                                         </Button>
                                     ))}
                                 </div>
@@ -329,7 +338,7 @@ export const ProjectPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 <div className="w-full max-w-6xl px-4 mt-12">
                     <div className="flex items-center justify-center"><h2 className="text-2xl font-semibold display-font text-center mb-8 pb-2 border-b border-teal-500">More Projects</h2></div>
@@ -340,7 +349,13 @@ export const ProjectPage = () => {
                             .sort(() => 0.5 - Math.random())
                             .slice(0, 3)
                             .map((project => (
-                                <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none">
+                                <motion.div
+                                  key={project.id}
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ duration: 0.9 }}
+                                >
+                                  <Card className="md:w-[350px] w-[330px] h-[450px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none relative">
                                     <CardHeader>
                                         <TooltipProvider>
                                             <Tooltip>
@@ -362,12 +377,12 @@ export const ProjectPage = () => {
                                         <p className="flex justify-center items-center gap-3 w-full">
                                             {
                                                 project.link.map((links, index) => (
-                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                    <Button key={index}><motion.a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></motion.a></Button>
                                                 ))
                                             }
                                             {
                                                 project.demo.map((links, index) => (
-                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                    <Button key={index}><motion.a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></motion.a></Button>
                                                 ))
                                             }
                                         </p>
@@ -387,7 +402,8 @@ export const ProjectPage = () => {
 
                                         </div>
                                     </TooltipProvider>
-                                </Card>
+                                  </Card>
+                                </motion.div>
                             )))
                         }
                     </div>

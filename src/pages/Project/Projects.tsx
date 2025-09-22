@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
 
+import { motion } from 'framer-motion';
+
 import {
     Tooltip,
     TooltipContent,
@@ -241,54 +243,61 @@ export const Projects = () => {
                 <div className="bg-[#E0E0E0] dark:bg-[#121212] flex md:flex-row flex-col items-center justify-center min-h-[600px] h-auto p-5 gap-5 md:w-4/5 w-full flex-wrap" id="aboutself">
                     {
                         featured_projects.map((project => (
-                            <Card data-aos="fade-out" data-aos-duration='900' key={project.id} className="md:w-[350px] w-[330px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none">
-                                <CardHeader>
-                                    <TooltipProvider>
-                                        <Tooltip>
-                                            <TooltipTrigger>
-                                                <CardTitle className="display-font truncate hover:underline text-left"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p>{project.title} ({project.year})</p>
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                    <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
-                                    <Link to={`/project/${project.id}`}><p className="w-12 border-b border-teal-500 opacity-75">More...</p></Link>
-                                </CardHeader>
-                                <CardContent>
-                                    <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-teal-500 border border-white" src={project.image} alt="" /></Link>
-                                </CardContent>
-                                <CardFooter>
-                                    <p className="flex justify-center items-center gap-3 w-full">
-                                        {
-                                            project.link.map((links, index) => (
-                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                            ))
-                                        }
-                                        {
-                                            project.demo.map((links, index) => (
-                                                <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
-                                            ))
-                                        }
-                                    </p>
-                                </CardFooter>
-                                <TooltipProvider>
-                                    <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
-                                        {project.tags.map((tag, index) => (
-                                            <Tooltip key={index}>
+                            <motion.div
+                                key={project.id}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.9 }}
+                            >
+                                <Card key={project.id} className="md:w-[350px] w-[330px] h-[450px] bg-[#EFEFEF] dark:bg-[#1C1C1C] shadow-lg border-none relative">
+                                    <CardHeader>
+                                        <TooltipProvider>
+                                            <Tooltip>
                                                 <TooltipTrigger>
-                                                    <span className="hover:drop-shadow-[0_4px_4px_rgba(45, 212, 191, 0.5)] hover:text-teal-500">{tag.icon}</span>
+                                                    <CardTitle className="display-font truncate hover:underline text-left"><Link to={`/project/${project.id}`}>{project.title}</Link></CardTitle>
                                                 </TooltipTrigger>
-                                                <TooltipContent className="flex flex-row items-center justify-center gap-2">
-                                                    {tag.icon} {tag.name}
+                                                <TooltipContent>
+                                                    <p>{project.title} ({project.year})</p>
                                                 </TooltipContent>
                                             </Tooltip>
-                                        ))}
+                                        </TooltipProvider>
+                                        <CardDescription className="truncate"> ({project.year}) <br /> {project.description} </CardDescription>
+                                        <Link to={`/project/${project.id}`}><p className="w-12 border-b border-teal-500 opacity-75">More...</p></Link>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <Link to={`/project/${project.id}`}><img className="w-[300px] h-[170px] rounded-md hover:border-teal-500 border border-white" src={project.image} alt="" /></Link>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <p className="flex justify-center items-center gap-3 w-full">
+                                            {
+                                                project.link.map((links, index) => (
+                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.repo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                ))
+                                            }
+                                            {
+                                                project.demo.map((links, index) => (
+                                                    <Button key={index}><a className="flex flex-row justify-center items-center gap-1" href={links.demo_link} target="_blank" rel="noopener noreferrer"> {links.btn_name} <HiOutlineExternalLink /></a></Button>
+                                                ))
+                                            }
+                                        </p>
+                                    </CardFooter>
+                                    <TooltipProvider>
+                                        <div className="text-xl flex flex-row gap-3 flex-wrap items-center justify-center mb-5">
+                                            {project.tags.map((tag, index) => (
+                                                <Tooltip key={index}>
+                                                    <TooltipTrigger>
+                                                        <span className="hover:drop-shadow-[0_4px_4px_rgba(45, 212, 191, 0.5)] hover:text-teal-500">{tag.icon}</span>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent className="flex flex-row items-center justify-center gap-2">
+                                                        {tag.icon} {tag.name}
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            ))}
 
-                                    </div>
-                                </TooltipProvider>
-                            </Card>
+                                        </div>
+                                    </TooltipProvider>
+                                </Card>
+                            </motion.div>
                         )))
                     }
                 </div>

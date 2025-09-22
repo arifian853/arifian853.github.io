@@ -78,7 +78,6 @@ const contacts = [
 export const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCVModalOpen, setIsCVModalOpen] = useState(false);
-  const [isThesisModalOpen, setIsThesisModalOpen] = useState(false);
 
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -134,36 +133,6 @@ export const About = () => {
                       src="/cv.pdf"
                       className="w-full h-full"
                       title="CV Preview"
-                    />
-                  </div>
-                </DialogContent>
-              </Dialog>
-
-              {/* Thesis Abstract Modal */}
-              <Dialog open={isThesisModalOpen} onOpenChange={setIsThesisModalOpen}>
-                <DialogTrigger asChild>
-                  <Button data-aos="fade-out" data-aos-duration='900' className="flex flex-row justify-center items-center gap-1 px-5">
-                    Thesis Abstract
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto md:w-full w-[350px] rounded-lg">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-center mb-1">Thesis Abstract</DialogTitle>
-                    <div className="flex justify-center">
-                      <Button 
-                        onClick={() => handleDownload('/abstract.pdf', 'Arifian_Saputra_Thesis_Abstract.pdf')}
-                        className="flex items-center gap-2"
-                      >
-                        <FaDownload /> Download Abstract
-                      </Button>
-                    </div>
-                  </DialogHeader>
-                  
-                  <div className="w-full h-[60vh] border rounded-lg overflow-hidden">
-                    <iframe
-                      src="/abstract.pdf"
-                      className="w-full h-full"
-                      title="Thesis Abstract Preview"
                     />
                   </div>
                 </DialogContent>

@@ -63,12 +63,26 @@ export const Chat = () => {
         const startTime = Date.now();
 
         try {
+            // Konversi format history untuk API FastAPI
+            const history = messages.map((msg: { sender: string; text: string }) => {
+                if (msg.sender === 'user') {
+                    return { user: msg.text };
+                } else if (msg.sender === 'bot') {
+                    return { assistant: msg.text };
+                }
+                return {};
+            }).filter((item: Record<string, string>) => Object.keys(item).length > 0);
+
+            // Gunakan endpoint FastAPI baru
             const response = await fetch(import.meta.env.VITE_MODEL_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ question: input })
+                body: JSON.stringify({
+                    message: input,
+                    history: history
+                })
             });
 
             const endTime = Date.now();
@@ -80,7 +94,10 @@ export const Chat = () => {
 
             const data = await response.json();
             setIsWaitingResponse(false);
-            simulateBotResponse(data.answer);
+
+            // Gunakan response dari FastAPI
+            simulateBotResponse(data.response);
+
         } catch (error) {
             console.error("Error fetching response:", error);
             setIsWaitingResponse(false);
@@ -90,14 +107,17 @@ export const Chat = () => {
 
     const simulateBotResponse = (responseText: string) => {
         setIsResponding(true);
-        setMessages((prev: any) => [...prev, { sender: 'bot', text: '' }]);
+        setMessages((prev: any) => [...prev, { sender: 'bot', text: responseText }]);
+        setIsResponding(false);
+        const textToDisplay = responseText || "Maaf, terjadi kesalahan dalam memproses respons.";
 
         let index = 0;
         const interval = setInterval(() => {
-            if (index < responseText.length) {
+            if (index < textToDisplay.length) {
                 setMessages((prev: any) => {
                     const updatedMessages = [...prev];
-                    updatedMessages[updatedMessages.length - 1].text += responseText[index];
+                    // Ganti teks sepenuhnya, bukan menambahkan karakter
+                    updatedMessages[updatedMessages.length - 1].text = textToDisplay.substring(0, index + 1);
                     return updatedMessages;
                 });
                 index++;
@@ -105,8 +125,9 @@ export const Chat = () => {
                 clearInterval(interval);
                 setIsResponding(false);
             }
-        }, 30);
+        }, 15); // Percepat sedikit animasi
     };
+
 
     const handleKeyDown = (e: { key: string; preventDefault: () => void; }) => {
         if (e.key === 'Enter' && !isResponding) {
@@ -142,7 +163,6 @@ export const Chat = () => {
             { "message": "Berapa umurmu?" },
             { "message": "Apa profil Instagram Anda?" },
             { "message": "Apa profil LinkedIn Anda?" },
-            { "message": "Apa yang kamu gemari?" },
             { "message": "Halo, Arifian!" },
             { "message": "Kamu kuliah dimana??" },
         ];
@@ -156,7 +176,7 @@ export const Chat = () => {
     };
 
     const handleClearChat = () => {
-        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan?' }];
+        const initialMessage = [{ sender: 'bot', text: 'Halo! Ada yang mau kamu tanyakan? Kamu bisa gunakan bahasa Indonesia ataupun Inggris!' }];
         setMessages(initialMessage);
         localStorage.setItem("chatMessages", JSON.stringify(initialMessage));
         window.location.reload();
@@ -170,14 +190,14 @@ export const Chat = () => {
                 </Helmet>
                 <div className="min-h-screen h-auto w-full flex items-center md:justify-center justify-start flex-col bg-[#E0E0E0] dark:bg-[#121212]">
                     <h1 data-aos="fade-out" data-aos-duration='700' className="display-font md:text-3xl text-2xl text-center p-5">
-                        <span className="border-b border-teal-500">Arifian<span className="text-teal-500">.AI</span> V1 Alpha</span>
+                        <span className="border-b border-teal-500">Arifian<span className="text-teal-500">.AI</span> v1.1</span>
                     </h1>
                     <p data-aos="fade-out" data-aos-duration='800' className="text-center md:w-2/3 w-full text-sm">
                         Build with RAG technology using <span className="border-b border-teal-500">Google Gemini 2.5 Flash</span> with my own data and persona.
                     </p>
                     <Card data-aos="fade-out" data-aos-duration='900' className="md:w-2/3 w-full px-4 pb-4 bg-[#BABFBF] m-5 dark:bg-[#1C1C1C] shadow-lg rounded-lg border-none">
                         <div className="flex items-center mb-2 border-b p-4 gap-2 justify-between">
-                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v1.0 alpha - Latest </span>
+                            <span className=""></span> <span className="display-font flex justify-center items-center gap-1"> v1.1 alpha - latest </span>
                             <div>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger><HiOutlineDotsVertical className="hover:text-teal-500" /></DropdownMenuTrigger>
@@ -218,9 +238,9 @@ export const Chat = () => {
                                                             <p className="font-bold">Technologies used: </p>
                                                             <ol>
                                                                 <li>- Google Gemini 2.5 Flash</li>
-                                                                <li>- Google Embedding 001</li>
-                                                                <li>- NodeJS + Express</li>
-                                                                <li>- MongoDB for storing Knowledge Base Vector</li>
+                                                                <li>- SentenceTransformer 'all-MiniLM-L6-v2' for local embedding generation </li>
+                                                                <li>- FastAPI for backend API</li>
+                                                                <li>- Vector similarity search with cosine similarity algorithm </li>
                                                             </ol>
                                                             <br />
                                                             <p className="font-bold">Tips</p>
@@ -259,23 +279,23 @@ export const Chat = () => {
                                             }`}
                                     >
                                         {message.sender === 'bot' ? (
-                                            <ReactMarkdown 
+                                            <ReactMarkdown
                                                 className="prose prose-sm dark:prose-invert max-w-none"
                                                 components={{
                                                     // Custom styling untuk elemen markdown
-                                                    p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
-                                                    h1: ({children}) => <h1 className="text-lg font-bold mb-2">{children}</h1>,
-                                                    h2: ({children}) => <h2 className="text-base font-bold mb-2">{children}</h2>,
-                                                    h3: ({children}) => <h3 className="text-sm font-bold mb-1">{children}</h3>,
-                                                    ul: ({children}) => <ul className="list-disc list-inside mb-2">{children}</ul>,
-                                                    ol: ({children}) => <ol className="list-decimal list-inside mb-2">{children}</ol>,
-                                                    li: ({children}) => <li className="mb-1">{children}</li>,
-                                                    code: ({children}) => <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">{children}</code>,
-                                                    pre: ({children}) => <pre className="bg-gray-200 dark:bg-gray-600 p-2 rounded text-xs overflow-x-auto mb-2">{children}</pre>,
-                                                    blockquote: ({children}) => <blockquote className="border-l-4 border-gray-400 pl-3 italic mb-2">{children}</blockquote>,
-                                                    strong: ({children}) => <strong className="font-bold">{children}</strong>,
-                                                    em: ({children}) => <em className="italic">{children}</em>,
-                                                    a: ({href, children}) => <a href={href} className="text-blue-500 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">{children}</a>
+                                                    p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                                                    h1: ({ children }) => <h1 className="text-lg font-bold mb-2">{children}</h1>,
+                                                    h2: ({ children }) => <h2 className="text-base font-bold mb-2">{children}</h2>,
+                                                    h3: ({ children }) => <h3 className="text-sm font-bold mb-1">{children}</h3>,
+                                                    ul: ({ children }) => <ul className="list-disc list-inside mb-2">{children}</ul>,
+                                                    ol: ({ children }) => <ol className="list-decimal list-inside mb-2">{children}</ol>,
+                                                    li: ({ children }) => <li className="mb-1">{children}</li>,
+                                                    code: ({ children }) => <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">{children}</code>,
+                                                    pre: ({ children }) => <pre className="bg-gray-200 dark:bg-gray-600 p-2 rounded text-xs overflow-x-auto mb-2">{children}</pre>,
+                                                    blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-400 pl-3 italic mb-2">{children}</blockquote>,
+                                                    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                                                    em: ({ children }) => <em className="italic">{children}</em>,
+                                                    a: ({ href, children }) => <a href={href} className="text-blue-500 hover:text-blue-700 underline" target="_blank" rel="noopener noreferrer">{children}</a>
                                                 }}
                                             >
                                                 {message.text as string}
@@ -373,6 +393,22 @@ export const Chat = () => {
                         <DialogDescription className="overflow-y-scroll h-52 text-left">
                             <ul className="list-disc ml-5">
                                 <li>
+                                    <strong>v1.1 Alpha Latest: RAG Technology Update</strong>
+                                    <ul className="list-disc ml-5">
+                                        <li>Change backend stack to FastAPI with async/await architecture</li>
+                                        <li>Implemented SentenceTransformer 'all-MiniLM-L6-v2' for local embedding generation</li>
+                                        <li>Change context-retrieval mode to embedding than with just context similarity</li>
+                                        <li>Enhanced vector similarity search with cosine similarity algorithm</li>
+                                        <li>Added comprehensive knowledge management system with CRUD operations</li>
+                                        <li>Support for multiple file upload formats (TXT, CSV, JSON)</li>
+                                        <li>Built-in admin dashboard for knowledge base management</li>
+                                        <li>Improved MongoDB integration with Motor async driver</li>
+                                        <li>Change the tone of the chat not to overshare</li>
+                                        <li>Adding more language support (Indonesian and English)</li>
+                                        <li>Differentiate between chatbot backend and "write anonymous message" backend</li>
+                                    </ul>
+                                </li>
+                                <li>
                                     <strong>v1.0 Alpha Latest: RAG Technology Implementation</strong>
                                     <ul className="list-disc ml-5">
                                         <li>Migrated from fine-tuned model to RAG (Retrieval-Augmented Generation)</li>
@@ -394,7 +430,7 @@ export const Chat = () => {
                                         <li>BLEU Score: 52.0508</li>
                                         <li>20 Epochs</li>
                                         <li>Count of question-answer pair: 297</li>
-                                        <li>Note: Fine-tuned model approach, replaced by RAG in v1.0</li>
+                                        <li>Note: Fine-tuned model approach, replaced by RAG in v1.1</li>
                                     </ul>
                                 </li>
                                 <li>
@@ -476,4 +512,4 @@ export const Chat = () => {
             </Dialog>
         </>
     );
-};
+}
