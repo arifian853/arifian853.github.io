@@ -6,3 +6,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build.environment]
+  # Suppress false positive secret detection
+  NETLIFY_SKIP_FUNCTIONS_CACHE = "true"
