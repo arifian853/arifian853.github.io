@@ -125,7 +125,7 @@ export const Chat = () => {
                 clearInterval(interval);
                 setIsResponding(false);
             }
-        }, 15); // Percepat sedikit animasi
+        }, 10); // Percepat sedikit animasi
     };
 
 
