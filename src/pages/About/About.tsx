@@ -6,7 +6,7 @@ import {
 
 import {
   SiExpress, SiMongodb, SiTailwindcss, SiShadcnui, SiTensorflow,
-  SiKeras, SiVite, SiTypescript, SiFramer, SiDocker
+  SiKeras, SiVite, SiTypescript, SiFramer, SiDocker, SiFastapi, SiHuggingface
 } from "react-icons/si";
 
 import {
@@ -57,9 +57,10 @@ const fullTechStacks = {
     { icon: <FaReact />, name: "React TSParticles" },
   ],
   backend: [
-    { icon: <FaNodeJs />, name: "NodeJS" },
-    { icon: <SiExpress />, name: "Express" },
+    { icon: <SiFastapi />, name: "FastAPI" },
     { icon: <SiMongodb />, name: "MongoDB" },
+    { icon: <SiGooglegemini />, name: "Google Gemini 2.5 Flash" },
+    { icon: <SiHuggingface />, name: "Sentence Transformers" },
     { icon: <SiDocker />, name: "Docker" },
   ],
   ai: [
