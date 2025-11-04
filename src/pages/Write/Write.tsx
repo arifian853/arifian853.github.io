@@ -44,7 +44,7 @@ const formatDate = (date: Date): string => {
   return `${d} ${m} ${y}, ${h}:${min}`
 }
 
-// API Base URL - sesuaikan dengan backend URL Anda
+// API Base URL
 const API_BASE_URL = import.meta.env.VITE_CONFESS_API_URL
 
 export const Write = () => {
@@ -53,11 +53,12 @@ export const Write = () => {
   const [fetchingMessages, setFetchingMessages] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
 
-  // Fetch messages from API
+  // Fetch messages from API - tampilkan SEMUA confession
   const fetchMessages = async () => {
     setFetchingMessages(true)
     try {
-      const response = await fetch(`${API_BASE_URL}/confess?limit=20`)
+      // Hapus parameter replied_only, ambil semua
+      const response = await fetch(`${API_BASE_URL}/confessions/public/list?limit=50`)
       if (!response.ok) {
         throw new Error('Failed to fetch messages')
       }
@@ -91,25 +92,29 @@ export const Write = () => {
     setError(null)
     
     try {
-      const response = await fetch(`${API_BASE_URL}/confess`, {
+      const payload = { message: message.trim() }
+      
+      const response = await fetch(`${API_BASE_URL}/confessions/public/submit`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message })
+        body: JSON.stringify(payload)
       })
       
+      const result = await response.json()
+      
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to send message')
+        throw new Error(result.detail || 'Failed to send message')
       }
       
-      // Refresh messages after successful submission
+      // Refresh messages setelah berhasil submit - confession langsung muncul
       await fetchMessages()
       
     } catch (err) {
+      console.error('Submit error:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
-      throw err // Re-throw to handle in modal
+      throw err
     } finally {
       setLoading(false)
     }
@@ -162,7 +167,7 @@ export const Write = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <h2 className="mb-6 text-center display-font text-xl">
-              Recent Messages
+              Messages
             </h2>
             
             {fetchingMessages ? (
@@ -191,7 +196,6 @@ export const Write = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-
                 <p>No messages yet. Be the first to send one!</p>
               </motion.div>
             )}
