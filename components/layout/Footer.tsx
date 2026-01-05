@@ -7,6 +7,10 @@ export const Footer = () => {
         <p className="text-sm text-center font-heading">
           Arifian S., {new Date().getFullYear()}. Made with{" "}
           <span className="text-primary font-medium">Next.js</span>
+          <br />
+          <p className="text-xs text-muted-foreground text-center font-heading">
+            50% human-crafted, 50% vibe-coded.
+          </p>
         </p>
       </div>
     </footer>

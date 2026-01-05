@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import { Code2, Brain, Database, Globe, Sparkles, BookOpen } from "lucide-react"
+import { Code2, Brain, Database, Globe, Sparkles, BookOpen, Download, Mail, Building2 } from "lucide-react"
 import {
     SiReact,
     SiNodedotjs,
@@ -12,6 +12,10 @@ import {
     SiFramer,
     SiKeras,
     SiRedhat,
+    SiInstagram,
+    SiLinkedin,
+    SiGithub,
+    SiX,
     SiNextdotjs,
     SiTensorflow
 } from "react-icons/si"
@@ -46,6 +50,13 @@ const techStack = [
     { name: "Red Hat", icon: SiRedhat },
 ]
 
+const socialLinks = [
+    { name: "@arifiansaputra_", icon: SiInstagram, url: "https://instagram.com/arifiansaputra_" },
+    { name: "Arifian Saputra", icon: SiLinkedin, url: "https://linkedin.com/in/arifiansaputra" },
+    { name: "arifian853", icon: SiGithub, url: "https://github.com/arifian853" },
+    { name: "@ArifianSaputra1", icon: SiX, url: "https://x.com/ArifianSaputra1" },
+]
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,12 +76,12 @@ const itemVariants = {
     },
 }
 
-export function About() {
+export function AboutContent() {
     return (
         <section id="about" className="relative min-h-screen flex items-center py-20 overflow-hidden">
             {/* Grid Background Pattern */}
             <div
-                className="absolute inset-0 opacity-[0.08] dark:opacity-[0.12]"
+                className="absolute inset-0 opacity-[0.08] top-16 dark:opacity-[0.12]"
                 style={{
                     backgroundImage: `
                         linear-gradient(to right, currentColor 1px, transparent 1px),
@@ -135,7 +146,7 @@ export function About() {
                         <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                             Who Am I?
                         </h3>
-                        <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
+                        <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
                             A passionate individual with deep interest in{" "}
                             <span className="border-b-2 border-teal-500 font-medium">AI and Web Development</span>.
                             I've been teaching for{" "}
@@ -187,15 +198,65 @@ export function About() {
                         </div>
                     </motion.div>
 
-                    {/* Quote Card */}
+                    {/* Contact Card */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-teal-500 text-white rounded-none p-6 flex flex-col justify-center hover:bg-teal-600 transition-colors duration-300"
+                        className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col justify-center hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <blockquote className="text-lg font-medium italic">
-                            "Teaching is learning twice."
-                        </blockquote>
-                        <cite className="text-sm mt-2 opacity-80">— Joseph Joubert</cite>
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                            Get In Touch
+                        </h3>
+
+                        {/* Buttons */}
+                        <div className="space-y-2 mb-4">
+                            <a
+                                href="/resume.pdf"
+                                download
+                                className="flex items-center gap-2 text-sm px-3 py-2 bg-teal-500 text-white rounded-none hover:bg-teal-600 transition-colors duration-300 w-full justify-center"
+                            >
+                                <Download className="w-4 h-4" />
+                                Resume
+                            </a>
+                            <div className="flex flex-row gap-3">
+                                <a
+                                href="mailto:arifian@email.com"
+                                className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
+                            >
+                                <Mail className="w-4 h-4" />
+                                Email
+                            </a>
+                            <a
+                                href="mailto:arifian@infinitelearning.id"
+                                className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
+                            >
+                                <Building2 className="w-4 h-4" />
+                                Office
+                            </a>
+                            </div>
+                        </div>
+
+                        {/* Social Icons */}
+                        <div className="flex justify-center gap-4 pt-2 border-t border-zinc-200 dark:border-zinc-700">
+                            {socialLinks.map((social, index) => (
+                                <a
+                                    key={index}
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative group cursor-pointer"
+                                >
+                                    <social.icon
+                                        className="w-5 h-5 text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                    />
+                                    {/* Tooltip */}
+                                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                                        {social.name}
+                                        {/* Arrow */}
+                                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-900 dark:bg-zinc-100 rotate-45" />
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
                     </motion.div>
 
                     {/* Tech Stack Card - Full Width */}
