@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Code2, Brain, Database, Globe, Sparkles, BookOpen } from "lucide-react"
 import {
@@ -68,18 +69,6 @@ const itemVariants = {
 export function About() {
     return (
         <section id="about" className="relative min-h-screen flex items-center py-20 overflow-hidden">
-            {/* Grid Background Pattern */}
-            <div
-                className="absolute inset-0 opacity-[0.08] dark:opacity-[0.12]"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(to right, currentColor 1px, transparent 1px),
-                        linear-gradient(to bottom, currentColor 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
-                }}
-            />
-
             {/* Content Container */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
                 {/* Section Title */}
@@ -111,10 +100,12 @@ export function About() {
                     >
                         <div className="relative mb-4">
                             <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-teal-500">
-                                <img
+                                <Image
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                    src="ganyu.webp"
+                                    src="/ganyu.webp"
                                     alt="Arifian Saputra"
+                                    width={128}
+                                    height={128}
                                 />
                             </div>
                         </div>
@@ -138,7 +129,7 @@ export function About() {
                         <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
                             A passionate individual with deep interest in{" "}
                             <span className="border-b-2 border-teal-500 font-medium">AI and Web Development</span>.
-                            I've been teaching for{" "}
+                            I&apos;ve been teaching for{" "}
                             <span className="border-b-2 border-teal-500 font-medium">2+ years in AI</span> field,
                             specializing in Machine Learning, Large Language Models, Natural Language Processing,
                             and building production-ready web applications.
@@ -193,7 +184,7 @@ export function About() {
                         className="bg-teal-500 text-white rounded-none p-6 flex flex-col justify-center hover:bg-teal-600 transition-colors duration-300"
                     >
                         <blockquote className="text-lg font-medium italic">
-                            "Teaching is learning twice."
+                            &ldquo;Teaching is learning twice.&rdquo;
                         </blockquote>
                         <cite className="text-sm mt-2 opacity-80">— Joseph Joubert</cite>
                     </motion.div>

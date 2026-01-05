@@ -21,18 +21,6 @@ const getTimeGreeting = () => {
 export function Hero() {
     return (
         <section className="relative min-h-screen pt-20 flex items-center overflow-hidden">
-            {/* Grid Background Pattern */}
-            <div
-                className="absolute inset-0 top-16 opacity-[0.08] dark:opacity-[0.12]"
-                style={{
-                    backgroundImage: `
-            linear-gradient(to right, currentColor 1px, transparent 1px),
-            linear-gradient(to bottom, currentColor 1px, transparent 1px)
-          `,
-                    backgroundSize: '40px 40px',
-                }}
-            />
-
             {/* Content Container - 2 columns */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Side - Greeting with fade-in */}

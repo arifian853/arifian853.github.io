@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Code2, Brain, Database, Globe, Sparkles, BookOpen, Download, Mail, Building2 } from "lucide-react"
 import {
@@ -122,10 +123,12 @@ export function AboutContent() {
                     >
                         <div className="relative mb-4">
                             <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-teal-500">
-                                <img
+                                <Image
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                    src="ganyu.webp"
+                                    src="/ganyu.webp"
                                     alt="Arifian Saputra"
+                                    width={128}
+                                    height={128}
                                 />
                             </div>
                         </div>
@@ -149,7 +152,7 @@ export function AboutContent() {
                         <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
                             A passionate individual with deep interest in{" "}
                             <span className="border-b-2 border-teal-500 font-medium">AI and Web Development</span>.
-                            I've been teaching for{" "}
+                            I&apos;ve been teaching for{" "}
                             <span className="border-b-2 border-teal-500 font-medium">2+ years in AI</span> field,
                             specializing in Machine Learning, Large Language Models, Natural Language Processing,
                             and building production-ready web applications.
@@ -219,19 +222,19 @@ export function AboutContent() {
                             </a>
                             <div className="flex flex-row gap-3">
                                 <a
-                                href="mailto:arifian@email.com"
-                                className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
-                            >
-                                <Mail className="w-4 h-4" />
-                                Email
-                            </a>
-                            <a
-                                href="mailto:arifian@infinitelearning.id"
-                                className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
-                            >
-                                <Building2 className="w-4 h-4" />
-                                Office
-                            </a>
+                                    href="mailto:arifian@email.com"
+                                    className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
+                                >
+                                    <Mail className="w-4 h-4" />
+                                    Email
+                                </a>
+                                <a
+                                    href="mailto:arifian@infinitelearning.id"
+                                    className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
+                                >
+                                    <Building2 className="w-4 h-4" />
+                                    Office
+                                </a>
                             </div>
                         </div>
 
