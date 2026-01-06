@@ -4,6 +4,7 @@ import { Hero } from "@/app/_home_components/Hero";
 import { About } from "@/app/_home_components/About";
 import { FeaturedProjects } from "./_home_components/FeaturedProjects";
 import { Experiences } from "./_home_components/Experiences";
+import { ContactCTA } from "./_home_components/ContactCTA";
 
 export const metadata = {
   title: "Arifian.dev",
@@ -34,6 +35,7 @@ export default function Home() {
       <About />
       <FeaturedProjects />
       <Experiences />
+      <ContactCTA />
       <Footer />
     </div>
   );

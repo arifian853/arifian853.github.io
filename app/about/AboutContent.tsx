@@ -18,7 +18,12 @@ import {
     SiGithub,
     SiX,
     SiNextdotjs,
-    SiTensorflow
+    SiTensorflow,
+    SiDocker,
+    SiTypescript,
+    SiFastapi,
+    SiGooglegemini,
+    SiShadcnui
 } from "react-icons/si"
 
 const stats = [
@@ -49,6 +54,7 @@ const techStack = [
     { name: "TensorFlow", icon: SiTensorflow },
     { name: "Keras", icon: SiKeras },
     { name: "Red Hat", icon: SiRedhat },
+    { name: "Docker", icon: SiDocker },
 ]
 
 const socialLinks = [
@@ -224,7 +230,7 @@ export function AboutContent() {
                             </a>
                             <div className="flex flex-row gap-3">
                                 <a
-                                    href="mailto:arifian@email.com"
+                                    href="mailto:arifiansaputra43@gmail.com"
                                     className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
                                 >
                                     <Mail className="w-4 h-4" />
@@ -289,7 +295,266 @@ export function AboutContent() {
                         </div>
                     </motion.div>
                 </motion.div>
+
+                {/* More About Me Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mt-16"
+                >
+                    <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">
+                        What I <span className="text-teal-500">Offer</span>
+                    </h3>
+
+                    {/* Services Grid */}
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        {/* Web Development */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        >
+                            <Code2 className="w-8 h-8 text-teal-500 mb-4" />
+                            <h4 className="font-heading font-bold text-lg mb-3">Web Development</h4>
+                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Frontend (HTML, CSS, JS, React, Tailwind)
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Backend (Express, Flask, FastAPI) + Database
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Full Stack (MERN Stack, Next.js)
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    WordPress Development
+                                </li>
+                            </ul>
+                        </motion.div>
+
+                        {/* AI & Machine Learning */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        >
+                            <Brain className="w-8 h-8 text-teal-500 mb-4" />
+                            <h4 className="font-heading font-bold text-lg mb-3">AI & Machine Learning</h4>
+                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Python API & AI Chatbot Development
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    ML Modelling (Deep Learning, NLP, CV)
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Recommendation & Time Series
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Model Deployment with Python Backend
+                                </li>
+                            </ul>
+                        </motion.div>
+
+                        {/* Mentoring & Others */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        >
+                            <BookOpen className="w-8 h-8 text-teal-500 mb-4" />
+                            <h4 className="font-heading font-bold text-lg mb-3">Mentoring & Others</h4>
+                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Private Mentoring (AI & Web Dev)
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    DevOps & Linux Tutorials
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Deployment Guidance
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-teal-500">•</span>
+                                    Webinar Request (Institutional)
+                                </li>
+                            </ul>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* CTA Button */}
+                    <div className="flex justify-center mb-16">
+                        <a href="mailto:arifiansaputra43@gmail.com?subject=Project%20Request">
+                            <button className="bg-teal-500 hover:bg-teal-600 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
+                                <Mail className="w-5 h-5" />
+                                Request a Project
+                            </button>
+                        </a>
+                    </div>
+
+                    {/* Education Section */}
+                    <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">
+                        <span className="text-teal-500">Education</span>
+                    </h3>
+
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        {/* University */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        >
+                            <div className="flex items-start justify-between mb-3">
+                                <span className="bg-teal-500 text-white text-xs font-medium px-2 py-1">
+                                    2020 - 2024
+                                </span>
+                                <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                                    Bachelor&apos;s Degree
+                                </span>
+                            </div>
+                            <h4 className="font-heading font-bold text-lg mb-1">
+                                S1 Teknik Informatika
+                            </h4>
+                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-1">
+                                Universitas Maritim Raja Ali Haji
+                            </p>
+                            <p className="text-zinc-500 dark:text-zinc-500 text-xs flex items-center gap-1">
+                                <Globe className="w-3 h-3" />
+                                Tanjungpinang, Kepulauan Riau
+                            </p>
+                        </motion.div>
+
+                        {/* High School */}
+                        <motion.div
+                            variants={itemVariants}
+                            className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        >
+                            <div className="flex items-start justify-between mb-3">
+                                <span className="bg-zinc-500 text-white text-xs font-medium px-2 py-1">
+                                    2017 - 2020
+                                </span>
+                                <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                                    High School
+                                </span>
+                            </div>
+                            <h4 className="font-heading font-bold text-lg mb-1">
+                                Matematika dan Ilmu Alam
+                            </h4>
+                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-1">
+                                SMA Negeri 1 Bintan Utara
+                            </p>
+                            <p className="text-zinc-500 dark:text-zinc-500 text-xs flex items-center gap-1">
+                                <Globe className="w-3 h-3" />
+                                Tanjunguban, Kepulauan Riau
+                            </p>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* About This Website Section */}
+                    <motion.div
+                        className="mt-16"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">
+                            About This <span className="text-teal-500">Website</span>
+                        </h3>
+                        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8 max-w-3xl">
+                            This website is a hobby project I built to showcase my portfolio, projects, and skills.
+                            It&apos;s designed with a clean, modern aesthetic and built using some of the latest web technologies.
+                            Feel free to explore and get inspired! Anyway, this website is 50% human-crafted and 50% vibe-coded lol.
+                        </p>
+
+                        <motion.div
+                            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            {/* Frontend Stack */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                            >
+                                <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                    Frontend
+                                </h4>
+                                <div className="flex flex-wrap gap-4">
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiNextdotjs className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">Next.js</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiReact className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">React</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiTypescript className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">TypeScript</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiTailwindcss className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">Tailwind CSS</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiShadcnui className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">shadcn/ui</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Backend AI Stack */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                            >
+                                <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                    Backend AI
+                                </h4>
+                                <div className="flex flex-wrap gap-4">
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiFastapi className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">FastAPI</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiPython className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">Python</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
+                                        <SiGooglegemini className="w-5 h-5 text-teal-500" />
+                                        <span className="text-sm font-medium">Google Gemini AI</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     )
 }
+

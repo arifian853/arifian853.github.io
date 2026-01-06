@@ -14,7 +14,8 @@ import {
     SiKeras,
     SiRedhat,
     SiNextdotjs,
-    SiTensorflow
+    SiTensorflow,
+    SiDocker
 } from "react-icons/si"
 
 const stats = [
@@ -45,6 +46,7 @@ const techStack = [
     { name: "TensorFlow", icon: SiTensorflow },
     { name: "Keras", icon: SiKeras },
     { name: "Red Hat", icon: SiRedhat },
+    { name: "Docker", icon: SiDocker },
 ]
 
 const containerVariants = {
