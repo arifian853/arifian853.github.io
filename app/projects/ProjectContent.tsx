@@ -202,7 +202,7 @@ export function ProjectContent() {
                                     variants={itemVariants}
                                 >
                                     <Link href={`/projects/${project.id}`}>
-                                        <div className="group py-6 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-all duration-300 cursor-pointer">
+                                        <div className="group py-6 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-300 cursor-pointer">
                                             <div className="flex items-start gap-6">
                                                 {/* Number */}
                                                 <span className="font-heading font-bold text-2xl md:text-3xl text-teal-500 w-12 shrink-0">

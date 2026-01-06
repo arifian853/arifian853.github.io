@@ -99,7 +99,7 @@ export function AboutContent() {
             />
 
             {/* Content Container */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mt-16">
                 {/* Section Title */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

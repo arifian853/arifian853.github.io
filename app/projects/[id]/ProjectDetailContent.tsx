@@ -3,16 +3,17 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react"
 import { Project } from "@/lib/data/projects"
 import { ProjectIcon } from "@/components/ui/project-icon"
 import { Button } from "@/components/ui/button"
 
 interface ProjectDetailContentProps {
     project: Project
+    exploreProjects: Project[]
 }
 
-export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
+export function ProjectDetailContent({ project, exploreProjects }: ProjectDetailContentProps) {
     // Format number with leading zero
     const formatNumber = (num: number) => {
         return num.toString().padStart(2, '0')
@@ -29,6 +30,13 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             }
             return part
         })
+    }
+
+    // Truncate description
+    const truncateDescription = (text: string, maxLength: number) => {
+        const cleanText = text.replace(/\*\*/g, '')
+        if (cleanText.length <= maxLength) return cleanText
+        return cleanText.slice(0, maxLength).trim() + '...'
     }
 
     return (
@@ -171,7 +179,64 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
                         </a>
                     ))}
                 </motion.div>
+
+                {/* Explore More Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
+                >
+                    <h2 className="text-xl font-heading font-semibold text-zinc-500 dark:text-zinc-400 mb-6">
+                        Explore More
+                    </h2>
+
+                    <div className="space-y-0">
+                        {exploreProjects.map((p) => (
+                            <Link key={p.id} href={`/projects/${p.id}`}>
+                                <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-300 cursor-pointer">
+                                    <div className="flex items-start gap-4">
+                                        {/* Content */}
+                                        <div className="flex-1 min-w-0">
+                                            {/* Title & Year */}
+                                            <div className="flex items-center gap-3 flex-wrap">
+                                                <h3 className="font-heading font-bold text-base md:text-lg group-hover:text-teal-500 transition-colors duration-300">
+                                                    {p.title}
+                                                </h3>
+                                                <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+                                                    ({p.year})
+                                                </span>
+                                            </div>
+
+                                            {/* Description - shown on hover */}
+                                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
+                                                {truncateDescription(p.description, 120)}
+                                            </p>
+
+                                            {/* Tech Stack */}
+                                            <div className="mt-2 flex items-center gap-3 flex-wrap">
+                                                {p.tags.slice(0, 4).map((tag, tagIndex) => (
+                                                    <div
+                                                        key={tagIndex}
+                                                        className="text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                                        title={tag.name}
+                                                    >
+                                                        <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Arrow */}
+                                        <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300 shrink-0 mt-1" />
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </section>
     )
 }
+

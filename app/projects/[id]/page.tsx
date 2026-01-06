@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { projects, getProjectById } from "@/lib/data/projects";
+import { projects, getProjectById, Project } from "@/lib/data/projects";
 import { notFound } from "next/navigation";
 import { ProjectDetailContent } from "./ProjectDetailContent";
 
@@ -32,6 +32,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     };
 }
 
+// Get random projects excluding current one
+function getRandomProjects(currentId: number, count: number): Project[] {
+    const otherProjects = projects.filter(p => p.id !== currentId);
+    const shuffled = [...otherProjects].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+}
+
 export default async function ProjectDetails({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const project = getProjectById(parseInt(id));
@@ -40,11 +47,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ id:
         notFound();
     }
 
+    const randomProjects = getRandomProjects(project.id, 3);
+
     return (
         <div className="min-h-screen">
             <Navbar />
-            <ProjectDetailContent project={project} />
+            <ProjectDetailContent project={project} exploreProjects={randomProjects} />
             <Footer />
         </div>
     );
 }
+
