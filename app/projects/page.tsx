@@ -1,8 +1,5 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import Link from "next/link";
 import { ProjectContent } from "./ProjectContent";
 
 export const metadata = {

@@ -55,7 +55,7 @@ const socialLinks = [
     { name: "@arifiansaputra_", icon: SiInstagram, url: "https://instagram.com/arifiansaputra_" },
     { name: "Arifian Saputra", icon: SiLinkedin, url: "https://linkedin.com/in/arifiansaputra" },
     { name: "arifian853", icon: SiGithub, url: "https://github.com/arifian853" },
-    { name: "@ArifianSaputra1", icon: SiX, url: "https://x.com/ArifianSaputra1" },
+    { name: "@ArifianSaputra1", icon: SiX, url: "https://x.com/ArifianSaputra0" },
 ]
 
 const containerVariants = {
@@ -129,6 +129,9 @@ export function AboutContent() {
                                     alt="Arifian Saputra"
                                     width={128}
                                     height={128}
+                                    quality={80}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMAAAAAAAAAAAAAAQIDBAAFESExQVESE2H/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAACAQMRIf/aAAwDAQACEQMRAD8AxmK8h0rcKUhR0SCc8UUotfEe0qSoqJIOuaKKVbpGxP/Z"
                                 />
                             </div>
                         </div>
@@ -191,8 +194,7 @@ export function AboutContent() {
                             {skills.map((skill, index) => (
                                 <motion.div
                                     key={index}
-                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border border-transparent hover:border-teal-500 dark:hover:border-teal-500 hover:bg-teal-500/10 transition-all duration-300 cursor-default group"
-                                    whileHover={{ x: 5 }}
+                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 dark:hover:border-teal-500 hover:bg-teal-500/10 transition-all duration-300 cursor-default group"
                                 >
                                     <skill.icon className="w-4 h-4 text-teal-500 group-hover:scale-110 transition-transform" />
                                     <span className="text-sm font-medium">{skill.name}</span>
@@ -229,7 +231,7 @@ export function AboutContent() {
                                     Email
                                 </a>
                                 <a
-                                    href="mailto:arifian@infinitelearning.id"
+                                    href="mailto:arifian.saputra@infinitelearning.id"
                                     className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-teal-500 hover:text-white dark:hover:bg-teal-500 transition-colors duration-300 w-full justify-center"
                                 >
                                     <Building2 className="w-4 h-4" />

@@ -106,6 +106,9 @@ export function About() {
                                     alt="Arifian Saputra"
                                     width={128}
                                     height={128}
+                                    quality={80}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMAAAAAAAAAAAAAAQIDBAAFESExQVESE2H/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAACAQMRIf/aAAwDAQACEQMRAD8AxmK8h0rcKUhR0SCc8UUotfEe0qSoqJIOuaKKVbpGxP/Z"
                                 />
                             </div>
                         </div>
@@ -168,8 +171,7 @@ export function About() {
                             {skills.map((skill, index) => (
                                 <motion.div
                                     key={index}
-                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border border-transparent hover:border-teal-500 dark:hover:border-teal-500 hover:bg-teal-500/10 transition-all duration-300 cursor-default group"
-                                    whileHover={{ x: 5 }}
+                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 dark:hover:border-teal-500 hover:bg-teal-500/10 transition-all duration-300 cursor-default group"
                                 >
                                     <skill.icon className="w-4 h-4 text-teal-500 group-hover:scale-110 transition-transform" />
                                     <span className="text-sm font-medium">{skill.name}</span>
