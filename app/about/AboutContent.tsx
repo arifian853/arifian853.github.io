@@ -221,7 +221,7 @@ export function AboutContent() {
                         {/* Buttons */}
                         <div className="space-y-2 mb-4">
                             <a
-                                href="/resume.pdf"
+                                href="/cv_Arifian.pdf"
                                 download
                                 className="flex items-center gap-2 text-sm px-3 py-2 bg-teal-500 text-white rounded-none hover:bg-teal-600 transition-colors duration-300 w-full justify-center"
                             >
@@ -403,7 +403,7 @@ export function AboutContent() {
                         <a href="mailto:arifiansaputra43@gmail.com?subject=Project%20Request">
                             <button className="bg-teal-500 hover:bg-teal-600 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
                                 <Mail className="w-5 h-5" />
-                                Request a Project
+                                Request a Project / Collaborate
                             </button>
                         </a>
                     </div>

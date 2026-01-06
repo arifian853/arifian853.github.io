@@ -1,10 +1,11 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "set STATIC_EXPORT=true && next build",
     "start": "next start",
     "lint": "eslint"
   },

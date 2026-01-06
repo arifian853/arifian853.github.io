@@ -103,9 +103,15 @@ export function AIContent() {
         }
     }, [history])
 
-    // Scroll to bottom
+    // Scroll to bottom only when new messages are added (not on initial load from localStorage)
+    const prevMessageCount = useRef(0)
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+        // Only scroll if message count increased by 1 or 2 (user message + AI response)
+        const countDiff = messages.length - prevMessageCount.current
+        if (countDiff > 0 && countDiff <= 2 && prevMessageCount.current > 0) {
+            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+        }
+        prevMessageCount.current = messages.length
     }, [messages])
 
     const handleCloseWelcome = () => {
@@ -233,7 +239,17 @@ export function AIContent() {
         localStorage.removeItem("arifian-ai-history")
     }
 
-    if (!mounted) return null
+    if (!mounted) {
+        return (
+            <section className="relative min-h-screen flex flex-col py-20 overflow-hidden">
+                <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pt-16 flex flex-col flex-1">
+                    <div className="flex items-center justify-center flex-1">
+                        <p className="text-zinc-400 text-sm">Loading...</p>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
     return (
         <section id="ai" className="relative min-h-screen flex flex-col py-20 overflow-hidden">
@@ -455,7 +471,7 @@ export function AIContent() {
                                 animate={{ opacity: 1 }}
                                 className="flex justify-center"
                             >
-                                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-2 text-sm flex items-center gap-2">
+                                <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-2 text-sm flex items-center gap-2">
                                     <AlertCircle className="w-4 h-4" />
                                     {error}
                                 </div>

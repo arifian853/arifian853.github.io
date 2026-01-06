@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inclusive_Sans, Lexend_Deca } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ScrollToTop } from "@/components/tools/scroll-to-top";
 import "./globals.css";
 
 const inclusiveSans = Inclusive_Sans({
@@ -37,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
