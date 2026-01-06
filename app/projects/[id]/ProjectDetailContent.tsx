@@ -156,7 +156,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         >
                             <Button
                                 variant="outline"
-                                className="rounded-none border-zinc-300 dark:border-zinc-700 hover:border-teal-500 hover:text-teal-500 transition-all duration-300"
+                                className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-teal-500 hover:text-teal-500 transition-all duration-300"
                             >
                                 <Github className="w-4 h-4 mr-2" />
                                 {link.btn_name}

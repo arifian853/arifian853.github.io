@@ -45,9 +45,11 @@ export function Hero() {
                                 Explore
                             </Button>
                         </a>
-                        <Button className="mt-4 w-25 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer">
-                            Resume
-                        </Button>
+                        <a href="#contact">
+                            <Button className="mt-4 w-25 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
+                                Collaborate
+                            </Button>
+                        </a>
                     </div>
                 </motion.div>
 

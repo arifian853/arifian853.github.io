@@ -256,13 +256,13 @@ export function ContactCTA() {
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 group"
                                 >
-                                    <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-teal-500 transition-colors duration-300">
-                                        <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white transition-colors duration-300" />
+                                    <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-teal-500 dark:group-hover:bg-teal-500 transition-colors duration-300">
+                                        <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-300" />
                                     </div>
-                                    <span className="text-zinc-600 dark:text-zinc-400 group-hover:text-teal-500 transition-colors duration-300 font-medium">
+                                    <span className="text-zinc-600 dark:text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300 font-medium">
                                         {social.name}
                                     </span>
-                                    <ExternalLink className="w-4 h-4 text-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <ExternalLink className="w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                                 </a>
                             ))}
                         </div>
