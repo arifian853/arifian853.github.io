@@ -1,10 +1,27 @@
-import { Footer } from "@/components/layout/Footer";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/app/_home_components/Hero";
-import { About } from "@/app/_home_components/About";
-import { FeaturedProjects } from "./_home_components/FeaturedProjects";
-import { Experiences } from "./_home_components/Experiences";
-import { ContactCTA } from "./_home_components/ContactCTA";
+
+// Dynamic imports for below-the-fold components to reduce initial JS bundle
+const About = dynamic(() => import("@/app/_home_components/About").then(mod => mod.About), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const FeaturedProjects = dynamic(() => import("./_home_components/FeaturedProjects").then(mod => mod.FeaturedProjects), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const Experiences = dynamic(() => import("./_home_components/Experiences").then(mod => mod.Experiences), {
+  loading: () => <div className="min-h-screen" />,
+});
+
+const ContactCTA = dynamic(() => import("./_home_components/ContactCTA").then(mod => mod.ContactCTA), {
+  loading: () => <div className="py-20" />,
+});
+
+const Footer = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer), {
+  loading: () => <div className="h-20" />,
+});
 
 export const metadata = {
   title: "Arifian.dev",

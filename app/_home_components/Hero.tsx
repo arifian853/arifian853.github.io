@@ -39,14 +39,14 @@ export function Hero() {
                     <p className="tracking-tight font-sans text-lg">
                         I teach <span className="border-b border-teal-500">AI</span> and build <RotatingText />
                     </p>
-                    <div className="flex gap-4">
+                    <div className="flex gap-6 mt-4">
                         <a href="#about">
-                            <Button className="mt-4 w-25 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
+                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
                                 Explore
                             </Button>
                         </a>
                         <a href="#contact">
-                            <Button className="mt-4 w-25 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
+                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
                                 Collaborate
                             </Button>
                         </a>
