@@ -74,7 +74,7 @@ export function ProjectContent() {
                         All <span className="text-teal-500">Projects</span>
                     </h1>
                     <div className="w-20 h-1 bg-teal-500 mt-4" />
-                    <p className="text-zinc-600 dark:text-zinc-400 mt-4 max-w-2xl">
+                    <p className="text-zinc-700 dark:text-zinc-300 mt-4 max-w-2xl">
                         A collection of projects I&apos;ve built throughout my journey as a developer and AI enthusiast.
                     </p>
                 </motion.div>
@@ -87,7 +87,7 @@ export function ProjectContent() {
                     transition={{ duration: 0.6 }}
                     className="mb-8"
                 >
-                    <h2 className="text-xl font-heading font-semibold text-zinc-500 dark:text-zinc-400 mb-6">
+                    <h2 className="text-xl font-heading font-semibold text-zinc-600 dark:text-zinc-300 mb-6">
                         Featured Projects
                     </h2>
                 </motion.div>
@@ -136,14 +136,14 @@ export function ProjectContent() {
                                             `}>
                                                 {project.title}
                                             </h3>
-                                            <span className="bg-teal-500 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
+                                            <span className="bg-teal-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
                                                 {project.year}
                                             </span>
                                         </div>
 
                                         {/* Description */}
                                         <p className={`
-                                            text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed
+                                            text-zinc-700 dark:text-zinc-300 mt-3 leading-relaxed
                                             ${isFeatured ? 'text-sm md:text-base' : 'text-sm'}
                                         `}>
                                             {truncateDescription(project.description, isFeatured ? 200 : 100)}
@@ -184,7 +184,7 @@ export function ProjectContent() {
                             transition={{ duration: 0.6 }}
                             className="mt-16 mb-8"
                         >
-                            <h2 className="text-xl font-heading font-semibold text-zinc-500 dark:text-zinc-400">
+                            <h2 className="text-xl font-heading font-semibold text-zinc-600 dark:text-zinc-300">
                                 More Projects
                             </h2>
                         </motion.div>
@@ -216,13 +216,13 @@ export function ProjectContent() {
                                                         <h3 className="font-heading font-bold text-lg md:text-xl">
                                                             {project.title}
                                                         </h3>
-                                                        <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+                                                        <span className="text-zinc-600 dark:text-zinc-300 text-sm">
                                                             ({project.year})
                                                         </span>
                                                     </div>
 
                                                     {/* Description - shown on hover with CSS */}
-                                                    <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
+                                                    <p className="text-zinc-700 dark:text-zinc-300 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
                                                         {truncateDescription(project.description, 150)}
                                                     </p>
 

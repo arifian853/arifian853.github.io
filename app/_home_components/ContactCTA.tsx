@@ -23,7 +23,7 @@ const socialLinks = [
     { name: "@arifiansaputra_", icon: SiInstagram, url: "https://instagram.com/arifiansaputra_" },
     { name: "Arifian Saputra", icon: SiLinkedin, url: "https://linkedin.com/in/arifiansaputra" },
     { name: "arifian853", icon: SiGithub, url: "https://github.com/arifian853" },
-    { name: "@ArifianSaputra1", icon: SiX, url: "https://x.com/ArifianSaputra0" },
+    { name: "@ArifianSaputra0", icon: SiX, url: "https://x.com/ArifianSaputra0" },
 ]
 
 const services = [
@@ -103,7 +103,7 @@ export function ContactCTA() {
                         <h2 className="text-4xl md:text-5xl font-bold font-heading">
                             Let&apos;s Build <span className="text-teal-500">Something Amazing</span>
                         </h2>
-                        <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-md">
+                        <p className="text-zinc-700 dark:text-zinc-300 text-lg leading-relaxed max-w-md">
                             Have a project idea? Need a custom application or looking for AI/Web expertise?
                             I&apos;m here to help bring your vision to life.
                         </p>
@@ -115,7 +115,7 @@ export function ContactCTA() {
                                 <DialogTrigger asChild>
                                     <Button
                                         size="lg"
-                                        className="rounded-none bg-teal-500 hover:bg-teal-600 text-white font-medium"
+                                        className="rounded-none bg-teal-700 hover:bg-teal-800 text-white font-medium"
                                     >
                                         <Code2 className="w-5 h-5 mr-2" />
                                         Request Custom App
@@ -141,7 +141,7 @@ export function ContactCTA() {
                                                     {service.items.map((item, itemIndex) => (
                                                         <li
                                                             key={itemIndex}
-                                                            className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2"
+                                                            className="text-sm text-zinc-700 dark:text-zinc-300 flex items-start gap-2"
                                                         >
                                                             <span className="text-teal-500 mt-1">•</span>
                                                             {item}
@@ -153,7 +153,7 @@ export function ContactCTA() {
                                     </div>
 
                                     <div className="border-t border-zinc-200 dark:border-zinc-800 pt-4">
-                                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
+                                        <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-3">
                                             Interested? Send me an email with your project details:
                                         </p>
                                         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -175,7 +175,7 @@ export function ContactCTA() {
                                             <a href={`mailto:${EMAIL}`}>
                                                 <Button
                                                     size="sm"
-                                                    className="rounded-none bg-teal-500 hover:bg-teal-600"
+                                                    className="rounded-none bg-teal-700 hover:bg-teal-800"
                                                 >
                                                     <Mail className="w-4 h-4 mr-1" />
                                                     Email
@@ -192,7 +192,7 @@ export function ContactCTA() {
                                     <Button
                                         size="lg"
                                         variant="outline"
-                                        className="rounded-none border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-teal-500 hover:border-teal-500 font-medium"
+                                        className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-teal-500 hover:border-teal-500 font-medium"
                                     >
                                         <Handshake className="w-5 h-5 mr-2" />
                                         Collaborate With Me
@@ -242,7 +242,7 @@ export function ContactCTA() {
                         variants={itemVariants}
                         className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 space-y-6"
                     >
-                        <h3 className="text-sm font-bold font-heading text-zinc-500 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Connect With Me
                         </h3>
 
@@ -259,17 +259,17 @@ export function ContactCTA() {
                                     <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-teal-500 dark:group-hover:bg-teal-500 transition-colors duration-300">
                                         <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-300" />
                                     </div>
-                                    <span className="text-zinc-600 dark:text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300 font-medium">
+                                    <span className="text-zinc-700 dark:text-zinc-300 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300 font-medium">
                                         {social.name}
                                     </span>
-                                    <ExternalLink className="w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                    <ExternalLink className="w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                                 </a>
                             ))}
                         </div>
 
                         {/* Email */}
                         <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                            <p className="text-sm text-zinc-500 mb-2">Or email me directly:</p>
+                            <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-2">Or email me directly:</p>
                             <a
                                 href={`mailto:${EMAIL}`}
                                 className="text-teal-500 hover:text-teal-400 font-medium flex items-center gap-2"

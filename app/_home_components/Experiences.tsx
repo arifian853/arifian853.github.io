@@ -152,14 +152,14 @@ export function Experiences() {
               >
                 {/* Top Row: Date & Type */}
                 <div className="flex items-center gap-3 flex-wrap mb-3">
-                  <span className="bg-teal-500 text-white text-xs font-medium px-2 py-1 rounded-none flex items-center gap-1">
+                  <span className="bg-teal-700 text-white text-xs font-medium px-2 py-1 rounded-none flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
                     {exp.time}
                   </span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded-none">
+                  <span className="text-xs text-zinc-600 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded-none">
                     {exp.type}
                   </span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded-none">
+                  <span className="text-xs text-zinc-600 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded-none">
                     {exp.workMode}
                   </span>
                   {isLatest && (
@@ -175,7 +175,7 @@ export function Experiences() {
                 </h3>
 
                 {/* Company & Location */}
-                <div className="flex items-center gap-4 flex-wrap text-sm text-zinc-500 dark:text-zinc-400 mb-3">
+                <div className="flex items-center gap-4 flex-wrap text-sm text-zinc-600 dark:text-zinc-300 mb-3">
                   <span className="flex items-center gap-1">
                     <Building2 className="w-4 h-4" />
                     {exp.company}
@@ -187,7 +187,7 @@ export function Experiences() {
                 </div>
 
                 {/* Description */}
-                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
 
@@ -196,7 +196,7 @@ export function Experiences() {
                   {exp.skillset.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded-none border-b-2 border-transparent hover:border-teal-500 transition-colors duration-300"
+                      className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-none border-b-2 border-transparent hover:border-teal-500 transition-colors duration-300"
                     >
                       {skill}
                     </span>

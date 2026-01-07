@@ -27,9 +27,9 @@ import {
 } from "react-icons/si"
 
 const stats = [
-    { label: "Years Teaching", value: "2+", color: "bg-teal-500" },
-    { label: "Projects Built", value: "15+", color: "bg-teal-500" },
-    { label: "Students Taught", value: "100+", color: "bg-teal-500" },
+    { label: "Years Teaching", value: "2+", color: "bg-teal-700" },
+    { label: "Projects Built", value: "15+", color: "bg-teal-700" },
+    { label: "Students Taught", value: "100+", color: "bg-teal-700" },
 ]
 
 const skills = [
@@ -61,7 +61,7 @@ const socialLinks = [
     { name: "@arifiansaputra_", icon: SiInstagram, url: "https://instagram.com/arifiansaputra_" },
     { name: "Arifian Saputra", icon: SiLinkedin, url: "https://linkedin.com/in/arifiansaputra" },
     { name: "arifian853", icon: SiGithub, url: "https://github.com/arifian853" },
-    { name: "@ArifianSaputra1", icon: SiX, url: "https://x.com/ArifianSaputra0" },
+    { name: "@ArifianSaputra0", icon: SiX, url: "https://x.com/ArifianSaputra0" },
 ]
 
 const containerVariants = {
@@ -142,10 +142,10 @@ export function AboutContent() {
                             </div>
                         </div>
                         <h3 className="text-xl font-bold font-heading mt-2">Arifian Saputra</h3>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-1">
+                        <p className="text-sm text-zinc-600 dark:text-zinc-300 text-center mt-1">
                             AI Technical Mentor <br /> @ Infinite Learning Indonesia
                         </p>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                        <p className="text-sm text-zinc-600 dark:text-zinc-300 text-center">
                             Full Stack Web Developer
                         </p>
                     </motion.div>
@@ -173,13 +173,13 @@ export function AboutContent() {
                         variants={itemVariants}
                         className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Stats
                         </h3>
                         <div className="space-y-4">
                             {stats.map((stat, index) => (
                                 <div key={index} className="flex items-center justify-between">
-                                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{stat.label}</span>
+                                    <span className="text-sm text-zinc-700 dark:text-zinc-300">{stat.label}</span>
                                     <span className={`${stat.color} text-white text-sm font-bold px-3 py-1 rounded-none`}>
                                         {stat.value}
                                     </span>
@@ -193,7 +193,7 @@ export function AboutContent() {
                         variants={itemVariants}
                         className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Skills & Expertise
                         </h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -214,7 +214,7 @@ export function AboutContent() {
                         variants={itemVariants}
                         className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col justify-center hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Get In Touch
                         </h3>
 
@@ -223,7 +223,7 @@ export function AboutContent() {
                             <a
                                 href="/cv_Arifian.pdf"
                                 download
-                                className="flex items-center gap-2 text-sm px-3 py-2 bg-teal-500 text-white rounded-none hover:bg-teal-600 transition-colors duration-300 w-full justify-center"
+                                className="flex items-center gap-2 text-sm px-3 py-2 bg-teal-700 text-white rounded-none hover:bg-teal-800 transition-colors duration-300 w-full justify-center"
                             >
                                 <Download className="w-4 h-4" />
                                 Resume
@@ -257,7 +257,7 @@ export function AboutContent() {
                                     className="relative group cursor-pointer"
                                 >
                                     <social.icon
-                                        className="w-5 h-5 text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                        className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300"
                                     />
                                     {/* Tooltip */}
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
@@ -282,7 +282,7 @@ export function AboutContent() {
                                     className="relative group cursor-pointer"
                                 >
                                     <tech.icon
-                                        className="w-7 h-7 text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                        className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300"
                                     />
                                     {/* Tooltip */}
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
@@ -323,7 +323,7 @@ export function AboutContent() {
                         >
                             <Code2 className="w-8 h-8 text-teal-500 mb-4" />
                             <h4 className="font-heading font-bold text-lg mb-3">Web Development</h4>
-                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                 <li className="flex items-start gap-2">
                                     <span className="text-teal-500">•</span>
                                     Frontend (HTML, CSS, JS, React, Tailwind)
@@ -350,7 +350,7 @@ export function AboutContent() {
                         >
                             <Brain className="w-8 h-8 text-teal-500 mb-4" />
                             <h4 className="font-heading font-bold text-lg mb-3">AI & Machine Learning</h4>
-                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                 <li className="flex items-start gap-2">
                                     <span className="text-teal-500">•</span>
                                     Python API & AI Chatbot Development
@@ -377,7 +377,7 @@ export function AboutContent() {
                         >
                             <BookOpen className="w-8 h-8 text-teal-500 mb-4" />
                             <h4 className="font-heading font-bold text-lg mb-3">Mentoring & Others</h4>
-                            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                 <li className="flex items-start gap-2">
                                     <span className="text-teal-500">•</span>
                                     Private Mentoring (AI & Web Dev)
@@ -401,7 +401,7 @@ export function AboutContent() {
                     {/* CTA Button */}
                     <div className="flex justify-center mb-16">
                         <a href="mailto:arifiansaputra43@gmail.com?subject=Project%20Request">
-                            <button className="bg-teal-500 hover:bg-teal-600 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
+                            <button className="bg-teal-700 hover:bg-teal-800 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
                                 <Mail className="w-5 h-5" />
                                 Request a Project / Collaborate
                             </button>
@@ -426,20 +426,20 @@ export function AboutContent() {
                             className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                         >
                             <div className="flex items-start justify-between mb-3">
-                                <span className="bg-teal-500 text-white text-xs font-medium px-2 py-1">
+                                <span className="bg-teal-700 text-white text-xs font-medium px-2 py-1">
                                     2020 - 2024
                                 </span>
-                                <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                                <span className="text-xs text-zinc-600 dark:text-zinc-300">
                                     Bachelor&apos;s Degree
                                 </span>
                             </div>
                             <h4 className="font-heading font-bold text-lg mb-1">
                                 S1 Teknik Informatika
                             </h4>
-                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-1">
+                            <p className="text-zinc-700 dark:text-zinc-300 text-sm mb-1">
                                 Universitas Maritim Raja Ali Haji
                             </p>
-                            <p className="text-zinc-500 dark:text-zinc-500 text-xs flex items-center gap-1">
+                            <p className="text-zinc-600 dark:text-zinc-400 text-xs flex items-center gap-1">
                                 <Globe className="w-3 h-3" />
                                 Tanjungpinang, Kepulauan Riau
                             </p>
@@ -454,17 +454,17 @@ export function AboutContent() {
                                 <span className="bg-zinc-500 text-white text-xs font-medium px-2 py-1">
                                     2017 - 2020
                                 </span>
-                                <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                                <span className="text-xs text-zinc-600 dark:text-zinc-300">
                                     High School
                                 </span>
                             </div>
                             <h4 className="font-heading font-bold text-lg mb-1">
                                 Matematika dan Ilmu Alam
                             </h4>
-                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-1">
+                            <p className="text-zinc-700 dark:text-zinc-300 text-sm mb-1">
                                 SMA Negeri 1 Bintan Utara
                             </p>
-                            <p className="text-zinc-500 dark:text-zinc-500 text-xs flex items-center gap-1">
+                            <p className="text-zinc-600 dark:text-zinc-400 text-xs flex items-center gap-1">
                                 <Globe className="w-3 h-3" />
                                 Tanjunguban, Kepulauan Riau
                             </p>
@@ -482,7 +482,7 @@ export function AboutContent() {
                         <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">
                             About This <span className="text-teal-500">Website</span>
                         </h3>
-                        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8 max-w-3xl">
+                        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mb-8 max-w-3xl">
                             This website is a hobby project I built to showcase my portfolio, projects, and skills.
                             It&apos;s designed with a clean, modern aesthetic and built using some of the latest web technologies.
                             Feel free to explore and get inspired! Anyway, this website is 50% human-crafted and 50% vibe-coded lol.

@@ -109,14 +109,14 @@ export function FeaturedProjects() {
                                             `}>
                         {project.title}
                       </h3>
-                      <span className="bg-teal-500 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
+                      <span className="bg-teal-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
                         {project.year}
                       </span>
                     </div>
 
                     {/* Description */}
                     <p className={`
-                                            text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed
+                                            text-zinc-700 dark:text-zinc-300 mt-3 leading-relaxed
                                             ${isFeatured ? 'text-sm md:text-base' : 'text-sm'}
                                         `}>
                       {truncateDescription(project.description, isFeatured ? 200 : 100)}

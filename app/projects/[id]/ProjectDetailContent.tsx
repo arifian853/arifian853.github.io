@@ -87,7 +87,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         <h1 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
                             {project.title}
                         </h1>
-                        <span className="bg-teal-500 text-white text-sm font-medium px-3 py-1 rounded-none shrink-0 mt-1">
+                        <span className="bg-teal-700 text-white text-sm font-medium px-3 py-1 rounded-none shrink-0 mt-1">
                             {project.year}
                         </span>
                     </div>
@@ -135,7 +135,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     className="mb-8"
                 >
                     <h2 className="text-xl font-heading font-semibold mb-4">About This Project</h2>
-                    <div className="text-zinc-600 dark:text-zinc-400 leading-relaxed whitespace-pre-line">
+                    <div className="text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line">
                         {parseDescription(project.description)}
                     </div>
                 </motion.div>
@@ -171,7 +171,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                             rel="noopener noreferrer"
                         >
                             <Button
-                                className="rounded-none bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300"
+                                className="rounded-none bg-teal-700 hover:bg-teal-800 text-white transition-all duration-300"
                             >
                                 <ExternalLink className="w-4 h-4 mr-2" />
                                 {demo.btn_name}
@@ -187,7 +187,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
                 >
-                    <h2 className="text-xl font-heading font-semibold text-zinc-500 dark:text-zinc-400 mb-6">
+                    <h2 className="text-xl font-heading font-semibold text-zinc-600 dark:text-zinc-300 mb-6">
                         Explore More
                     </h2>
 
@@ -203,13 +203,13 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                                                 <h3 className="font-heading font-bold text-base md:text-lg group-hover:text-teal-500 transition-colors duration-300">
                                                     {p.title}
                                                 </h3>
-                                                <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+                                                <span className="text-zinc-600 dark:text-zinc-300 text-sm">
                                                     ({p.year})
                                                 </span>
                                             </div>
 
                                             {/* Description - shown on hover */}
-                                            <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
+                                            <p className="text-zinc-700 dark:text-zinc-300 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
                                                 {truncateDescription(p.description, 120)}
                                             </p>
 

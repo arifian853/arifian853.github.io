@@ -4,10 +4,10 @@ import { AIContent } from "./AIContent";
 
 export const metadata = {
   title: "Arifian.dev - AI",
-  description: "Arifian's Portfolio Site - AI",
+  description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and Google Gemini 2.5 Flash.",
   openGraph: {
     title: "Arifian.dev - AI",
-    description: "Arifian's Portfolio Site - AI",
+    description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and Google Gemini 2.5 Flash.",
   },
 }
 

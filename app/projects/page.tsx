@@ -4,10 +4,10 @@ import { ProjectContent } from "./ProjectContent";
 
 export const metadata = {
   title: "Arifian.dev - Project",
-  description: "Arifian's Portfolio Site - Project",
+  description: "Arifian's Projects",
   openGraph: {
     title: "Arifian.dev - Project",
-    description: "Arifian's Portfolio Site - Project",
+    description: "Arifian's Projects",
   },
 }
 

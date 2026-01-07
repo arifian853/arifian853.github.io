@@ -19,9 +19,9 @@ import {
 } from "react-icons/si"
 
 const stats = [
-    { label: "Years Teaching", value: "2+", color: "bg-teal-500" },
-    { label: "Projects Built", value: "15+", color: "bg-teal-500" },
-    { label: "Students Taught", value: "100+", color: "bg-teal-500" },
+    { label: "Years Teaching", value: "2+", color: "bg-teal-700" },
+    { label: "Projects Built", value: "15+", color: "bg-teal-700" },
+    { label: "Students Taught", value: "100+", color: "bg-teal-700" },
 ]
 
 const skills = [
@@ -115,10 +115,10 @@ export function About() {
                             </div>
                         </div>
                         <h3 className="text-xl font-bold font-heading mt-2">Arifian Saputra</h3>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-1">
+                        <p className="text-sm text-zinc-600 dark:text-zinc-300 text-center mt-1">
                             AI Technical Mentor <br /> @ Infinite Learning Indonesia
                         </p>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                        <p className="text-sm text-zinc-600 dark:text-zinc-300 text-center">
                             Full Stack Web Developer
                         </p>
                     </motion.div>
@@ -146,13 +146,13 @@ export function About() {
                         variants={itemVariants}
                         className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Stats
                         </h3>
                         <div className="space-y-4">
                             {stats.map((stat, index) => (
                                 <div key={index} className="flex items-center justify-between">
-                                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{stat.label}</span>
+                                    <span className="text-sm text-zinc-700 dark:text-zinc-300">{stat.label}</span>
                                     <span className={`${stat.color} text-white text-sm font-bold px-3 py-1 rounded-none`}>
                                         {stat.value}
                                     </span>
@@ -166,7 +166,7 @@ export function About() {
                         variants={itemVariants}
                         className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
                     >
-                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Skills & Expertise
                         </h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -185,7 +185,7 @@ export function About() {
                     {/* Quote Card */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-teal-500 text-white rounded-none p-6 flex flex-col justify-center hover:bg-teal-600 transition-colors duration-300"
+                        className="bg-teal-700 text-white rounded-none p-6 flex flex-col justify-center hover:bg-teal-800 transition-colors duration-300"
                     >
                         <blockquote className="text-lg font-medium italic">
                             &ldquo;Teaching is learning twice.&rdquo;
@@ -205,7 +205,7 @@ export function About() {
                                     className="relative group cursor-pointer"
                                 >
                                     <tech.icon
-                                        className="w-7 h-7 text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                        className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300"
                                     />
                                     {/* Tooltip */}
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">

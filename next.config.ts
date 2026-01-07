@@ -8,7 +8,26 @@ const nextConfig: NextConfig = {
     output: 'export',
     trailingSlash: true,
   }),
+
+  // Performance optimizations
+  experimental: {
+    optimizeCss: true, // Minify CSS in production
+  },
+
+  // Remove console.logs in production
+  compiler: {
+    ...(process.env.NODE_ENV === 'production' && {
+      removeConsole: {
+        exclude: ['error', 'warn'],
+      },
+    }),
+  },
+
   images: {
+    // Prefer modern image formats
+    formats: ['image/avif', 'image/webp'],
+    // Optimized device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200],
     qualities: [75, 80],
     // For static export, we need to use unoptimized images
     ...(isStaticExport && {
