@@ -560,9 +560,9 @@ export function AboutContent() {
                             whileInView="visible"
                             viewport={{ once: true }}
                         >
-                            <h4 className="text-xl font-bold font-heading mb-6">
+                            <h3 className="text-2xl md:text-3xl font-bold font-heading mb-6">
                                 Design <span className="text-teal-500">System</span>
-                            </h4>
+                            </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* Typography */}
