@@ -551,6 +551,177 @@ export function AboutContent() {
                                 </div>
                             </motion.div>
                         </motion.div>
+
+                        {/* Design System Section */}
+                        <motion.div
+                            className="mt-8"
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            <h4 className="text-xl font-bold font-heading mb-6">
+                                Design <span className="text-teal-500">System</span>
+                            </h4>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {/* Typography */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                                >
+                                    <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                        Typography
+                                    </h5>
+                                    <div className="space-y-4">
+                                        <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                                            <p className="font-heading text-lg font-bold mb-1">Lexend Deca</p>
+                                            <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">Headings &amp; Titles</p>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">--font-heading / font-heading</code>
+                                        </div>
+                                        <div>
+                                            <p className="font-sans text-lg font-medium mb-1">Inclusive Sans</p>
+                                            <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">Body Text &amp; UI</p>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">--font-sans / font-sans</code>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Color Palette */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                                >
+                                    <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                        Color Palette
+                                    </h5>
+                                    <div className="space-y-3">
+                                        {/* Primary Accent */}
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 bg-teal-500 border border-zinc-300 dark:border-zinc-700" />
+                                            <div>
+                                                <p className="text-sm font-medium">Teal 500 (Primary Accent)</p>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400">teal-500 | #14b8a6</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 bg-teal-700 border border-zinc-300 dark:border-zinc-700" />
+                                            <div>
+                                                <p className="text-sm font-medium">Teal 700 (Buttons)</p>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400">teal-700 | #0f766e</p>
+                                            </div>
+                                        </div>
+                                        {/* Background Light */}
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 border border-zinc-300 dark:border-zinc-700" style={{ backgroundColor: '#FFFBFF' }} />
+                                            <div>
+                                                <p className="text-sm font-medium">Background (Light)</p>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400">background | #FFFBFF</p>
+                                            </div>
+                                        </div>
+                                        {/* Background Dark */}
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 border border-zinc-300 dark:border-zinc-700" style={{ backgroundColor: '#191919' }} />
+                                            <div>
+                                                <p className="text-sm font-medium">Background (Dark)</p>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400">background | #191919</p>
+                                            </div>
+                                        </div>
+                                        {/* Foreground */}
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 bg-zinc-100 border border-zinc-300 dark:border-zinc-700" />
+                                            <div>
+                                                <p className="text-sm font-medium">Card Background</p>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400">zinc-100/zinc-900 | #f4f4f5 / #18181b</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Animation System */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                                >
+                                    <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                        Animation System
+                                    </h5>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Library</span>
+                                            <span className="font-medium">Framer Motion</span>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Fade-in Duration</span>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">500-600ms</code>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Stagger Children</span>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">100ms (0.1s)</code>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Easing Function</span>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">easeOut</code>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Translate Y (Start)</span>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">20px</code>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-zinc-600 dark:text-zinc-300">Hover Transitions</span>
+                                            <code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-2 py-1">300ms</code>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Design Principles */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                                >
+                                    <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
+                                        Design Principles
+                                    </h5>
+                                    <ul className="space-y-3 text-sm">
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-teal-500 mt-0.5">•</span>
+                                            <div>
+                                                <span className="font-medium">Non-Rounded Design</span>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">All corners use <code className="bg-zinc-200 dark:bg-zinc-800 px-1">rounded-none</code> for brutalist aesthetic</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-teal-500 mt-0.5">•</span>
+                                            <div>
+                                                <span className="font-medium">Bento Grid Layout</span>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Modular card-based layout with varying spans</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-teal-500 mt-0.5">•</span>
+                                            <div>
+                                                <span className="font-medium">Hover Border Accent</span>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Cards highlight with <code className="bg-zinc-200 dark:bg-zinc-800 px-1">border-teal-500</code> on hover</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-teal-500 mt-0.5">•</span>
+                                            <div>
+                                                <span className="font-medium">Grayscale-to-Color</span>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Images start grayscale, colorize on hover</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-teal-500 mt-0.5">•</span>
+                                            <div>
+                                                <span className="font-medium">Underline Highlights</span>
+                                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Key text uses <code className="bg-zinc-200 dark:bg-zinc-800 px-1">border-b-2 border-teal-500</code></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </motion.div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             </div>
