@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Send, Trash2, Sparkles, AlertCircle, MessageSquare, Info } from "lucide-react"
+import { Send, Trash2, Sparkles, AlertCircle, MessageSquare, Info, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -62,6 +62,7 @@ export function AIContent() {
     const [showInfo, setShowInfo] = useState(false)
     const [dontShowAgain, setDontShowAgain] = useState(false)
     const [mounted, setMounted] = useState(false)
+    const [quickSuggestions, setQuickSuggestions] = useState<typeof suggestedMessages>([])
     const messagesEndRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -71,6 +72,14 @@ export function AIContent() {
             .sort(() => Math.random() - 0.5)
             .slice(0, 6)
     }, [])
+
+    // Function to refresh quick suggestions
+    const refreshQuickSuggestions = () => {
+        const shuffled = [...suggestedMessages]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3)
+        setQuickSuggestions(shuffled)
+    }
 
     // Load from localStorage on mount
     useEffect(() => {
@@ -88,6 +97,8 @@ export function AIContent() {
         if (!hideWelcome) {
             setShowWelcome(true)
         }
+        // Initialize quick suggestions
+        refreshQuickSuggestions()
     }, [])
 
     // Save to localStorage when messages change
@@ -540,11 +551,18 @@ export function AIContent() {
 
                     {/* Quick Suggestions (when there are messages) */}
                     {messages.length > 0 && (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                            <span className="text-xs text-zinc-400 dark:text-zinc-500 mr-1 self-center">Try:</span>
-                            {suggestedMessages.slice(0, 3).map((item, index) => (
+                        <div className="mt-3 flex flex-wrap items-center gap-2">
+                            <button
+                                onClick={refreshQuickSuggestions}
+                                disabled={isLoading}
+                                className="p-1.5 text-zinc-400 dark:text-zinc-500 hover:text-teal-500 dark:hover:text-teal-500 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 disabled:opacity-50"
+                                title="Refresh suggestions"
+                            >
+                                <RefreshCw className="w-3.5 h-3.5" />
+                            </button>
+                            {quickSuggestions.map((item, index) => (
                                 <button
-                                    key={index}
+                                    key={`${item.message}-${index}`}
                                     onClick={() => handleSuggestedClick(item.message)}
                                     disabled={isLoading}
                                     className="text-xs px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300 disabled:opacity-50"
