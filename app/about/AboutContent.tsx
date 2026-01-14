@@ -441,7 +441,7 @@ export function AboutContent() {
                             </p>
                             <p className="text-zinc-600 dark:text-zinc-400 text-xs flex items-center gap-1">
                                 <Globe className="w-3 h-3" />
-                                Tanjungpinang, Kepulauan Riau
+                                Tanjungpinang, Kepulauan Riau, Indonesia
                             </p>
                         </motion.div>
 
@@ -466,7 +466,7 @@ export function AboutContent() {
                             </p>
                             <p className="text-zinc-600 dark:text-zinc-400 text-xs flex items-center gap-1">
                                 <Globe className="w-3 h-3" />
-                                Tanjunguban, Kepulauan Riau
+                                Tanjunguban, Kepulauan Riau, Indonesia
                             </p>
                         </motion.div>
                     </motion.div>
