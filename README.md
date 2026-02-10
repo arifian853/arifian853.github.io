@@ -49,8 +49,8 @@ This is my personal portfolio showcasing projects, experiences, and a bit about 
 
 ### Backend (AI & Messaging API)
 - FastAPI
-- Google Gemini 2.5 Flash
-- SentenceTransformer (all-MiniLM-L6-v2)
+- Groq LLaMA 3.3 70B Versatile
+- SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2)
 - MongoDB
 - Hosted on Hugging Face Spaces
 

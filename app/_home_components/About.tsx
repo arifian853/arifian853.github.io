@@ -19,9 +19,9 @@ import {
 } from "react-icons/si"
 
 const stats = [
-    { label: "Years Teaching", value: "2+", color: "bg-teal-700" },
-    { label: "Projects Built", value: "15+", color: "bg-teal-700" },
-    { label: "Students Taught", value: "100+", color: "bg-teal-700" },
+    { label: "Years Teaching", value: "2+", color: "bg-sblue-700" },
+    { label: "Projects Built", value: "15+", color: "bg-sblue-700" },
+    { label: "Students Taught", value: "100+", color: "bg-sblue-700" },
 ]
 
 const skills = [
@@ -82,9 +82,9 @@ export function About() {
                     className="mb-12"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold font-heading">
-                        About <span className="text-teal-500">Me</span>
+                        About <span className="text-sblue-500">Me</span>
                     </h2>
-                    <div className="w-20 h-1 bg-teal-500 mt-4" />
+                    <div className="w-20 h-1 bg-sblue-500 mt-4" />
                 </motion.div>
 
                 {/* Bento Grid */}
@@ -98,10 +98,10 @@ export function About() {
                     {/* Profile Card - Spans 2 rows */}
                     <motion.div
                         variants={itemVariants}
-                        className="md:row-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        className="md:row-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300"
                     >
                         <div className="relative mb-4">
-                            <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-teal-500">
+                            <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-sblue-500">
                                 <Image
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                                     src="/ganyu.webp"
@@ -126,16 +126,16 @@ export function About() {
                     {/* About Text Card - Spans 2 columns */}
                     <motion.div
                         variants={itemVariants}
-                        className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300"
                     >
                         <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                             Who Am I?
                         </h3>
                         <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
                             A passionate individual with deep interest in{" "}
-                            <span className="border-b-2 border-teal-500 font-medium">AI and Web Development</span>.
+                            <span className="border-b-2 border-sblue-500 font-medium">AI and Web Development</span>.
                             I&apos;ve been teaching for{" "}
-                            <span className="border-b-2 border-teal-500 font-medium">2+ years in AI</span> field,
+                            <span className="border-b-2 border-sblue-500 font-medium">2+ years in AI</span> field,
                             specializing in Machine Learning, Large Language Models, Natural Language Processing,
                             and building production-ready web applications.
                         </p>
@@ -144,7 +144,7 @@ export function About() {
                     {/* Stats Cards - Single column */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300"
                     >
                         <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Stats
@@ -164,7 +164,7 @@ export function About() {
                     {/* Skills Grid - Spans 2 columns */}
                     <motion.div
                         variants={itemVariants}
-                        className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        className="md:col-span-2 lg:col-span-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300"
                     >
                         <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Skills & Expertise
@@ -173,9 +173,9 @@ export function About() {
                             {skills.map((skill, index) => (
                                 <motion.div
                                     key={index}
-                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 dark:hover:border-teal-500 hover:bg-teal-500/10 transition-all duration-300 cursor-default group"
+                                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-sblue-500 dark:hover:border-sblue-500 hover:bg-sblue-500/10 transition-all duration-300 cursor-default group"
                                 >
-                                    <skill.icon className="w-4 h-4 text-teal-500 group-hover:scale-110 transition-transform" />
+                                    <skill.icon className="w-4 h-4 text-sblue-500 group-hover:scale-110 transition-transform" />
                                     <span className="text-sm font-medium">{skill.name}</span>
                                 </motion.div>
                             ))}
@@ -185,7 +185,7 @@ export function About() {
                     {/* Quote Card */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-teal-700 text-white rounded-none p-6 flex flex-col justify-center hover:bg-teal-800 transition-colors duration-300"
+                        className="bg-sblue-700 text-white rounded-none p-6 flex flex-col justify-center hover:bg-sblue-800 transition-colors duration-300"
                     >
                         <blockquote className="text-lg font-medium italic">
                             &ldquo;Teaching is learning twice.&rdquo;
@@ -196,7 +196,7 @@ export function About() {
                     {/* Tech Stack Card - Full Width */}
                     <motion.div
                         variants={itemVariants}
-                        className="md:col-span-3 lg:col-span-4 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300"
+                        className="md:col-span-3 lg:col-span-4 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300"
                     >
                         <div className="flex flex-wrap justify-center gap-6">
                             {techStack.map((tech, index) => (
@@ -205,7 +205,7 @@ export function About() {
                                     className="relative group cursor-pointer"
                                 >
                                     <tech.icon
-                                        className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300"
+                                        className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300"
                                     />
                                     {/* Tooltip */}
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">

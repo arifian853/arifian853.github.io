@@ -39,7 +39,7 @@ export const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2">
           <motion.span
-            className="w-2 h-2 rounded-full bg-teal-500"
+            className="w-2 h-2 rounded-full bg-sblue-500"
             whileHover={{ scale: 1.5 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           />
@@ -57,7 +57,7 @@ export const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 className={`relative px-4 py-2 text-sm font-heading font-medium transition-colors duration-200 rounded-lg ${isActive
-                    ? "text-teal-600 dark:text-teal-400"
+                    ? "text-sblue-600 dark:text-sblue-400"
                     : "text-muted-foreground hover:text-foreground"
                   }`}
               >
@@ -66,7 +66,7 @@ export const Navbar = () => {
                 {isActive && (
                   <motion.span
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-teal-500 rounded-full"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-sblue-500 rounded-full"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -130,7 +130,7 @@ export const Navbar = () => {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${isActive
-                        ? "text-teal-600 dark:text-teal-400 bg-teal-500/10"
+                        ? "text-sblue-600 dark:text-sblue-400 bg-sblue-500/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
                   >

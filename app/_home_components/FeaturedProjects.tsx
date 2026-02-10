@@ -58,9 +58,9 @@ export function FeaturedProjects() {
           className="mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-heading">
-            Featured <span className="text-teal-500">Projects</span>
+            Featured <span className="text-sblue-500">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-teal-500 mt-4" />
+          <div className="w-20 h-1 bg-sblue-500 mt-4" />
         </motion.div>
 
         {/* Bento Grid */}
@@ -88,14 +88,14 @@ export function FeaturedProjects() {
                                         h-full bg-zinc-100 dark:bg-zinc-900 
                                         border border-zinc-200 dark:border-zinc-800 
                                         rounded-none p-6 
-                                        hover:border-teal-500 dark:hover:border-teal-500 
+                                        hover:border-sblue-500 dark:hover:border-sblue-500 
                                         transition-all duration-300 
                                         cursor-pointer group
                                         ${isFeatured ? 'min-h-[280px]' : 'min-h-[220px]'}
                                     `}>
                     {/* Number */}
                     <span className={`
-                                            font-heading font-bold text-teal-500
+                                            font-heading font-bold text-sblue-500
                                             ${isFeatured ? 'text-3xl' : 'text-2xl'}
                                         `}>
                       {formatNumber(project.id)}
@@ -109,7 +109,7 @@ export function FeaturedProjects() {
                                             `}>
                         {project.title}
                       </h3>
-                      <span className="bg-teal-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
+                      <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
                         {project.year}
                       </span>
                     </div>
@@ -127,7 +127,7 @@ export function FeaturedProjects() {
                       {project.tags.slice(0, isFeatured ? 6 : 4).map((tag, tagIndex) => (
                         <div
                           key={tagIndex}
-                          className="text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                          className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300"
                           title={tag.name}
                         >
                           <ProjectIcon iconName={tag.iconName} className="w-5 h-5" />
@@ -136,7 +136,7 @@ export function FeaturedProjects() {
                     </div>
 
                     {/* Arrow indicator */}
-                    <div className="mt-4 flex items-center text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mt-4 flex items-center text-sblue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="text-sm font-medium">View Details</span>
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
@@ -157,7 +157,7 @@ export function FeaturedProjects() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-teal-500 hover:text-teal-400 font-medium transition-colors duration-300 border-b-2 border-transparent hover:border-teal-500 pb-1"
+            className="inline-flex items-center gap-2 text-sblue-500 hover:text-sblue-400 font-medium transition-colors duration-300 border-b-2 border-transparent hover:border-sblue-500 pb-1"
           >
             View All Projects
             <ArrowRight className="w-4 h-4" />

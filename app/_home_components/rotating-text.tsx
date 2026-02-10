@@ -36,7 +36,7 @@ export function RotatingText() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2, ease: "easeInOut" }}
-                    className="inline-block border-b border-teal-500"
+                    className="inline-block border-b border-sblue-500"
                 >
                     {appTypes[currentIndex]}
                 </motion.span>

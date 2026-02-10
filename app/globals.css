@@ -9,6 +9,15 @@
   --font-sans: var(--font-inclusive-sans);
   --font-mono: var(--font-inclusive-sans);
   --font-heading: var(--font-lexend-deca);
+  /* Slate Blue accent palette */
+  --color-sblue-50: #F0F3F8;
+  --color-sblue-200: #BCC9D9;
+  --color-sblue-400: #94A3BD;
+  --color-sblue-500: #7089A8;
+  --color-sblue-600: #5A7190;
+  --color-sblue-700: #435A76;
+  --color-sblue-800: #344760;
+  --color-sblue-950: #192030;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -70,7 +79,7 @@
   --input: #E5E2DE;
   --ring: #191919;
   --chart-1: #d97706;
-  --chart-2: #0d9488;
+  --chart-2: #5A7190;
   --chart-3: #475569;
   --chart-4: #eab308;
   --chart-5: #f59e0b;
@@ -151,17 +160,17 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #14b8a6;
+    background: #7089A8;
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #0d9488;
+    background: #5A7190;
   }
 
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #14b8a6 transparent;
+    scrollbar-color: #7089A8 transparent;
   }
 }

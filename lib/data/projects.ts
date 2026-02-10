@@ -222,6 +222,27 @@ export const projects: Project[] = [
             { iconName: "SiPytorch", name: "PyTorch" }
         ]
     },
+    {
+        id: 12,
+        title: "Arifian.AI v2.0",
+        year: "2026",
+        description: "Major upgrade of the Arifian.AI personal chatbot. Rebuilt from the ground up with a modern RAG (Retrieval-Augmented Generation) architecture. Now powered by **Groq LLaMA 3.3 70B** for fast, high-quality responses, with **multilingual SentenceTransformer embeddings** (paraphrase-multilingual-MiniLM-L12-v2) supporting 50+ languages including Indonesian. Features include a dedicated **admin dashboard** for knowledge base management, system prompt customization, file uploads, RAG configuration, and user management. Backend built with **FastAPI** and **MongoDB Atlas** vector search, hosted on **Hugging Face Spaces** with Docker.",
+        image: "/projects/project12.webp",
+        link: [
+            { repo_link: "https://github.com/arifian853/arifian.ai", btn_name: "Repo" }
+        ],
+        demo: [
+            { demo_link: "https://arifian.dev/ai", btn_name: "Demo" }
+        ],
+        tags: [
+            { iconName: "FaPython", name: "Python" },
+            { iconName: "SiFastapi", name: "FastAPI" },
+            { iconName: "SiMongodb", name: "MongoDB" },
+            { iconName: "FaReact", name: "React" },
+            { iconName: "SiTypescript", name: "TypeScript" },
+            { iconName: "SiTailwindcss", name: "Tailwind CSS" }
+        ]
+    },
 ];
 
 // Helper: Get projects sorted by newest first (highest ID first)

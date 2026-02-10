@@ -154,7 +154,7 @@ export function AIContent() {
                         href={match[2]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-teal-500 font-semibold hover:underline"
+                        className="text-sblue-500 font-semibold hover:underline"
                     >
                         {match[1]}
                     </a>
@@ -167,7 +167,7 @@ export function AIContent() {
                         href={match[0]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-teal-500 font-semibold hover:underline break-all"
+                        className="text-sblue-500 font-semibold hover:underline break-all"
                     >
                         {match[0]}
                     </a>
@@ -285,12 +285,12 @@ export function AIContent() {
                         </DialogTitle>
                         <DialogDescription className="text-base pt-2">
                             This is Arifian&apos;s personal AI assistant powered by RAG technology
-                            and Google Gemini 2.5 Flash.
+                            and Groq LLaMA 3.3 70B.
                         </DialogDescription>
                     </DialogHeader>
 
                     <div className="py-4 space-y-4">
-                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-teal-500">
+                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-sblue-500">
                             <p className="text-sm text-zinc-600 dark:text-zinc-400">
                                 Please use this AI responsibly. Avoid spamming or abusing the service.
                                 The AI has limited knowledge based on Arifian&apos;s personal public data.
@@ -314,7 +314,7 @@ export function AIContent() {
 
                     <Button
                         onClick={handleCloseWelcome}
-                        className="w-full rounded-none bg-teal-500 hover:bg-teal-600"
+                        className="w-full rounded-none bg-sblue-500 hover:bg-sblue-600"
                     >
                         Start Chatting
                     </Button>
@@ -337,14 +337,14 @@ export function AIContent() {
                         <div>
                             <h3 className="text-sm font-semibold mb-2">Technology Stack</h3>
                             <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li>• Google Gemini 2.5 Flash (LLM)</li>
-                                <li>• SentenceTransformer for embeddings</li>
+                                <li>• LLaMA 3.3 70B via Groq (LLM)</li>
+                                <li>• Multilingual SentenceTransformer (embeddings)</li>
                                 <li>• Cosine similarity vector search</li>
                                 <li>• FastAPI backend</li>
                             </ul>
                         </div>
 
-                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-teal-500">
+                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-sblue-500">
                             <h3 className="text-sm font-semibold mb-2">Note</h3>
                             <p className="text-sm text-zinc-600 dark:text-zinc-400">
                                 If the response takes longer than expected, the server may be starting up. Please wait a moment.
@@ -358,7 +358,7 @@ export function AIContent() {
 
                     <Button
                         onClick={() => setShowInfo(false)}
-                        className="w-full rounded-none bg-teal-500 hover:bg-teal-600"
+                        className="w-full rounded-none bg-sblue-500 hover:bg-sblue-600"
                     >
                         Got It
                     </Button>
@@ -377,12 +377,12 @@ export function AIContent() {
                     <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6">
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-teal-500 flex items-center justify-center">
+                                <div className="w-10 h-10 bg-sblue-500 flex items-center justify-center">
                                     <Sparkles className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
                                     <h1 className="text-2xl md:text-3xl font-bold font-heading">
-                                        Arifian<span className="text-teal-500">.AI</span>
+                                        Arifian<span className="text-sblue-500">.AI</span>
                                     </h1>
                                 </div>
                             </div>
@@ -396,7 +396,7 @@ export function AIContent() {
                             </Button>
                         </div>
                         <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                            Personal AI assistant built with RAG technology and Google Gemini 2.5 Flash.
+                            Personal AI assistant built with RAG technology and Groq LLaMA 3.3 70B.
                             Ask me anything about Arifian!
                         </p>
                     </div>
@@ -426,7 +426,7 @@ export function AIContent() {
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3, delay: index * 0.05 }}
                                             onClick={() => handleSuggestedClick(item.message)}
-                                            className="text-left text-sm px-4 py-3 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 dark:hover:border-teal-500 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300"
+                                            className="text-left text-sm px-4 py-3 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-sblue-500 dark:hover:border-sblue-500 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300"
                                         >
                                             {item.message}
                                         </motion.button>
@@ -447,7 +447,7 @@ export function AIContent() {
                                     >
                                         <div
                                             className={`max-w-[85%] px-4 py-3 ${message.role === "user"
-                                                ? "bg-teal-500 text-white"
+                                                ? "bg-sblue-500 text-white"
                                                 : "bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100"
                                                 }`}
                                         >
@@ -467,9 +467,9 @@ export function AIContent() {
                             >
                                 <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-4 py-3">
                                     <div className="flex gap-1.5">
-                                        <span className="w-2 h-2 bg-teal-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                                        <span className="w-2 h-2 bg-teal-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                                        <span className="w-2 h-2 bg-teal-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                                     </div>
                                 </div>
                             </motion.div>
@@ -507,12 +507,12 @@ export function AIContent() {
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Ask something about Arifian..."
                             disabled={isLoading}
-                            className="flex-1 px-4 h-12 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-teal-500 dark:focus:border-teal-500 outline-none transition-colors duration-300 text-sm"
+                            className="flex-1 px-4 h-12 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-sblue-500 dark:focus:border-sblue-500 outline-none transition-colors duration-300 text-sm"
                         />
                         <Button
                             type="submit"
                             disabled={isLoading || !input.trim()}
-                            className="rounded-none bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50 h-12 px-6"
+                            className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/50 h-12 px-6"
                         >
                             <Send className="w-5 h-5" />
                         </Button>
@@ -555,7 +555,7 @@ export function AIContent() {
                             <button
                                 onClick={refreshQuickSuggestions}
                                 disabled={isLoading}
-                                className="p-1.5 text-zinc-400 dark:text-zinc-500 hover:text-teal-500 dark:hover:text-teal-500 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 disabled:opacity-50"
+                                className="p-1.5 text-zinc-400 dark:text-zinc-500 hover:text-sblue-500 dark:hover:text-sblue-500 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 disabled:opacity-50"
                                 title="Refresh suggestions"
                             >
                                 <RefreshCw className="w-3.5 h-3.5" />
@@ -565,7 +565,7 @@ export function AIContent() {
                                     key={`${item.message}-${index}`}
                                     onClick={() => handleSuggestedClick(item.message)}
                                     disabled={isLoading}
-                                    className="text-xs px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 transition-colors duration-300 disabled:opacity-50"
+                                    className="text-xs px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 disabled:opacity-50"
                                 >
                                     {item.message}
                                 </button>

@@ -121,9 +121,9 @@ export function Experiences() {
           className="mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-heading">
-            Work <span className="text-teal-500">Experience</span>
+            Work <span className="text-sblue-500">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-teal-500 mt-4" />
+          <div className="w-20 h-1 bg-sblue-500 mt-4" />
         </motion.div>
 
         {/* Experience Cards */}
@@ -145,14 +145,14 @@ export function Experiences() {
                                     bg-zinc-100 dark:bg-zinc-900 
                                     border border-zinc-200 dark:border-zinc-800 
                                     rounded-none p-6 
-                                    hover:border-teal-500 dark:hover:border-teal-500 
+                                    hover:border-sblue-500 dark:hover:border-sblue-500 
                                     transition-all duration-300
-                                    ${isLatest ? 'border-l-4 border-l-teal-500 dark:border-l-teal-500' : ''}
+                                    ${isLatest ? 'border-l-4 border-l-sblue-500 dark:border-l-sblue-500' : ''}
                                 `}
               >
                 {/* Top Row: Date & Type */}
                 <div className="flex items-center gap-3 flex-wrap mb-3">
-                  <span className="bg-teal-700 text-white text-xs font-medium px-2 py-1 rounded-none flex items-center gap-1">
+                  <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-1 rounded-none flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
                     {exp.time}
                   </span>
@@ -163,7 +163,7 @@ export function Experiences() {
                     {exp.workMode}
                   </span>
                   {isLatest && (
-                    <span className="text-xs text-teal-500 font-medium animate-pulse">
+                    <span className="text-xs text-sblue-500 font-medium animate-pulse">
                       Current
                     </span>
                   )}
@@ -196,7 +196,7 @@ export function Experiences() {
                   {exp.skillset.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-none border-b-2 border-transparent hover:border-teal-500 transition-colors duration-300"
+                      className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-none border-b-2 border-transparent hover:border-sblue-500 transition-colors duration-300"
                     >
                       {skill}
                     </span>

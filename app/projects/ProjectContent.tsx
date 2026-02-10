@@ -71,9 +71,9 @@ export function ProjectContent() {
                     className="mb-12 pt-16"
                 >
                     <h1 className="text-4xl md:text-5xl font-bold font-heading">
-                        All <span className="text-teal-500">Projects</span>
+                        All <span className="text-sblue-500">Projects</span>
                     </h1>
-                    <div className="w-20 h-1 bg-teal-500 mt-4" />
+                    <div className="w-20 h-1 bg-sblue-500 mt-4" />
                     <p className="text-zinc-700 dark:text-zinc-300 mt-4 max-w-2xl">
                         A collection of projects I&apos;ve built throughout my journey as a developer and AI enthusiast.
                     </p>
@@ -115,14 +115,14 @@ export function ProjectContent() {
                                         h-full bg-zinc-100 dark:bg-zinc-900 
                                         border border-zinc-200 dark:border-zinc-800 
                                         rounded-none p-6 
-                                        hover:border-teal-500 dark:hover:border-teal-500 
+                                        hover:border-sblue-500 dark:hover:border-sblue-500 
                                         transition-all duration-300 
                                         cursor-pointer group
                                         ${isFeatured ? 'min-h-[280px]' : 'min-h-[220px]'}
                                     `}>
                                         {/* Number */}
                                         <span className={`
-                                            font-heading font-bold text-teal-500
+                                            font-heading font-bold text-sblue-500
                                             ${isFeatured ? 'text-3xl' : 'text-2xl'}
                                         `}>
                                             {formatNumber(project.id)}
@@ -136,7 +136,7 @@ export function ProjectContent() {
                                             `}>
                                                 {project.title}
                                             </h3>
-                                            <span className="bg-teal-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
+                                            <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 rounded-none shrink-0">
                                                 {project.year}
                                             </span>
                                         </div>
@@ -154,7 +154,7 @@ export function ProjectContent() {
                                             {project.tags.slice(0, isFeatured ? 6 : 4).map((tag, tagIndex) => (
                                                 <div
                                                     key={tagIndex}
-                                                    className="text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                                    className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300"
                                                     title={tag.name}
                                                 >
                                                     <ProjectIcon iconName={tag.iconName} className="w-5 h-5" />
@@ -163,7 +163,7 @@ export function ProjectContent() {
                                         </div>
 
                                         {/* Arrow indicator */}
-                                        <div className="mt-4 flex items-center text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="mt-4 flex items-center text-sblue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <span className="text-sm font-medium">View Details</span>
                                             <ArrowRight className="w-4 h-4 ml-1" />
                                         </div>
@@ -202,10 +202,10 @@ export function ProjectContent() {
                                     variants={itemVariants}
                                 >
                                     <Link href={`/projects/${project.id}`}>
-                                        <div className="group py-6 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-teal-500 dark:hover:border-teal-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-300 cursor-pointer">
+                                        <div className="group py-6 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 dark:hover:border-sblue-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-300 cursor-pointer">
                                             <div className="flex items-start gap-6">
                                                 {/* Number */}
-                                                <span className="font-heading font-bold text-2xl md:text-3xl text-teal-500 w-12 shrink-0">
+                                                <span className="font-heading font-bold text-2xl md:text-3xl text-sblue-500 w-12 shrink-0">
                                                     {formatNumber(project.id)}
                                                 </span>
 
@@ -231,7 +231,7 @@ export function ProjectContent() {
                                                         {project.tags.slice(0, 5).map((tag, tagIndex) => (
                                                             <div
                                                                 key={tagIndex}
-                                                                className="text-zinc-400 dark:text-zinc-500 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300"
+                                                                className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300"
                                                                 title={tag.name}
                                                             >
                                                                 <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
@@ -241,7 +241,7 @@ export function ProjectContent() {
                                                 </div>
 
                                                 {/* Arrow */}
-                                                <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-teal-500 dark:group-hover:text-teal-500 transition-colors duration-300 shrink-0 mt-1" />
+                                                <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300 shrink-0 mt-1" />
                                             </div>
                                         </div>
                                     </Link>

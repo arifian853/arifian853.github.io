@@ -5,7 +5,8 @@ import {
     SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn,
     SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch,
     SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress,
-    SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp
+    SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp,
+    SiFastapi, SiTypescript
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -35,6 +36,8 @@ const iconMap: Record<string, IconType> = {
     SiWebpack,
     SiUnity,
     SiSharp,
+    SiFastapi,
+    SiTypescript,
 };
 
 interface ProjectIconProps {

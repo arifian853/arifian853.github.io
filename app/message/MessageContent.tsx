@@ -133,11 +133,11 @@ export function MessageContent() {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-12"
                 >
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500 mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-sblue-500 mb-6">
                         <Mail className="w-8 h-8 text-white" />
                     </div>
                     <h1 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-                        Send a <span className="text-teal-500">Message</span>
+                        Send a <span className="text-sblue-500">Message</span>
                     </h1>
                     <p className="text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">
                         Want to say something? Drop an anonymous message. I might reply!
@@ -169,7 +169,7 @@ export function MessageContent() {
                                 <Button
                                     type="submit"
                                     disabled={isLoading || !input.trim()}
-                                    className="rounded-none bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50"
+                                    className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/50"
                                 >
                                     {isLoading ? (
                                         <span className="flex items-center gap-2">
@@ -198,7 +198,7 @@ export function MessageContent() {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mt-4 p-3 bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 flex items-center gap-2 text-teal-600 dark:text-teal-400 text-sm"
+                                className="mt-4 p-3 bg-sblue-50 dark:bg-sblue-950 border border-sblue-200 dark:border-sblue-800 flex items-center gap-2 text-sblue-600 dark:text-sblue-400 text-sm"
                             >
                                 <Check className="w-4 h-4" />
                                 Message sent successfully!
@@ -257,9 +257,9 @@ export function MessageContent() {
                                     {msg.reply && (
                                         <div className="mt-3 pt-3 border-t border-zinc-200 dark:border-zinc-700">
                                             <div className="flex items-start gap-2">
-                                                <div className="w-1 h-full bg-teal-500 shrink-0" />
+                                                <div className="w-1 h-full bg-sblue-500 shrink-0" />
                                                 <div className="flex-1">
-                                                    <span className="text-xs font-medium text-teal-500 block mb-1">
+                                                    <span className="text-xs font-medium text-sblue-500 block mb-1">
                                                         Reply
                                                     </span>
                                                     <p className="text-sm text-zinc-600 dark:text-zinc-400">

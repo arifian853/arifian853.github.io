@@ -31,22 +31,22 @@ export function Hero() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h1 className="font-heading text-3xl md:text-4xl lg:text-4xl font-semibold tracking-tight">
-                        Good <span className="text-teal-500">{getTimeGreeting()}.</span>
+                        Good <span className="text-sblue-500">{getTimeGreeting()}.</span>
                     </h1>
                     <p className="tracking-tight font-sans text-lg">
-                        Welcome, I&apos;m <span className="border-b border-teal-500">Arifian</span>.
+                        Welcome, I&apos;m <span className="border-b border-sblue-500">Arifian</span>.
                     </p>
                     <p className="tracking-tight font-sans text-lg">
-                        I teach <span className="border-b border-teal-500">AI</span> and build <RotatingText />
+                        I teach <span className="border-b border-sblue-500">AI</span> and build <RotatingText />
                     </p>
                     <div className="flex gap-6 mt-4">
                         <a href="#about">
-                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
+                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-sblue-500 hover:text-sblue-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
                                 Explore
                             </Button>
                         </a>
                         <a href="#contact">
-                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-teal-500 hover:text-teal-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
+                            <Button className="min-h-[48px] px-6 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-sblue-500 hover:text-sblue-500 hover:cursor-pointer inline-flex items-center justify-center text-sm font-medium transition-colors">
                                 Collaborate
                             </Button>
                         </a>
