@@ -104,7 +104,7 @@ export function About() {
                             <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-sblue-500">
                                 <Image
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                    src="/ganyu.webp"
+                                    src="/profile.webp"
                                     alt="Arifian Saputra"
                                     width={128}
                                     height={128}
