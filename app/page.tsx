@@ -37,7 +37,7 @@ export default function Home() {
     <div className="relative min-h-screen flex flex-col">
       {/* Grid Background Pattern - Global */}
       <div
-        className="fixed inset-0 top-16 opacity-[0.08] dark:opacity-[0.12] pointer-events-none"
+        className="absolute inset-0 top-16 opacity-[0.08] dark:opacity-[0.12] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(to right, currentColor 1px, transparent 1px),

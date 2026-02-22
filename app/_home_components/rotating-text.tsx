@@ -4,14 +4,16 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const appTypes = [
-    "web apps.",
+    "Web apps.",
     "AI apps.",
-    "full stack apps.",
-    "wordpress apps.",
-    "react apps.",
-    "frontend apps.",
-    "backend apps.",
-    "vibe-coded apps."
+    "Full stack apps.",
+    "WordPress apps.",
+    "React apps.",
+    "Frontend apps.",
+    "Backend apps.",
+    "Vibe-coded apps.",
+    "Swift UI apps. (soon).",
+    "Golang apps. (soon)."
 ]
 
 

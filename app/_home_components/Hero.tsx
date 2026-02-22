@@ -21,11 +21,11 @@ const getTimeGreeting = () => {
 export function Hero() {
     return (
         <section className="relative min-h-screen pt-20 flex items-center overflow-hidden">
-            {/* Content Container - 2 columns */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left Side - Greeting with fade-in */}
+            {/* Content Container */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+                {/* Greeting with fade-in */}
                 <motion.div
-                    className="flex flex-col justify-center"
+                    className="flex flex-col justify-center max-w-2xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -52,11 +52,6 @@ export function Hero() {
                         </a>
                     </div>
                 </motion.div>
-
-                {/* Right Side - Empty for now */}
-                <div className="hidden md:block">
-                    {/* Reserved for future content */}
-                </div>
             </div>
         </section>
 

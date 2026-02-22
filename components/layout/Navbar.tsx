@@ -56,7 +56,7 @@ export const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-heading font-medium transition-colors duration-200 rounded-lg ${isActive
+                className={`relative px-4 py-2 text-sm font-heading font-medium transition-colors duration-200 rounded-none ${isActive
                     ? "text-sblue-600 dark:text-sblue-400"
                     : "text-muted-foreground hover:text-foreground"
                   }`}
@@ -66,7 +66,7 @@ export const Navbar = () => {
                 {isActive && (
                   <motion.span
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-sblue-500 rounded-full"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-sblue-500 rounded-none"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -82,7 +82,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors duration-200"
+            className="md:hidden p-2 rounded-none hover:bg-muted transition-colors duration-200"
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
@@ -129,7 +129,7 @@ export const Navbar = () => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${isActive
+                    className={`block px-4 py-3 text-sm font-medium rounded-none transition-colors duration-200 ${isActive
                         ? "text-sblue-600 dark:text-sblue-400 bg-sblue-500/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
