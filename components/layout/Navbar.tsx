@@ -56,13 +56,14 @@ export const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className={`relative px-4 py-2 text-sm font-heading font-medium transition-colors duration-200 rounded-none ${isActive
                     ? "text-sblue-600 dark:text-sblue-400"
                     : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 {link.label}
-                {/* Active indicator - smooth animated underline */}
+                {/* Active indicator — layoutId slide, scroll reset prevents jump */}
                 {isActive && (
                   <motion.span
                     layoutId="navbar-indicator"

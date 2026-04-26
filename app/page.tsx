@@ -34,19 +34,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      {/* Grid Background Pattern - Global */}
-      <div
-        className="absolute inset-0 top-16 opacity-[0.08] dark:opacity-[0.12] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, currentColor 1px, transparent 1px),
-            linear-gradient(to bottom, currentColor 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
-
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />

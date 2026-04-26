@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: "AI Technical Mentor at Infinite Learning Indonesia. Passionate about AI, Machine Learning, LLM, NLP, and building production-ready web applications.",
     images: [
       {
-        url: "/og.webp",
+        url: "/og.avif",
         width: 1200,
         height: 630,
         alt: "Arifian Saputra - AI Technical Mentor",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Arifian Saputra | AI Technical Mentor",
     description: "AI Technical Mentor at Infinite Learning Indonesia. Passionate about AI, Machine Learning, LLM, NLP, and building production-ready web applications.",
-    images: ["/og.webp"],
+    images: ["/og.avif"],
     creator: "@ArifianSaputra0",
   },
   robots: {
@@ -71,10 +71,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Inline script to detect and apply theme before paint - prevents flash */}
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -91,6 +92,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${inclusiveSans.variable} ${lexend.variable} font-sans antialiased bg-background text-foreground`}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"

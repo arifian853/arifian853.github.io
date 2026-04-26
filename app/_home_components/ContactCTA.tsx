@@ -1,7 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Code2, Handshake, Mail, Copy, Check, ExternalLink } from "lucide-react"
+import { useRef } from "react"
 import {
     SiInstagram,
     SiLinkedin,
@@ -80,6 +81,12 @@ const itemVariants = {
 
 export function ContactCTA() {
     const [copied, setCopied] = useState(false)
+    const sectionRef = useRef<HTMLElement>(null)
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    })
+    const bgY = useTransform(scrollYProgress, [0, 1], [-40, 40])
 
     const copyEmail = () => {
         navigator.clipboard.writeText(EMAIL)
@@ -88,9 +95,29 @@ export function ContactCTA() {
     }
 
     return (
-        <section id="contact" className="relative py-20 overflow-hidden">
+        <section ref={sectionRef} id="contact" className="relative py-24 overflow-hidden">
+            {/* Parallax bg */}
+            <motion.div
+                className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+                style={{
+                    y: bgY,
+                    background: "radial-gradient(ellipse, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    filter: "blur(40px)"
+                }}
+            />
             {/* Content Container */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+                {/* Label */}
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-10 flex items-center gap-3"
+                >
+                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Contact</span>
+                </motion.div>
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"

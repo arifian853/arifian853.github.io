@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useMemo } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Send, Trash2, Sparkles, AlertCircle, MessageSquare, Info, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -65,6 +65,13 @@ export function AIContent() {
     const [quickSuggestions, setQuickSuggestions] = useState<typeof suggestedMessages>([])
     const messagesEndRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
+
+    const sectionRef = useRef<HTMLElement>(null)
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    })
+    const bgY = useTransform(scrollYProgress, [0, 1], [0, 100])
 
     // Fixed random suggestions (only randomize once on mount)
     const randomSuggestions = useMemo(() => {
@@ -252,7 +259,7 @@ export function AIContent() {
 
     if (!mounted) {
         return (
-            <section className="relative min-h-screen flex flex-col py-20 overflow-hidden">
+            <section ref={sectionRef} className="relative min-h-screen flex flex-col py-20 overflow-hidden">
                 <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pt-16 flex flex-col flex-1">
                     <div className="flex items-center justify-center flex-1">
                         <p className="text-zinc-400 text-sm">Loading...</p>
@@ -263,18 +270,17 @@ export function AIContent() {
     }
 
     return (
-        <section id="ai" className="relative min-h-screen flex flex-col py-20 overflow-hidden">
-            {/* Grid Background Pattern */}
-            <div
-                className="absolute inset-0 opacity-[0.08] top-16 dark:opacity-[0.12]"
+        <section ref={sectionRef} id="ai" className="relative min-h-screen flex flex-col py-20 overflow-hidden">
+            {/* Parallax Orb */}
+            <motion.div
+                className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
-                    backgroundImage: `
-                        linear-gradient(to right, currentColor 1px, transparent 1px),
-                        linear-gradient(to bottom, currentColor 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
+                    y: bgY,
+                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    filter: "blur(60px)"
                 }}
             />
+            {/* Dialogs unchanged */}
 
             {/* Welcome Dialog */}
             <Dialog open={showWelcome} onOpenChange={setShowWelcome}>
@@ -365,214 +371,211 @@ export function AIContent() {
                 </DialogContent>
             </Dialog>
 
-            {/* Content Container */}
-            <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pt-16 flex flex-col flex-1">
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-8"
-                >
-                    <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6">
-                        <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-sblue-500 flex items-center justify-center">
-                                    <Sparkles className="w-5 h-5 text-white" />
-                                </div>
-                                <div>
-                                    <h1 className="text-2xl md:text-3xl font-bold font-heading">
-                                        Arifian<span className="text-sblue-500">.AI</span>
-                                    </h1>
-                                </div>
-                            </div>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                onClick={() => setShowInfo(true)}
-                                className="rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800"
-                            >
-                                <Info className="w-5 h-5 text-zinc-500" />
-                            </Button>
-                        </div>
-                        <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                            Personal AI assistant built with RAG technology and Groq LLaMA 3.3 70B.
-                            Ask me anything about Arifian!
-                        </p>
-                    </div>
-                </motion.div>
 
-                {/* Chat Area */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="flex-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 mb-4 overflow-hidden flex flex-col"
-                    style={{ minHeight: "350px", maxHeight: "450px" }}
-                >
-                    <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                        {messages.length === 0 ? (
-                            // Empty State with Suggestions
-                            <div className="h-full flex flex-col items-center justify-center text-center p-4">
-                                <MessageSquare className="w-12 h-12 text-zinc-300 dark:text-zinc-700 mb-4" />
-                                <p className="text-zinc-500 dark:text-zinc-400 mb-6 text-sm">
-                                    Start a conversation by selecting a question below or type your own
-                                </p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg">
-                                    {randomSuggestions.map((item, index) => (
-                                        <motion.button
-                                            key={item.message}
+            {/* Content Container — split screen */}
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16 flex flex-col flex-1">
+                <div className="flex flex-col lg:flex-row gap-0 flex-1 border border-zinc-200 dark:border-zinc-800">
+
+                    {/* ── Left Panel: Branding + Suggestions ── */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="lg:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-900 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex flex-col p-6"
+                    >
+                        {/* Branding */}
+                        <div className="mb-6">
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-8 h-8 bg-sblue-500 flex items-center justify-center shrink-0">
+                                    <Sparkles className="w-4 h-4 text-white" />
+                                </div>
+                                <h1 className="text-xl font-bold font-heading">
+                                    Arifian<span className="text-sblue-500">.AI</span>
+                                </h1>
+                            </div>
+                            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                Personal AI built with RAG + Groq LLaMA 3.3 70B. Ask me anything about Arifian.
+                            </p>
+                        </div>
+
+                        <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-5" />
+
+                        {/* Suggested questions */}
+                        <div className="mb-5">
+                            <span className="text-xs font-heading tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500 mb-3 block">
+                                Try asking
+                            </span>
+                            <div className="space-y-2">
+                                {randomSuggestions.slice(0, 5).map((item, index) => (
+                                    <motion.button
+                                        key={item.message}
+                                        initial={{ opacity: 0, x: -8 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.1 + index * 0.05 }}
+                                        onClick={() => handleSuggestedClick(item.message)}
+                                        disabled={isLoading}
+                                        className="w-full text-left text-xs px-3 py-2.5 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-sblue-500 dark:hover:border-sblue-500 text-zinc-600 dark:text-zinc-300 hover:text-foreground transition-all duration-200 disabled:opacity-50"
+                                    >
+                                        {item.message}
+                                    </motion.button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Footer info */}
+                        <div className="mt-auto">
+                            <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-4" />
+                            <div className="flex items-center gap-2 mb-3">
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => setShowInfo(true)}
+                                    className="rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-500 text-xs px-2 h-8 gap-1.5"
+                                >
+                                    <Info className="w-3.5 h-3.5" />
+                                    About this AI
+                                </Button>
+                            </div>
+                            <p className="text-xs text-zinc-400 dark:text-zinc-600 leading-relaxed">
+                                Chat history stored locally. Never sent to any server.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* ── Right Panel: Chat ── */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="flex-1 flex flex-col bg-background min-h-[500px]"
+                    >
+                        {/* Chat messages */}
+                        <div className="flex-1 overflow-y-auto p-5 space-y-4">
+                            {messages.length === 0 ? (
+                                <div className="h-full flex flex-col items-center justify-center text-center p-6">
+                                    <MessageSquare className="w-10 h-10 text-zinc-200 dark:text-zinc-800 mb-4" />
+                                    <p className="text-zinc-400 dark:text-zinc-500 text-sm max-w-xs">
+                                        Select a question from the left, or type your own below
+                                    </p>
+                                </div>
+                            ) : (
+                                <AnimatePresence>
+                                    {messages.map((message, index) => (
+                                        <motion.div
+                                            key={index}
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.3, delay: index * 0.05 }}
-                                            onClick={() => handleSuggestedClick(item.message)}
-                                            className="text-left text-sm px-4 py-3 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-sblue-500 dark:hover:border-sblue-500 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-all duration-300"
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.25 }}
+                                            className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                                         >
-                                            {item.message}
-                                        </motion.button>
+                                            <div className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed ${
+                                                message.role === "user"
+                                                    ? "bg-sblue-500 text-white"
+                                                    : "bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100"
+                                            }`}>
+                                                {parseContent(message.content)}
+                                            </div>
+                                        </motion.div>
                                     ))}
-                                </div>
-                            </div>
-                        ) : (
-                            // Messages
-                            <AnimatePresence>
-                                {messages.map((message, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                                    >
-                                        <div
-                                            className={`max-w-[85%] px-4 py-3 ${message.role === "user"
-                                                ? "bg-sblue-500 text-white"
-                                                : "bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100"
-                                                }`}
-                                        >
-                                            <p className="text-sm whitespace-pre-wrap leading-relaxed">{parseContent(message.content)}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
-                        )}
+                                </AnimatePresence>
+                            )}
 
-                        {/* Loading Indicator */}
-                        {isLoading && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="flex justify-start"
-                            >
-                                <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-4 py-3">
-                                    <div className="flex gap-1.5">
-                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                                        <span className="w-2 h-2 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                            {isLoading && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
+                                    <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex gap-1.5">
+                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {error && (
+                                <div className="flex justify-center">
+                                    <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 text-red-500 px-4 py-2 text-xs flex items-center gap-2">
+                                        <AlertCircle className="w-3.5 h-3.5" />
+                                        {error}
                                     </div>
                                 </div>
-                            </motion.div>
-                        )}
-
-                        {/* Error Message */}
-                        {error && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="flex justify-center"
-                            >
-                                <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-2 text-sm flex items-center gap-2">
-                                    <AlertCircle className="w-4 h-4" />
-                                    {error}
-                                </div>
-                            </motion.div>
-                        )}
-
-                        <div ref={messagesEndRef} />
-                    </div>
-                </motion.div>
-
-                {/* Input Area */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <form onSubmit={handleSubmit} className="flex gap-2">
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Ask something about Arifian..."
-                            disabled={isLoading}
-                            className="flex-1 px-4 h-12 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-sblue-500 dark:focus:border-sblue-500 outline-none transition-colors duration-300 text-sm"
-                        />
-                        <Button
-                            type="submit"
-                            disabled={isLoading || !input.trim()}
-                            className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/50 h-12 px-6"
-                        >
-                            <Send className="w-5 h-5" />
-                        </Button>
-                        {messages.length > 0 && (
-                            <AlertDialog>
-                                <AlertDialogTrigger asChild>
-                                    <Button
-                                        type="button"
-                                        variant="outline"
-                                        className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-red-500 hover:text-red-500 h-12 px-6"
-                                    >
-                                        <Trash2 className="w-5 h-5" />
-                                    </Button>
-                                </AlertDialogTrigger>
-                                <AlertDialogContent className="rounded-none border-zinc-200 dark:border-zinc-800">
-                                    <AlertDialogHeader>
-                                        <AlertDialogTitle>Clear Chat History?</AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                            This will permanently delete all messages and conversation history.
-                                            This action cannot be undone.
-                                        </AlertDialogDescription>
-                                    </AlertDialogHeader>
-                                    <AlertDialogFooter>
-                                        <AlertDialogCancel className="rounded-none">Cancel</AlertDialogCancel>
-                                        <AlertDialogAction
-                                            onClick={clearChat}
-                                            className="rounded-none bg-red-500 hover:bg-red-600"
-                                        >
-                                            Clear All
-                                        </AlertDialogAction>
-                                    </AlertDialogFooter>
-                                </AlertDialogContent>
-                            </AlertDialog>
-                        )}
-                    </form>
-
-                    {/* Quick Suggestions (when there are messages) */}
-                    {messages.length > 0 && (
-                        <div className="mt-3 flex flex-wrap items-center gap-2">
-                            <button
-                                onClick={refreshQuickSuggestions}
-                                disabled={isLoading}
-                                className="p-1.5 text-zinc-400 dark:text-zinc-500 hover:text-sblue-500 dark:hover:text-sblue-500 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-300 disabled:opacity-50"
-                                title="Refresh suggestions"
-                            >
-                                <RefreshCw className="w-3.5 h-3.5" />
-                            </button>
-                            {quickSuggestions.map((item, index) => (
-                                <button
-                                    key={`${item.message}-${index}`}
-                                    onClick={() => handleSuggestedClick(item.message)}
-                                    disabled={isLoading}
-                                    className="text-xs px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 disabled:opacity-50"
-                                >
-                                    {item.message}
-                                </button>
-                            ))}
+                            )}
+                            <div ref={messagesEndRef} />
                         </div>
-                    )}
-                </motion.div>
+
+                        {/* Input row */}
+                        <div className="border-t border-zinc-200 dark:border-zinc-800 p-4">
+                            {/* Quick suggestions (when chatting) */}
+                            {messages.length > 0 && quickSuggestions.length > 0 && (
+                                <div className="mb-3 flex flex-wrap items-center gap-2">
+                                    <button
+                                        onClick={refreshQuickSuggestions}
+                                        disabled={isLoading}
+                                        className="p-1 text-zinc-400 hover:text-sblue-500 transition-colors duration-200 disabled:opacity-50"
+                                        title="Refresh"
+                                    >
+                                        <RefreshCw className="w-3 h-3" />
+                                    </button>
+                                    {quickSuggestions.map((item, index) => (
+                                        <button
+                                            key={`${item.message}-${index}`}
+                                            onClick={() => handleSuggestedClick(item.message)}
+                                            disabled={isLoading}
+                                            className="text-xs px-2.5 py-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 transition-colors duration-200 disabled:opacity-50 text-zinc-600 dark:text-zinc-400"
+                                        >
+                                            {item.message}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
+                            <form onSubmit={handleSubmit} className="flex gap-2">
+                                <input
+                                    ref={inputRef}
+                                    type="text"
+                                    value={input}
+                                    onChange={(e) => setInput(e.target.value)}
+                                    placeholder="Ask something about Arifian..."
+                                    disabled={isLoading}
+                                    className="flex-1 px-4 h-11 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-sblue-500 outline-none transition-colors duration-300 text-sm"
+                                />
+                                <Button
+                                    type="submit"
+                                    disabled={isLoading || !input.trim()}
+                                    className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/40 h-11 px-5"
+                                >
+                                    <Send className="w-4 h-4" />
+                                </Button>
+                                {messages.length > 0 && (
+                                    <AlertDialog>
+                                        <AlertDialogTrigger asChild>
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                className="rounded-none border-zinc-300 dark:border-zinc-700 hover:border-red-500 hover:text-red-500 h-11 px-4"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </Button>
+                                        </AlertDialogTrigger>
+                                        <AlertDialogContent className="rounded-none border-zinc-200 dark:border-zinc-800">
+                                            <AlertDialogHeader>
+                                                <AlertDialogTitle>Clear Chat History?</AlertDialogTitle>
+                                                <AlertDialogDescription>
+                                                    This will permanently delete all messages. This action cannot be undone.
+                                                </AlertDialogDescription>
+                                            </AlertDialogHeader>
+                                            <AlertDialogFooter>
+                                                <AlertDialogCancel className="rounded-none">Cancel</AlertDialogCancel>
+                                                <AlertDialogAction onClick={clearChat} className="rounded-none bg-red-500 hover:bg-red-600">
+                                                    Clear All
+                                                </AlertDialogAction>
+                                            </AlertDialogFooter>
+                                        </AlertDialogContent>
+                                    </AlertDialog>
+                                )}
+                            </form>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     )

@@ -130,6 +130,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   * {
@@ -138,6 +139,8 @@
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
@@ -149,10 +152,16 @@
     font-family: var(--font-heading);
   }
 
+  /* Text selection color */
+  ::selection {
+    background: rgba(112, 137, 168, 0.25);
+    color: inherit;
+  }
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -160,17 +169,28 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #7089A8;
-    border-radius: 3px;
+    background: rgba(112, 137, 168, 0.4);
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #5A7190;
+    background: rgba(90, 113, 144, 0.7);
   }
 
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #7089A8 transparent;
+    scrollbar-color: rgba(112, 137, 168, 0.4) transparent;
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Smooth section reveal */
+  .reveal-section {
+    @apply opacity-0;
   }
 }

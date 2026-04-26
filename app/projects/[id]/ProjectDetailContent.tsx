@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react"
@@ -39,17 +40,22 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
         return cleanText.slice(0, maxLength).trim() + '...'
     }
 
+    const sectionRef = useRef<HTMLElement>(null)
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    })
+    const bgY = useTransform(scrollYProgress, [0, 1], [0, 100])
+
     return (
-        <section className="relative min-h-screen py-20 overflow-hidden">
-            {/* Grid Background Pattern */}
-            <div
-                className="absolute inset-0 opacity-[0.08] top-16 dark:opacity-[0.12]"
+        <section ref={sectionRef} className="relative min-h-screen py-20 overflow-hidden">
+            {/* Parallax Orb */}
+            <motion.div
+                className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
-                    backgroundImage: `
-                        linear-gradient(to right, currentColor 1px, transparent 1px),
-                        linear-gradient(to bottom, currentColor 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
+                    y: bgY,
+                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    filter: "blur(60px)"
                 }}
             />
 
@@ -118,6 +124,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                             src={project.image}
                             alt={project.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                             className="object-cover"
                             priority
                             quality={80}
@@ -187,54 +194,60 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
                 >
-                    <h2 className="text-xl font-heading font-semibold text-zinc-600 dark:text-zinc-300 mb-6">
-                        Explore More
-                    </h2>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="mb-6 flex items-center gap-3"
+                    >
+                        <span className="text-xs font-heading tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">Explore More</span>
+                        <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-800" />
+                    </motion.div>
 
                     <div className="space-y-0">
                         {exploreProjects.map((p) => (
                             <Link key={p.id} href={`/projects/${p.id}`}>
-                                <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 dark:hover:border-sblue-500 bg-background hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-300 cursor-pointer">
-                                    <div className="flex items-start gap-4">
+                                <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-300 cursor-pointer">
+                                    <div className="flex items-center gap-6">
+                                        {/* Number */}
+                                        <span className="font-heading font-bold text-xl text-sblue-500/50 group-hover:text-sblue-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
+                                            {formatNumber(p.id)}
+                                        </span>
+
                                         {/* Content */}
                                         <div className="flex-1 min-w-0">
-                                            {/* Title & Year */}
                                             <div className="flex items-center gap-3 flex-wrap">
-                                                <h3 className="font-heading font-bold text-base md:text-lg group-hover:text-sblue-500 transition-colors duration-300">
+                                                <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-sblue-500 transition-colors duration-300">
                                                     {p.title}
                                                 </h3>
-                                                <span className="text-zinc-600 dark:text-zinc-300 text-sm">
-                                                    ({p.year})
+                                                <span className="text-zinc-400 dark:text-zinc-500 text-xs">
+                                                    {p.year}
                                                 </span>
                                             </div>
-
-                                            {/* Description - shown on hover */}
-                                            <p className="text-zinc-700 dark:text-zinc-300 text-sm mt-2 max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
+                                            {/* Description reveal on hover */}
+                                            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1 max-h-0 overflow-hidden group-hover:max-h-12 transition-all duration-300 leading-relaxed">
                                                 {truncateDescription(p.description, 120)}
                                             </p>
+                                        </div>
 
-                                            {/* Tech Stack */}
-                                            <div className="mt-2 flex items-center gap-3 flex-wrap">
-                                                {p.tags.slice(0, 4).map((tag, tagIndex) => (
-                                                    <div
-                                                        key={tagIndex}
-                                                        className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300"
-                                                        title={tag.name}
-                                                    >
-                                                        <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
-                                                    </div>
-                                                ))}
-                                            </div>
+                                        {/* Tech icons — fade in on hover */}
+                                        <div className="hidden md:flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
+                                            {p.tags.slice(0, 4).map((tag, tagIndex) => (
+                                                <div key={tagIndex} className="text-sblue-500" title={tag.name}>
+                                                    <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
+                                                </div>
+                                            ))}
                                         </div>
 
                                         {/* Arrow */}
-                                        <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-sblue-500 dark:group-hover:text-sblue-500 transition-colors duration-300 shrink-0 mt-1" />
+                                        <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-sblue-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                                     </div>
                                 </div>
                             </Link>
                         ))}
                     </div>
                 </motion.div>
+
             </div>
         </section>
     )

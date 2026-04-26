@@ -4,15 +4,12 @@ import { Home } from "lucide-react"
 export default function NotFound() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
-            {/* Grid Background Pattern */}
+            {/* Radial glow */}
             <div
-                className="absolute inset-0 opacity-[0.08] dark:opacity-[0.12]"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
-                    backgroundImage: `
-                        linear-gradient(to right, currentColor 1px, transparent 1px),
-                        linear-gradient(to bottom, currentColor 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
+                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    filter: "blur(60px)"
                 }}
             />
 
