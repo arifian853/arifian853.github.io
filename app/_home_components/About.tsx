@@ -270,19 +270,29 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-3 lg:col-span-4"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 overflow-visible">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
               <div className="flex flex-wrap justify-center gap-6">
-                {techStack.map((tech, index) => (
-                  <div key={index} className="relative group cursor-pointer">
-                    <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300" />
-                    {/* Tooltip */}
-                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
-                      {tech.name}
-                      {/* Arrow */}
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-900 dark:bg-zinc-100 rotate-45" />
+                {techStack.map((tech, index) => {
+                  const anchorName = `--home-tech-anchor-${index}`;
+                  return (
+                    <div
+                      key={index}
+                      className="relative group cursor-pointer"
+                      style={{ anchorName } as React.CSSProperties}
+                    >
+                      <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300" />
+                      {/* Tooltip with Anchor Positioning support and absolute fallback */}
+                      <div
+                        style={{ "--anchor-target": anchorName } as React.CSSProperties}
+                        className="tech-tooltip bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-50"
+                      >
+                        {tech.name}
+                        {/* Arrow */}
+                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-900 dark:bg-zinc-100 rotate-45" />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </ShimmerCard>
           </motion.div>

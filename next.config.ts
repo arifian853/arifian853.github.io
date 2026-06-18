@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   experimental: {
     optimizeCss: process.env.NODE_ENV === 'production', // Minify CSS in production
+    viewTransition: true,
   },
 
   // Remove console.logs in production

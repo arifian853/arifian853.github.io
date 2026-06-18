@@ -89,6 +89,26 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Speculation Rules API for instant navigation to project subpages */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  source: "document",
+                  where: {
+                    and: [
+                      { href_matches: "*/projects/*" },
+                      { not: { href_matches: "*/projects" } }
+                    ]
+                  },
+                  eagerness: "moderate"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body
         className={`${inclusiveSans.variable} ${lexend.variable} font-sans antialiased bg-background text-foreground`}

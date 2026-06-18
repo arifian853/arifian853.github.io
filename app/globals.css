@@ -57,6 +57,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   /* Custom: warm pink-white #FFFBFF */
   --background: #FFFBFF;
@@ -94,6 +95,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: #191919;
   --foreground: #FFFBFF;
   --card: #252B24;
@@ -150,6 +152,11 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   /* Text selection color */
@@ -192,5 +199,52 @@
   /* Smooth section reveal */
   .reveal-section {
     @apply opacity-0;
+  }
+}
+
+/* CSS Anchor Positioning with Absolute/Fixed Fallbacks */
+.tech-tooltip {
+  /* Fallback for non-supporting browsers */
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@supports (position-anchor: --foo) {
+  .tech-tooltip {
+    position: fixed;
+    position-anchor: var(--anchor-target);
+    top: auto;
+    bottom: anchor(top);
+    left: anchor(center);
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.project-popover {
+  /* Fallback for non-supporting browsers: position in bottom right of viewport */
+  position: fixed;
+  top: auto;
+  bottom: 24px;
+  right: 24px;
+  left: auto;
+  margin: 0;
+  border-radius: 0px;
+  width: 320px;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+}
+
+@supports (position-anchor: --foo) {
+  .project-popover {
+    position: fixed;
+    position-anchor: var(--anchor-target);
+    top: anchor(bottom);
+    bottom: auto;
+    left: anchor(center);
+    right: auto;
+    transform: translateX(-50%) translateY(8px);
+    margin: 0;
   }
 }
