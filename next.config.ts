@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
 
   // Performance optimizations
   experimental: {
-    optimizeCss: true, // Minify CSS in production
+    optimizeCss: process.env.NODE_ENV === 'production', // Minify CSS in production
   },
 
   // Remove console.logs in production

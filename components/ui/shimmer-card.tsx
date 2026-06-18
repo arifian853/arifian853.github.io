@@ -42,12 +42,13 @@ export function ShimmerCard({ children, className = "" }: ShimmerCardProps) {
         spot.style.opacity = "0"
     }
 
+    const hasOverflow = className.includes("overflow-")
     return (
         <div
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative overflow-hidden ${className}`}
+            className={`relative ${hasOverflow ? "" : "overflow-hidden"} ${className}`}
         >
             {/* Spotlight glow — absolute, pointer-events-none, sits behind content via z-index */}
             <div

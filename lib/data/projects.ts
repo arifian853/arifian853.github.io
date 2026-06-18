@@ -242,6 +242,40 @@ export const projects: Project[] = [
             { iconName: "SiTailwindcss", name: "Tailwind CSS" }
         ]
     },
+    {
+        id: 13,
+        title: "Playwright LMS Logbook Automate",
+        year: "2026",
+        description: "Automation tool built with **Python** and **Playwright** to streamline mentor grading workflows on the Infinite Learning LMS platform. The system automates authentication, navigation, assessment grading, comment submission, and validation processes, significantly reducing repetitive manual tasks and improving operational efficiency.",
+        image: "/projects/project13.avif",
+        link: [
+            { repo_link: "https://github.com/arifian853/playwright-lms-logbook-automate", btn_name: "Repository" }
+        ],
+        demo: [],
+        tags: [
+            { iconName: "FaPython", name: "Python" },
+            { iconName: "SiPlaywright", name: "Playwright" }
+        ]
+    },
+    {
+        id: 14,
+        title: "Student Management System QA Playwright",
+        year: "2026",
+        description: "Full-stack Student Management System paired with a comprehensive **QA Automation Suite**. Features include role-based access control, student management, grading, report cards, REST APIs, and automated UI/API testing using **Playwright** and **Python** with Page Object Model architecture and HTML reporting.",
+        image: "/projects/project14.avif",
+        link: [
+            { repo_link: "https://github.com/arifian853/student-management-system-qa-playwright", btn_name: "Repository" }
+        ],
+        demo: [],
+        tags: [
+            { iconName: "FaPython", name: "Python" },
+            { iconName: "SiPlaywright", name: "Playwright" },
+            { iconName: "SiNextdotjs", name: "Next.js" },
+            { iconName: "SiTypescript", name: "TypeScript" },
+            { iconName: "SiExpress", name: "Express.js" },
+            { iconName: "SiPostgresql", name: "PostgreSQL" }
+        ]
+    },
 ];
 
 // Helper: Get projects sorted by newest first (highest ID first)

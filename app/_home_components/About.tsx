@@ -26,6 +26,7 @@ import {
   SiTensorflow,
   SiDocker,
 } from "react-icons/si";
+import { SiPlaywright } from "@/components/ui/project-icon";
 
 const stats = [
   { label: "Years Teaching", value: "2+" },
@@ -56,6 +57,7 @@ const techStack = [
   { name: "Keras", icon: SiKeras },
   { name: "Red Hat", icon: SiRedhat },
   { name: "Docker", icon: SiDocker },
+  { name: "Playwright", icon: SiPlaywright },
 ];
 
 const containerVariants = {
@@ -189,8 +191,8 @@ export function About() {
                   2+ years in AI
                 </span>{" "}
                 field, specializing in Machine Learning, Large Language Models,
-                Natural Language Processing, and building production-ready web
-                applications.
+                Natural Language Processing, building production-ready web
+                applications, and QA automation with Playwright.
               </p>
             </ShimmerCard>
           </motion.div>
@@ -268,7 +270,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-3 lg:col-span-4"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 overflow-visible">
               <div className="flex flex-wrap justify-center gap-6">
                 {techStack.map((tech, index) => (
                   <div key={index} className="relative group cursor-pointer">

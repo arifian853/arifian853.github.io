@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "build:static": "set STATIC_EXPORT=true && next build",
     "start": "next start",
@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "critters": "^0.0.23",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.562.0",
     "next": "^16.1.6",
