@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { Send, Trash2, Sparkles, AlertCircle, MessageSquare, Info, RefreshCw } from "lucide-react"
+import { Send, Trash2, Sparkles, AlertCircle, Info, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -73,14 +73,14 @@ export function AIContent() {
     })
     const bgY = useTransform(scrollYProgress, [0, 1], [0, 100])
 
-    // Fixed random suggestions (only randomize once on mount)
+    // Shuffle and pick 4 suggestions for the empty state
     const randomSuggestions = useMemo(() => {
         return [...suggestedMessages]
             .sort(() => Math.random() - 0.5)
-            .slice(0, 6)
+            .slice(0, 4)
     }, [])
 
-    // Function to refresh quick suggestions
+    // Shuffle and pick 3 suggestions for quick bottom choices
     const refreshQuickSuggestions = () => {
         const shuffled = [...suggestedMessages]
             .sort(() => Math.random() - 0.5)
@@ -104,7 +104,6 @@ export function AIContent() {
         if (!hideWelcome) {
             setShowWelcome(true)
         }
-        // Initialize quick suggestions
         refreshQuickSuggestions()
     }, [])
 
@@ -121,10 +120,9 @@ export function AIContent() {
         }
     }, [history])
 
-    // Scroll to bottom only when new messages are added (not on initial load from localStorage)
+    // Scroll to bottom only when new messages are added
     const prevMessageCount = useRef(0)
     useEffect(() => {
-        // Only scroll if message count increased by 1 or 2 (user message + AI response)
         const countDiff = messages.length - prevMessageCount.current
         if (countDiff > 0 && countDiff <= 2 && prevMessageCount.current > 0) {
             messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -141,40 +139,36 @@ export function AIContent() {
 
     // Parse markdown links and make them clickable
     const parseContent = (text: string) => {
-        // Match markdown links [text](url) and plain URLs
         const linkRegex = /\[([^\]]+)\]\(([^)]+)\)|https?:\/\/[^\s]+/g
         const parts = []
         let lastIndex = 0
         let match
 
         while ((match = linkRegex.exec(text)) !== null) {
-            // Add text before the match
             if (match.index > lastIndex) {
                 parts.push(text.slice(lastIndex, match.index))
             }
 
             if (match[1] && match[2]) {
-                // Markdown link [text](url)
                 parts.push(
                     <a
                         key={match.index}
                         href={match[2]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sblue-500 font-semibold hover:underline"
+                        className="text-brand-500 font-semibold hover:underline"
                     >
                         {match[1]}
                     </a>
                 )
             } else {
-                // Plain URL
                 parts.push(
                     <a
                         key={match.index}
                         href={match[0]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sblue-500 font-semibold hover:underline break-all"
+                        className="text-brand-500 font-semibold hover:underline break-all"
                     >
                         {match[0]}
                     </a>
@@ -184,7 +178,6 @@ export function AIContent() {
             lastIndex = match.index + match[0].length
         }
 
-        // Add remaining text
         if (lastIndex < text.length) {
             parts.push(text.slice(lastIndex))
         }
@@ -225,7 +218,6 @@ export function AIContent() {
 
             setMessages(prev => [...prev, assistantMessage])
 
-            // Update history for context
             setHistory(prev => [
                 ...prev,
                 { role: "user", content: messageText },
@@ -233,7 +225,7 @@ export function AIContent() {
             ])
 
         } catch (err) {
-            setError("Failed to connect to AI. Please try again.")
+            setError("Gagal terhubung ke AI. Silakan coba lagi.")
             console.error(err)
         } finally {
             setIsLoading(false)
@@ -259,10 +251,10 @@ export function AIContent() {
 
     if (!mounted) {
         return (
-            <section ref={sectionRef} className="relative min-h-screen flex flex-col py-20 overflow-hidden">
+            <section ref={sectionRef} className="relative min-h-screen flex flex-col py-12 md:py-20 overflow-hidden bg-background">
                 <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pt-16 flex flex-col flex-1">
                     <div className="flex items-center justify-center flex-1">
-                        <p className="text-zinc-400 text-sm">Loading...</p>
+                        <p className="text-muted-foreground text-sm">Loading...</p>
                     </div>
                 </div>
             </section>
@@ -270,36 +262,34 @@ export function AIContent() {
     }
 
     return (
-        <section ref={sectionRef} id="ai" className="relative min-h-screen flex flex-col py-20 overflow-hidden">
-            {/* Parallax Orb */}
+        <section ref={sectionRef} id="ai" className="relative min-h-screen flex flex-col py-12 md:py-20 overflow-hidden bg-background">
+            {/* Background Glow */}
             <motion.div
                 className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(201,100,66,0.03) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />
-            {/* Dialogs unchanged */}
 
             {/* Welcome Dialog */}
             <Dialog open={showWelcome} onOpenChange={setShowWelcome}>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-[400px] rounded-none border-zinc-200 dark:border-zinc-800">
+                <DialogContent className="w-[calc(100%-2rem)] max-w-[400px] rounded-none border-border bg-card">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-heading">
                             Welcome
                         </DialogTitle>
-                        <DialogDescription className="text-base pt-2">
-                            This is Arifian&apos;s personal AI assistant powered by RAG technology
-                            and Groq LLaMA 3.3 70B.
+                        <DialogDescription className="text-sm pt-2 text-muted-foreground">
+                            Ini adalah asisten AI personal Arifian yang ditenagai oleh teknologi RAG
+                            dan model Groq LLaMA 3.3 70B.
                         </DialogDescription>
                     </DialogHeader>
 
                     <div className="py-4 space-y-4">
-                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-sblue-500">
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                                Please use this AI responsibly. Avoid spamming or abusing the service.
-                                The AI has limited knowledge based on Arifian&apos;s personal public data.
+                        <div className="bg-secondary/40 p-4 border-l-4 border-brand-500">
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                                Mohon gunakan AI ini secara bijak. AI memiliki pengetahuan khusus seputar data publik personal dan profesional Arifian Saputra.
                             </p>
                         </div>
 
@@ -311,189 +301,231 @@ export function AIContent() {
                             />
                             <label
                                 htmlFor="dontShow"
-                                className="text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer"
+                                className="text-xs text-muted-foreground cursor-pointer select-none"
                             >
-                                Don&apos;t show this again
+                                Jangan tunjukkan ini lagi
                             </label>
                         </div>
                     </div>
 
                     <Button
                         onClick={handleCloseWelcome}
-                        className="w-full rounded-none bg-sblue-500 hover:bg-sblue-600"
+                        className="w-full rounded-none bg-brand-500 hover:bg-brand-600 text-white font-medium"
                     >
-                        Start Chatting
+                        Mulai Chat
                     </Button>
                 </DialogContent>
             </Dialog>
 
             {/* Info Dialog */}
             <Dialog open={showInfo} onOpenChange={setShowInfo}>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-[450px] rounded-none border-zinc-200 dark:border-zinc-800">
+                <DialogContent className="w-[calc(100%-2rem)] max-w-[450px] rounded-none border-border bg-card">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-heading">
-                            About This AI
+                            Tentang AI Ini
                         </DialogTitle>
-                        <DialogDescription className="text-base pt-2">
-                            Technical details and usage information.
+                        <DialogDescription className="text-sm pt-2 text-muted-foreground">
+                            Detail teknis dan informasi penggunaan.
                         </DialogDescription>
                     </DialogHeader>
 
                     <div className="py-4 space-y-4">
                         <div>
-                            <h3 className="text-sm font-semibold mb-2">Technology Stack</h3>
-                            <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
+                            <h3 className="text-xs font-heading font-semibold uppercase tracking-wider text-muted-foreground mb-2">Technology Stack</h3>
+                            <ul className="text-xs text-muted-foreground space-y-1.5">
                                 <li>• LLaMA 3.3 70B via Groq (LLM)</li>
-                                <li>• Multilingual SentenceTransformer (embeddings)</li>
-                                <li>• Cosine similarity vector search</li>
+                                <li>• Multilingual SentenceTransformer (Embeddings)</li>
+                                <li>• Cosine similarity vector search untuk data RAG</li>
                                 <li>• FastAPI backend</li>
                             </ul>
                         </div>
 
-                        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 border-l-4 border-sblue-500">
-                            <h3 className="text-sm font-semibold mb-2">Note</h3>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                                If the response takes longer than expected, the server may be starting up. Please wait a moment.
+                        <div className="bg-secondary/40 p-4 border-l-4 border-brand-500">
+                            <h3 className="text-xs font-semibold mb-1">Catatan</h3>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                                Jika respon pertama memakan waktu lama, server backend mungkin sedang cold start (bangun dari mode tidur). Harap tunggu beberapa detik.
                             </p>
                         </div>
 
-                        <div className="text-sm text-zinc-500 dark:text-zinc-400">
-                            Your chat history is stored locally in your browser and is never sent to any server.
+                        <div className="text-xs text-muted-foreground">
+                            Riwayat chat Anda disimpan secara lokal di browser dan tidak dikirim ke server mana pun di luar permintaan prompt.
                         </div>
                     </div>
 
                     <Button
                         onClick={() => setShowInfo(false)}
-                        className="w-full rounded-none bg-sblue-500 hover:bg-sblue-600"
+                        className="w-full rounded-none bg-brand-500 hover:bg-brand-600 text-white font-medium"
                     >
-                        Got It
+                        Mengerti
                     </Button>
                 </DialogContent>
             </Dialog>
 
-
-            {/* Content Container — split screen */}
-            <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16 flex flex-col flex-1">
-                <div className="flex flex-col lg:flex-row gap-0 flex-1 border border-zinc-200 dark:border-zinc-800">
-
-                    {/* ── Left Panel: Branding + Suggestions ── */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="lg:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-900 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex flex-col p-6"
-                    >
-                        {/* Branding */}
-                        <div className="mb-6">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-8 h-8 bg-sblue-500 flex items-center justify-center shrink-0">
-                                    <Sparkles className="w-4 h-4 text-white" />
-                                </div>
-                                <h1 className="text-xl font-bold font-heading">
-                                    Arifian<span className="text-sblue-500">.AI</span>
-                                </h1>
-                            </div>
-                            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                Personal AI built with RAG + Groq LLaMA 3.3 70B. Ask me anything about Arifian.
-                            </p>
+            {/* Main App Container */}
+            <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-6 flex flex-col flex-1 min-h-0">
+                
+                {/* Header / Top Bar */}
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
+                    <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-brand-500 flex items-center justify-center shrink-0">
+                            <Sparkles className="w-3.5 h-3.5 text-white" />
                         </div>
+                        <span className="font-heading font-bold text-sm tracking-wider">
+                            Arifian<span className="text-brand-500">.AI</span>
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setShowInfo(true)}
+                            className="rounded-none hover:bg-secondary text-muted-foreground hover:text-foreground text-xs px-2 sm:px-2.5 h-8 gap-1.5"
+                        >
+                            <Info className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">Detail AI</span>
+                        </Button>
+                        {messages.length > 0 && (
+                            <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                    <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="rounded-none text-muted-foreground hover:text-destructive hover:bg-destructive/10 text-xs px-2 sm:px-2.5 h-8 gap-1.5"
+                                    >
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                        <span className="hidden sm:inline">Hapus Chat</span>
+                                    </Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent className="rounded-none border-border bg-card">
+                                    <AlertDialogHeader>
+                                        <AlertDialogTitle>Hapus Riwayat Chat?</AlertDialogTitle>
+                                        <AlertDialogDescription className="text-sm text-muted-foreground">
+                                            Tindakan ini akan menghapus semua pesan di layar ini secara permanen. Tindakan ini tidak dapat dibatalkan.
+                                        </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel className="rounded-none">Batal</AlertDialogCancel>
+                                        <AlertDialogAction onClick={clearChat} className="rounded-none bg-destructive hover:bg-destructive/95 text-white">
+                                            Hapus Semua
+                                        </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
+                        )}
+                    </div>
+                </div>
 
-                        <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-5" />
+                {/* Chat Area */}
+                {messages.length === 0 ? (
+                    /* ── Empty State / Welcome Screen ── */
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex-1 flex flex-col items-center justify-center py-6 md:py-10"
+                    >
+                        <h2 className="text-2xl md:text-4xl font-heading font-bold text-center mb-2 tracking-tight">
+                            Tanya tentang <span className="text-brand-500">Arifian</span>
+                        </h2>
+                        <p className="text-xs md:text-sm text-muted-foreground text-center mb-6 md:mb-10 max-w-md">
+                            Ketahui latar belakang, kompetensi, atau proyek Arifian dengan bertanya langsung ke asisten AI personalnya.
+                        </p>
 
-                        {/* Suggested questions */}
-                        <div className="mb-5">
-                            <span className="text-xs font-heading tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500 mb-3 block">
-                                Try asking
+                        {/* Centered Large Chat Input */}
+                        <form onSubmit={handleSubmit} className="w-full max-w-2xl flex gap-2 mb-6 md:mb-10 shadow-sm">
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Tanyakan sesuatu tentang Arifian..."
+                                disabled={isLoading}
+                                className="flex-1 px-4 h-12 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-300 text-sm rounded-none"
+                            />
+                            <Button
+                                type="submit"
+                                disabled={isLoading || !input.trim()}
+                                className="rounded-none bg-brand-500 hover:bg-brand-600 disabled:bg-brand-500/40 text-white h-12 px-6 shrink-0 transition-colors"
+                            >
+                                <Send className="w-4 h-4" />
+                            </Button>
+                        </form>
+
+                        {/* Recommendations Grid */}
+                        <div className="w-full max-w-2xl">
+                            <span className="text-[10px] md:text-xs font-heading tracking-[0.15em] uppercase text-muted-foreground/60 mb-3 md:mb-4 block text-center">
+                                Rekomendasi Pertanyaan
                             </span>
-                            <div className="space-y-2">
-                                {randomSuggestions.slice(0, 5).map((item, index) => (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                                {randomSuggestions.map((item, index) => (
                                     <motion.button
                                         key={item.message}
-                                        initial={{ opacity: 0, x: -8 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.1 + index * 0.05 }}
+                                        initial={{ opacity: 0, y: 8 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.05 }}
                                         onClick={() => handleSuggestedClick(item.message)}
                                         disabled={isLoading}
-                                        className="w-full text-left text-xs px-3 py-2.5 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-sblue-500 dark:hover:border-sblue-500 text-zinc-600 dark:text-zinc-300 hover:text-foreground transition-all duration-200 disabled:opacity-50"
+                                        className="w-full text-left text-xs p-3.5 md:p-4 bg-card border border-border hover:border-brand-500 hover:bg-brand-500/[0.02] text-muted-foreground hover:text-foreground transition-all duration-300 rounded-none flex items-center justify-between group"
                                     >
-                                        {item.message}
+                                        <span className="pr-4">{item.message}</span>
+                                        <Send className="w-3 h-3 text-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 ml-2" />
                                     </motion.button>
                                 ))}
                             </div>
                         </div>
-
-                        {/* Footer info */}
-                        <div className="mt-auto">
-                            <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-4" />
-                            <div className="flex items-center gap-2 mb-3">
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    onClick={() => setShowInfo(true)}
-                                    className="rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-500 text-xs px-2 h-8 gap-1.5"
-                                >
-                                    <Info className="w-3.5 h-3.5" />
-                                    About this AI
-                                </Button>
-                            </div>
-                            <p className="text-xs text-zinc-400 dark:text-zinc-600 leading-relaxed">
-                                Chat history stored locally. Never sent to any server.
-                            </p>
-                        </div>
                     </motion.div>
-
-                    {/* ── Right Panel: Chat ── */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="flex-1 flex flex-col bg-background min-h-[500px]"
-                    >
-                        {/* Chat messages */}
-                        <div className="flex-1 overflow-y-auto p-5 space-y-4">
-                            {messages.length === 0 ? (
-                                <div className="h-full flex flex-col items-center justify-center text-center p-6">
-                                    <MessageSquare className="w-10 h-10 text-zinc-200 dark:text-zinc-800 mb-4" />
-                                    <p className="text-zinc-400 dark:text-zinc-500 text-sm max-w-xs">
-                                        Select a question from the left, or type your own below
-                                    </p>
-                                </div>
-                            ) : (
-                                <AnimatePresence>
-                                    {messages.map((message, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.25 }}
-                                            className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                                        >
-                                            <div className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed ${
-                                                message.role === "user"
-                                                    ? "bg-sblue-500 text-white"
-                                                    : "bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100"
-                                            }`}>
-                                                {parseContent(message.content)}
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </AnimatePresence>
-                            )}
-
-                            {isLoading && (
-                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                                    <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex gap-1.5">
-                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                                        <span className="w-1.5 h-1.5 bg-sblue-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                ) : (
+                    /* ── Active Conversation State ── */
+                    <div className="flex-1 flex flex-col min-h-0 relative">
+                        {/* Messages Stream */}
+                        <div className="flex-1 overflow-y-auto space-y-5 pb-4 pr-1 scrollbar-thin">
+                            {messages.map((message, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`flex flex-col ${message.role === "user" ? "items-end" : "items-start"}`}
+                                >
+                                    {/* Role Header label */}
+                                    <div className="text-[10px] tracking-wider text-muted-foreground uppercase mb-1.5 flex items-center gap-1.5">
+                                        {message.role === "user" ? (
+                                            <span>Anda</span>
+                                        ) : (
+                                            <>
+                                                <Sparkles className="w-3 h-3 text-brand-500" />
+                                                <span className="font-heading font-semibold text-brand-500">Arifian.AI</span>
+                                            </>
+                                        )}
+                                    </div>
+                                    
+                                    {/* Document-styled message box */}
+                                    <div className={`max-w-[90%] md:max-w-[85%] px-4 md:px-5 py-3 md:py-4 text-sm leading-relaxed rounded-none border ${
+                                        message.role === "user"
+                                            ? "bg-[#e8e6dc]/30 dark:bg-[#30302e]/30 border-border text-foreground"
+                                            : "bg-card border-border text-foreground shadow-sm"
+                                    }`}>
+                                        {parseContent(message.content)}
                                     </div>
                                 </motion.div>
+                            ))}
+
+                            {isLoading && (
+                                <div className="flex flex-col items-start">
+                                    <div className="text-[10px] tracking-wider text-brand-500 uppercase mb-1.5 flex items-center gap-1.5">
+                                        <Sparkles className="w-3 h-3 text-brand-500" />
+                                        <span className="font-heading font-semibold">Arifian.AI</span>
+                                    </div>
+                                    <div className="bg-card border border-border px-5 py-4 rounded-none flex gap-1.5">
+                                        <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                                        <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                                        <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                                    </div>
+                                </div>
                             )}
 
                             {error && (
                                 <div className="flex justify-center">
-                                    <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 text-red-500 px-4 py-2 text-xs flex items-center gap-2">
+                                    <div className="bg-destructive/10 border border-destructive/20 text-destructive px-4 py-2.5 text-xs flex items-center gap-2 rounded-none">
                                         <AlertCircle className="w-3.5 h-3.5" />
                                         {error}
                                     </div>
@@ -502,80 +534,57 @@ export function AIContent() {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Input row */}
-                        <div className="border-t border-zinc-200 dark:border-zinc-800 p-4">
-                            {/* Quick suggestions (when chatting) */}
-                            {messages.length > 0 && quickSuggestions.length > 0 && (
-                                <div className="mb-3 flex flex-wrap items-center gap-2">
+                        {/* Bottom box - Static at bottom of flex layout (No overlap!) */}
+                        <div className="bg-background pt-4 pb-2 border-t border-border">
+                            
+                            {/* Suggestions when chat is in progress - horizontally scrollable row */}
+                            {quickSuggestions.length > 0 && (
+                                <div className="max-w-2xl mx-auto mb-3 flex items-center gap-2 px-1 py-1 select-none">
                                     <button
                                         onClick={refreshQuickSuggestions}
                                         disabled={isLoading}
-                                        className="p-1 text-zinc-400 hover:text-sblue-500 transition-colors duration-200 disabled:opacity-50"
-                                        title="Refresh"
+                                        className="p-1.5 bg-card border border-border hover:border-brand-500 text-muted-foreground hover:text-brand-500 transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0"
+                                        title="Acak Pertanyaan"
                                     >
                                         <RefreshCw className="w-3 h-3" />
                                     </button>
-                                    {quickSuggestions.map((item, index) => (
-                                        <button
-                                            key={`${item.message}-${index}`}
-                                            onClick={() => handleSuggestedClick(item.message)}
-                                            disabled={isLoading}
-                                            className="text-xs px-2.5 py-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 transition-colors duration-200 disabled:opacity-50 text-zinc-600 dark:text-zinc-400"
-                                        >
-                                            {item.message}
-                                        </button>
-                                    ))}
+                                    <div className="flex gap-2 overflow-x-auto scrollbar-none shrink-1 min-w-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                        {quickSuggestions.map((item, index) => (
+                                            <button
+                                                key={`${item.message}-${index}`}
+                                                onClick={() => handleSuggestedClick(item.message)}
+                                                disabled={isLoading}
+                                                className="text-xs px-3 py-1.5 bg-card border border-border hover:border-brand-500 transition-colors duration-200 disabled:opacity-50 text-muted-foreground hover:text-foreground rounded-none shrink-0 whitespace-nowrap"
+                                            >
+                                                {item.message}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
 
-                            <form onSubmit={handleSubmit} className="flex gap-2">
+                            {/* Text input form */}
+                            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto flex gap-2 shadow-sm">
                                 <input
                                     ref={inputRef}
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    placeholder="Ask something about Arifian..."
+                                    placeholder="Tulis pesan ke asisten..."
                                     disabled={isLoading}
-                                    className="flex-1 px-4 h-11 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-sblue-500 outline-none transition-colors duration-300 text-sm"
+                                    className="flex-1 px-4 h-11 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-300 text-sm rounded-none"
                                 />
                                 <Button
                                     type="submit"
                                     disabled={isLoading || !input.trim()}
-                                    className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/40 h-11 px-5"
+                                    className="rounded-none bg-brand-500 hover:bg-brand-600 disabled:bg-brand-500/40 text-white h-11 px-5 shrink-0 transition-colors"
                                 >
                                     <Send className="w-4 h-4" />
                                 </Button>
-                                {messages.length > 0 && (
-                                    <AlertDialog>
-                                        <AlertDialogTrigger asChild>
-                                            <Button
-                                                type="button"
-                                                variant="outline"
-                                                className="rounded-none border-zinc-300 dark:border-zinc-700 hover:border-red-500 hover:text-red-500 h-11 px-4"
-                                            >
-                                                <Trash2 className="w-4 h-4" />
-                                            </Button>
-                                        </AlertDialogTrigger>
-                                        <AlertDialogContent className="rounded-none border-zinc-200 dark:border-zinc-800">
-                                            <AlertDialogHeader>
-                                                <AlertDialogTitle>Clear Chat History?</AlertDialogTitle>
-                                                <AlertDialogDescription>
-                                                    This will permanently delete all messages. This action cannot be undone.
-                                                </AlertDialogDescription>
-                                            </AlertDialogHeader>
-                                            <AlertDialogFooter>
-                                                <AlertDialogCancel className="rounded-none">Cancel</AlertDialogCancel>
-                                                <AlertDialogAction onClick={clearChat} className="rounded-none bg-red-500 hover:bg-red-600">
-                                                    Clear All
-                                                </AlertDialogAction>
-                                            </AlertDialogFooter>
-                                        </AlertDialogContent>
-                                    </AlertDialog>
-                                )}
                             </form>
                         </div>
-                    </motion.div>
-                </div>
+                    </div>
+                )}
             </div>
         </section>
     )

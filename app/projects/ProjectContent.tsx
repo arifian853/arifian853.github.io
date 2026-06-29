@@ -70,8 +70,8 @@ export function ProjectContent() {
                     transition={{ duration: 0.5 }}
                     className="mb-10 flex items-center gap-3"
                 >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Work</span>
+                    <span className="inline-block w-6 h-px bg-brand-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">Work</span>
                 </motion.div>
 
                 {/* Section Title */}
@@ -83,9 +83,9 @@ export function ProjectContent() {
                     className="mb-12"
                 >
                     <h1 className="text-4xl md:text-5xl font-bold font-heading">
-                        All <span className="text-sblue-500">Projects</span>
+                        All <span className="text-brand-500">Projects</span>
                     </h1>
-                    <div className="w-16 h-px bg-sblue-500 mt-4" />
+                    <div className="w-16 h-px bg-brand-500 mt-4" />
                     <p className="text-zinc-600 dark:text-zinc-400 mt-4 max-w-2xl text-sm">
                         A collection of projects I&apos;ve built throughout my journey as a developer and AI enthusiast.
                     </p>
@@ -129,23 +129,23 @@ export function ProjectContent() {
                                     >
                                         <ShimmerCard className="h-full">
                                             <Link href={`/projects/${project.id}`} className="block h-full">
-                                                <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-sblue-500 dark:hover:border-sblue-500 transition-all duration-300 cursor-pointer group overflow-hidden min-h-[200px] p-8 md:p-10">
+                                                <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group overflow-hidden min-h-[200px] p-8 md:p-10">
                                                     {/* Watermark number — large, absolute, elegant */}
                                                     <span
                                                         aria-hidden="true"
-                                                        className="pointer-events-none select-none absolute right-6 top-1/2 -translate-y-1/2 font-heading font-bold text-[10rem] md:text-[14rem] leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-sblue-500/10 transition-colors duration-500"
+                                                        className="pointer-events-none select-none absolute right-6 top-1/2 -translate-y-1/2 font-heading font-bold text-[10rem] md:text-[14rem] leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-brand-500/10 transition-colors duration-500"
                                                     >
                                                         {formatNumber(project.id)}
                                                     </span>
 
                                                     {/* Hover shimmer */}
-                                                    <div className="absolute inset-0 bg-gradient-to-r from-sblue-500/0 via-sblue-500/[0.02] to-sblue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/[0.02] to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                                     {/* Content */}
                                                     <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
                                                         <div className="flex-1 min-w-0">
                                                             {/* Label */}
-                                                            <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70 mb-3 block">
+                                                            <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70 mb-3 block">
                                                                 Featured Project
                                                             </span>
 
@@ -154,7 +154,7 @@ export function ProjectContent() {
                                                                 <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight">
                                                                     {project.title}
                                                                 </h2>
-                                                                <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 shrink-0">
+                                                                <span className="bg-brand-700 text-white text-xs font-medium px-2 py-0.5 shrink-0">
                                                                     {project.year}
                                                                 </span>
                                                             </div>
@@ -170,14 +170,14 @@ export function ProjectContent() {
                                                                     {project.tags.slice(0, 7).map((tag, tagIndex) => (
                                                                         <div
                                                                             key={tagIndex}
-                                                                            className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 transition-colors duration-300"
+                                                                            className="text-zinc-400 dark:text-zinc-500 group-hover:text-brand-500 transition-colors duration-300"
                                                                             title={tag.name}
                                                                         >
                                                                             <ProjectIcon iconName={tag.iconName} className="w-5 h-5" />
                                                                         </div>
                                                                     ))}
                                                                 </div>
-                                                                <div className="flex items-center gap-1.5 text-sblue-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                                <div className="flex items-center gap-1.5 text-brand-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                                     View Details
                                                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                                                                 </div>
@@ -203,17 +203,17 @@ export function ProjectContent() {
                                 >
                                     <ShimmerCard className="h-full">
                                         <Link href={`/projects/${project.id}`} className="block h-full">
-                                            <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-all duration-300 cursor-pointer group min-h-[220px] relative overflow-hidden">
+                                            <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group min-h-[220px] relative overflow-hidden">
                                                 {/* Subtle watermark */}
                                                 <span
                                                     aria-hidden="true"
-                                                    className="pointer-events-none select-none absolute right-4 bottom-4 font-heading font-bold text-6xl leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-sblue-500/10 transition-colors duration-500"
+                                                    className="pointer-events-none select-none absolute right-4 bottom-4 font-heading font-bold text-6xl leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-brand-500/10 transition-colors duration-500"
                                                 >
                                                     {formatNumber(project.id)}
                                                 </span>
 
                                                 <div className="relative z-10">
-                                                    <span className="font-heading font-bold text-2xl text-sblue-500">
+                                                    <span className="font-heading font-bold text-2xl text-brand-500">
                                                         {formatNumber(project.id)}
                                                     </span>
 
@@ -221,7 +221,7 @@ export function ProjectContent() {
                                                         <h3 className="font-heading font-bold text-lg leading-tight">
                                                             {project.title}
                                                         </h3>
-                                                        <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
+                                                        <span className="bg-brand-700 text-white text-xs font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
                                                             {project.year}
                                                         </span>
                                                     </div>
@@ -234,7 +234,7 @@ export function ProjectContent() {
                                                         {project.tags.slice(0, 4).map((tag, tagIndex) => (
                                                             <div
                                                                 key={tagIndex}
-                                                                className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 transition-colors duration-300"
+                                                                className="text-zinc-400 dark:text-zinc-500 group-hover:text-brand-500 transition-colors duration-300"
                                                                 title={tag.name}
                                                             >
                                                                 <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
@@ -242,7 +242,7 @@ export function ProjectContent() {
                                                         ))}
                                                     </div>
 
-                                                    <div className="mt-4 flex items-center text-sblue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-1">
+                                                    <div className="mt-4 flex items-center text-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-1">
                                                         <span className="text-sm font-medium">View Details</span>
                                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                                                     </div>
@@ -283,14 +283,14 @@ export function ProjectContent() {
                                         <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-300 cursor-pointer">
                                             <div className="flex items-center gap-6">
                                                 {/* Number */}
-                                                <span className="font-heading font-bold text-xl text-sblue-500/50 group-hover:text-sblue-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
+                                                <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
                                                     {formatNumber(project.id)}
                                                 </span>
 
                                                 {/* Content */}
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-3 flex-wrap">
-                                                        <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-sblue-500 transition-colors duration-300">
+                                                        <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-brand-500 transition-colors duration-300">
                                                             {project.title}
                                                         </h3>
                                                         <span className="text-zinc-400 dark:text-zinc-500 text-xs">
@@ -309,7 +309,7 @@ export function ProjectContent() {
                                                     {project.tags.slice(0, 4).map((tag, tagIndex) => (
                                                         <div
                                                             key={tagIndex}
-                                                            className="text-sblue-500"
+                                                            className="text-brand-500"
                                                             title={tag.name}
                                                         >
                                                             <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
@@ -318,7 +318,7 @@ export function ProjectContent() {
                                                 </div>
 
                                                 {/* Arrow */}
-                                                <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-sblue-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                                                <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-brand-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                                             </div>
                                         </div>
                                     </Link>

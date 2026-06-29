@@ -64,8 +64,8 @@ export function FeaturedProjects() {
                     transition={{ duration: 0.5 }}
                     className="mb-10 flex items-center gap-3"
                 >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Work</span>
+                    <span className="inline-block w-6 h-px bg-brand-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">Work</span>
                 </motion.div>
 
                 <motion.div
@@ -76,9 +76,9 @@ export function FeaturedProjects() {
                     className="mb-12"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold font-heading">
-                        Featured <span className="text-sblue-500">Projects</span>
+                        Featured <span className="text-brand-500">Projects</span>
                     </h2>
-                    <div className="w-16 h-px bg-sblue-500 mt-4" />
+                    <div className="w-16 h-px bg-brand-500 mt-4" />
                 </motion.div>
 
                 {/* Featured label */}
@@ -114,27 +114,27 @@ export function FeaturedProjects() {
                                         description={project.description}
                                     >
                                         <Link href={`/projects/${project.id}`}>
-                                            <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 md:p-10 cursor-pointer group overflow-hidden hover:border-sblue-500 dark:hover:border-sblue-500 transition-all duration-300 min-h-[180px]">
+                                            <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 md:p-10 cursor-pointer group overflow-hidden hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[180px]">
                                                 {/* Watermark number */}
                                                 <span
                                                     aria-hidden="true"
-                                                    className="pointer-events-none select-none absolute right-6 top-1/2 -translate-y-1/2 font-heading font-bold text-[8rem] md:text-[12rem] leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-sblue-500/10 transition-colors duration-500"
+                                                    className="pointer-events-none select-none absolute right-6 top-1/2 -translate-y-1/2 font-heading font-bold text-[8rem] md:text-[12rem] leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-brand-500/10 transition-colors duration-500"
                                                 >
                                                     {formatNumber(project.id)}
                                                 </span>
 
                                                 {/* Shimmer */}
-                                                <div className="absolute inset-0 bg-gradient-to-r from-sblue-500/0 via-sblue-500/[0.02] to-sblue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                                <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/[0.02] to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                                 <div className="relative z-10">
-                                                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70 mb-3 block">
+                                                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70 mb-3 block">
                                                         Featured Project
                                                     </span>
                                                     <div className="flex items-center gap-3 flex-wrap mb-3">
                                                         <h3 className="font-heading font-bold text-xl md:text-2xl leading-tight">
                                                             {project.title}
                                                         </h3>
-                                                        <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 shrink-0">
+                                                        <span className="bg-brand-700 text-white text-xs font-medium px-2 py-0.5 shrink-0">
                                                             {project.year}
                                                         </span>
                                                     </div>
@@ -146,14 +146,14 @@ export function FeaturedProjects() {
                                                             {project.tags.slice(0, 7).map((tag, tagIndex) => (
                                                                 <div
                                                                     key={tagIndex}
-                                                                    className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 transition-colors duration-300"
+                                                                    className="text-zinc-400 dark:text-zinc-500 group-hover:text-brand-500 transition-colors duration-300"
                                                                     title={tag.name}
                                                                 >
                                                                     <ProjectIcon iconName={tag.iconName} className="w-5 h-5" />
                                                                 </div>
                                                             ))}
                                                         </div>
-                                                        <div className="flex items-center gap-1.5 text-sblue-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        <div className="flex items-center gap-1.5 text-brand-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                             View Details
                                                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                                                         </div>
@@ -175,21 +175,21 @@ export function FeaturedProjects() {
                                     description={project.description}
                                 >
                                     <Link href={`/projects/${project.id}`}>
-                                        <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 cursor-pointer group overflow-hidden relative hover:border-sblue-500 dark:hover:border-sblue-500 transition-all duration-300 min-h-[220px]">
+                                        <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 cursor-pointer group overflow-hidden relative hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[220px]">
                                             {/* Subtle watermark */}
                                             <span
                                                 aria-hidden="true"
-                                                className="pointer-events-none select-none absolute right-4 bottom-4 font-heading font-bold text-5xl leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-sblue-500/10 transition-colors duration-500"
+                                                className="pointer-events-none select-none absolute right-4 bottom-4 font-heading font-bold text-5xl leading-none text-zinc-200 dark:text-zinc-800 group-hover:text-brand-500/10 transition-colors duration-500"
                                             >
                                                 {formatNumber(project.id)}
                                             </span>
                                             <div className="relative z-10">
-                                                <span className="font-heading font-bold text-2xl text-sblue-500">
+                                                <span className="font-heading font-bold text-2xl text-brand-500">
                                                     {formatNumber(project.id)}
                                                 </span>
                                                 <div className="mt-3 flex items-start gap-2 flex-wrap">
                                                     <h3 className="font-heading font-bold text-lg leading-tight">{project.title}</h3>
-                                                    <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
+                                                    <span className="bg-brand-700 text-white text-xs font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
                                                         {project.year}
                                                     </span>
                                                 </div>
@@ -200,14 +200,14 @@ export function FeaturedProjects() {
                                                     {project.tags.slice(0, 4).map((tag, tagIndex) => (
                                                         <div
                                                             key={tagIndex}
-                                                            className="text-zinc-400 dark:text-zinc-500 group-hover:text-sblue-500 transition-colors duration-300"
+                                                            className="text-zinc-400 dark:text-zinc-500 group-hover:text-brand-500 transition-colors duration-300"
                                                             title={tag.name}
                                                         >
                                                             <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <div className="mt-4 flex items-center text-sblue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-1">
+                                                <div className="mt-4 flex items-center text-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-1">
                                                     <span className="text-sm font-medium">View Details</span>
                                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                                                 </div>
@@ -231,7 +231,7 @@ export function FeaturedProjects() {
                 >
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 text-sblue-500 hover:text-sblue-400 font-medium transition-all duration-300 border-b border-transparent hover:border-sblue-500 pb-0.5 group"
+                        className="inline-flex items-center gap-2 text-brand-500 hover:text-brand-400 font-medium transition-all duration-300 border-b border-transparent hover:border-brand-500 pb-0.5 group"
                     >
                         View All Projects
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

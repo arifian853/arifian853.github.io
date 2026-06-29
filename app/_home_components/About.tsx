@@ -116,8 +116,8 @@ export function About() {
           transition={{ duration: 0.5 }}
           className="mb-10 flex items-center gap-3"
         >
-          <span className="inline-block w-6 h-px bg-sblue-500/50" />
-          <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">
+          <span className="inline-block w-6 h-px bg-brand-500/50" />
+          <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">
             About
           </span>
         </motion.div>
@@ -130,9 +130,9 @@ export function About() {
           className="mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-heading">
-            About <span className="text-sblue-500">Me</span>
+            About <span className="text-brand-500">Me</span>
           </h2>
-          <div className="w-16 h-px bg-sblue-500 mt-4" />
+          <div className="w-16 h-px bg-brand-500 mt-4" />
         </motion.div>
 
         {/* Bento Grid */}
@@ -145,9 +145,9 @@ export function About() {
         >
           {/* Profile Card - Spans 2 rows */}
           <motion.div variants={cardVariants} className="md:row-span-2">
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <div className="relative mb-4">
-                <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-sblue-500">
+                <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-brand-500">
                   <Image
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     src="/profile.avif"
@@ -177,17 +177,17 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-2 lg:col-span-2"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                 Who Am I?
               </h3>
               <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed text-sm md:text-base">
                 A passionate individual with deep interest in{" "}
-                <span className="border-b-2 border-sblue-500 font-medium text-foreground">
+                <span className="border-b-2 border-brand-500 font-medium text-foreground">
                   AI and Web Development
                 </span>
                 . I&apos;ve been teaching for{" "}
-                <span className="border-b-2 border-sblue-500 font-medium text-foreground">
+                <span className="border-b-2 border-brand-500 font-medium text-foreground">
                   2+ years in AI
                 </span>{" "}
                 field, specializing in Machine Learning, Large Language Models,
@@ -199,7 +199,7 @@ export function About() {
 
           {/* Stats Cards - Single column */}
           <motion.div variants={cardVariants}>
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                 Stats
               </h3>
@@ -212,7 +212,7 @@ export function About() {
                     <span className="text-sm text-zinc-700 dark:text-zinc-300">
                       {stat.label}
                     </span>
-                    <span className="bg-sblue-700 text-white text-sm font-bold px-3 py-1 rounded-none">
+                    <span className="bg-brand-700 text-white text-sm font-bold px-3 py-1 rounded-none">
                       {stat.value}
                     </span>
                   </div>
@@ -226,7 +226,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-2 lg:col-span-2"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                 Skills & Expertise
               </h3>
@@ -234,9 +234,9 @@ export function About() {
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-sblue-500 dark:hover:border-sblue-500 hover:bg-sblue-500/10 transition-all duration-300 cursor-default group"
+                    className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-500/10 transition-all duration-300 cursor-default group"
                   >
-                    <skill.icon className="w-4 h-4 text-sblue-500 group-hover:scale-110 transition-transform" />
+                    <skill.icon className="w-4 h-4 text-brand-500 group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium">{skill.name}</span>
                   </div>
                 ))}
@@ -246,7 +246,7 @@ export function About() {
 
           {/* Quote */}
           <motion.div variants={cardVariants}>
-            <ShimmerCard className="h-full bg-sblue-600 dark:bg-sblue-800 text-white p-6 flex flex-col justify-center transition-colors duration-300 group overflow-hidden relative">
+            <ShimmerCard className="h-full bg-brand-600 dark:bg-brand-800 text-white p-6 flex flex-col justify-center transition-colors duration-300 group overflow-hidden relative">
               <motion.div
                 className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/5 pointer-events-none"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -270,7 +270,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-3 lg:col-span-4"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <div className="flex flex-wrap justify-center gap-6">
                 {techStack.map((tech, index) => {
                   const anchorName = `--home-tech-anchor-${index}`;
@@ -280,7 +280,7 @@ export function About() {
                       className="relative group cursor-pointer"
                       style={{ anchorName } as React.CSSProperties}
                     >
-                      <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300" />
+                      <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300" />
                       {/* Tooltip with Anchor Positioning support and absolute fallback */}
                       <div
                         style={{ "--anchor-target": anchorName } as React.CSSProperties}

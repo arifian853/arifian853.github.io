@@ -27,7 +27,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
         return parts.map((part, index) => {
             // Odd indices are the bold parts
             if (index % 2 === 1) {
-                return <strong key={index} className="font-semibold text-sblue-500">{part}</strong>
+                return <strong key={index} className="font-semibold text-brand-500">{part}</strong>
             }
             return part
         })
@@ -69,7 +69,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                 >
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 text-zinc-500 hover:text-sblue-500 transition-colors duration-300 mb-8"
+                        className="inline-flex items-center gap-2 text-zinc-500 hover:text-brand-500 transition-colors duration-300 mb-8"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         <span className="text-sm font-medium">Back to Projects</span>
@@ -84,7 +84,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     className="mb-8"
                 >
                     {/* Number */}
-                    <span className="font-heading font-bold text-5xl md:text-6xl text-sblue-500">
+                    <span className="font-heading font-bold text-5xl md:text-6xl text-brand-500">
                         {formatNumber(project.id)}
                     </span>
 
@@ -93,7 +93,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         <h1 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
                             {project.title}
                         </h1>
-                        <span className="bg-sblue-700 text-white text-sm font-medium px-3 py-1 rounded-none shrink-0 mt-1">
+                        <span className="bg-brand-700 text-white text-sm font-medium px-3 py-1 rounded-none shrink-0 mt-1">
                             {project.year}
                         </span>
                     </div>
@@ -105,7 +105,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                                 key={index}
                                 className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 px-3 py-1.5 border border-zinc-200 dark:border-zinc-700 rounded-none"
                             >
-                                <ProjectIcon iconName={tag.iconName} className="w-4 h-4 text-sblue-500" />
+                                <ProjectIcon iconName={tag.iconName} className="w-4 h-4 text-brand-500" />
                                 <span className="text-sm font-medium">{tag.name}</span>
                             </div>
                         ))}
@@ -161,7 +161,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         >
                             <Button
                                 variant="outline"
-                                className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-sblue-500 hover:text-sblue-500 transition-all duration-300"
+                                className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-brand-500 hover:text-brand-500 transition-all duration-300"
                             >
                                 <Github className="w-4 h-4 mr-2" />
                                 {link.btn_name}
@@ -176,7 +176,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                             rel="noopener noreferrer"
                         >
                             <Button
-                                className="rounded-none bg-sblue-700 hover:bg-sblue-800 text-white transition-all duration-300"
+                                className="rounded-none bg-brand-700 hover:bg-brand-800 text-white transition-all duration-300"
                             >
                                 <ExternalLink className="w-4 h-4 mr-2" />
                                 {demo.btn_name}
@@ -208,14 +208,14 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                                 <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-300 cursor-pointer">
                                     <div className="flex items-center gap-6">
                                         {/* Number */}
-                                        <span className="font-heading font-bold text-xl text-sblue-500/50 group-hover:text-sblue-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
+                                        <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
                                             {formatNumber(p.id)}
                                         </span>
 
                                         {/* Content */}
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-3 flex-wrap">
-                                                <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-sblue-500 transition-colors duration-300">
+                                                <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-brand-500 transition-colors duration-300">
                                                     {p.title}
                                                 </h3>
                                                 <span className="text-zinc-400 dark:text-zinc-500 text-xs">
@@ -231,14 +231,14 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                                         {/* Tech icons — fade in on hover */}
                                         <div className="hidden md:flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
                                             {p.tags.slice(0, 4).map((tag, tagIndex) => (
-                                                <div key={tagIndex} className="text-sblue-500" title={tag.name}>
+                                                <div key={tagIndex} className="text-brand-500" title={tag.name}>
                                                     <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
                                                 </div>
                                             ))}
                                         </div>
 
                                         {/* Arrow */}
-                                        <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-sblue-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                                        <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-brand-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                                     </div>
                                 </div>
                             </Link>

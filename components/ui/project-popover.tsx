@@ -97,14 +97,14 @@ export function ProjectPopover({ projectId, title, year, description, children }
                 className="project-popover border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 p-5 shadow-2xl max-w-[320px] pointer-events-auto"
             >
                 <div className="relative z-10">
-                    <span className="text-[10px] font-heading tracking-[0.2em] uppercase text-sblue-500/70 mb-2 block">
+                    <span className="text-[10px] font-heading tracking-[0.2em] uppercase text-brand-500/70 mb-2 block">
                         Quick Preview
                     </span>
                     <div className="flex items-start justify-between gap-3 mb-2">
                         <h4 className="font-heading font-bold text-base leading-tight text-foreground">
                             {title}
                         </h4>
-                        <span className="bg-sblue-700 text-white text-[10px] font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
+                        <span className="bg-brand-700 text-white text-[10px] font-medium px-2 py-0.5 shrink-0 self-start mt-0.5">
                             {year}
                         </span>
                     </div>
@@ -113,7 +113,7 @@ export function ProjectPopover({ projectId, title, year, description, children }
                     </p>
                     <Link
                         href={`/projects/${projectId}`}
-                        className="inline-flex items-center justify-center bg-sblue-700 hover:bg-sblue-800 text-white font-medium text-xs px-4 py-2.5 transition-all duration-300 w-full text-center gap-1.5 group/btn"
+                        className="inline-flex items-center justify-center bg-brand-700 hover:bg-brand-800 text-white font-medium text-xs px-4 py-2.5 transition-all duration-300 w-full text-center gap-1.5 group/btn"
                     >
                         Read More
                         <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200" />

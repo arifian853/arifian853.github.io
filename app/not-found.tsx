@@ -16,7 +16,7 @@ export default function NotFound() {
             {/* Content */}
             <div className="relative z-10 text-center max-w-md">
                 {/* 404 Number */}
-                <h1 className="text-8xl md:text-9xl font-bold font-heading text-sblue-500 mb-4">
+                <h1 className="text-8xl md:text-9xl font-bold font-heading text-brand-500 mb-4">
                     404
                 </h1>
 
@@ -32,7 +32,7 @@ export default function NotFound() {
 
                 {/* Button */}
                 <Link href="/">
-                    <button className="flex items-center justify-center gap-2 bg-sblue-500 hover:bg-sblue-600 text-white px-8 py-3 font-medium transition-colors duration-300 mx-auto">
+                    <button className="flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-8 py-3 font-medium transition-colors duration-300 mx-auto">
                         <Home className="w-4 h-4" />
                         Go Home
                     </button>
@@ -40,7 +40,7 @@ export default function NotFound() {
             </div>
 
             {/* Decorative Footer */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-black dark:text-black text-xs bg-sblue-500 p-2">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-black dark:text-black text-xs bg-brand-500 p-2">
                 Lost? It happens to the best of us.
             </div>
         </div>

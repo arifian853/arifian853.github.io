@@ -37,24 +37,24 @@ const formatDate = (dateString: string): string => {
 }
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+    hidden: { opacity: 0, y: 15, filter: "blur(3px)" },
     visible: (i: number) => ({
         opacity: 1,
         y: 0,
         filter: "blur(0px)",
-        transition: { duration: 0.4, delay: i * 0.06, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }
+        transition: { duration: 0.4, delay: i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }
     })
 }
 
 function SkeletonCard() {
     return (
-        <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 animate-pulse">
-            <div className="h-3 bg-zinc-200 dark:bg-zinc-800 rounded mb-2 w-3/4" />
-            <div className="h-3 bg-zinc-200 dark:bg-zinc-800 rounded mb-2 w-full" />
-            <div className="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2" />
-            <div className="mt-4 pt-3 border-t border-zinc-200 dark:border-zinc-800 flex justify-end">
-                <div className="h-2.5 bg-zinc-200 dark:bg-zinc-800 rounded w-24" />
+        <div className="pb-8 border-b border-border animate-pulse flex flex-col">
+            <div className="flex justify-between items-center mb-2">
+                <div className="h-3 bg-secondary rounded w-16" />
+                <div className="h-3 bg-secondary rounded w-28" />
             </div>
+            <div className="h-4 bg-secondary rounded mb-2 w-full" />
+            <div className="h-4 bg-secondary rounded w-3/4" />
         </div>
     )
 }
@@ -69,7 +69,7 @@ export function MessageContent() {
 
     const charLimit = 500
     const charRatio = input.length / charLimit
-    const charColor = charRatio > 0.9 ? "text-red-500" : charRatio > 0.7 ? "text-amber-500" : "text-zinc-400"
+    const charColor = charRatio > 0.9 ? "text-destructive" : charRatio > 0.7 ? "text-amber-500" : "text-muted-foreground"
 
     const fetchMessages = async () => {
         setIsFetching(true)
@@ -128,7 +128,7 @@ export function MessageContent() {
     const bgY = useTransform(scrollYProgress, [0, 1], [0, 100])
 
     return (
-        <section ref={sectionRef} className="relative min-h-screen py-20 overflow-hidden">
+        <section ref={sectionRef} className="relative min-h-screen py-12 md:py-20 overflow-hidden bg-background">
             {/* Toast notifications — fixed bottom-right */}
             <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none">
                 <AnimatePresence>
@@ -138,10 +138,10 @@ export function MessageContent() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 8, scale: 0.95 }}
                             transition={{ duration: 0.25 }}
-                            className="flex items-center gap-2.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-4 py-3 shadow-lg"
+                            className="flex items-center gap-2.5 bg-[#141413] dark:bg-[#faf9f5] text-[#faf9f5] dark:text-[#141413] text-xs px-4 py-3 shadow-lg rounded-none border border-border"
                         >
-                            <Check className="w-3.5 h-3.5 shrink-0 text-sblue-400 dark:text-sblue-600" />
-                            Message sent! Thanks for reaching out.
+                            <Check className="w-3.5 h-3.5 shrink-0 text-brand-500" />
+                            Pesan terkirim! Terima kasih telah menyapa.
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -152,7 +152,7 @@ export function MessageContent() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 8, scale: 0.95 }}
                             transition={{ duration: 0.25 }}
-                            className="flex items-center gap-2.5 bg-red-600 text-white text-xs px-4 py-3 shadow-lg"
+                            className="flex items-center gap-2.5 bg-destructive text-white text-xs px-4 py-3 shadow-lg rounded-none"
                         >
                             <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                             {error}
@@ -160,193 +160,154 @@ export function MessageContent() {
                     )}
                 </AnimatePresence>
             </div>
-            {/* Parallax Orb */}
+
+            {/* Background Glow */}
             <motion.div
                 className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(201,100,66,0.03) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />
 
-            <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16">
-                {/* Eyebrow */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-10 flex items-center gap-3"
-                >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Messages</span>
-                </motion.div>
-
-                {/* Split layout */}
-                <div className="flex flex-col lg:flex-row gap-0 border border-zinc-200 dark:border-zinc-800">
-
-                    {/* ── Left Panel: Form ── */}
+            <div className="relative z-10 w-full max-w-2xl mx-auto px-4 sm:px-6 pt-10 md:pt-16">
+                
+                {/* Header */}
+                <div className="mb-10 text-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="lg:w-80 shrink-0 bg-zinc-100 dark:bg-zinc-900 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex flex-col p-6 lg:max-h-[700px]"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-10 h-10 bg-brand-500/10 border border-brand-500/30 flex items-center justify-center mx-auto mb-4"
                     >
-                        {/* Heading */}
-                        <div className="mb-6">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-8 h-8 bg-sblue-500 flex items-center justify-center shrink-0">
-                                    <Mail className="w-4 h-4 text-white" />
-                                </div>
-                                <h1 className="text-xl font-bold font-heading">
-                                    Send a <span className="text-sblue-500">Message</span>
-                                </h1>
-                            </div>
-                            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                Drop an anonymous message. I read every single one and might reply!
-                            </p>
-                        </div>
-
-                        <div className="w-full h-px bg-zinc-200 dark:border-zinc-800 mb-5" />
-
-                        {/* Form */}
-                        <form onSubmit={handleSubmit} className="flex flex-col">
-                            <div className="relative bg-background border border-zinc-200 dark:border-zinc-800 focus-within:border-sblue-500 transition-colors duration-300">
-                                <textarea
-                                    value={input}
-                                    onChange={(e) => setInput(e.target.value)}
-                                    placeholder="Write your message here..."
-                                    disabled={isLoading}
-                                    rows={4}
-                                    maxLength={charLimit}
-                                    className="w-full h-full bg-transparent p-4 border-none outline-none resize-none text-sm placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
-                                />
-                                <div className="flex items-center justify-between px-4 py-2 border-t border-zinc-200 dark:border-zinc-800">
-                                    <span className={`text-xs tabular-nums transition-colors duration-200 ${charColor}`}>
-                                        {input.length}/{charLimit}
-                                    </span>
-                                    <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.15 }}>
-                                        <Button
-                                            type="submit"
-                                            disabled={isLoading || !input.trim()}
-                                            className="rounded-none bg-sblue-500 hover:bg-sblue-600 disabled:bg-sblue-500/40 h-8 px-4 text-xs gap-1.5"
-                                        >
-                                            {isLoading ? (
-                                                <>
-                                                    <motion.span
-                                                        animate={{ rotate: 360 }}
-                                                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                                        className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full inline-block"
-                                                    />
-                                                    Sending
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <Send className="w-3 h-3" />
-                                                    Send
-                                                </>
-                                            )}
-                                        </Button>
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </form>
-
-                        {/* Footer note */}
-                        <div className="mt-auto pt-5">
-                            <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800 mb-4" />
-                            <p className="text-xs text-zinc-400 dark:text-zinc-600 leading-relaxed">
-                                Messages are anonymous. Unappropriate messages will be deleted without hesitate.
-                            </p>
-                        </div>
+                        <Mail className="w-5 h-5 text-brand-500" />
                     </motion.div>
-
-                    {/* ── Right Panel: Feed ── */}
-                    <motion.div
+                    <motion.h1
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-3xl font-bold font-heading mb-3"
+                    >
+                        Papan <span className="text-brand-500">Pesan</span>
+                    </motion.h1>
+                    <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="flex-1 flex flex-col bg-background min-h-[500px]"
+                        className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed"
                     >
-                        {/* Feed header */}
-                        <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center gap-3">
-                            <span className="text-xs font-heading tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">
-                                All Messages
-                            </span>
-                            {!isFetching && (
-                                <span className="text-xs text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 tabular-nums">
-                                    {messages.length}
+                        Tinggalkan pesan anonim di bawah ini. Saya membaca setiap pesan yang masuk dan sesekali membalasnya secara terbuka.
+                    </motion.p>
+                </div>
+
+                {/* Inline Message Compose Form */}
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mb-12 pb-10 border-b border-border"
+                >
+                    <form onSubmit={handleSubmit} className="flex flex-col">
+                        <div className="relative bg-card border border-border focus-within:border-brand-500 focus-within:ring-1 focus-within:ring-brand-500 transition-all duration-300 shadow-sm">
+                            <textarea
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Tulis sesuatu secara anonim..."
+                                disabled={isLoading}
+                                rows={3}
+                                maxLength={charLimit}
+                                className="w-full bg-transparent p-4 border-none outline-none resize-none text-sm placeholder:text-muted-foreground/50 leading-relaxed"
+                            />
+                            <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-secondary/10">
+                                <span className={`text-xs tabular-nums transition-colors duration-200 ${charColor}`}>
+                                    {input.length}/{charLimit}
                                 </span>
-                            )}
+                                <Button
+                                    type="submit"
+                                    disabled={isLoading || !input.trim()}
+                                    className="rounded-none bg-brand-500 hover:bg-brand-600 text-white disabled:bg-brand-500/40 h-9 px-5 text-xs gap-1.5 transition-colors font-medium"
+                                >
+                                    {isLoading ? "Mengirim..." : "Kirim Pesan"}
+                                </Button>
+                            </div>
                         </div>
+                    </form>
+                    <p className="text-[10px] text-muted-foreground/60 text-center mt-3 leading-relaxed">
+                        Pesan bersifat sepenuhnya anonim. Pesan yang tidak pantas (SARA/kekerasan) akan dihapus.
+                    </p>
+                </motion.div>
 
-                        {/* Feed content */}
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {isFetching ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
-                                </div>
-                            ) : messages.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {messages.map((msg, i) => (
-                                        <motion.div
-                                            key={msg.id}
-                                            custom={i}
-                                            variants={cardVariants}
-                                            initial="hidden"
-                                            animate="visible"
-                                            className={`relative flex flex-col bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 ${msg.reply ? "border-l-2 border-l-sblue-500" : ""}`}
-                                        >
-                                            {/* Replied badge */}
-                                            {msg.reply && (
-                                                <span className="absolute top-3 right-3 text-[10px] font-heading tracking-wider uppercase text-sblue-500 bg-sblue-500/10 px-1.5 py-0.5">
-                                                    Replied
-                                                </span>
-                                            )}
+                {/* Feed Header */}
+                <div className="flex items-center justify-between mb-8">
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground">
+                        Pesan Masuk
+                    </span>
+                    {!isFetching && (
+                        <span className="text-xs text-muted-foreground font-mono bg-secondary px-2.5 py-0.5">
+                            Total: {messages.length}
+                        </span>
+                    )}
+                </div>
 
-                                            {/* Message */}
-                                            <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 mb-3 pr-12">
-                                                {msg.content}
-                                            </p>
+                {/* Feed Timeline Content */}
+                <div className="space-y-8">
+                    {isFetching ? (
+                        <div className="space-y-8">
+                            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+                        </div>
+                    ) : messages.length > 0 ? (
+                        <div className="space-y-8">
+                            {messages.map((msg, i) => (
+                                <motion.div
+                                    key={msg.id}
+                                    custom={i}
+                                    variants={cardVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    className="group pb-8 border-b border-border flex flex-col transition-colors"
+                                >
+                                    {/* Message Info Header */}
+                                    <div className="flex justify-between items-center text-[10px] text-muted-foreground/50 font-mono mb-3">
+                                        <span>#{messages.length - i}</span>
+                                        <span>{msg.timestamp}</span>
+                                    </div>
 
-                                            {/* Reply */}
-                                            {msg.reply && (
-                                                <div className="mt-auto pt-3 border-t border-zinc-200 dark:border-zinc-700">
-                                                    <div className="flex items-start gap-2">
-                                                        <div className="w-0.5 self-stretch bg-sblue-500 shrink-0 mt-0.5" />
-                                                        <div className="flex-1">
-                                                            <span className="text-xs font-medium text-sblue-500 block mb-1">Arifian replied</span>
-                                                            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">{msg.reply}</p>
-                                                            {msg.replyTimestamp && (
-                                                                <span className="text-[10px] text-zinc-400 dark:text-zinc-600 mt-1 block">{msg.replyTimestamp}</span>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
+                                    {/* Message Body */}
+                                    <p className="text-sm md:text-base leading-relaxed text-foreground/90 font-sans">
+                                        {msg.content}
+                                    </p>
 
-                                            {/* Timestamp */}
-                                            <div className={`flex justify-end ${msg.reply ? "mt-2" : "mt-auto pt-3 border-t border-zinc-200 dark:border-zinc-800"}`}>
-                                                <span className="text-[10px] text-zinc-400 dark:text-zinc-600 tabular-nums">
-                                                    {msg.timestamp}
-                                                </span>
+                                    {/* Nested Reply Area */}
+                                    {msg.reply && (
+                                        <div className="mt-4 pl-4 border-l-2 border-brand-500 bg-secondary/20 py-3.5 px-4 transition-colors group-hover:bg-secondary/35">
+                                            <div className="flex items-center gap-1.5 text-[10px] font-heading font-bold text-brand-500 uppercase tracking-wider mb-1.5">
+                                                <span>↳ Arifian membalas</span>
+                                                {msg.replyTimestamp && (
+                                                    <span className="text-muted-foreground/50 font-normal font-mono lowercase normal-case ml-2">
+                                                        ({msg.replyTimestamp})
+                                                    </span>
+                                                )}
                                             </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="h-full flex flex-col items-center justify-center text-center p-12">
-                                    <MessageSquare className="w-10 h-10 text-zinc-200 dark:text-zinc-800 mb-4" />
-                                    <p className="text-zinc-400 dark:text-zinc-600 text-sm">
-                                        No messages yet.
-                                    </p>
-                                    <p className="text-zinc-400 dark:text-zinc-600 text-xs mt-1">
-                                        Leave the first one.
-                                    </p>
-                                </div>
-                            )}
+                                            <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                                                {msg.reply}
+                                            </p>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            ))}
                         </div>
-                    </motion.div>
+                    ) : (
+                        <div className="py-16 flex flex-col items-center justify-center text-center">
+                            <MessageSquare className="w-10 h-10 text-muted-foreground/20 mb-4" />
+                            <p className="text-muted-foreground text-sm">
+                                Belum ada pesan masuk.
+                            </p>
+                            <p className="text-muted-foreground/70 text-xs mt-1">
+                                Jadilah orang pertama yang mengirimkan pesan di atas!
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

@@ -39,9 +39,9 @@ import {
 import { SiPlaywright } from "@/components/ui/project-icon";
 
 const stats = [
-    { label: "Years Teaching", value: "2+", color: "bg-sblue-700" },
-    { label: "Projects Built", value: "15+", color: "bg-sblue-700" },
-    { label: "Students Taught", value: "100+", color: "bg-sblue-700" },
+    { label: "Years Teaching", value: "2+", color: "bg-brand-700" },
+    { label: "Projects Built", value: "15+", color: "bg-brand-700" },
+    { label: "Students Taught", value: "100+", color: "bg-brand-700" },
 ];
 
 const skills = [
@@ -141,8 +141,8 @@ export function AboutContent() {
                     transition={{ duration: 0.5 }}
                     className="mb-10 flex items-center gap-3"
                 >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">About</span>
+                    <span className="inline-block w-6 h-px bg-brand-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">About</span>
                 </motion.div>
 
                 {/* Section Title */}
@@ -154,9 +154,9 @@ export function AboutContent() {
                     className="mb-12"
                 >
                     <h1 className="text-4xl md:text-5xl font-bold font-heading">
-                        About <span className="text-sblue-500">Me</span>
+                        About <span className="text-brand-500">Me</span>
                     </h1>
-                    <div className="w-16 h-px bg-sblue-500 mt-4" />
+                    <div className="w-16 h-px bg-brand-500 mt-4" />
                 </motion.div>
 
                 {/* Bento Grid */}
@@ -169,9 +169,9 @@ export function AboutContent() {
                 >
                     {/* Profile Card - Spans 2 rows */}
                     <motion.div variants={cardVariants} className="md:row-span-2">
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <div className="relative mb-4">
-                                <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-sblue-500">
+                                <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-brand-500">
                                     <Image
                                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                                         src="/profile.avif"
@@ -201,17 +201,17 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-2 lg:col-span-2"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                                 Who Am I?
                             </h3>
                             <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed text-sm md:text-base">
                                 A passionate individual with deep interest in{" "}
-                                <span className="border-b-2 border-sblue-500 font-medium text-foreground">
+                                <span className="border-b-2 border-brand-500 font-medium text-foreground">
                                     AI and Web Development
                                 </span>
                                 . I&apos;ve been teaching for{" "}
-                                <span className="border-b-2 border-sblue-500 font-medium text-foreground">
+                                <span className="border-b-2 border-brand-500 font-medium text-foreground">
                                     2+ years in AI
                                 </span>{" "}
                                 field, specializing in Machine Learning, Large Language Models,
@@ -223,7 +223,7 @@ export function AboutContent() {
 
                     {/* Stats Cards - Single column */}
                     <motion.div variants={cardVariants}>
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Stats
                             </h3>
@@ -236,7 +236,7 @@ export function AboutContent() {
                                         <span className="text-sm text-zinc-700 dark:text-zinc-300">
                                             {stat.label}
                                         </span>
-                                        <span className="bg-sblue-700 text-white text-sm font-bold px-3 py-1 rounded-none">
+                                        <span className="bg-brand-700 text-white text-sm font-bold px-3 py-1 rounded-none">
                                             {stat.value}
                                         </span>
                                     </div>
@@ -250,7 +250,7 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-2 lg:col-span-2"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Skills & Expertise
                             </h3>
@@ -258,9 +258,9 @@ export function AboutContent() {
                                 {skills.map((skill, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-sblue-500 dark:hover:border-sblue-500 hover:bg-sblue-500/10 transition-all duration-300 cursor-default group"
+                                        className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-none border-b-2 border-transparent hover:border-b-2 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-brand-500/10 transition-all duration-300 cursor-default group"
                                     >
-                                        <skill.icon className="w-4 h-4 text-sblue-500 group-hover:scale-110 transition-transform" />
+                                        <skill.icon className="w-4 h-4 text-brand-500 group-hover:scale-110 transition-transform" />
                                         <span className="text-sm font-medium">{skill.name}</span>
                                     </div>
                                 ))}
@@ -270,7 +270,7 @@ export function AboutContent() {
 
                     {/* Contact Card */}
                     <motion.div variants={cardVariants}>
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col justify-center hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col justify-center hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Get In Touch
                             </h3>
@@ -280,7 +280,7 @@ export function AboutContent() {
                                 <a
                                     href="/cv_Arifian.pdf"
                                     download
-                                    className="flex items-center gap-2 text-sm px-3 py-2 bg-sblue-700 text-white rounded-none hover:bg-sblue-800 transition-colors duration-300 w-full justify-center"
+                                    className="flex items-center gap-2 text-sm px-3 py-2 bg-brand-700 text-white rounded-none hover:bg-brand-800 transition-colors duration-300 w-full justify-center"
                                 >
                                     <Download className="w-4 h-4" />
                                     Resume
@@ -288,14 +288,14 @@ export function AboutContent() {
                                 <div className="flex flex-row gap-3">
                                     <a
                                         href="mailto:arifiansaputra43@gmail.com"
-                                        className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-sblue-500 hover:text-white dark:hover:bg-sblue-500 transition-colors duration-300 w-full justify-center"
+                                        className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-brand-500 hover:text-white dark:hover:bg-brand-500 transition-colors duration-300 w-full justify-center"
                                     >
                                         <Mail className="w-4 h-4" />
                                         Email
                                     </a>
                                     <a
                                         href="mailto:arifian.saputra@infinitelearning.id"
-                                        className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-sblue-500 hover:text-white dark:hover:bg-sblue-500 transition-colors duration-300 w-full justify-center"
+                                        className="flex items-center gap-2 text-sm px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-none hover:bg-brand-500 hover:text-white dark:hover:bg-brand-500 transition-colors duration-300 w-full justify-center"
                                     >
                                         <Building2 className="w-4 h-4" />
                                         Office
@@ -313,7 +313,7 @@ export function AboutContent() {
                                         rel="noopener noreferrer"
                                         className="relative group cursor-pointer"
                                     >
-                                        <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300" />
+                                        <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300" />
                                         {/* Tooltip */}
                                         <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs px-3 py-1.5 rounded-none opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
                                             {social.name}
@@ -331,7 +331,7 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-3 lg:col-span-4"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <div className="flex flex-wrap justify-center gap-6">
                                 {techStack.map((tech, index) => {
                                     const anchorName = `--about-tech-anchor-${index}`;
@@ -341,7 +341,7 @@ export function AboutContent() {
                                             className="relative group cursor-pointer"
                                             style={{ anchorName } as React.CSSProperties}
                                         >
-                                            <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300" />
+                                            <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300" />
                                             {/* Tooltip with Anchor Positioning support and absolute fallback */}
                                             <div
                                                 style={{ "--anchor-target": anchorName } as React.CSSProperties}
@@ -368,7 +368,7 @@ export function AboutContent() {
                     className="mt-16"
                 >
                     <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">
-                        What I <span className="text-sblue-500">Offer</span>
+                        What I <span className="text-brand-500">Offer</span>
                     </h3>
 
                     {/* Services Grid */}
@@ -381,26 +381,26 @@ export function AboutContent() {
                     >
                         {/* Web Development */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
-                                <Code2 className="w-8 h-8 text-sblue-500 mb-4" />
+                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                <Code2 className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     Web Development
                                 </h4>
                                 <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Frontend (HTML, CSS, JS, React, Tailwind)
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Backend (Express, Flask, FastAPI) + Database
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Full Stack (MERN Stack, Next.js)
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         WordPress Development
                                     </li>
                                 </ul>
@@ -409,26 +409,26 @@ export function AboutContent() {
 
                         {/* AI & Machine Learning */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
-                                <Brain className="w-8 h-8 text-sblue-500 mb-4" />
+                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                <Brain className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     AI & Machine Learning
                                 </h4>
                                 <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Python API & AI Chatbot Development
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         ML Modelling (Deep Learning, NLP, CV)
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Recommendation & Time Series
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Model Deployment with Python Backend
                                     </li>
                                 </ul>
@@ -437,26 +437,26 @@ export function AboutContent() {
 
                         {/* Mentoring & Others */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
-                                <BookOpen className="w-8 h-8 text-sblue-500 mb-4" />
+                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                <BookOpen className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     Mentoring & Others
                                 </h4>
                                 <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Private Mentoring (AI & Web Dev)
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         DevOps & Linux Tutorials
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Deployment Guidance
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-sblue-500">•</span>
+                                        <span className="text-brand-500">•</span>
                                         Webinar Request (Institutional)
                                     </li>
                                 </ul>
@@ -467,7 +467,7 @@ export function AboutContent() {
                     {/* CTA Button */}
                     <div className="flex justify-center mb-16">
                         <a href="mailto:arifiansaputra43@gmail.com?subject=Project%20Request">
-                            <button className="bg-sblue-700 hover:bg-sblue-800 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
+                            <button className="bg-brand-700 hover:bg-brand-800 text-white font-medium px-8 py-3 transition-colors duration-300 flex items-center gap-2">
                                 <Mail className="w-5 h-5" />
                                 Request a Project / Collaborate
                             </button>
@@ -476,7 +476,7 @@ export function AboutContent() {
 
                     {/* Education Section */}
                     <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">
-                        <span className="text-sblue-500">Education</span>
+                        <span className="text-brand-500">Education</span>
                     </h3>
 
                     <motion.div
@@ -488,9 +488,9 @@ export function AboutContent() {
                     >
                         {/* University */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <div className="flex items-start justify-between mb-3">
-                                    <span className="bg-sblue-700 text-white text-xs font-medium px-2 py-1">
+                                    <span className="bg-brand-700 text-white text-xs font-medium px-2 py-1">
                                         2020 - 2024
                                     </span>
                                     <span className="text-xs text-zinc-600 dark:text-zinc-300">
@@ -512,7 +512,7 @@ export function AboutContent() {
 
                         {/* High School */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <div className="flex items-start justify-between mb-3">
                                     <span className="bg-zinc-500 text-white text-xs font-medium px-2 py-1">
                                         2017 - 2020
@@ -544,7 +544,7 @@ export function AboutContent() {
                         transition={{ duration: 0.6 }}
                     >
                         <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">
-                            About This <span className="text-sblue-500">Website</span>
+                            About This <span className="text-brand-500">Website</span>
                         </h3>
                         <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mb-8 max-w-3xl">
                             This website is a hobby project I built to showcase my portfolio,
@@ -563,29 +563,29 @@ export function AboutContent() {
                         >
                             {/* Frontend Stack */}
                             <motion.div variants={cardVariants}>
-                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 h-full">
+                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
                                     <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                         Frontend
                                     </h4>
                                     <div className="flex flex-wrap gap-4">
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiNextdotjs className="w-5 h-5 text-sblue-500" />
+                                            <SiNextdotjs className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">Next.js</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiReact className="w-5 h-5 text-sblue-500" />
+                                            <SiReact className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">React</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiTypescript className="w-5 h-5 text-sblue-500" />
+                                            <SiTypescript className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">TypeScript</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiTailwindcss className="w-5 h-5 text-sblue-500" />
+                                            <SiTailwindcss className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">Tailwind CSS</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiShadcnui className="w-5 h-5 text-sblue-500" />
+                                            <SiShadcnui className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">shadcn/ui</span>
                                         </div>
                                     </div>
@@ -594,21 +594,21 @@ export function AboutContent() {
 
                             {/* Backend AI Stack */}
                             <motion.div variants={cardVariants}>
-                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300 h-full">
+                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
                                     <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                         Backend AI
                                     </h4>
                                     <div className="flex flex-wrap gap-4">
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiFastapi className="w-5 h-5 text-sblue-500" />
+                                            <SiFastapi className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">FastAPI</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <SiPython className="w-5 h-5 text-sblue-500" />
+                                            <SiPython className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">Python</span>
                                         </div>
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
-                                            <Sparkles className="w-5 h-5 text-sblue-500" />
+                                            <Sparkles className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">
                                                 Groq LLaMA 3.3 70B
                                             </span>
@@ -627,13 +627,13 @@ export function AboutContent() {
                             viewport={{ once: true }}
                         >
                             <h3 className="text-2xl md:text-3xl font-bold font-heading mb-6">
-                                Design <span className="text-sblue-500">System</span>
+                                Design <span className="text-brand-500">System</span>
                             </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
                                 {/* Typography */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Typography
                                         </h5>
@@ -666,31 +666,31 @@ export function AboutContent() {
 
                                 {/* Color Palette */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Color Palette
                                         </h5>
                                         <div className="space-y-3">
                                             {/* Primary Accent */}
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-sblue-500 border border-zinc-300 dark:border-zinc-700" />
+                                                <div className="w-8 h-8 bg-brand-500 border border-zinc-300 dark:border-zinc-700" />
                                                 <div>
                                                     <p className="text-sm font-medium">
-                                                        Slate Blue 500 (Primary Accent)
+                                                        Terracotta Brand (Primary Accent)
                                                     </p>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                                        sblue-500 | #7089A8
+                                                        brand-500 | #c96442
                                                     </p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-sblue-700 border border-zinc-300 dark:border-zinc-700" />
+                                                <div className="w-8 h-8 bg-brand-700 border border-zinc-300 dark:border-zinc-700" />
                                                 <div>
                                                     <p className="text-sm font-medium">
-                                                        Slate Blue 700 (Buttons)
+                                                        Terracotta Accent (Buttons)
                                                     </p>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                                        sblue-700 | #435A76
+                                                        brand-700 | #b55333
                                                     </p>
                                                 </div>
                                             </div>
@@ -698,14 +698,14 @@ export function AboutContent() {
                                             <div className="flex items-center gap-3">
                                                 <div
                                                     className="w-8 h-8 border border-zinc-300 dark:border-zinc-700"
-                                                    style={{ backgroundColor: "#FFFBFF" }}
+                                                    style={{ backgroundColor: "#f5f4ed" }}
                                                 />
                                                 <div>
                                                     <p className="text-sm font-medium">
                                                         Background (Light)
                                                     </p>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                                        background | #FFFBFF
+                                                        background | #f5f4ed
                                                     </p>
                                                 </div>
                                             </div>
@@ -713,24 +713,24 @@ export function AboutContent() {
                                             <div className="flex items-center gap-3">
                                                 <div
                                                     className="w-8 h-8 border border-zinc-300 dark:border-zinc-700"
-                                                    style={{ backgroundColor: "#191919" }}
+                                                    style={{ backgroundColor: "#141413" }}
                                                 />
                                                 <div>
                                                     <p className="text-sm font-medium">
                                                         Background (Dark)
                                                     </p>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                                        background | #191919
+                                                        background | #141413
                                                     </p>
                                                 </div>
                                             </div>
                                             {/* Foreground */}
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-zinc-100 border border-zinc-300 dark:border-zinc-700" />
+                                                <div className="w-8 h-8 bg-card border border-zinc-300 dark:border-zinc-700" />
                                                 <div>
                                                     <p className="text-sm font-medium">Card Background</p>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                                        zinc-100/zinc-900 | #f4f4f5 / #18181b
+                                                        Ivory/Dark Surface | #faf9f5 / #30302e
                                                     </p>
                                                 </div>
                                             </div>
@@ -740,7 +740,7 @@ export function AboutContent() {
 
                                 {/* Animation System */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Animation System
                                         </h5>
@@ -797,13 +797,13 @@ export function AboutContent() {
 
                                 {/* Design Principles */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-sblue-500 dark:hover:border-sblue-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Design Principles
                                         </h5>
                                         <ul className="space-y-3 text-sm">
                                             <li className="flex items-start gap-2">
-                                                <span className="text-sblue-500 mt-0.5">•</span>
+                                                <span className="text-brand-500 mt-0.5">•</span>
                                                 <div>
                                                     <span className="font-medium">
                                                         Non-Rounded Design
@@ -818,7 +818,7 @@ export function AboutContent() {
                                                 </div>
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <span className="text-sblue-500 mt-0.5">•</span>
+                                                <span className="text-brand-500 mt-0.5">•</span>
                                                 <div>
                                                     <span className="font-medium">Bento Grid Layout</span>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
@@ -827,7 +827,7 @@ export function AboutContent() {
                                                 </div>
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <span className="text-sblue-500 mt-0.5">•</span>
+                                                <span className="text-brand-500 mt-0.5">•</span>
                                                 <div>
                                                     <span className="font-medium">
                                                         Hover Border Accent
@@ -835,14 +835,14 @@ export function AboutContent() {
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                                                         Cards highlight with{" "}
                                                         <code className="bg-zinc-200 dark:bg-zinc-800 px-1">
-                                                            border-sblue-500
+                                                            border-brand-500
                                                         </code>{" "}
                                                         on hover
                                                     </p>
                                                 </div>
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <span className="text-sblue-500 mt-0.5">•</span>
+                                                <span className="text-brand-500 mt-0.5">•</span>
                                                 <div>
                                                     <span className="font-medium">
                                                         Grayscale-to-Color
@@ -853,7 +853,7 @@ export function AboutContent() {
                                                 </div>
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <span className="text-sblue-500 mt-0.5">•</span>
+                                                <span className="text-brand-500 mt-0.5">•</span>
                                                 <div>
                                                     <span className="font-medium">
                                                         Underline Highlights
@@ -861,7 +861,7 @@ export function AboutContent() {
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                                                         Key text uses{" "}
                                                         <code className="bg-zinc-200 dark:bg-zinc-800 px-1">
-                                                            border-b-2 border-sblue-500
+                                                            border-b-2 border-brand-500
                                                         </code>
                                                     </p>
                                                 </div>

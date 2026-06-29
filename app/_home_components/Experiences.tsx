@@ -77,8 +77,8 @@ function ExperienceItem({ exp, index, isLatest }: {
                 <motion.div
                     className={`w-3 h-3 rounded-full shrink-0 mt-1.5 z-10 border-2
                         ${isLatest
-                            ? "bg-sblue-500 border-sblue-500"
-                            : "bg-transparent border-zinc-400 dark:border-zinc-600 group-hover:border-sblue-500"
+                            ? "bg-brand-500 border-brand-500"
+                            : "bg-transparent border-zinc-400 dark:border-zinc-600 group-hover:border-brand-500"
                         } transition-colors duration-300`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -106,14 +106,14 @@ function ExperienceItem({ exp, index, isLatest }: {
                     bg-zinc-100 dark:bg-zinc-900
                     border border-zinc-200 dark:border-zinc-800
                     p-5 md:p-6
-                    group-hover:border-sblue-500 dark:group-hover:border-sblue-500
+                    group-hover:border-brand-500 dark:group-hover:border-brand-500
                     transition-all duration-300
-                    ${isLatest ? "border-l-2 border-l-sblue-500 dark:border-l-sblue-500" : ""}
+                    ${isLatest ? "border-l-2 border-l-brand-500 dark:border-l-brand-500" : ""}
                 `}>
                     {/* Meta row */}
                     <div className="flex items-center gap-2 flex-wrap mb-3">
                         {isLatest && (
-                            <span className="text-xs bg-sblue-500 text-white px-2 py-0.5 font-medium">
+                            <span className="text-xs bg-brand-500 text-white px-2 py-0.5 font-medium">
                                 Current
                             </span>
                         )}
@@ -127,7 +127,7 @@ function ExperienceItem({ exp, index, isLatest }: {
                         </span>
                     </div>
 
-                    <h3 className="font-heading font-bold text-base md:text-lg leading-snug group-hover:text-sblue-500 transition-colors duration-300">
+                    <h3 className="font-heading font-bold text-base md:text-lg leading-snug group-hover:text-brand-500 transition-colors duration-300">
                         {exp.position}
                     </h3>
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 flex items-center gap-1.5">
@@ -147,7 +147,7 @@ function ExperienceItem({ exp, index, isLatest }: {
                         {exp.skillset.map((skill, i) => (
                             <motion.span
                                 key={i}
-                                className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-b border-transparent hover:border-sblue-500 transition-colors duration-200 cursor-default"
+                                className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-b border-transparent hover:border-brand-500 transition-colors duration-200 cursor-default"
                                 whileHover={{ y: -1 }}
                                 transition={{ duration: 0.15 }}
                             >
@@ -190,8 +190,8 @@ export function Experiences() {
                     transition={{ duration: 0.5 }}
                     className="mb-10 flex items-center gap-3"
                 >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Experience</span>
+                    <span className="inline-block w-6 h-px bg-brand-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">Experience</span>
                 </motion.div>
 
                 <motion.div
@@ -202,9 +202,9 @@ export function Experiences() {
                     className="mb-14"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold font-heading">
-                        Work <span className="text-sblue-500">Experience</span>
+                        Work <span className="text-brand-500">Experience</span>
                     </h2>
-                    <div className="w-16 h-px bg-sblue-500 mt-4" />
+                    <div className="w-16 h-px bg-brand-500 mt-4" />
                 </motion.div>
 
                 {/* Two-column layout: year ticker + timeline */}
@@ -223,7 +223,7 @@ export function Experiences() {
                                 <span className={`
                                     font-heading font-bold tabular-nums leading-none
                                     ${index === 0
-                                        ? "text-xl text-sblue-500"
+                                        ? "text-xl text-brand-500"
                                         : "text-sm text-zinc-300 dark:text-zinc-700"
                                     }
                                 `}>

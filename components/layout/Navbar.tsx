@@ -39,7 +39,7 @@ export const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2">
           <motion.span
-            className="w-2 h-2 rounded-full bg-sblue-500"
+            className="w-2 h-2 rounded-full bg-brand-500"
             whileHover={{ scale: 1.5 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           />
@@ -58,7 +58,7 @@ export const Navbar = () => {
                 href={link.href}
                 onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className={`relative px-4 py-2 text-sm font-heading font-medium transition-colors duration-200 rounded-none ${isActive
-                    ? "text-sblue-600 dark:text-sblue-400"
+                    ? "text-brand-600 dark:text-brand-400"
                     : "text-muted-foreground hover:text-foreground"
                   }`}
               >
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 {isActive && (
                   <motion.span
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-sblue-500 rounded-none"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-brand-500 rounded-none"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -131,7 +131,7 @@ export const Navbar = () => {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 py-3 text-sm font-medium rounded-none transition-colors duration-200 ${isActive
-                        ? "text-sblue-600 dark:text-sblue-400 bg-sblue-500/10"
+                        ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
                   >

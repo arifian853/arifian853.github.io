@@ -115,8 +115,8 @@ export function ContactCTA() {
                     transition={{ duration: 0.5 }}
                     className="mb-10 flex items-center gap-3"
                 >
-                    <span className="inline-block w-6 h-px bg-sblue-500/50" />
-                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-sblue-500/70">Contact</span>
+                    <span className="inline-block w-6 h-px bg-brand-500/50" />
+                    <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">Contact</span>
                 </motion.div>
                 <motion.div
                     variants={containerVariants}
@@ -128,7 +128,7 @@ export function ContactCTA() {
                     {/* Left Side - CTA */}
                     <motion.div variants={itemVariants} className="space-y-6">
                         <h2 className="text-4xl md:text-5xl font-bold font-heading">
-                            Let&apos;s Build <span className="text-sblue-500">Something Amazing</span>
+                            Let&apos;s Build <span className="text-brand-500">Something Amazing</span>
                         </h2>
                         <p className="text-zinc-700 dark:text-zinc-300 text-lg leading-relaxed max-w-md">
                             Have a project idea? Need a custom application or looking for AI/Web expertise?
@@ -142,7 +142,7 @@ export function ContactCTA() {
                                 <DialogTrigger asChild>
                                     <Button
                                         size="lg"
-                                        className="rounded-none bg-sblue-700 hover:bg-sblue-800 text-white font-medium"
+                                        className="rounded-none bg-brand-700 hover:bg-brand-800 text-white font-medium"
                                     >
                                         <Code2 className="w-5 h-5 mr-2" />
                                         Request Custom App
@@ -161,7 +161,7 @@ export function ContactCTA() {
                                     <div className="space-y-6 py-4">
                                         {services.map((service, index) => (
                                             <div key={index}>
-                                                <h4 className="font-semibold text-sblue-500 mb-2">
+                                                <h4 className="font-semibold text-brand-500 mb-2">
                                                     {service.category}
                                                 </h4>
                                                 <ul className="space-y-1">
@@ -170,7 +170,7 @@ export function ContactCTA() {
                                                             key={itemIndex}
                                                             className="text-sm text-zinc-700 dark:text-zinc-300 flex items-start gap-2"
                                                         >
-                                                            <span className="text-sblue-500 mt-1">•</span>
+                                                            <span className="text-brand-500 mt-1">•</span>
                                                             {item}
                                                         </li>
                                                     ))}
@@ -194,7 +194,7 @@ export function ContactCTA() {
                                                 onClick={copyEmail}
                                             >
                                                 {copied ? (
-                                                    <Check className="w-4 h-4 text-sblue-500" />
+                                                    <Check className="w-4 h-4 text-brand-500" />
                                                 ) : (
                                                     <Copy className="w-4 h-4" />
                                                 )}
@@ -202,7 +202,7 @@ export function ContactCTA() {
                                             <a href={`mailto:${EMAIL}`}>
                                                 <Button
                                                     size="sm"
-                                                    className="rounded-none bg-sblue-700 hover:bg-sblue-800"
+                                                    className="rounded-none bg-brand-700 hover:bg-brand-800"
                                                 >
                                                     <Mail className="w-4 h-4 mr-1" />
                                                     Email
@@ -219,7 +219,7 @@ export function ContactCTA() {
                                     <Button
                                         size="lg"
                                         variant="outline"
-                                        className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-sblue-500 hover:border-sblue-500 font-medium"
+                                        className="rounded-none bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-brand-500 hover:border-brand-500 font-medium"
                                     >
                                         <Handshake className="w-5 h-5 mr-2" />
                                         Collaborate With Me
@@ -247,7 +247,7 @@ export function ContactCTA() {
                                             >
                                                 {copied ? (
                                                     <>
-                                                        <Check className="w-4 h-4 mr-2 text-sblue-500" />
+                                                        <Check className="w-4 h-4 mr-2 text-brand-500" />
                                                         Copied!
                                                     </>
                                                 ) : (
@@ -283,13 +283,13 @@ export function ContactCTA() {
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 group"
                                 >
-                                    <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-sblue-500 dark:group-hover:bg-sblue-500 transition-colors duration-300">
+                                    <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-brand-500 dark:group-hover:bg-brand-500 transition-colors duration-300">
                                         <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-300" />
                                     </div>
-                                    <span className="text-zinc-700 dark:text-zinc-300 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 transition-colors duration-300 font-medium">
+                                    <span className="text-zinc-700 dark:text-zinc-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300 font-medium">
                                         {social.name}
                                     </span>
-                                    <ExternalLink className="w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-sblue-600 dark:group-hover:text-sblue-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                    <ExternalLink className="w-4 h-4 text-zinc-600 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                                 </a>
                             ))}
                         </div>
@@ -299,7 +299,7 @@ export function ContactCTA() {
                             <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-2">Or email me directly:</p>
                             <a
                                 href={`mailto:${EMAIL}`}
-                                className="text-sblue-500 hover:text-sblue-400 font-medium flex items-center gap-2"
+                                className="text-brand-500 hover:text-brand-400 font-medium flex items-center gap-2"
                             >
                                 <Mail className="w-4 h-4" />
                                 {EMAIL}
