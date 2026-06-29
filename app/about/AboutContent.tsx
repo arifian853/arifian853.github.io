@@ -626,9 +626,12 @@ export function AboutContent() {
                             whileInView="visible"
                             viewport={{ once: true }}
                         >
-                            <h3 className="text-2xl md:text-3xl font-bold font-heading mb-6">
+                            <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">
                                 Design <span className="text-brand-500">System</span>
                             </h3>
+                            <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mb-8 max-w-3xl">
+                                This website is designed with a <strong>Minimalist Brutalism</strong> approach, highlighting sharp corners (<code className="text-xs bg-zinc-200 dark:bg-zinc-800 px-1 py-0.5 font-mono">rounded-none</code>) and a modular bento grid. The warm color palette is directly inspired by the editorial aesthetics of the <strong>Claude.ai</strong> website (Parchment, Ivory, and Terracotta).
+                            </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
                                 {/* Typography */}
