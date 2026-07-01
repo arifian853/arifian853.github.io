@@ -610,7 +610,7 @@ export function AboutContent() {
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
                                             <Sparkles className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">
-                                                Groq LLaMA 3.3 70B
+                                                GPT-OSS 20B via Groq
                                             </span>
                                         </div>
                                     </div>

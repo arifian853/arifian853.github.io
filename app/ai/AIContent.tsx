@@ -282,7 +282,7 @@ export function AIContent() {
                         </DialogTitle>
                         <DialogDescription className="text-sm pt-2 text-muted-foreground">
                             Ini adalah asisten AI personal Arifian yang ditenagai oleh teknologi RAG
-                            dan model Groq LLaMA 3.3 70B.
+                            dan model GPT-OSS 20B via Groq.
                         </DialogDescription>
                     </DialogHeader>
 
@@ -333,7 +333,7 @@ export function AIContent() {
                         <div>
                             <h3 className="text-xs font-heading font-semibold uppercase tracking-wider text-muted-foreground mb-2">Technology Stack</h3>
                             <ul className="text-xs text-muted-foreground space-y-1.5">
-                                <li>• LLaMA 3.3 70B via Groq (LLM)</li>
+                                <li>• GPT-OSS 20B via Groq (LLM)</li>
                                 <li>• Multilingual SentenceTransformer (Embeddings)</li>
                                 <li>• Cosine similarity vector search untuk data RAG</li>
                                 <li>• FastAPI backend</li>

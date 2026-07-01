@@ -49,7 +49,7 @@ This is my personal portfolio showcasing projects, experiences, and a bit about 
 
 ### Backend (AI & Messaging API)
 - FastAPI
-- Groq LLaMA 3.3 70B Versatile
+- GPT-OSS 20B via Groq
 - SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2)
 - MongoDB
 - Hosted on Hugging Face Spaces

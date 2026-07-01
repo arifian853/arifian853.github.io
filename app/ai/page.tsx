@@ -4,10 +4,10 @@ import { AIContent } from "./AIContent";
 
 export const metadata = {
   title: "Arifian.dev - AI",
-  description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and Groq LLaMA 3.3 70B.",
+  description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and GPT-OSS 20B.",
   openGraph: {
     title: "Arifian.dev - AI",
-    description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and Groq LLaMA 3.3 70B.",
+    description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and GPT-OSS 20B.",
   },
 }
 
