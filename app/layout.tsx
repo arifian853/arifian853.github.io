@@ -3,6 +3,7 @@ import { Inclusive_Sans, Lexend_Deca } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { ScrollToTop } from "@/components/tools/scroll-to-top";
+import Script from "next/script";
 import "./globals.css";
 
 const inclusiveSans = Inclusive_Sans({
@@ -74,8 +75,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Inline script to detect and apply theme before paint - prevents flash */}
-        <script
-          suppressHydrationWarning
+        <Script
+          id="theme-detect"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
