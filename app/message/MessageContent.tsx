@@ -141,7 +141,7 @@ export function MessageContent() {
                             className="flex items-center gap-2.5 bg-[#141413] dark:bg-[#faf9f5] text-[#faf9f5] dark:text-[#141413] text-xs px-4 py-3 shadow-lg rounded-none border border-border"
                         >
                             <Check className="w-3.5 h-3.5 shrink-0 text-brand-500" />
-                            Pesan terkirim! Terima kasih telah menyapa.
+                            Message sent! Thanks for saying hi.
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -189,7 +189,7 @@ export function MessageContent() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-3xl font-bold font-heading mb-3"
                     >
-                        Papan <span className="text-brand-500">Pesan</span>
+                        Message <span className="text-brand-500">Board</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -197,7 +197,7 @@ export function MessageContent() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed"
                     >
-                        Tinggalkan pesan anonim di bawah ini. Saya membaca setiap pesan yang masuk dan sesekali membalasnya secara terbuka.
+                        Leave an anonymous message below. I read every incoming message and occasionally reply to them publicly.
                     </motion.p>
                 </div>
 
@@ -213,7 +213,7 @@ export function MessageContent() {
                             <textarea
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Tulis sesuatu secara anonim..."
+                                placeholder="Write something anonymously..."
                                 disabled={isLoading}
                                 rows={3}
                                 maxLength={charLimit}
@@ -228,20 +228,20 @@ export function MessageContent() {
                                     disabled={isLoading || !input.trim()}
                                     className="rounded-none bg-brand-500 hover:bg-brand-600 text-white disabled:bg-brand-500/40 h-9 px-5 text-xs gap-1.5 transition-colors font-medium"
                                 >
-                                    {isLoading ? "Mengirim..." : "Kirim Pesan"}
+                                    {isLoading ? "Sending..." : "Send Message"}
                                 </Button>
                             </div>
                         </div>
                     </form>
                     <p className="text-[10px] text-muted-foreground/60 text-center mt-3 leading-relaxed">
-                        Pesan bersifat sepenuhnya anonim. Pesan yang tidak pantas (SARA/kekerasan) akan dihapus.
+                        Messages are completely anonymous. Inappropriate messages (harassment/hate speech) will be deleted.
                     </p>
                 </motion.div>
 
                 {/* Feed Header */}
                 <div className="flex items-center justify-between mb-8">
                     <span className="text-xs font-heading tracking-[0.2em] uppercase text-muted-foreground">
-                        Pesan Masuk
+                        Inbox
                     </span>
                     {!isFetching && (
                         <span className="text-xs text-muted-foreground font-mono bg-secondary px-2.5 py-0.5">
@@ -282,7 +282,7 @@ export function MessageContent() {
                                     {msg.reply && (
                                         <div className="mt-4 pl-4 border-l-2 border-brand-500 bg-secondary/20 py-3.5 px-4 transition-colors group-hover:bg-secondary/35">
                                             <div className="flex items-center gap-1.5 text-[10px] font-heading font-bold text-brand-500 uppercase tracking-wider mb-1.5">
-                                                <span>↳ Arifian membalas</span>
+                                                <span>↳ Arifian replied</span>
                                                 {msg.replyTimestamp && (
                                                     <span className="text-muted-foreground/50 font-normal font-mono lowercase normal-case ml-2">
                                                         ({msg.replyTimestamp})
@@ -301,10 +301,10 @@ export function MessageContent() {
                         <div className="py-16 flex flex-col items-center justify-center text-center">
                             <MessageSquare className="w-10 h-10 text-muted-foreground/20 mb-4" />
                             <p className="text-muted-foreground text-sm">
-                                Belum ada pesan masuk.
+                                No messages yet.
                             </p>
                             <p className="text-muted-foreground/70 text-xs mt-1">
-                                Jadilah orang pertama yang mengirimkan pesan di atas!
+                                Be the first to send a message above!
                             </p>
                         </div>
                     )}

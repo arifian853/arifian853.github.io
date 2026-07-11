@@ -184,7 +184,7 @@ export function ContactCTA() {
                                             Interested? Send me an email with your project details:
                                         </p>
                                         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                                            <code className="w-full sm:flex-1 bg-zinc-100 dark:bg-zinc-800 px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono break-all">
+                                            <code className="w-full sm:flex-1 bg-zinc-200/50 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700 px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono break-all">
                                                 {EMAIL}
                                             </code>
                                             <Button
@@ -237,7 +237,7 @@ export function ContactCTA() {
 
                                     <div className="py-6">
                                         <div className="flex items-center gap-3">
-                                            <code className="flex-1 bg-zinc-100 dark:bg-zinc-800 px-3 sm:px-4 py-3 text-xs sm:text-sm font-mono text-center break-all">
+                                            <code className="flex-1 bg-zinc-200/50 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700 px-3 sm:px-4 py-3 text-xs sm:text-sm font-mono text-center break-all">
                                                 {EMAIL}
                                             </code>
                                             <Button

@@ -225,7 +225,7 @@ export function AIContent() {
             ])
 
         } catch (err) {
-            setError("Gagal terhubung ke AI. Silakan coba lagi.")
+            setError("Failed to connect to AI. Please try again.")
             console.error(err)
         } finally {
             setIsLoading(false)
@@ -281,15 +281,15 @@ export function AIContent() {
                             Welcome
                         </DialogTitle>
                         <DialogDescription className="text-sm pt-2 text-muted-foreground">
-                            Ini adalah asisten AI personal Arifian yang ditenagai oleh teknologi RAG
-                            dan model GPT-OSS 20B via Groq.
+                            This is Arifian's personal AI assistant, powered by RAG technology
+                            and the GPT-OSS 20B model via Groq.
                         </DialogDescription>
                     </DialogHeader>
 
                     <div className="py-4 space-y-4">
                         <div className="bg-secondary/40 p-4 border-l-4 border-brand-500">
                             <p className="text-xs text-muted-foreground leading-relaxed">
-                                Mohon gunakan AI ini secara bijak. AI memiliki pengetahuan khusus seputar data publik personal dan profesional Arifian Saputra.
+                                Please use this AI responsibly. The AI has specific knowledge about the personal and professional public data of Arifian Saputra.
                             </p>
                         </div>
 
@@ -303,7 +303,7 @@ export function AIContent() {
                                 htmlFor="dontShow"
                                 className="text-xs text-muted-foreground cursor-pointer select-none"
                             >
-                                Jangan tunjukkan ini lagi
+                                Don't show this again
                             </label>
                         </div>
                     </div>
@@ -312,7 +312,7 @@ export function AIContent() {
                         onClick={handleCloseWelcome}
                         className="w-full rounded-none bg-brand-500 hover:bg-brand-600 text-white font-medium"
                     >
-                        Mulai Chat
+                        Start Chat
                     </Button>
                 </DialogContent>
             </Dialog>
@@ -322,10 +322,10 @@ export function AIContent() {
                 <DialogContent className="w-[calc(100%-2rem)] max-w-[450px] rounded-none border-border bg-card">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-heading">
-                            Tentang AI Ini
+                            About This AI
                         </DialogTitle>
                         <DialogDescription className="text-sm pt-2 text-muted-foreground">
-                            Detail teknis dan informasi penggunaan.
+                            Technical details and usage information.
                         </DialogDescription>
                     </DialogHeader>
 
@@ -335,20 +335,20 @@ export function AIContent() {
                             <ul className="text-xs text-muted-foreground space-y-1.5">
                                 <li>• GPT-OSS 20B via Groq (LLM)</li>
                                 <li>• Multilingual SentenceTransformer (Embeddings)</li>
-                                <li>• Cosine similarity vector search untuk data RAG</li>
+                                <li>• Cosine similarity vector search for RAG data</li>
                                 <li>• FastAPI backend</li>
                             </ul>
                         </div>
 
                         <div className="bg-secondary/40 p-4 border-l-4 border-brand-500">
-                            <h3 className="text-xs font-semibold mb-1">Catatan</h3>
+                            <h3 className="text-xs font-semibold mb-1">Note</h3>
                             <p className="text-xs text-muted-foreground leading-relaxed">
-                                Jika respon pertama memakan waktu lama, server backend mungkin sedang cold start (bangun dari mode tidur). Harap tunggu beberapa detik.
+                                If the first response takes a long time, the backend server might be performing a cold start. Please wait a few seconds.
                             </p>
                         </div>
 
                         <div className="text-xs text-muted-foreground">
-                            Riwayat chat Anda disimpan secara lokal di browser dan tidak dikirim ke server mana pun di luar permintaan prompt.
+                            Your chat history is saved locally in the browser and is not sent to any external server outside of prompt requests.
                         </div>
                     </div>
 
@@ -356,7 +356,7 @@ export function AIContent() {
                         onClick={() => setShowInfo(false)}
                         className="w-full rounded-none bg-brand-500 hover:bg-brand-600 text-white font-medium"
                     >
-                        Mengerti
+                        Understood
                     </Button>
                 </DialogContent>
             </Dialog>
@@ -382,7 +382,7 @@ export function AIContent() {
                             className="rounded-none hover:bg-secondary text-muted-foreground hover:text-foreground text-xs px-2 sm:px-2.5 h-8 gap-1.5"
                         >
                             <Info className="w-3.5 h-3.5" />
-                            <span className="hidden sm:inline">Detail AI</span>
+                            <span className="hidden sm:inline">AI Details</span>
                         </Button>
                         {messages.length > 0 && (
                             <AlertDialog>
@@ -393,20 +393,20 @@ export function AIContent() {
                                         className="rounded-none text-muted-foreground hover:text-destructive hover:bg-destructive/10 text-xs px-2 sm:px-2.5 h-8 gap-1.5"
                                     >
                                         <Trash2 className="w-3.5 h-3.5" />
-                                        <span className="hidden sm:inline">Hapus Chat</span>
+                                        <span className="hidden sm:inline">Clear Chat</span>
                                     </Button>
                                 </AlertDialogTrigger>
                                 <AlertDialogContent className="rounded-none border-border bg-card">
                                     <AlertDialogHeader>
-                                        <AlertDialogTitle>Hapus Riwayat Chat?</AlertDialogTitle>
+                                        <AlertDialogTitle>Delete Chat History?</AlertDialogTitle>
                                         <AlertDialogDescription className="text-sm text-muted-foreground">
-                                            Tindakan ini akan menghapus semua pesan di layar ini secara permanen. Tindakan ini tidak dapat dibatalkan.
+                                            This action will permanently delete all messages on this screen. This action cannot be undone.
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
-                                        <AlertDialogCancel className="rounded-none">Batal</AlertDialogCancel>
+                                        <AlertDialogCancel className="rounded-none">Cancel</AlertDialogCancel>
                                         <AlertDialogAction onClick={clearChat} className="rounded-none bg-destructive hover:bg-destructive/95 text-white">
-                                            Hapus Semua
+                                            Delete All
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
@@ -424,10 +424,10 @@ export function AIContent() {
                         className="flex-1 flex flex-col items-center justify-center py-6 md:py-10"
                     >
                         <h2 className="text-2xl md:text-4xl font-heading font-bold text-center mb-2 tracking-tight">
-                            Tanya tentang <span className="text-brand-500">Arifian</span>
+                            Ask about <span className="text-brand-500">Arifian</span>
                         </h2>
                         <p className="text-xs md:text-sm text-muted-foreground text-center mb-6 md:mb-10 max-w-md">
-                            Ketahui latar belakang, kompetensi, atau proyek Arifian dengan bertanya langsung ke asisten AI personalnya.
+                            Learn about Arifian's background, skills, or projects by asking his personal AI assistant directly.
                         </p>
 
                         {/* Centered Large Chat Input */}
@@ -437,7 +437,7 @@ export function AIContent() {
                                 type="text"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Tanyakan sesuatu tentang Arifian..."
+                                placeholder="Ask something about Arifian..."
                                 disabled={isLoading}
                                 className="flex-1 px-4 h-12 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-300 text-sm rounded-none"
                             />
@@ -453,7 +453,7 @@ export function AIContent() {
                         {/* Recommendations Grid */}
                         <div className="w-full max-w-2xl">
                             <span className="text-[10px] md:text-xs font-heading tracking-[0.15em] uppercase text-muted-foreground/60 mb-3 md:mb-4 block text-center">
-                                Rekomendasi Pertanyaan
+                                Recommended Questions
                             </span>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                                 {randomSuggestions.map((item, index) => (
@@ -489,7 +489,7 @@ export function AIContent() {
                                     {/* Role Header label */}
                                     <div className="text-[10px] tracking-wider text-muted-foreground uppercase mb-1.5 flex items-center gap-1.5">
                                         {message.role === "user" ? (
-                                            <span>Anda</span>
+                                            <span>You</span>
                                         ) : (
                                             <>
                                                 <Sparkles className="w-3 h-3 text-brand-500" />
@@ -544,7 +544,7 @@ export function AIContent() {
                                         onClick={refreshQuickSuggestions}
                                         disabled={isLoading}
                                         className="p-1.5 bg-card border border-border hover:border-brand-500 text-muted-foreground hover:text-brand-500 transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0"
-                                        title="Acak Pertanyaan"
+                                        title="Shuffle Questions"
                                     >
                                         <RefreshCw className="w-3 h-3" />
                                     </button>
@@ -570,7 +570,7 @@ export function AIContent() {
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    placeholder="Tulis pesan ke asisten..."
+                                    placeholder="Type a message to the assistant..."
                                     disabled={isLoading}
                                     className="flex-1 px-4 h-11 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-300 text-sm rounded-none"
                                 />

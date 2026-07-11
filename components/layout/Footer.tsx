@@ -102,14 +102,10 @@ export const Footer = () => {
             <img
               src={randomMeme}
               alt="Random Cat Meme"
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full object-cover"
             />
             {/* Scanlines / CRT overlay effect */}
             <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.12)_50%)] bg-[size:100%_4px] opacity-40" />
-          </div>
-          
-          <div className="text-[9px] text-muted-foreground select-none" style={MONO_FONT}>
-            [CAT.EXE]
           </div>
         </div>
       )}

@@ -149,7 +149,7 @@ export function About() {
               <div className="relative mb-4">
                 <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-brand-500">
                   <Image
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover"
                     src="/profile.avif"
                     alt="Arifian Saputra"
                     width={128}
