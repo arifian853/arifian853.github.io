@@ -129,7 +129,7 @@ export function ProjectContent() {
                                     >
                                         <ShimmerCard className="h-full">
                                             <Link href={`/projects/${project.id}`} className="block h-full">
-                                                <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group overflow-hidden min-h-[200px] p-8 md:p-10">
+                                                <div className="relative h-full bg-card border border-border hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group overflow-hidden min-h-[200px] p-8 md:p-10">
                                                     {/* Watermark number — large, absolute, elegant */}
                                                     <span
                                                         aria-hidden="true"
@@ -203,7 +203,7 @@ export function ProjectContent() {
                                 >
                                     <ShimmerCard className="h-full">
                                         <Link href={`/projects/${project.id}`} className="block h-full">
-                                            <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group min-h-[220px] relative overflow-hidden">
+                                            <div className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 cursor-pointer group min-h-[220px] relative overflow-hidden">
                                                 {/* Subtle watermark */}
                                                 <span
                                                     aria-hidden="true"
@@ -280,7 +280,7 @@ export function ProjectContent() {
                             {olderProjects.map((project) => (
                                 <motion.div key={project.id} variants={cardVariants}>
                                     <Link href={`/projects/${project.id}`}>
-                                        <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-300 cursor-pointer">
+                                        <div className="group py-5 px-4 -mx-4 border-b border-border hover:bg-secondary/15 transition-all duration-300 cursor-pointer">
                                             <div className="flex items-center gap-6">
                                                 {/* Number */}
                                                 <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">

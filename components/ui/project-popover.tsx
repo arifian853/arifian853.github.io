@@ -94,7 +94,7 @@ export function ProjectPopover({ projectId, title, year, description, children }
                 style={{
                     "--anchor-target": anchorName,
                 } as React.CSSProperties}
-                className="project-popover border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 p-5 shadow-2xl max-w-[320px] pointer-events-auto"
+                className="project-popover border border-border bg-card p-5 shadow-2xl max-w-[320px] pointer-events-auto"
             >
                 <div className="relative z-10">
                     <span className="text-[10px] font-heading tracking-[0.2em] uppercase text-brand-500/70 mb-2 block">

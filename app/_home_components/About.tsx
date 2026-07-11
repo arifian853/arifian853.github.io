@@ -145,7 +145,7 @@ export function About() {
         >
           {/* Profile Card - Spans 2 rows */}
           <motion.div variants={cardVariants} className="md:row-span-2">
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <div className="relative mb-4">
                 <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-brand-500">
                   <Image
@@ -177,7 +177,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-2 lg:col-span-2"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                 Who Am I?
               </h3>
@@ -199,7 +199,7 @@ export function About() {
 
           {/* Stats Cards - Single column */}
           <motion.div variants={cardVariants}>
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                 Stats
               </h3>
@@ -226,7 +226,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-2 lg:col-span-2"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                 Skills & Expertise
               </h3>
@@ -270,7 +270,7 @@ export function About() {
             variants={cardVariants}
             className="md:col-span-3 lg:col-span-4"
           >
-            <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+            <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
               <div className="flex flex-wrap justify-center gap-6">
                 {techStack.map((tech, index) => {
                   const anchorName = `--home-tech-anchor-${index}`;

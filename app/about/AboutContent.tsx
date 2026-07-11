@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
     Code2,
@@ -169,7 +170,7 @@ export function AboutContent() {
                 >
                     {/* Profile Card - Spans 2 rows */}
                     <motion.div variants={cardVariants} className="md:row-span-2">
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 flex flex-col items-center justify-center group hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <div className="relative mb-4">
                                 <div className="w-32 h-32 overflow-hidden rounded-none border-2 border-brand-500">
                                     <Image
@@ -201,7 +202,7 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-2 lg:col-span-2"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-lg font-bold font-heading mb-3 flex items-center gap-2">
                                 Who Am I?
                             </h3>
@@ -223,7 +224,7 @@ export function AboutContent() {
 
                     {/* Stats Cards - Single column */}
                     <motion.div variants={cardVariants}>
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Stats
                             </h3>
@@ -250,7 +251,7 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-2 lg:col-span-2"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Skills & Expertise
                             </h3>
@@ -270,7 +271,7 @@ export function AboutContent() {
 
                     {/* Contact Card */}
                     <motion.div variants={cardVariants}>
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 flex flex-col justify-center hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 flex flex-col justify-center hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <h3 className="text-sm font-bold font-heading mb-4 text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                                 Get In Touch
                             </h3>
@@ -331,7 +332,7 @@ export function AboutContent() {
                         variants={cardVariants}
                         className="md:col-span-3 lg:col-span-4"
                     >
-                        <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                        <ShimmerCard className="h-full bg-card border border-border rounded-none p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                             <div className="flex flex-wrap justify-center gap-6">
                                 {techStack.map((tech, index) => {
                                     const anchorName = `--about-tech-anchor-${index}`;
@@ -381,7 +382,7 @@ export function AboutContent() {
                     >
                         {/* Web Development */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <Code2 className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     Web Development
@@ -409,7 +410,7 @@ export function AboutContent() {
 
                         {/* AI & Machine Learning */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <Brain className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     AI & Machine Learning
@@ -437,7 +438,7 @@ export function AboutContent() {
 
                         {/* Mentoring & Others */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <BookOpen className="w-8 h-8 text-brand-500 mb-4" />
                                 <h4 className="font-heading font-bold text-lg mb-3">
                                     Mentoring & Others
@@ -488,7 +489,7 @@ export function AboutContent() {
                     >
                         {/* University */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <div className="flex items-start justify-between mb-3">
                                     <span className="bg-brand-700 text-white text-xs font-medium px-2 py-1">
                                         2020 - 2024
@@ -512,7 +513,7 @@ export function AboutContent() {
 
                         {/* High School */}
                         <motion.div variants={cardVariants}>
-                            <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                            <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                 <div className="flex items-start justify-between mb-3">
                                     <span className="bg-zinc-500 text-white text-xs font-medium px-2 py-1">
                                         2017 - 2020
@@ -563,7 +564,7 @@ export function AboutContent() {
                         >
                             {/* Frontend Stack */}
                             <motion.div variants={cardVariants}>
-                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
+                                <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
                                     <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                         Frontend
                                     </h4>
@@ -594,7 +595,7 @@ export function AboutContent() {
 
                             {/* Backend AI Stack */}
                             <motion.div variants={cardVariants}>
-                                <ShimmerCard className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
+                                <ShimmerCard className="bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300 h-full">
                                     <h4 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                         Backend AI
                                     </h4>
@@ -636,7 +637,7 @@ export function AboutContent() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
                                 {/* Typography */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Typography
                                         </h5>
@@ -669,7 +670,7 @@ export function AboutContent() {
 
                                 {/* Color Palette */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Color Palette
                                         </h5>
@@ -743,7 +744,7 @@ export function AboutContent() {
 
                                 {/* Animation System */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Animation System
                                         </h5>
@@ -800,7 +801,7 @@ export function AboutContent() {
 
                                 {/* Design Principles */}
                                 <motion.div variants={cardVariants} className="h-full">
-                                    <ShimmerCard className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
+                                    <ShimmerCard className="h-full bg-card border border-border p-6 hover:border-brand-500 dark:hover:border-brand-500 transition-colors duration-300">
                                         <h5 className="font-heading font-bold text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4">
                                             Design Principles
                                         </h5>
@@ -872,6 +873,14 @@ export function AboutContent() {
                                         </ul>
                                     </ShimmerCard>
                                 </motion.div>
+                            </div>
+
+                            <div className="flex justify-center mt-10">
+                                <Link href="/design">
+                                    <button className="bg-transparent hover:bg-brand-500/10 text-brand-500 hover:text-brand-600 dark:hover:text-brand-400 font-medium px-8 py-3 border border-brand-500/30 hover:border-brand-500 transition-colors duration-300 rounded-none flex items-center gap-2 font-heading text-sm uppercase tracking-wider cursor-pointer">
+                                        See the DESIGN.MD file
+                                    </button>
+                                </Link>
                             </div>
                         </motion.div>
                     </motion.div>

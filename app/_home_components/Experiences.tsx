@@ -103,8 +103,8 @@ function ExperienceItem({ exp, index, isLatest }: {
                 className={`flex-1 pb-8`}
             >
                 <div className={`
-                    bg-zinc-100 dark:bg-zinc-900
-                    border border-zinc-200 dark:border-zinc-800
+                    bg-card
+                    border border-border
                     p-5 md:p-6
                     group-hover:border-brand-500 dark:group-hover:border-brand-500
                     transition-all duration-300

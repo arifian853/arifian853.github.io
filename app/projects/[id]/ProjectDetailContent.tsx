@@ -103,7 +103,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         {project.tags.map((tag, index) => (
                             <div
                                 key={index}
-                                className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 px-3 py-1.5 border border-zinc-200 dark:border-zinc-700 rounded-none"
+                                className="flex items-center gap-2 bg-card px-3 py-1.5 border border-border rounded-none"
                             >
                                 <ProjectIcon iconName={tag.iconName} className="w-4 h-4 text-brand-500" />
                                 <span className="text-sm font-medium">{tag.name}</span>
@@ -119,7 +119,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="mb-8"
                 >
-                    <div className="relative w-full aspect-video bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-none overflow-hidden">
+                    <div className="relative w-full aspect-video bg-card border border-border rounded-none overflow-hidden">
                         <Image
                             src={project.image}
                             alt={project.title}
@@ -190,7 +190,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800"
+                    className="mt-16 pt-8 border-t border-border"
                 >
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -199,13 +199,13 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         className="mb-6 flex items-center gap-3"
                     >
                         <span className="text-xs font-heading tracking-[0.15em] uppercase text-zinc-400 dark:text-zinc-500">Explore More</span>
-                        <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-800" />
+                        <div className="flex-1 h-px bg-border" />
                     </motion.div>
 
                     <div className="space-y-0">
                         {exploreProjects.map((p) => (
                             <Link key={p.id} href={`/projects/${p.id}`}>
-                                <div className="group py-5 px-4 -mx-4 border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 transition-all duration-300 cursor-pointer">
+                                <div className="group py-5 px-4 -mx-4 border-b border-border hover:bg-secondary/15 transition-all duration-300 cursor-pointer">
                                     <div className="flex items-center gap-6">
                                         {/* Number */}
                                         <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">

@@ -114,7 +114,7 @@ export function FeaturedProjects() {
                                         description={project.description}
                                     >
                                         <Link href={`/projects/${project.id}`}>
-                                            <div className="relative h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 md:p-10 cursor-pointer group overflow-hidden hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[180px]">
+                                            <div className="relative h-full bg-card border border-border p-8 md:p-10 cursor-pointer group overflow-hidden hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[180px]">
                                                 {/* Watermark number */}
                                                 <span
                                                     aria-hidden="true"
@@ -175,7 +175,7 @@ export function FeaturedProjects() {
                                     description={project.description}
                                 >
                                     <Link href={`/projects/${project.id}`}>
-                                        <div className="h-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 cursor-pointer group overflow-hidden relative hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[220px]">
+                                        <div className="h-full bg-card border border-border p-6 cursor-pointer group overflow-hidden relative hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 min-h-[220px]">
                                             {/* Subtle watermark */}
                                             <span
                                                 aria-hidden="true"

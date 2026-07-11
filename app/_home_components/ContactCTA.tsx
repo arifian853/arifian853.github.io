@@ -267,7 +267,7 @@ export function ContactCTA() {
                     {/* Right Side - Connect */}
                     <motion.div
                         variants={itemVariants}
-                        className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 space-y-6"
+                        className="bg-card border border-border p-6 space-y-6"
                     >
                         <h3 className="text-sm font-bold font-heading text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">
                             Connect With Me
