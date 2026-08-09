@@ -3,11 +3,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import { AIContent } from "./AIContent";
 
 export const metadata = {
-  title: "Arifian.dev - AI",
-  description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and GPT-OSS 20B.",
+  title: "Arifian.dev - Elara AI Assistant",
+  description: "Elara - Arifian's personal AI assistant powered by Hybrid RAG (Gemini Embeddings 2 + Supabase pgvector), Gemma 4 26B Reranker, and Groq GPT-OSS 120B.",
   openGraph: {
-    title: "Arifian.dev - AI",
-    description: "Arifian.AI - Arifian's personal AI assistant powered by RAG technology and GPT-OSS 20B.",
+    title: "Arifian.dev - Elara AI Assistant",
+    description: "Elara - Arifian's personal AI assistant powered by Hybrid RAG (Gemini Embeddings 2 + Supabase pgvector), Gemma 4 26B Reranker, and Groq GPT-OSS 120B.",
   },
 }
 

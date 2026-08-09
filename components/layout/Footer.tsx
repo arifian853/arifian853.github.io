@@ -86,7 +86,7 @@ export const Footer = () => {
           >
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 bg-green-500 inline-block animate-pulse" />
-              <span>SYS: ONLINE</span>
+              
             </div>
             <div>LOC: INDONESIA</div>
             <div>TZ: GMT+7</div>

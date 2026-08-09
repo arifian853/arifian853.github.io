@@ -47,12 +47,15 @@ This is my personal portfolio showcasing projects, experiences, and a bit about 
 - shadcn/ui (Radix UI)
 - next-themes
 
-### Backend (AI & Messaging API)
-- FastAPI
-- GPT-OSS 20B via Groq
-- SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2)
-- MongoDB
-- Hosted on Hugging Face Spaces
+### Backend (Elara AI & Messaging API)
+- FastAPI (Python 3.11+ managed via `uv`)
+- Groq Inference Engine (`openai/gpt-oss-120b`)
+- Google AI Studio Embeddings (`gemini-embedding-2`, 768 dimensions)
+- Google AI Studio Reranker (`gemma-4-26b-a4b-it`)
+- Supabase PostgreSQL with `pgvector 0.8.2` (HNSW Cosine + Full-Text Search FTS GIN via Reciprocal Rank Fusion RRF)
+- Cloudflare R2 Object Storage (`boto3` S3 client)
+- Bidirectional Hermes Telegram Agent Bridge (`autumn_elara_nymph_bot`)
+- Deployed on Production VPS with Systemd (`elara.arifian.dev`) & Nginx Reverse Proxy
 
 ## Scripts
 

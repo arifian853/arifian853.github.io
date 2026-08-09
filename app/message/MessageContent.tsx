@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { Send, MessageSquare, AlertCircle, Check, Mail } from "lucide-react"
+import { MessageSquare, AlertCircle, Check, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface Message {
@@ -23,7 +23,7 @@ interface APIMessage {
     isReplied: boolean
 }
 
-const API_BASE_URL = "https://arifian853-arifian-ai-v1-1.hf.space"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://elara.arifian.dev"
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString)
@@ -278,8 +278,8 @@ export function MessageContent() {
                                         {msg.content}
                                     </p>
 
-                                    {/* Nested Reply Area */}
-                                    {msg.reply && (
+                                    {/* Nested Reply Area or Pending Tag */}
+                                    {msg.reply ? (
                                         <div className="mt-4 pl-4 border-l-2 border-brand-500 bg-secondary/20 py-3.5 px-4 transition-colors group-hover:bg-secondary/35">
                                             <div className="flex items-center gap-1.5 text-[10px] font-heading font-bold text-brand-500 uppercase tracking-wider mb-1.5">
                                                 <span>↳ Arifian replied</span>
@@ -292,6 +292,11 @@ export function MessageContent() {
                                             <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                                                 {msg.reply}
                                             </p>
+                                        </div>
+                                    ) : (
+                                        <div className="mt-3 flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground/70">
+                                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500/80 animate-pulse" />
+                                          
                                         </div>
                                     )}
                                 </motion.div>
