@@ -7,6 +7,7 @@ import Image from "next/image"
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react"
 import { Project } from "@/lib/data/projects"
 import { ProjectIcon } from "@/components/ui/project-icon"
+import { ProjectImageCarousel } from "@/components/ui/project-image-carousel"
 import { Button } from "@/components/ui/button"
 
 interface ProjectDetailContentProps {
@@ -112,24 +113,28 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                     </div>
                 </motion.div>
 
-                {/* Project Image */}
+                {/* Project Image / Carousel */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="mb-8"
                 >
-                    <div className="relative w-full aspect-video bg-card border border-border rounded-none overflow-hidden">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                            className="object-cover"
-                            priority
-                            quality={80}
-                        />
-                    </div>
+                    {project.images && project.images.length > 0 ? (
+                        <ProjectImageCarousel images={project.images} title={project.title} />
+                    ) : (
+                        <div className="relative w-full aspect-video bg-card border border-border rounded-none overflow-hidden">
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                                className="object-cover"
+                                priority
+                                quality={80}
+                            />
+                        </div>
+                    )}
                 </motion.div>
 
                 {/* Description */}

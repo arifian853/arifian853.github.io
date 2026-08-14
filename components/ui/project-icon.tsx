@@ -1,12 +1,13 @@
 "use client"
 
-import { FaPython, FaReact, FaNodeJs } from "react-icons/fa6";
+import { FaPython, FaReact, FaNodeJs, FaAws } from "react-icons/fa6";
 import {
     SiJupyter, SiFlask, SiTensorflow, SiKeras, SiScikitlearn,
     SiTailwindcss, SiMongodb, SiExpress, SiRedux, SiPytorch,
     SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress,
     SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp,
-    SiFastapi, SiTypescript, SiNextdotjs, SiPostgresql
+    SiFastapi, SiTypescript, SiNextdotjs, SiPostgresql,
+    SiNestjs, SiSupabase, SiAmazons3, SiTypeorm, SiCloudflare
 } from "react-icons/si";
 import { IconType, IconBaseProps } from "react-icons";
 
@@ -35,6 +36,7 @@ const iconMap: Record<string, IconType> = {
     FaPython,
     FaReact,
     FaNodeJs,
+    FaAws,
     SiJupyter,
     SiFlask,
     SiTensorflow,
@@ -61,6 +63,11 @@ const iconMap: Record<string, IconType> = {
     SiPlaywright,
     SiNextdotjs,
     SiPostgresql,
+    SiNestjs,
+    SiSupabase,
+    SiAmazons3,
+    SiTypeorm,
+    SiCloudflare,
 };
 
 interface ProjectIconProps {

@@ -18,6 +18,7 @@ export interface Project {
     year: string;
     description: string;
     image: string;
+    images?: string[];
     link: { repo_link: string; btn_name: string }[];
     demo: { demo_link: string; btn_name: string }[];
     tags: ProjectTag[];
@@ -274,6 +275,36 @@ export const projects: Project[] = [
             { iconName: "SiTypescript", name: "TypeScript" },
             { iconName: "SiExpress", name: "Express.js" },
             { iconName: "SiPostgresql", name: "PostgreSQL" }
+        ]
+    },
+    {
+        id: 15,
+        title: "Infinite Learning LMS v2",
+        year: "2026",
+        description: "Enterprise-grade multi-role **Learning Management System (LMS)** designed to streamline digital class delivery, syllabus management, student attendance tracking, interactive assignment submissions, and AI-assisted grading workflows. Developed using **AI-Driven Development** with **Google Antigravity**, built on a modern decoupled architecture featuring **Next.js 16 (Turbopack)** and **React 19** on the frontend, paired with a high-performance **NestJS 11** and **TypeORM** backend powered by **Supabase PostgreSQL** database and **Cloudflare R2** storage.",
+        image: "/projects/project15/1.avif",
+        images: [
+            "/projects/project15/1.avif",
+            "/projects/project15/2.avif",
+            "/projects/project15/3.avif",
+            "/projects/project15/4.avif",
+            "/projects/project15/5.avif",
+            "/projects/project15/6.avif"
+        ],
+        link: [],
+        demo: [
+            { demo_link: "https://lms-v2.infinitelearningstudent.id/", btn_name: "Live Demo" }
+        ],
+        tags: [
+            { iconName: "SiNextdotjs", name: "Next.js" },
+            { iconName: "FaReact", name: "React" },
+            { iconName: "SiTailwindcss", name: "Tailwind CSS" },
+            { iconName: "SiTypescript", name: "TypeScript" },
+            { iconName: "SiNestjs", name: "NestJS" },
+            { iconName: "SiTypeorm", name: "TypeORM" },
+            { iconName: "SiSupabase", name: "Supabase" },
+            { iconName: "SiPostgresql", name: "PostgreSQL" },
+            { iconName: "SiCloudflare", name: "Cloudflare R2" }
         ]
     },
 ];
