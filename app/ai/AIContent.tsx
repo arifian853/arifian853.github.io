@@ -264,7 +264,7 @@ export function AIContent() {
             setHistory(prev => [
                 ...prev,
                 { role: "user", content: messageText },
-                { role: "model", content: assistantMessage.content }
+                { role: "assistant", content: assistantMessage.content }
             ])
 
         } catch (err) {
