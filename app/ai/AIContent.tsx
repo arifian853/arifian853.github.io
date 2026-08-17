@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import rehypeRaw from "rehype-raw"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Send, Trash2, Sparkles, AlertCircle, Info, RefreshCw, Copy, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -150,6 +151,7 @@ export function AIContent() {
             <div className="prose prose-invert max-w-none text-sm leading-relaxed space-y-2 [&_p]:my-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_strong]:font-bold [&_strong]:text-[#2563EB] dark:[&_strong]:text-[#38BDF8] [&_h1]:text-base [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_h3]:text-xs [&_h3]:font-bold [&_hr]:my-3 [&_hr]:border-border">
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
                     components={{
                         a: ({ href, children }) => (
                             <a
