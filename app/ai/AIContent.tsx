@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Send, Trash2, Sparkles, AlertCircle, Info, RefreshCw, Copy, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -143,21 +144,75 @@ export function AIContent() {
         setTimeout(() => setCopiedIndex(null), 2000)
     }
 
-    // Render rich markdown content (bold, lists, headings, links, code) safely
+    // Render rich markdown content (bold, lists, headings, links, tables, code, blockquotes) safely
     const renderMarkdownContent = (text: string) => {
         return (
-            <div className="prose prose-invert max-w-none text-sm leading-relaxed space-y-2 [&_p]:my-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_strong]:font-bold [&_strong]:text-[#2563EB] dark:[&_strong]:text-[#38BDF8] [&_h1]:text-base [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_h3]:text-xs [&_h3]:font-bold [&_code]:font-mono [&_code]:bg-secondary/80 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-xs [&_hr]:my-3 [&_hr]:border-border">
+            <div className="prose prose-invert max-w-none text-sm leading-relaxed space-y-2 [&_p]:my-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_strong]:font-bold [&_strong]:text-[#2563EB] dark:[&_strong]:text-[#38BDF8] [&_h1]:text-base [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_h3]:text-xs [&_h3]:font-bold [&_hr]:my-3 [&_hr]:border-border">
                 <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
                     components={{
                         a: ({ href, children }) => (
                             <a
                                 href={href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#2563EB] dark:text-[#38BDF8] font-semibold hover:underline break-all"
+                                className="text-[#2563EB] dark:text-[#38BDF8] font-semibold hover:underline break-all inline"
                             >
                                 {children}
                             </a>
+                        ),
+                        table: ({ children }) => (
+                            <div className="my-3 w-full overflow-x-auto border border-border bg-card/60">
+                                <table className="w-full text-left text-xs border-collapse font-sans">
+                                    {children}
+                                </table>
+                            </div>
+                        ),
+                        thead: ({ children }) => (
+                            <thead className="bg-secondary/80 border-b border-border text-foreground font-mono uppercase text-[11px]">
+                                {children}
+                            </thead>
+                        ),
+                        tbody: ({ children }) => (
+                            <tbody className="divide-y divide-border/60">
+                                {children}
+                            </tbody>
+                        ),
+                        tr: ({ children }) => (
+                            <tr className="hover:bg-secondary/30 transition-colors">
+                                {children}
+                            </tr>
+                        ),
+                        th: ({ children }) => (
+                            <th className="p-2.5 font-bold tracking-wider border-r border-border/40 last:border-r-0 text-foreground">
+                                {children}
+                            </th>
+                        ),
+                        td: ({ children }) => (
+                            <td className="p-2.5 text-muted-foreground border-r border-border/40 last:border-r-0 leading-relaxed">
+                                {children}
+                            </td>
+                        ),
+                        pre: ({ children }) => (
+                            <pre className="my-2.5 p-3 bg-secondary/80 border border-border font-mono text-xs overflow-x-auto text-foreground">
+                                {children}
+                            </pre>
+                        ),
+                        code: ({ children, className }) => {
+                            const isBlock = className?.includes("language-")
+                            if (isBlock) {
+                                return <code className="font-mono text-xs text-foreground block">{children}</code>
+                            }
+                            return (
+                                <code className="font-mono bg-secondary/80 text-[#2563EB] dark:text-[#38BDF8] px-1.5 py-0.5 text-xs border border-border/40">
+                                    {children}
+                                </code>
+                            )
+                        },
+                        blockquote: ({ children }) => (
+                            <blockquote className="border-l-4 border-[#2563EB] dark:border-[#38BDF8] pl-3 py-1 my-2 bg-secondary/20 italic text-muted-foreground text-xs">
+                                {children}
+                            </blockquote>
                         ),
                     }}
                 >
