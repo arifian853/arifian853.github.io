@@ -32,7 +32,7 @@ interface Message {
 }
 
 interface HistoryItem {
-    role: "user" | "model"
+    role: "user" | "assistant" | "model"
     content: string
 }
 
