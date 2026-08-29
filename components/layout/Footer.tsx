@@ -3,7 +3,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 const CAT_MEMES = [
   "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTFwZjY2enRwMGF6eGVkNXV5ZzB4eHN5NmRiZHJtMDI2YWVwYzh0NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1OrIIOIcRTDaNidc5p/giphy.gif",
@@ -23,15 +23,16 @@ const CAT_MEMES = [
   "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjZjcmQ0emg3cXk1b2tkanA1Nm82NHY4MWh3ZGs0ODkwc2VudnByMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y4nk5bgwpWL6T5Ax9y/giphy.gif"
 ]
 
-const MONO_FONT = { fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" }
-
 export const Footer = () => {
   const [randomMeme, setRandomMeme] = useState<string | null>(null)
 
   // Choose a random meme once per mount
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * CAT_MEMES.length)
-    setRandomMeme(CAT_MEMES[randomIndex])
+    const id = requestAnimationFrame(() => {
+      const randomIndex = Math.floor(Math.random() * CAT_MEMES.length)
+      setRandomMeme(CAT_MEMES[randomIndex])
+    })
+    return () => cancelAnimationFrame(id)
   }, [])
 
   return (
@@ -41,56 +42,14 @@ export const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-          {/* Left Block: Copyright Info */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
-            <p className="text-sm font-heading font-medium">
-              Arifian S., {new Date().getFullYear()}. Made with{" "}
-              <span className="text-brand-500 font-semibold hover:underline">Next.js</span>
-            </p>
-            <span className="text-xs text-muted-foreground font-heading">
-              50% human-crafted, 50% vibe-coded.
-            </span>
-          </div>
-
-          {/* Center Block: Social Links / Nav */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-heading">
-            <a 
-              href="https://github.com/arifian853" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-brand-500 transition-colors py-1 px-2 border border-transparent hover:border-border rounded-none"
-            >
-              GITHUB ↗
-            </a>
-            <a 
-              href="https://linkedin.com/in/arifiansaputra" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-brand-500 transition-colors py-1 px-2 border border-transparent hover:border-border rounded-none"
-            >
-              LINKEDIN ↗
-            </a>
-            <a 
-              href="mailto:arifiansaputra43@gmail.com" 
-              className="hover:text-brand-500 transition-colors py-1 px-2 border border-transparent hover:border-border rounded-none"
-            >
-              EMAIL ↗
-            </a>
-          </div>
-
-          {/* Right Block: System Metadata */}
-          <div 
-            className="hidden md:flex flex-col items-end gap-0.5 text-[10px] text-muted-foreground select-none uppercase tracking-wider text-right"
-            style={MONO_FONT}
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 bg-green-500 inline-block animate-pulse" />
-              
-            </div>
-            <div>LOC: INDONESIA</div>
-            <div>TZ: GMT+7</div>
-          </div>
+        <div className="flex flex-col items-center text-center gap-1">
+          <p className="text-sm font-heading font-medium">
+            Arifian S., {new Date().getFullYear()}. Made with{" "}
+            <span className="text-brand-500 font-semibold hover:underline">Next.js</span>
+          </p>
+          <span className="text-xs text-muted-foreground font-heading">
+            50% human-crafted, 50% vibe-coded.
+          </span>
         </div>
       </div>
 
@@ -99,9 +58,12 @@ export const Footer = () => {
         <div className="w-full border-t border-dashed border-foreground/20 dark:border-foreground/30 py-6 bg-secondary/15 flex flex-col items-center justify-center gap-2">
           {/* Retro CRT TV frame */}
           <div className="relative group overflow-hidden border-2 border-foreground bg-zinc-950 p-1 w-36 h-28 shadow-sm">
-            <img
+            <Image
               src={randomMeme}
               alt="Random Cat Meme"
+              width={144}
+              height={112}
+              unoptimized
               className="w-full h-full object-cover"
             />
             {/* Scanlines / CRT overlay effect */}

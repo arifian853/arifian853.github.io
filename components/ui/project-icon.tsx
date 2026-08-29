@@ -7,7 +7,8 @@ import {
     SiGooglegemini, SiDart, SiFlutter, SiFirebase, SiWordpress,
     SiHtml5, SiCss3, SiJavascript, SiWebpack, SiUnity, SiSharp,
     SiFastapi, SiTypescript, SiNextdotjs, SiPostgresql,
-    SiNestjs, SiSupabase, SiAmazons3, SiTypeorm, SiCloudflare
+    SiNestjs, SiSupabase, SiAmazons3, SiTypeorm, SiCloudflare,
+    SiTelegram
 } from "react-icons/si";
 import { IconType, IconBaseProps } from "react-icons";
 
@@ -68,6 +69,7 @@ const iconMap: Record<string, IconType> = {
     SiAmazons3,
     SiTypeorm,
     SiCloudflare,
+    SiTelegram,
 };
 
 interface ProjectIconProps {

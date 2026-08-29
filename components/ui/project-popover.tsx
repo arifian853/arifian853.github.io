@@ -53,13 +53,13 @@ export function ProjectPopover({ projectId, title, year, description, children }
         if (isOpen) {
             try {
                 popover.showPopover()
-            } catch (e) {
+            } catch {
                 // Fallback for browsers not fully supporting showPopover
             }
         } else {
             try {
                 popover.hidePopover()
-            } catch (e) {
+            } catch {
                 // Fallback
             }
         }

@@ -1,7 +1,9 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Code2, Handshake, Mail, Copy, Check, ExternalLink } from "lucide-react"
+import { Code2, Handshake, Mail, Copy, Check, ExternalLink, ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 import { useRef } from "react"
 import {
     SiInstagram,
@@ -235,29 +237,56 @@ export function ContactCTA() {
                                         </DialogDescription>
                                     </DialogHeader>
 
-                                    <div className="py-6">
+                                    <div className="pt-4 pb-2 space-y-4">
                                         <div className="flex items-center gap-3">
-                                            <code className="flex-1 bg-zinc-200/50 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700 px-3 sm:px-4 py-3 text-xs sm:text-sm font-mono text-center break-all">
+                                            <code className="flex-1 bg-zinc-200/50 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700 px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-mono text-center break-all">
                                                 {EMAIL}
                                             </code>
                                             <Button
                                                 variant="outline"
-                                                className="rounded-none"
+                                                className="rounded-none h-10"
                                                 onClick={copyEmail}
                                             >
                                                 {copied ? (
                                                     <>
-                                                        <Check className="w-4 h-4 mr-2 text-brand-500" />
+                                                        <Check className="w-4 h-4 mr-1.5 text-brand-500" />
                                                         Copied!
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <Copy className="w-4 h-4 mr-2" />
+                                                        <Copy className="w-4 h-4 mr-1.5" />
                                                         Copy
                                                     </>
                                                 )}
                                             </Button>
                                         </div>
+
+                                        {/* Divider: or chat with Elara */}
+                                        <div className="relative my-2">
+                                            <div className="absolute inset-0 flex items-center">
+                                                <span className="w-full border-t border-border" />
+                                            </div>
+                                            <div className="relative flex justify-center text-xs">
+                                                <span className="bg-card px-2 text-muted-foreground font-mono text-[11px]">
+                                                    or chat with Elara
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        {/* Direct button to /ai in same tab */}
+                                        <Link href="/ai" className="block w-full">
+                                            <Button
+                                                className="w-full h-11 rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-medium text-xs sm:text-sm flex items-center justify-between px-3.5 shadow-sm group cursor-pointer transition-colors"
+                                            >
+                                                <div className="flex items-center gap-2.5">
+                                                    <div className="relative w-6 h-6 border border-white/30 bg-[#0F172A] overflow-hidden shrink-0">
+                                                        <Image src="/elara.png" alt="Elara AI" fill className="object-cover" />
+                                                    </div>
+                                                    <span className="font-heading font-semibold">Chat with Elara AI</span>
+                                                </div>
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </DialogContent>
                             </Dialog>

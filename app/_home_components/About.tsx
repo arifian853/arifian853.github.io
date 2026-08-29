@@ -192,7 +192,7 @@ export function About() {
                 </span>{" "}
                 field, specializing in Machine Learning, Large Language Models,
                 Natural Language Processing, building production-ready web
-                applications, and QA automation with Playwright.
+                applications.
               </p>
             </ShimmerCard>
           </motion.div>

@@ -38,8 +38,13 @@ interface HistoryItem {
     content: string
 }
 
-const suggestedMessages = [
-    { category: "🚀 Project Request", message: "Aku mau buat proyek / konsultasi dengan Arifian" },
+const PROJECT_REQUEST_SUGGESTION = {
+    category: "Project Request & Consultation",
+    message: "Aku mau buat proyek / konsultasi dengan Arifian",
+    description: "Konsultasikan ide proyek, pembuatan web app, AI system, integrasi backend, atau ajak kerja sama freelance.",
+}
+
+const generalSuggestedMessages = [
     { category: "Bio & Career", message: "Siapakah Arifian Saputra?" },
     { category: "Bio & Career", message: "Apa latar belakang pendidikan dan pekerjaan Arifian?" },
     { category: "Projects", message: "Proyek unggulan apa saja yang telah dibangun Arifian?" },
@@ -55,6 +60,7 @@ const API_ENDPOINT = `${API_BASE}/chat`
 export function AIContent() {
     const [messages, setMessages] = useState<Message[]>([])
     const [history, setHistory] = useState<HistoryItem[]>([])
+    const [sessionId, setSessionId] = useState<string>("")
     const [input, setInput] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -62,7 +68,7 @@ export function AIContent() {
     const [showInfo, setShowInfo] = useState(false)
     const [dontShowAgain, setDontShowAgain] = useState(false)
     const [mounted, setMounted] = useState(false)
-    const [quickSuggestions, setQuickSuggestions] = useState<typeof suggestedMessages>([])
+    const [quickSuggestions, setQuickSuggestions] = useState<typeof generalSuggestedMessages>([])
     const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
     const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -75,16 +81,16 @@ export function AIContent() {
     })
     const bgY = useTransform(scrollYProgress, [0, 1], [0, 100])
 
-    // Pick 4 suggestions for empty state
+    // Pick 4 general suggestions for empty state
     const randomSuggestions = useMemo(() => {
-        return [...suggestedMessages]
+        return [...generalSuggestedMessages]
             .sort(() => Math.random() - 0.5)
             .slice(0, 4)
     }, [])
 
     // Shuffle 3 suggestions for quick bottom choices
     const refreshQuickSuggestions = () => {
-        const shuffled = [...suggestedMessages]
+        const shuffled = [...generalSuggestedMessages]
             .sort(() => Math.random() - 0.5)
             .slice(0, 3)
         setQuickSuggestions(shuffled)
@@ -93,6 +99,13 @@ export function AIContent() {
     // Load from localStorage on mount
     useEffect(() => {
         setMounted(true)
+        let sid = localStorage.getItem("elara-ai-session-id")
+        if (!sid) {
+            sid = "elara_usr_" + Math.random().toString(36).substring(2, 11) + "_" + Date.now().toString(36)
+            localStorage.setItem("elara-ai-session-id", sid)
+        }
+        setSessionId(sid)
+
         const savedMessages = localStorage.getItem("elara-ai-messages") || localStorage.getItem("arifian-ai-messages")
         const savedHistory = localStorage.getItem("elara-ai-history") || localStorage.getItem("arifian-ai-history")
         const hideWelcome = localStorage.getItem("elara-ai-hide-welcome")
@@ -302,6 +315,7 @@ export function AIContent() {
                 },
                 body: JSON.stringify({
                     message: messageText,
+                    session_id: sessionId,
                     history: history
                 })
             })
@@ -345,6 +359,9 @@ export function AIContent() {
     const clearChat = () => {
         setMessages([])
         setHistory([])
+        const newSid = "elara_usr_" + Math.random().toString(36).substring(2, 11) + "_" + Date.now().toString(36)
+        localStorage.setItem("elara-ai-session-id", newSid)
+        setSessionId(newSid)
         localStorage.removeItem("elara-ai-messages")
         localStorage.removeItem("elara-ai-history")
         localStorage.removeItem("arifian-ai-messages")
@@ -495,7 +512,7 @@ export function AIContent() {
 
             {/* Main App Container */}
             <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-6 flex flex-col flex-1 min-h-0">
-                
+
                 {/* Elegant Minimalist Header */}
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
                     <div className="flex items-center gap-3">
@@ -600,11 +617,43 @@ export function AIContent() {
                             </Button>
                         </form>
 
-                        {/* Suggested Questions Grid */}
-                        <div className="w-full max-w-2xl">
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/70 mb-3 block text-center">
+                        {/* Suggested Questions Grid with Pinned Project Request at Top */}
+                        <div className="w-full max-w-2xl space-y-3">
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/70 mb-1 block text-center">
                                 Rekomendasi Pertanyaan
                             </span>
+
+                            {/* Featured Top Card: Project Request & Consultation */}
+                            <motion.button
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                onClick={() => handleSuggestedClick(PROJECT_REQUEST_SUGGESTION.message)}
+                                disabled={isLoading}
+                                className="w-full text-left p-3.5 sm:p-4 bg-gradient-to-r from-[#2563EB]/15 via-[#2563EB]/5 to-transparent border border-[#2563EB]/40 hover:border-[#2563EB] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group shadow-xs cursor-pointer"
+                            >
+                                <div className="flex flex-col pr-3">
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-[#2563EB] dark:text-[#38BDF8] uppercase tracking-wider bg-[#2563EB]/10 px-2 py-0.5 border border-[#2563EB]/20">
+                                            {PROJECT_REQUEST_SUGGESTION.category}
+                                        </span>
+                                        <span className="text-[10px] text-[#2563EB] dark:text-[#38BDF8] font-mono hidden sm:inline">
+                                            • Rekomendasi Utama
+                                        </span>
+                                    </div>
+                                    <span className="text-xs sm:text-sm font-semibold text-foreground group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors">
+                                        {PROJECT_REQUEST_SUGGESTION.message}
+                                    </span>
+                                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                                        {PROJECT_REQUEST_SUGGESTION.description}
+                                    </p>
+                                </div>
+                                <div className="shrink-0 flex items-center gap-1.5 bg-[#2563EB] text-white px-3 py-2 text-xs font-medium group-hover:bg-[#1D4ED8] transition-colors shadow-xs">
+                                    <span className="hidden sm:inline">Mulai</span>
+                                    <Send className="w-3 h-3" />
+                                </div>
+                            </motion.button>
+
+                            {/* 4 General Suggestion Cards (2x2 Grid) */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                 {randomSuggestions.map((item, index) => (
                                     <motion.button
@@ -614,7 +663,7 @@ export function AIContent() {
                                         transition={{ delay: index * 0.05 }}
                                         onClick={() => handleSuggestedClick(item.message)}
                                         disabled={isLoading}
-                                        className="w-full text-left text-xs p-3.5 bg-card border border-border hover:border-[#2563EB] hover:bg-[#2563EB]/[0.03] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group"
+                                        className="w-full text-left text-xs p-3.5 bg-card border border-border hover:border-[#2563EB] hover:bg-[#2563EB]/[0.03] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group cursor-pointer"
                                     >
                                         <div className="flex flex-col">
                                             <span className="text-[9px] font-mono text-[#2563EB] dark:text-[#38BDF8] uppercase tracking-wider mb-0.5">{item.category}</span>
@@ -652,7 +701,7 @@ export function AIContent() {
                                             </div>
                                         )}
                                     </div>
-                                    
+
                                     {/* Document-styled message box */}
                                     <div className={`relative group max-w-[90%] md:max-w-[85%] px-4 md:px-5 py-3.5 text-sm leading-relaxed rounded-none border ${
                                         message.role === "user"
@@ -727,26 +776,44 @@ export function AIContent() {
                         </div>
 
                         {/* Bottom Bar Input Form */}
-                        <div className="bg-background pt-4 pb-2 border-t border-border">
-                            
+                        <div className="bg-background pt-3 pb-2 border-t border-border">
+
+                            {/* Always-visible Project Action Bar */}
+                            <div className="w-full mb-2 flex items-center justify-between gap-2 px-3.5 py-2 bg-card border border-[#2563EB]/35 hover:border-[#2563EB] bg-gradient-to-r from-[#2563EB]/10 via-[#2563EB]/5 to-transparent transition-all shadow-xs">
+                                <div className="flex items-center gap-2 min-w-0">
+                                    <span className="text-xs text-foreground/90 font-medium truncate">
+                                        Mau buat proyek atau konsultasi dengan Arifian?
+                                    </span>
+                                </div>
+                                <button
+                                    onClick={() => sendMessage(PROJECT_REQUEST_SUGGESTION.message)}
+                                    disabled={isLoading}
+                                    className="shrink-0 text-[11px] sm:text-xs px-2.5 py-1 bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-medium transition-colors shadow-xs flex items-center gap-1 cursor-pointer"
+                                    title="Kirim permintaan proyek / konsultasi"
+                                >
+                                    <Sparkles className="w-3 h-3" />
+                                    <span>Request Proyek</span>
+                                </button>
+                            </div>
+
                             {/* Suggestions during conversation */}
                             {quickSuggestions.length > 0 && (
-                                <div className="max-w-2xl mx-auto mb-3 flex items-center gap-2 px-1 py-1 select-none">
+                                <div className="w-full mb-2 flex items-center gap-2 select-none">
                                     <button
                                         onClick={refreshQuickSuggestions}
                                         disabled={isLoading}
-                                        className="p-1.5 bg-card border border-border hover:border-[#2563EB] text-muted-foreground hover:text-[#2563EB] transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0"
+                                        className="p-1.5 bg-card border border-border hover:border-[#2563EB] text-muted-foreground hover:text-[#2563EB] transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0 cursor-pointer"
                                         title="Acak Pertanyaan"
                                     >
                                         <RefreshCw className="w-3 h-3" />
                                     </button>
-                                    <div className="flex gap-2 overflow-x-auto scrollbar-none shrink-1 min-w-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                    <div className="flex gap-2 overflow-x-auto scrollbar-none flex-1 min-w-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                                         {quickSuggestions.map((item, index) => (
                                             <button
                                                 key={`${item.message}-${index}`}
                                                 onClick={() => handleSuggestedClick(item.message)}
                                                 disabled={isLoading}
-                                                className="text-xs px-3 py-1.5 bg-card border border-border hover:border-[#2563EB] transition-colors duration-200 disabled:opacity-50 text-muted-foreground hover:text-foreground rounded-none shrink-0 whitespace-nowrap"
+                                                className="text-xs px-3 py-1.5 bg-card border border-border hover:border-[#2563EB] transition-colors duration-200 disabled:opacity-50 text-muted-foreground hover:text-foreground rounded-none shrink-0 whitespace-nowrap cursor-pointer"
                                             >
                                                 {item.message}
                                             </button>
@@ -756,7 +823,7 @@ export function AIContent() {
                             )}
 
                             {/* Text input form */}
-                            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto flex gap-2 shadow-sm">
+                            <form onSubmit={handleSubmit} className="w-full flex gap-2 shadow-sm">
                                 <input
                                     ref={inputRef}
                                     type="text"
@@ -769,7 +836,7 @@ export function AIContent() {
                                 <Button
                                     type="submit"
                                     disabled={isLoading || !input.trim()}
-                                    className="rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#2563EB]/40 text-white h-11 px-5 shrink-0 transition-colors"
+                                    className="rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#2563EB]/40 text-white h-11 px-5 shrink-0 transition-colors cursor-pointer"
                                 >
                                     <Send className="w-4 h-4" />
                                 </Button>

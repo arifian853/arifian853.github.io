@@ -7,8 +7,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { CopyMarkdownButton } from "./CopyMarkdownButton";
 
-const inclusiveSansMono = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
-
 function parseInline(text: string): React.ReactNode[] {
   const regex = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g;
   const parts = text.split(regex);
@@ -120,7 +118,7 @@ function parseMarkdown(md: string) {
     // Unordered List parsing
     if (line.startsWith('* ') || line.startsWith('- ')) {
       const listItems: React.ReactNode[] = [];
-      let listKey = i;
+      const listKey = i;
       while (i < lines.length && (lines[i].trim().startsWith('* ') || lines[i].trim().startsWith('- '))) {
         const itemLine = lines[i].trim();
         listItems.push(
@@ -136,9 +134,9 @@ function parseMarkdown(md: string) {
 
     // Table parsing
     if (line.startsWith('|')) {
-      let tableKey = i;
+      const tableKey = i;
       let headers: string[] = [];
-      let rows: string[][] = [];
+      const rows: string[][] = [];
       
       while (i < lines.length && lines[i].trim().startsWith('|')) {
         const tableLine = lines[i].trim();
