@@ -1,12 +1,13 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github } from "lucide-react"
 import { Project } from "@/lib/data/projects"
 import { ProjectIcon } from "@/components/ui/project-icon"
+import { ProjectListItem } from "@/components/ui/project-list-item"
 import { ProjectImageCarousel } from "@/components/ui/project-image-carousel"
 import { Button } from "@/components/ui/button"
 
@@ -34,13 +35,6 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
         })
     }
 
-    // Truncate description
-    const truncateDescription = (text: string, maxLength: number) => {
-        const cleanText = text.replace(/\*\*/g, '')
-        if (cleanText.length <= maxLength) return cleanText
-        return cleanText.slice(0, maxLength).trim() + '...'
-    }
-
     const sectionRef = useRef<HTMLElement>(null)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -55,7 +49,7 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                 className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 6%, transparent) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />
@@ -207,46 +201,9 @@ export function ProjectDetailContent({ project, exploreProjects }: ProjectDetail
                         <div className="flex-1 h-px bg-border" />
                     </motion.div>
 
-                    <div className="space-y-0">
+                    <div className="border-t border-border">
                         {exploreProjects.map((p) => (
-                            <Link key={p.id} href={`/projects/${p.id}`}>
-                                <div className="group py-5 px-4 -mx-4 border-b border-border hover:bg-secondary/15 transition-all duration-300 cursor-pointer">
-                                    <div className="flex items-center gap-6">
-                                        {/* Number */}
-                                        <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
-                                            {formatNumber(p.id)}
-                                        </span>
-
-                                        {/* Content */}
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-center gap-3 flex-wrap">
-                                                <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-brand-500 transition-colors duration-300">
-                                                    {p.title}
-                                                </h3>
-                                                <span className="text-zinc-400 dark:text-zinc-500 text-xs">
-                                                    {p.year}
-                                                </span>
-                                            </div>
-                                            {/* Description reveal on hover */}
-                                            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1 max-h-0 overflow-hidden group-hover:max-h-12 transition-all duration-300 leading-relaxed">
-                                                {truncateDescription(p.description, 120)}
-                                            </p>
-                                        </div>
-
-                                        {/* Tech icons — fade in on hover */}
-                                        <div className="hidden md:flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0">
-                                            {p.tags.slice(0, 4).map((tag, tagIndex) => (
-                                                <div key={tagIndex} className="text-brand-500" title={tag.name}>
-                                                    <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
-                                                </div>
-                                            ))}
-                                        </div>
-
-                                        {/* Arrow */}
-                                        <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-brand-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                                    </div>
-                                </div>
-                            </Link>
+                            <ProjectListItem key={p.id} project={p} />
                         ))}
                     </div>
                 </motion.div>

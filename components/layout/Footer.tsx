@@ -20,7 +20,20 @@ const CAT_MEMES = [
   "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHh1amx3NHd2bnV4ZnpoNHgxMzZuOHJxMHlpdHcxM2h0cWFwZG5lZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D10MRUuHblyFfRzQiQ/giphy.gif",
   "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTljYTUxOHdjZ210NWlmMjRkaWg1ZzR2N2VwbGpraG5qcW96MjB2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pY8jLmZw0ElqvVeRH4/giphy.gif",
   "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzV1ZWhzaGdrZDkwaTQ3anR1dzliY3ExNTNhajRtdjVmM3NxN2hvMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cbm0J4DEIqKHsKxYHA/giphy.gif",
-  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjZjcmQ0emg3cXk1b2tkanA1Nm82NHY4MWh3ZGs0ODkwc2VudnByMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y4nk5bgwpWL6T5Ax9y/giphy.gif"
+  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjZjcmQ0emg3cXk1b2tkanA1Nm82NHY4MWh3ZGs0ODkwc2VudnByMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y4nk5bgwpWL6T5Ax9y/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNsbmFjMWlocTViODIzaGcyZ3p5dG11dDl5c2EwMHVhbXBxMmprbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GTywSIhrVUo0p5gDJE/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNsbmFjMWlocTViODIzaGcyZ3p5dG11dDl5c2EwMHVhbXBxMmprbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/62bRBJV1ccA9nyLmKy/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNsbmFjMWlocTViODIzaGcyZ3p5dG11dDl5c2EwMHVhbXBxMmprbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NAdEYIRFMCBhMGkXSq/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNsbmFjMWlocTViODIzaGcyZ3p5dG11dDl5c2EwMHVhbXBxMmprbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GAtTF1kUyoMFx2QL7n/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3em9leGk1eG1iaHEyeHhmeGd5emhjcWo5bnM0OGY0cTg2MWhkbTlvcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eEg1ziKuWI9m9jVv2a/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cHBydzRiYmlqcTF2NHhiaTMyenJzdnFwOHNiZ29iZTNicmU1Z25neCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rKCUYdpnhwS8qCpCIY/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3em9leGk1eG1iaHEyeHhmeGd5emhjcWo5bnM0OGY0cTg2MWhkbTlvcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1OrIIOIcRTDaNidc5p/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3em9leGk1eG1iaHEyeHhmeGd5emhjcWo5bnM0OGY0cTg2MWhkbTlvcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qZgHBlenHa1zKqy6Zn/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmM1ZHN4NzQ2bjZsbGN6OG5oZGFqNmduc2R4am5vYWdybzN4cDQ3ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/iXeKXVyZHZm4SqerEa/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmM1ZHN4NzQ2bjZsbGN6OG5oZGFqNmduc2R4am5vYWdybzN4cDQ3ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Bji7HlLgQ725R8ja10/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmM1ZHN4NzQ2bjZsbGN6OG5oZGFqNmduc2R4am5vYWdybzN4cDQ3ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/G6TgcESZt8FFk8XV7K/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmM1ZHN4NzQ2bjZsbGN6OG5oZGFqNmduc2R4am5vYWdybzN4cDQ3ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JIX9t2j0ZTN9S/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmM1ZHN4NzQ2bjZsbGN6OG5oZGFqNmduc2R4am5vYWdybzN4cDQ3ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mcsPU3SkKrYDdW3aAU/giphy.gif"
 ]
 
 export const Footer = () => {
@@ -45,7 +58,7 @@ export const Footer = () => {
         <div className="flex flex-col items-center text-center gap-1">
           <p className="text-sm font-heading font-medium">
             Arifian S., {new Date().getFullYear()}. Made with{" "}
-            <span className="text-brand-500 font-semibold hover:underline">Next.js</span>
+            <span className="text-brand-700 dark:text-brand-400 font-semibold hover:underline">Next.js</span>
           </p>
           <span className="text-xs text-muted-foreground font-heading">
             50% human-crafted, 50% vibe-coded.

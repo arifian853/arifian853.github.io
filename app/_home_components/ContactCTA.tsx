@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import { Code2, Handshake, Mail, Copy, Check, ExternalLink, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -103,7 +103,7 @@ export function ContactCTA() {
                 className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(ellipse, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(ellipse, color-mix(in srgb, var(--color-brand-500) 6%, transparent) 0%, transparent 70%)",
                     filter: "blur(40px)"
                 }}
             />
@@ -276,11 +276,11 @@ export function ContactCTA() {
                                         {/* Direct button to /ai in same tab */}
                                         <Link href="/ai" className="block w-full">
                                             <Button
-                                                className="w-full h-11 rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-medium text-xs sm:text-sm flex items-center justify-between px-3.5 shadow-sm group cursor-pointer transition-colors"
+                                                className="w-full h-11 rounded-none bg-brand-700 hover:bg-brand-800 text-white font-medium text-xs sm:text-sm flex items-center justify-between px-3.5 shadow-sm group cursor-pointer transition-colors"
                                             >
                                                 <div className="flex items-center gap-2.5">
-                                                    <div className="relative w-6 h-6 border border-white/30 bg-[#0F172A] overflow-hidden shrink-0">
-                                                        <Image src="/elara.png" alt="Elara AI" fill className="object-cover" />
+                                                    <div className="relative w-6 h-6 border border-white/30 bg-secondary overflow-hidden shrink-0">
+                                                        <Image src="/Elara_Asterwyne.png" alt="Elara AI" fill sizes="24px" className="object-cover" />
                                                     </div>
                                                     <span className="font-heading font-semibold">Chat with Elara AI</span>
                                                 </div>
@@ -313,7 +313,7 @@ export function ContactCTA() {
                                     className="flex items-center gap-4 group"
                                 >
                                     <div className="w-10 h-10 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 group-hover:bg-brand-500 dark:group-hover:bg-brand-500 transition-colors duration-300">
-                                        <social.icon className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-300" />
+                                        <social.icon aria-hidden="true" className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-300" />
                                     </div>
                                     <span className="text-zinc-700 dark:text-zinc-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300 font-medium">
                                         {social.name}

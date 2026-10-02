@@ -1,11 +1,13 @@
 "use client"
 
+import { ELARA_API_URL } from "@/lib/api-config"
+
 import { useState, useEffect, useRef, useMemo } from "react"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeRaw from "rehype-raw"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import { Send, Trash2, Sparkles, AlertCircle, Info, RefreshCw, Copy, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -54,7 +56,7 @@ const generalSuggestedMessages = [
     { category: "Tech Architecture", message: "Bagaimana sistem RAG dan backend Elara bekerja?" },
 ]
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://elara.arifian.dev"
+const API_BASE = ELARA_API_URL
 const API_ENDPOINT = `${API_BASE}/chat`
 
 export function AIContent() {
@@ -161,7 +163,7 @@ export function AIContent() {
     // Render rich markdown content (bold, lists, headings, links, tables, code, blockquotes) safely
     const renderMarkdownContent = (text: string) => {
         return (
-            <div className="prose prose-invert max-w-none text-sm leading-relaxed space-y-2 [&_p]:my-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_strong]:font-bold [&_strong]:text-[#2563EB] dark:[&_strong]:text-[#38BDF8] [&_h1]:text-base [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_h3]:text-xs [&_h3]:font-bold [&_hr]:my-3 [&_hr]:border-border">
+            <div className="prose prose-invert max-w-none text-sm leading-relaxed space-y-2 [&_p]:my-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_strong]:font-bold [&_strong]:text-brand-700 dark:[&_strong]:text-brand-400 [&_h1]:text-base [&_h1]:font-bold [&_h2]:text-sm [&_h2]:font-bold [&_h3]:text-xs [&_h3]:font-bold [&_hr]:my-3 [&_hr]:border-border">
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
@@ -171,7 +173,7 @@ export function AIContent() {
                                 href={href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#2563EB] dark:text-[#38BDF8] font-semibold hover:underline break-all inline"
+                                className="text-brand-700 dark:text-brand-400 font-semibold hover:underline break-all inline"
                             >
                                 {children}
                             </a>
@@ -219,13 +221,13 @@ export function AIContent() {
                                 return <code className="font-mono text-xs text-foreground block">{children}</code>
                             }
                             return (
-                                <code className="font-mono bg-secondary/80 text-[#2563EB] dark:text-[#38BDF8] px-1.5 py-0.5 text-xs border border-border/40">
+                                <code className="font-mono bg-secondary/80 text-brand-700 dark:text-brand-400 px-1.5 py-0.5 text-xs border border-border/40">
                                     {children}
                                 </code>
                             )
                         },
                         blockquote: ({ children }) => (
-                            <blockquote className="border-l-4 border-[#2563EB] dark:border-[#38BDF8] pl-3 py-1 my-2 bg-secondary/20 italic text-muted-foreground text-xs">
+                            <blockquote className="border-l-4 border-brand-500 dark:border-brand-400 pl-3 py-1 my-2 bg-secondary/20 italic text-muted-foreground text-xs">
                                 {children}
                             </blockquote>
                         ),
@@ -382,12 +384,12 @@ export function AIContent() {
 
     return (
         <section ref={sectionRef} id="ai" className="relative min-h-screen flex flex-col py-12 md:py-20 overflow-hidden bg-background">
-            {/* Ambient Background Glow in Elara Ice Blue */}
+            {/* Ambient Background Glow in the Brand Accent */}
             <motion.div
                 className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[500px] h-[500px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 4%, transparent) 0%, transparent 70%)",
                     filter: "blur(70px)"
                 }}
             />
@@ -397,14 +399,14 @@ export function AIContent() {
                 <DialogContent className="w-[calc(100%-2rem)] max-w-[420px] rounded-none border-border bg-card">
                     <DialogHeader>
                         <div className="flex items-center gap-3 mb-2">
-                            <div className="relative w-10 h-10 border border-[#2563EB]/40 bg-[#0F172A] shrink-0 overflow-hidden">
-                                <Image src="/elara.png" alt="Elara AI" fill className="object-cover" />
+                            <div className="relative w-10 h-10 border border-brand-500/40 bg-secondary shrink-0 overflow-hidden">
+                                <Image src="/Elara_Asterwyne.png" alt="Elara AI" fill sizes="40px" className="object-cover" />
                             </div>
                             <div>
                                 <DialogTitle className="text-xl font-heading font-bold text-foreground">
                                     Halo, Saya Elara
                                 </DialogTitle>
-                                <p className="text-xs text-[#2563EB] dark:text-[#38BDF8] font-mono">
+                                <p className="text-xs text-brand-700 dark:text-brand-400 font-mono">
                                     Arifian&apos;s Personal Assistant
                                 </p>
                             </div>
@@ -415,7 +417,7 @@ export function AIContent() {
                     </DialogHeader>
 
                     <div className="py-3 space-y-3">
-                        <div className="bg-secondary/50 p-3.5 border-l-4 border-[#2563EB]">
+                        <div className="bg-secondary/50 p-3.5 border-l-4 border-brand-500">
                             <p className="text-xs text-muted-foreground leading-relaxed">
                                 Anda dapat menanyakan apa saja mengenai latar belakang, karya proyek, keahlian teknis, maupun kontak pribadi Arifian.
                             </p>
@@ -438,7 +440,7 @@ export function AIContent() {
 
                     <Button
                         onClick={handleCloseWelcome}
-                        className="w-full rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-medium text-xs h-10 transition-colors"
+                        className="w-full rounded-none bg-brand-700 hover:bg-brand-800 text-white font-medium text-xs h-10 transition-colors"
                     >
                         Mulai Percakapan
                     </Button>
@@ -447,63 +449,82 @@ export function AIContent() {
 
             {/* Info Dialog */}
             <Dialog open={showInfo} onOpenChange={setShowInfo}>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-[450px] rounded-none border-border bg-card">
-                    <DialogHeader>
+                <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] flex-col rounded-none border-border bg-card p-5 sm:max-w-[520px] sm:p-6">
+                    <DialogHeader className="shrink-0 pr-6 text-left">
                         <div className="flex items-center gap-3 mb-1">
-                            <div className="relative w-8 h-8 border border-[#2563EB]/40 bg-[#0F172A] shrink-0 overflow-hidden">
-                                <Image src="/elara.png" alt="Elara AI" fill className="object-cover" />
+                            <div className="relative w-8 h-8 border border-brand-500/40 bg-secondary shrink-0 overflow-hidden">
+                                <Image src="/Elara_Asterwyne.png" alt="Elara AI" fill sizes="32px" className="object-cover" />
                             </div>
-                            <DialogTitle className="text-xl font-heading font-bold">
+                            <DialogTitle className="text-xl leading-snug font-heading font-bold">
                                 Tentang Elara AI
                             </DialogTitle>
                         </div>
-                        <DialogDescription className="text-xs text-muted-foreground">
+                        <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
                             Informasi teknis dan arsitektur RAG Elara.
                         </DialogDescription>
                     </DialogHeader>
 
-                    <div className="py-3 space-y-4">
+                    <div className="min-h-0 space-y-5 overflow-y-auto py-1 pr-1">
                         <div>
-                            <h3 className="text-[11px] font-mono uppercase tracking-wider text-[#2563EB] dark:text-[#38BDF8] font-semibold mb-2">Technical Architecture</h3>
-                            <ul className="text-xs text-muted-foreground space-y-1.5 font-sans">
-                                <li className="flex items-start gap-1.5">
-                                    <span className="text-[#2563EB]">•</span>
-                                    <span><strong>LLM Generation:</strong> Groq GPT-OSS 120B (`openai/gpt-oss-120b`)</span>
-                                </li>
-                                <li className="flex items-start gap-1.5">
-                                    <span className="text-[#2563EB]">•</span>
-                                    <span><strong>Vector Embeddings:</strong> Google AI Studio (`gemini-embedding-2`, 768 dimensions)</span>
-                                </li>
-                                <li className="flex items-start gap-1.5">
-                                    <span className="text-[#2563EB]">•</span>
-                                    <span><strong>LLM Reranker:</strong> Google AI Studio (`gemma-4-26b-a4b-it`)</span>
-                                </li>
-                                <li className="flex items-start gap-1.5">
-                                    <span className="text-[#2563EB]">•</span>
-                                    <span><strong>Vector Database:</strong> Supabase PostgreSQL (`pgvector 0.8.2` HNSW + FTS GIN via RRF)</span>
-                                </li>
-                                <li className="flex items-start gap-1.5">
-                                    <span className="text-[#2563EB]">•</span>
-                                    <span><strong>Backend Engine:</strong> FastAPI (Python 3.11+) + Hermes Telegram Agent Bridge</span>
-                                </li>
-                            </ul>
+                            <h3 className="mb-4 font-heading text-sm font-semibold text-foreground">Technical Architecture</h3>
+                            <dl className="divide-y divide-border text-sm leading-relaxed text-muted-foreground [&_dt]:font-mono [&_dt]:text-xs [&_dt]:font-semibold [&_dt]:text-brand-700 dark:[&_dt]:text-brand-400 [&_dd]:mt-1.5 [&_code]:inline-block [&_code]:max-w-full [&_code]:break-all [&_code]:border [&_code]:border-border [&_code]:bg-secondary/60 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:text-foreground">
+                                <div className="pb-3">
+                                    <dt>LLM Generation</dt>
+                                    <dd>
+                                        <p>Groq GPT-OSS 120B</p>
+                                        <code className="mt-1">openai/gpt-oss-120b</code>
+                                    </dd>
+                                </div>
+                                <div className="py-3">
+                                    <dt>Vector Embeddings</dt>
+                                    <dd>
+                                        <p>Google AI Studio</p>
+                                        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                                            <code>gemini-embedding-2</code>
+                                            <span className="text-xs">768 dimensions</span>
+                                        </div>
+                                    </dd>
+                                </div>
+                                <div className="py-3">
+                                    <dt>LLM Reranker</dt>
+                                    <dd>
+                                        <p>Google AI Studio</p>
+                                        <code className="mt-1">gemma-4-26b-a4b-it</code>
+                                    </dd>
+                                </div>
+                                <div className="py-3">
+                                    <dt>Vector Database</dt>
+                                    <dd>
+                                        <p>Supabase PostgreSQL</p>
+                                        <code className="mt-1">pgvector 0.8.2</code>
+                                        <p className="mt-1 text-xs">HNSW + FTS GIN via RRF</p>
+                                    </dd>
+                                </div>
+                                <div className="pt-3">
+                                    <dt>Backend Engine</dt>
+                                    <dd>
+                                        <p>FastAPI (Python 3.11+)</p>
+                                        <p className="mt-1 text-xs">+ Hermes Telegram Agent Bridge</p>
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
 
-                        <div className="bg-secondary/50 p-3.5 border-l-4 border-[#2563EB]">
-                            <h3 className="text-xs font-semibold mb-1">Catatan Server</h3>
+                        <div className="bg-secondary/50 p-3.5 border-l-4 border-brand-500">
+                            <h3 className="text-sm font-semibold mb-1">Catatan Server</h3>
                             <p className="text-xs text-muted-foreground leading-relaxed">
                                 Jika respon pertama memerlukan waktu beberapa detik, server backend mungkin sedang melakukan cold start dari status standby.
                             </p>
                         </div>
 
-                        <div className="text-[11px] text-muted-foreground/80 font-mono">
+                        <div className="border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
                             Riwayat pesan disimpan secara lokal di browser Anda dan tidak diunggah ke pihak ketiga secara permanen.
                         </div>
                     </div>
 
                     <Button
                         onClick={() => setShowInfo(false)}
-                        className="w-full rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-medium text-xs h-10 transition-colors"
+                        className="w-full shrink-0 rounded-none bg-brand-700 hover:bg-brand-800 text-white font-medium text-xs h-10 transition-colors"
                     >
                         Tutup
                     </Button>
@@ -516,8 +537,8 @@ export function AIContent() {
                 {/* Elegant Minimalist Header */}
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
                     <div className="flex items-center gap-3">
-                        <div className="relative w-8 h-8 border border-[#2563EB]/40 bg-[#0F172A] shrink-0 overflow-hidden">
-                            <Image src="/elara.png" alt="Elara Avatar" fill className="object-cover" />
+                        <div className="relative w-8 h-8 border border-brand-500/40 bg-secondary shrink-0 overflow-hidden">
+                            <Image src="/Elara_Asterwyne.png" alt="Elara Avatar" fill sizes="32px" className="object-cover" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
@@ -538,7 +559,7 @@ export function AIContent() {
                             onClick={() => setShowInfo(true)}
                             className="rounded-none hover:bg-secondary text-muted-foreground hover:text-foreground text-xs px-2.5 h-8 gap-1.5 border border-transparent hover:border-border"
                         >
-                            <Info className="w-3.5 h-3.5 text-[#2563EB] dark:text-[#38BDF8]" />
+                            <Info className="w-3.5 h-3.5 text-brand-700 dark:text-brand-400" />
                             <span className="hidden sm:inline">Info Elara</span>
                         </Button>
                         {messages.length > 0 && (
@@ -582,16 +603,16 @@ export function AIContent() {
                     >
                         {/* Centered Elara Avatar & Greeting */}
                         <div className="relative mb-4">
-                            <div className="w-20 h-20 border-2 border-[#2563EB]/40 bg-[#0F172A] p-0.5 overflow-hidden shadow-sm">
-                                <Image src="/elara.png" alt="Elara" width={80} height={80} className="object-cover w-full h-full" />
+                            <div className="w-20 h-20 border-2 border-brand-500/40 bg-secondary p-0.5 overflow-hidden shadow-sm">
+                                <Image src="/Elara_Asterwyne.png" alt="Elara" width={80} height={80} className="object-cover w-full h-full" />
                             </div>
-                            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#2563EB] border-2 border-background rounded-full flex items-center justify-center">
+                            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-brand-700 border-2 border-background rounded-full flex items-center justify-center">
                                 <Sparkles className="w-2.5 h-2.5 text-white" />
                             </span>
                         </div>
 
                         <h2 className="text-xl md:text-3xl font-heading font-bold text-center mb-1.5 tracking-tight">
-                            Halo, Aku <span className="text-[#2563EB] dark:text-[#38BDF8]">Elara</span>
+                            Halo, Aku <span className="text-brand-700 dark:text-brand-400">Elara</span>
                         </h2>
                         <p className="text-xs md:text-sm text-muted-foreground text-center mb-6 max-w-md leading-relaxed">
                             Asisten AI pribadi Arifian. Tanyakan apa saja seputar portofolio, keahlian, proyek, atau pengalaman kerja Arifian!
@@ -606,12 +627,12 @@ export function AIContent() {
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Tanyakan sesuatu tentang Arifian..."
                                 disabled={isLoading}
-                                className="flex-1 px-4 h-12 bg-card border border-border focus:border-[#2563EB] outline-none transition-colors duration-200 text-sm rounded-none"
+                                className="flex-1 px-4 h-12 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-200 text-sm rounded-none"
                             />
                             <Button
                                 type="submit"
                                 disabled={isLoading || !input.trim()}
-                                className="rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#2563EB]/40 text-white h-12 px-6 shrink-0 transition-colors"
+                                className="rounded-none bg-brand-700 hover:bg-brand-800 disabled:bg-brand-700/40 text-white h-12 px-6 shrink-0 transition-colors"
                             >
                                 <Send className="w-4 h-4" />
                             </Button>
@@ -629,25 +650,25 @@ export function AIContent() {
                                 animate={{ opacity: 1, y: 0 }}
                                 onClick={() => handleSuggestedClick(PROJECT_REQUEST_SUGGESTION.message)}
                                 disabled={isLoading}
-                                className="w-full text-left p-3.5 sm:p-4 bg-gradient-to-r from-[#2563EB]/15 via-[#2563EB]/5 to-transparent border border-[#2563EB]/40 hover:border-[#2563EB] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group shadow-xs cursor-pointer"
+                                className="w-full text-left p-3.5 sm:p-4 bg-gradient-to-r from-brand-500/15 via-brand-500/5 to-transparent border border-brand-500/40 hover:border-brand-500 text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group shadow-xs cursor-pointer"
                             >
                                 <div className="flex flex-col pr-3">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-[#2563EB] dark:text-[#38BDF8] uppercase tracking-wider bg-[#2563EB]/10 px-2 py-0.5 border border-[#2563EB]/20">
+                                        <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-brand-700 dark:text-brand-400 uppercase tracking-wider bg-brand-700/10 px-2 py-0.5 border border-brand-500/20">
                                             {PROJECT_REQUEST_SUGGESTION.category}
                                         </span>
-                                        <span className="text-[10px] text-[#2563EB] dark:text-[#38BDF8] font-mono hidden sm:inline">
+                                        <span className="text-[10px] text-brand-700 dark:text-brand-400 font-mono hidden sm:inline">
                                             • Rekomendasi Utama
                                         </span>
                                     </div>
-                                    <span className="text-xs sm:text-sm font-semibold text-foreground group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors">
+                                    <span className="text-xs sm:text-sm font-semibold text-foreground group-hover:text-brand-700 dark:group-hover:text-brand-400 transition-colors">
                                         {PROJECT_REQUEST_SUGGESTION.message}
                                     </span>
                                     <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 leading-relaxed">
                                         {PROJECT_REQUEST_SUGGESTION.description}
                                     </p>
                                 </div>
-                                <div className="shrink-0 flex items-center gap-1.5 bg-[#2563EB] text-white px-3 py-2 text-xs font-medium group-hover:bg-[#1D4ED8] transition-colors shadow-xs">
+                                <div className="shrink-0 flex items-center gap-1.5 bg-brand-700 text-white px-3 py-2 text-xs font-medium group-hover:bg-brand-800 transition-colors shadow-xs">
                                     <span className="hidden sm:inline">Mulai</span>
                                     <Send className="w-3 h-3" />
                                 </div>
@@ -663,13 +684,13 @@ export function AIContent() {
                                         transition={{ delay: index * 0.05 }}
                                         onClick={() => handleSuggestedClick(item.message)}
                                         disabled={isLoading}
-                                        className="w-full text-left text-xs p-3.5 bg-card border border-border hover:border-[#2563EB] hover:bg-[#2563EB]/[0.03] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group cursor-pointer"
+                                        className="w-full text-left text-xs p-3.5 bg-card border border-border hover:border-brand-500 hover:bg-brand-700/[0.03] text-muted-foreground hover:text-foreground transition-all duration-200 rounded-none flex items-center justify-between group cursor-pointer"
                                     >
                                         <div className="flex flex-col">
-                                            <span className="text-[9px] font-mono text-[#2563EB] dark:text-[#38BDF8] uppercase tracking-wider mb-0.5">{item.category}</span>
+                                            <span className="text-[9px] font-mono text-brand-700 dark:text-brand-400 uppercase tracking-wider mb-0.5">{item.category}</span>
                                             <span className="text-xs text-foreground/90 group-hover:text-foreground">{item.message}</span>
                                         </div>
-                                        <Send className="w-3 h-3 text-[#2563EB] opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 ml-2" />
+                                        <Send className="w-3 h-3 text-brand-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 ml-2" />
                                     </motion.button>
                                 ))}
                             </div>
@@ -694,10 +715,10 @@ export function AIContent() {
                                             <span>Anda</span>
                                         ) : (
                                             <div className="flex items-center gap-1.5">
-                                                <div className="relative w-4 h-4 border border-[#2563EB]/40 bg-[#0F172A] overflow-hidden shrink-0">
-                                                    <Image src="/elara.png" alt="Elara" fill className="object-cover" />
+                                                <div className="relative w-4 h-4 border border-brand-500/40 bg-secondary overflow-hidden shrink-0">
+                                                    <Image src="/Elara_Asterwyne.png" alt="Elara" fill sizes="16px" className="object-cover" />
                                                 </div>
-                                                <span className="font-semibold text-[#2563EB] dark:text-[#38BDF8]">ELARA</span>
+                                                <span className="font-semibold text-brand-700 dark:text-brand-400">ELARA</span>
                                             </div>
                                         )}
                                     </div>
@@ -706,7 +727,7 @@ export function AIContent() {
                                     <div className={`relative group max-w-[90%] md:max-w-[85%] px-4 md:px-5 py-3.5 text-sm leading-relaxed rounded-none border ${
                                         message.role === "user"
                                             ? "bg-secondary/60 border-border text-foreground"
-                                            : "bg-card border-border border-l-4 border-l-[#2563EB] text-foreground shadow-sm"
+                                            : "bg-card border-border border-l-4 border-l-brand-500 text-foreground shadow-sm"
                                     }`}>
                                         {renderMarkdownContent(message.content)}
 
@@ -718,7 +739,7 @@ export function AIContent() {
                                                         key={chipIdx}
                                                         onClick={() => handleOptionChipClick(chip)}
                                                         disabled={isLoading}
-                                                        className="text-xs px-3 py-1.5 bg-[#2563EB]/10 hover:bg-[#2563EB] text-[#2563EB] dark:text-[#38BDF8] hover:text-white border border-[#2563EB]/30 font-medium transition-all duration-150 rounded-none flex items-center gap-1.5 shrink-0 shadow-sm"
+                                                        className="text-xs px-3 py-1.5 bg-brand-700/10 hover:bg-brand-700 text-brand-700 dark:text-brand-400 hover:text-white border border-brand-500/30 font-medium transition-all duration-150 rounded-none flex items-center gap-1.5 shrink-0 shadow-sm"
                                                         title="Klik untuk memasukkan ke input teks"
                                                     >
                                                         <span>{chip}</span>
@@ -747,18 +768,18 @@ export function AIContent() {
 
                             {isLoading && (
                                 <div className="flex flex-col items-start">
-                                    <div className="text-[10px] font-mono tracking-wider text-[#2563EB] uppercase mb-1.5 flex items-center gap-1.5">
-                                        <div className="relative w-4 h-4 border border-[#2563EB]/40 bg-[#0F172A] overflow-hidden shrink-0">
-                                            <Image src="/elara.png" alt="Elara" fill className="object-cover" />
+                                    <div className="text-[10px] font-mono tracking-wider text-brand-700 uppercase mb-1.5 flex items-center gap-1.5">
+                                        <div className="relative w-4 h-4 border border-brand-500/40 bg-secondary overflow-hidden shrink-0">
+                                            <Image src="/Elara_Asterwyne.png" alt="Elara" fill sizes="16px" className="object-cover" />
                                         </div>
-                                        <span className="font-semibold text-[#2563EB] dark:text-[#38BDF8]">ELARA</span>
+                                        <span className="font-semibold text-brand-700 dark:text-brand-400">ELARA</span>
                                     </div>
-                                    <div className="bg-card border border-border border-l-4 border-l-[#2563EB] px-5 py-4 rounded-none flex items-center gap-2">
+                                    <div className="bg-card border border-border border-l-4 border-l-brand-500 px-5 py-4 rounded-none flex items-center gap-2">
                                         <span className="text-xs text-muted-foreground font-mono">Mengetik</span>
                                         <div className="flex gap-1">
-                                            <span className="w-1.5 h-1.5 bg-[#38BDF8] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                                            <span className="w-1.5 h-1.5 bg-[#38BDF8] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                                            <span className="w-1.5 h-1.5 bg-[#38BDF8] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                                            <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                                            <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                                            <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                                         </div>
                                     </div>
                                 </div>
@@ -779,7 +800,7 @@ export function AIContent() {
                         <div className="bg-background pt-3 pb-2 border-t border-border">
 
                             {/* Always-visible Project Action Bar */}
-                            <div className="w-full mb-2 flex items-center justify-between gap-2 px-3.5 py-2 bg-card border border-[#2563EB]/35 hover:border-[#2563EB] bg-gradient-to-r from-[#2563EB]/10 via-[#2563EB]/5 to-transparent transition-all shadow-xs">
+                            <div className="w-full mb-2 flex items-center justify-between gap-2 px-3.5 py-2 bg-card border border-brand-500/35 hover:border-brand-500 bg-gradient-to-r from-brand-500/10 via-brand-500/5 to-transparent transition-all shadow-xs">
                                 <div className="flex items-center gap-2 min-w-0">
                                     <span className="text-xs text-foreground/90 font-medium truncate">
                                         Mau buat proyek atau konsultasi dengan Arifian?
@@ -788,7 +809,7 @@ export function AIContent() {
                                 <button
                                     onClick={() => sendMessage(PROJECT_REQUEST_SUGGESTION.message)}
                                     disabled={isLoading}
-                                    className="shrink-0 text-[11px] sm:text-xs px-2.5 py-1 bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-medium transition-colors shadow-xs flex items-center gap-1 cursor-pointer"
+                                    className="shrink-0 text-[11px] sm:text-xs px-2.5 py-1 bg-brand-700 hover:bg-brand-800 disabled:opacity-50 text-white font-medium transition-colors shadow-xs flex items-center gap-1 cursor-pointer"
                                     title="Kirim permintaan proyek / konsultasi"
                                 >
                                     <Sparkles className="w-3 h-3" />
@@ -802,7 +823,7 @@ export function AIContent() {
                                     <button
                                         onClick={refreshQuickSuggestions}
                                         disabled={isLoading}
-                                        className="p-1.5 bg-card border border-border hover:border-[#2563EB] text-muted-foreground hover:text-[#2563EB] transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0 cursor-pointer"
+                                        className="p-1.5 bg-card border border-border hover:border-brand-500 text-muted-foreground hover:text-brand-700 transition-colors duration-200 disabled:opacity-50 rounded-none shrink-0 cursor-pointer"
                                         title="Acak Pertanyaan"
                                     >
                                         <RefreshCw className="w-3 h-3" />
@@ -813,7 +834,7 @@ export function AIContent() {
                                                 key={`${item.message}-${index}`}
                                                 onClick={() => handleSuggestedClick(item.message)}
                                                 disabled={isLoading}
-                                                className="text-xs px-3 py-1.5 bg-card border border-border hover:border-[#2563EB] transition-colors duration-200 disabled:opacity-50 text-muted-foreground hover:text-foreground rounded-none shrink-0 whitespace-nowrap cursor-pointer"
+                                                className="text-xs px-3 py-1.5 bg-card border border-border hover:border-brand-500 transition-colors duration-200 disabled:opacity-50 text-muted-foreground hover:text-foreground rounded-none shrink-0 whitespace-nowrap cursor-pointer"
                                             >
                                                 {item.message}
                                             </button>
@@ -831,12 +852,12 @@ export function AIContent() {
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Kirim pesan ke Elara..."
                                     disabled={isLoading}
-                                    className="flex-1 px-4 h-11 bg-card border border-border focus:border-[#2563EB] outline-none transition-colors duration-200 text-sm rounded-none"
+                                    className="flex-1 px-4 h-11 bg-card border border-border focus:border-brand-500 outline-none transition-colors duration-200 text-sm rounded-none"
                                 />
                                 <Button
                                     type="submit"
                                     disabled={isLoading || !input.trim()}
-                                    className="rounded-none bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#2563EB]/40 text-white h-11 px-5 shrink-0 transition-colors cursor-pointer"
+                                    className="rounded-none bg-brand-700 hover:bg-brand-800 disabled:bg-brand-700/40 text-white h-11 px-5 shrink-0 transition-colors cursor-pointer"
                                 >
                                     <Send className="w-4 h-4" />
                                 </Button>

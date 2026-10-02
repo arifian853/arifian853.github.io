@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
@@ -199,14 +200,7 @@ function parseMarkdown(md: string) {
   return elements;
 }
 
-export const metadata = {
-  title: "Arifian.dev - Design System",
-  description: "Explore the design philosophy, color system, typography, and animation choices behind arifian.dev.",
-  openGraph: {
-    title: "Arifian.dev - Design System",
-    description: "Explore the design philosophy, color system, typography, and animation choices behind arifian.dev.",
-  },
-};
+export const metadata = pageMetadata("Design System", "Explore the colors, typography, and animation guidelines behind Arifian Saputra's portfolio design system.", "/design");
 
 export default function DesignPage() {
   const filePath = path.join(process.cwd(), "DESIGN.md");

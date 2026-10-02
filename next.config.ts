@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
 
   // Performance optimizations
   experimental: {
+    optimizePackageImports: ['react-icons/si', 'react-icons/fa', 'react-icons/fa6'],
     optimizeCss: process.env.NODE_ENV === 'production', // Minify CSS in production
     viewTransition: true,
   },
@@ -29,7 +30,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     // Optimized device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200],
-    qualities: [75, 80],
+    qualities: [75, 80, 95],
     // For static export, we need to use unoptimized images
     ...(isStaticExport && {
       unoptimized: true,

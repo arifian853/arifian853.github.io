@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react"
 
 interface ProjectImageCarouselProps {
@@ -79,7 +79,7 @@ export function ProjectImageCarousel({ images, title }: ProjectImageCarouselProp
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                             className="object-cover"
                             priority={currentIndex === 0}
-                            quality={85}
+                            quality={80}
                         />
                     </motion.div>
                 </AnimatePresence>

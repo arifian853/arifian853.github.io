@@ -8,7 +8,7 @@ export default function NotFound() {
             <div
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
-                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 6%, transparent) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />

@@ -1,9 +1,14 @@
 "use client"
 
+import { ELARA_API_URL } from "@/lib/api-config"
+
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
+import { m as motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { MessageSquare, AlertCircle, Check, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 interface Message {
     id: string
@@ -23,7 +28,7 @@ interface APIMessage {
     isReplied: boolean
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://elara.arifian.dev"
+const API_BASE_URL = ELARA_API_URL
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString)
@@ -66,6 +71,9 @@ export function MessageContent() {
     const [isFetching, setIsFetching] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [success, setSuccess] = useState(false)
+    const [showGreeting, setShowGreeting] = useState(false)
+    const [dontShowGreetingAgain, setDontShowGreetingAgain] = useState(false)
+    const messageInputRef = useRef<HTMLTextAreaElement>(null)
 
     const charLimit = 500
     const charRatio = input.length / charLimit
@@ -94,7 +102,17 @@ export function MessageContent() {
         }
     }
 
-    useEffect(() => { fetchMessages() }, [])
+    useEffect(() => {
+        fetchMessages()
+        setShowGreeting(localStorage.getItem("arifian-message-hide-greeting") !== "true")
+    }, [])
+
+    const handleGreetingOpenChange = (open: boolean) => {
+        if (!open && dontShowGreetingAgain) {
+            localStorage.setItem("arifian-message-hide-greeting", "true")
+        }
+        setShowGreeting(open)
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -129,6 +147,38 @@ export function MessageContent() {
 
     return (
         <section ref={sectionRef} className="relative min-h-screen py-12 md:py-20 overflow-hidden bg-background">
+            <Dialog open={showGreeting} onOpenChange={handleGreetingOpenChange}>
+                <DialogContent
+                    className="max-h-[calc(100svh-2rem)] overflow-y-auto rounded-none border-border bg-card sm:max-w-sm"
+                    onCloseAutoFocus={(event) => {
+                        event.preventDefault()
+                        messageInputRef.current?.focus({ preventScroll: true })
+                    }}
+                >
+                    <Image
+                        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjZjcmQ0emg3cXk1b2tkanA1Nm82NHY4MWh3ZGs0ODkwc2VudnByMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y4nk5bgwpWL6T5Ax9y/giphy.gif"
+                        alt="A cat waving hello"
+                        width={96}
+                        height={96}
+                        unoptimized
+                        className="mx-auto size-24 object-contain border-2 border-foreground bg-zinc-950 p-1 w-36 h-28 shadow-sm"
+                    />
+                    <DialogHeader className="text-center sm:text-center">
+                        <DialogTitle className="font-heading text-xl leading-snug">Hi, welcome!</DialogTitle>
+                        <DialogDescription className="text-sm leading-relaxed">
+                            You can leave an anonymous message for Arifian here. Share whatever you&apos;d like to say.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex items-center gap-2">
+                        <Checkbox id="message-hide-greeting" checked={dontShowGreetingAgain} onCheckedChange={(checked) => setDontShowGreetingAgain(checked === true)} />
+                        <label htmlFor="message-hide-greeting" className="cursor-pointer text-xs text-muted-foreground">Don&apos;t show again</label>
+                    </div>
+                    <Button onClick={() => handleGreetingOpenChange(false)} className="h-10 w-full rounded-none bg-brand-700 text-white hover:bg-brand-800">
+                        Write a message
+                    </Button>
+                </DialogContent>
+            </Dialog>
+
             {/* Toast notifications — fixed bottom-right */}
             <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none">
                 <AnimatePresence>
@@ -211,6 +261,7 @@ export function MessageContent() {
                     <form onSubmit={handleSubmit} className="flex flex-col">
                         <div className="relative bg-card border border-border focus-within:border-brand-500 focus-within:ring-1 focus-within:ring-brand-500 transition-all duration-300 shadow-sm">
                             <textarea
+                                ref={messageInputRef}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Write something anonymously..."

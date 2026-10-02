@@ -1,3 +1,4 @@
+import { pageMetadata, HOME_DESCRIPTION } from "@/lib/seo";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/app/_home_components/Hero";
@@ -23,24 +24,19 @@ const Footer = dynamic(() => import("@/components/layout/Footer").then(mod => mo
   loading: () => <div className="h-20" />,
 });
 
-export const metadata = {
-  title: "Arifian.dev",
-  description: "Arifian's Portfolio Site",
-  openGraph: {
-    title: "Arifian.dev",
-    description: "Arifian's Portfolio Site",
-  },
-}
+export const metadata = pageMetadata("Home", HOME_DESCRIPTION, "/");
 
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <About />
-      <FeaturedProjects />
-      <Experiences />
-      <ContactCTA />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <FeaturedProjects />
+        <Experiences />
+        <ContactCTA />
+      </main>
       <Footer />
     </div>
   );

@@ -115,7 +115,7 @@ export function ProjectPopover({ projectId, title, year, description, children }
                         href={`/projects/${projectId}`}
                         className="inline-flex items-center justify-center bg-brand-700 hover:bg-brand-800 text-white font-medium text-xs px-4 py-2.5 transition-all duration-300 w-full text-center gap-1.5 group/btn"
                     >
-                        Read More
+                        View project<span className="sr-only">: {title}</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200" />
                     </Link>
                 </div>

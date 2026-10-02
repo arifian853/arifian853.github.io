@@ -3,7 +3,7 @@ import { Inclusive_Sans, Lexend_Deca } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { ScrollToTop } from "@/components/tools/scroll-to-top";
-import Script from "next/script";
+import { SITE_URL, HOME_TITLE, HOME_DESCRIPTION, pageMetadata, siteStructuredData } from "@/lib/seo";
 import "./globals.css";
 
 const inclusiveSans = Inclusive_Sans({
@@ -21,38 +21,11 @@ const lexend = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arifian.dev'),
-  title: {
-    default: "Arifian Saputra | AI Technical Mentor",
-    template: "%s | Arifian Saputra",
-  },
-  description: "AI Technical Mentor at Infinite Learning Indonesia. Passionate about AI, Machine Learning, LLM, NLP, and building production-ready web applications.",
-  keywords: ["Arifian Saputra", "AI Technical Mentor", "Web Developer", "Portfolio", "Frontend Developer", "Full Stack Developer"],
+  ...pageMetadata("Home", HOME_DESCRIPTION, "/"),
+  metadataBase: new URL(SITE_URL),
+  title: { default: HOME_TITLE, template: "%s | Arifian Saputra" },
   authors: [{ name: "Arifian Saputra" }],
   creator: "Arifian Saputra",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://arifian.dev",
-    siteName: "Arifian Saputra",
-    title: "Arifian Saputra | AI Technical Mentor",
-    description: "AI Technical Mentor at Infinite Learning Indonesia. Passionate about AI, Machine Learning, LLM, NLP, and building production-ready web applications.",
-    images: [
-      {
-        url: "/og.avif",
-        width: 1200,
-        height: 630,
-        alt: "Arifian Saputra - AI Technical Mentor",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Arifian Saputra | AI Technical Mentor",
-    description: "AI Technical Mentor at Infinite Learning Indonesia. Passionate about AI, Machine Learning, LLM, NLP, and building production-ready web applications.",
-    images: ["/og.avif"],
-    creator: "@ArifianSaputra0",
-  },
   robots: {
     index: true,
     follow: true,
@@ -73,49 +46,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-      <head>
-        {/* Inline script to detect and apply theme before paint - prevents flash */}
-        <Script
-          id="theme-detect"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-        {/* Speculation Rules API for instant navigation to project subpages */}
-        <script
-          type="speculationrules"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              prerender: [
-                {
-                  source: "document",
-                  where: {
-                    and: [
-                      { href_matches: "*/projects/*" },
-                      { not: { href_matches: "*/projects" } }
-                    ]
-                  },
-                  eagerness: "moderate"
-                }
-              ]
-            })
-          }}
-        />
-      </head>
       <body
         className={`${inclusiveSans.variable} ${lexend.variable} font-sans antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, "\\u003c") }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -124,8 +62,8 @@ export default function RootLayout({
         >
           <MotionProvider>
             {children}
+            <ScrollToTop />
           </MotionProvider>
-          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

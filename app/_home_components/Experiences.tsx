@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import { Building2, MapPin, Calendar } from "lucide-react"
 import { useRef } from "react"
 
@@ -176,7 +176,7 @@ export function Experiences() {
                 className="absolute -left-40 top-1/3 w-[400px] h-[400px] rounded-full pointer-events-none"
                 style={{
                     y: bgOrb,
-                    background: "radial-gradient(circle, rgba(67,90,118,0.07) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 7%, transparent) 0%, transparent 70%)",
                     filter: "blur(40px)"
                 }}
             />

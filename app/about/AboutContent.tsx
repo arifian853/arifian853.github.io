@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m as motion, useScroll, useTransform } from "framer-motion";
 import {
     Code2,
     Brain,
@@ -127,7 +127,7 @@ export function AboutContent() {
                 style={{
                     y: bgY,
                     background:
-                        "radial-gradient(ellipse, rgba(112,137,168,0.08) 0%, transparent 70%)",
+                        "radial-gradient(ellipse, color-mix(in srgb, var(--color-brand-500) 8%, transparent) 0%, transparent 70%)",
                     filter: "blur(60px)",
                 }}
             />
@@ -611,7 +611,7 @@ export function AboutContent() {
                                         <div className="flex items-center gap-2 bg-zinc-200 dark:bg-zinc-800 px-3 py-2">
                                             <Sparkles className="w-5 h-5 text-brand-500" />
                                             <span className="text-sm font-medium">
-                                                GPT-OSS 20B via Groq
+                                                GPT-OSS 120B via Groq
                                             </span>
                                         </div>
                                     </div>

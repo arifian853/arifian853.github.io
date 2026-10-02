@@ -27,10 +27,10 @@ export function ShimmerCard({ children, className = "" }: ShimmerCardProps) {
         const y = e.clientY - rect.top
 
         const isDark = document.documentElement.classList.contains("dark")
-        // Dark mode: subtle blue glow. Light mode: stronger slate glow for contrast
+        // Use the brand accent with a subtle glow in both themes
         const color = isDark
-            ? "rgba(112, 137, 168, 0.14)"
-            : "rgba(67, 90, 118, 0.12)"
+            ? "color-mix(in srgb, var(--color-brand-500) 14%, transparent)"
+            : "color-mix(in srgb, var(--color-brand-500) 12%, transparent)"
 
         spot.style.opacity = "1"
         spot.style.background = `radial-gradient(280px circle at ${x}px ${y}px, ${color} 0%, transparent 70%)`

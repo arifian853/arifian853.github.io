@@ -214,7 +214,7 @@ export const projects: Project[] = [
             { repo_link: "https://github.com/arifian853/arifian.ai", btn_name: "Repo" }
         ],
         demo: [
-            { demo_link: "https://arifian.dev/ai", btn_name: "Demo" }
+            { demo_link: "/ai", btn_name: "Demo" }
         ],
         tags: [
             { iconName: "FaPython", name: "Python" },
@@ -226,13 +226,13 @@ export const projects: Project[] = [
         id: 12,
         title: "Arifian.AI v2.0",
         year: "2026",
-        description: "Major upgrade of the Arifian.AI personal chatbot. Rebuilt from the ground up with a modern RAG (Retrieval-Augmented Generation) architecture. Now powered by **GPT-OSS 20B via Groq** for fast, high-quality responses, with **multilingual SentenceTransformer embeddings** (paraphrase-multilingual-MiniLM-L12-v2) supporting 50+ languages including Indonesian. Features include a dedicated **admin dashboard** for knowledge base management, system prompt customization, file uploads, RAG configuration, and user management. Backend built with **FastAPI** and **MongoDB Atlas** vector search, hosted on **Hugging Face Spaces** with Docker.",
+        description: "Major upgrade of the Arifian.AI personal chatbot. Rebuilt from the ground up with a modern RAG (Retrieval-Augmented Generation) architecture. Now powered by **GPT-OSS 120B via Groq** for fast, high-quality responses, with **multilingual SentenceTransformer embeddings** (paraphrase-multilingual-MiniLM-L12-v2) supporting 50+ languages including Indonesian. Features include a dedicated **admin dashboard** for knowledge base management, system prompt customization, file uploads, RAG configuration, and user management. Backend built with **FastAPI** and **MongoDB Atlas** vector search, hosted on **Hugging Face Spaces** with Docker.",
         image: "/projects/project12.avif",
         link: [
             { repo_link: "https://github.com/arifian853/arifian.ai", btn_name: "Repo" }
         ],
         demo: [
-            { demo_link: "https://arifian.dev/ai", btn_name: "Demo" }
+            { demo_link: "/ai", btn_name: "Demo" }
         ],
         tags: [
             { iconName: "FaPython", name: "Python" },
@@ -293,7 +293,7 @@ export const projects: Project[] = [
             { repo_link: "https://github.com/arifian853/elara-public", btn_name: "Repository" }
         ],
         demo: [
-            { demo_link: "https://arifian.dev/ai", btn_name: "Chat with Elara" }
+            { demo_link: "/ai", btn_name: "Chat with Elara" }
         ],
         tags: [
             { iconName: "FaPython", name: "Python" },

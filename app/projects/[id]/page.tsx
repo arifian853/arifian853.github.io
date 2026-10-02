@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { projects, getProjectById, Project } from "@/lib/data/projects";
@@ -18,18 +19,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     if (!project) {
         return {
-            title: "Project Not Found - Arifian.dev",
+            title: "Project Not Found",
+            robots: { index: false, follow: true },
         };
     }
 
-    return {
-        title: `${project.title} - Arifian.dev`,
-        description: project.description.slice(0, 160),
-        openGraph: {
-            title: `${project.title} - Arifian.dev`,
-            description: project.description.slice(0, 160),
-        },
-    };
+    const description = project.description.replace(/\*\*/g, "").replace(/\s+/g, " ").trim().slice(0, 160);
+    return pageMetadata(project.title, description, `/projects/${project.id}`);
+
 }
 
 // Get random projects excluding current one
@@ -52,7 +49,9 @@ export default async function ProjectDetails({ params }: { params: Promise<{ id:
     return (
         <div className="min-h-screen">
             <Navbar />
-            <ProjectDetailContent project={project} exploreProjects={randomProjects} />
+            <main id="main-content">
+                <ProjectDetailContent project={project} exploreProjects={randomProjects} />
+            </main>
             <Footer />
         </div>
     );

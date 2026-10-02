@@ -80,5 +80,5 @@ interface ProjectIconProps {
 export function ProjectIcon({ iconName, className = "w-4 h-4" }: ProjectIconProps) {
     const Icon = iconMap[iconName];
     if (!Icon) return null;
-    return <Icon className={className} />;
+    return <Icon className={className} aria-label={iconName.replace(/^(Fa|Si)/, "")} />;
 }

@@ -1,9 +1,9 @@
 "use client"
 
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion"
+import { m as motion, useTransform, useScroll } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { RotatingText } from "@/app/_home_components/rotating-text"
-import { useRef, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 const getTimeGreeting = () => {
     const hour = new Date().getHours()
@@ -32,14 +32,6 @@ const lineVariants = {
 }
 
 export function Hero() {
-    const sectionRef = useRef<HTMLElement>(null)
-    const mouseX = useMotionValue(0)
-    const mouseY = useMotionValue(0)
-
-    const springConfig = { damping: 40, stiffness: 150 }
-    const blobX = useSpring(mouseX, springConfig)
-    const blobY = useSpring(mouseY, springConfig)
-    
     const [greeting, setGreeting] = useState("Morning")
     
     useEffect(() => {
@@ -55,44 +47,10 @@ export function Hero() {
     const orb1Y = useTransform(scrollY, [0, 600], [0, -40])
     const orb2Y = useTransform(scrollY, [0, 600], [0, 60])
 
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            const rect = sectionRef.current?.getBoundingClientRect()
-            if (!rect) return
-            mouseX.set(e.clientX - rect.left - rect.width / 2)
-            mouseY.set(e.clientY - rect.top - rect.height / 2)
-        }
-        const section = sectionRef.current
-        section?.addEventListener("mousemove", handleMouseMove)
-        return () => section?.removeEventListener("mousemove", handleMouseMove)
-    }, [mouseX, mouseY])
-
     return (
         <section
-            ref={sectionRef}
             className="relative min-h-screen pt-20 flex items-center overflow-hidden"
         >
-            {/* Mouse-reactive glow blob */}
-            <motion.div
-                className="absolute pointer-events-none"
-                style={{
-                    x: blobX,
-                    y: blobY,
-                    left: "50%",
-                    top: "40%",
-                    translateX: "-50%",
-                    translateY: "-50%",
-                    width: 480,
-                    height: 480,
-                    filter: "blur(60px)",
-                }}
-            >
-                {/* Light mode — darker, more saturated glow */}
-                <div className="absolute inset-0 dark:hidden" style={{ background: "radial-gradient(circle, rgba(67,90,118,0.18) 0%, transparent 70%)" }} />
-                {/* Dark mode — subtle blue glow */}
-                <div className="absolute inset-0 hidden dark:block" style={{ background: "radial-gradient(circle, rgba(112,137,168,0.12) 0%, transparent 70%)" }} />
-            </motion.div>
-
             {/* Floating orbs — subtle depth */}
             <motion.div
                 className="absolute top-[15%] right-[10%] w-3 h-3 rounded-full bg-brand-500/50 dark:bg-brand-500/30 pointer-events-none"
@@ -128,12 +86,12 @@ export function Hero() {
                 className="relative z-10 w-full max-w-7xl mx-auto px-6"
                 style={{ y: textY }}
                 variants={containerVariants}
-                initial="hidden"
+                initial={false}
                 animate="visible"
             >
                 {/* Eyebrow label */}
                 <motion.div variants={lineVariants} className="mb-3">
-                    <span className="inline-flex items-center gap-2 text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70" suppressHydrationWarning>
+                    <span className="inline-flex items-center gap-2 text-xs font-heading tracking-[0.2em] uppercase text-brand-700 dark:text-brand-400" suppressHydrationWarning>
                         <span className="inline-block w-6 h-px bg-brand-500/50" />
                         Good {greeting}
                     </span>
@@ -159,7 +117,7 @@ export function Hero() {
 
                     <motion.p
                         variants={lineVariants}
-                        className="font-sans text-sm text-muted-foreground/60 max-w-sm mb-8"
+                        className="font-sans text-sm text-muted-foreground max-w-sm mb-8"
                     >
                         AI Technical Mentor · Full Stack Developer · Batam, Indonesia
                     </motion.p>

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getFeaturedProjects } from "@/lib/data/projects"
@@ -50,7 +50,7 @@ export function FeaturedProjects() {
                 className="absolute right-0 bottom-1/4 w-[500px] h-[500px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(112,137,168,0.07) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 7%, transparent) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ArrowUp } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 
 export function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false)
@@ -17,7 +17,7 @@ export function ScrollToTop() {
             }
         }
 
-        window.addEventListener("scroll", toggleVisibility)
+        window.addEventListener("scroll", toggleVisibility, { passive: true })
         return () => window.removeEventListener("scroll", toggleVisibility)
     }, [])
 

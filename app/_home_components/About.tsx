@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m as motion, useScroll, useTransform } from "framer-motion";
 import {
   Code2,
   Brain,
@@ -102,7 +102,7 @@ export function About() {
         className="absolute -right-40 top-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 6%, transparent) 0%, transparent 70%)",
           y: sectionY,
         }}
       />
@@ -117,7 +117,7 @@ export function About() {
           className="mb-10 flex items-center gap-3"
         >
           <span className="inline-block w-6 h-px bg-brand-500/50" />
-          <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-500/70">
+          <span className="text-xs font-heading tracking-[0.2em] uppercase text-brand-700 dark:text-brand-400">
             About
           </span>
         </motion.div>
@@ -246,7 +246,7 @@ export function About() {
 
           {/* Quote */}
           <motion.div variants={cardVariants}>
-            <ShimmerCard className="h-full bg-brand-600 dark:bg-brand-800 text-white p-6 flex flex-col justify-center transition-colors duration-300 group overflow-hidden relative">
+            <ShimmerCard className="h-full bg-brand-700 dark:bg-brand-800 text-white p-6 flex flex-col justify-center transition-colors duration-300 group overflow-hidden relative">
               <motion.div
                 className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/5 pointer-events-none"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -259,7 +259,7 @@ export function About() {
               <blockquote className="text-sm md:text-base font-medium italic leading-relaxed relative z-10">
                 &ldquo;Teaching is learning twice.&rdquo;
               </blockquote>
-              <cite className="text-xs md:text-sm mt-4 opacity-80 relative z-10 block">
+              <cite className="text-xs md:text-sm mt-4 relative z-10 block">
                 — Joseph Joubert
               </cite>
             </ShimmerCard>
@@ -280,7 +280,7 @@ export function About() {
                       className="relative group cursor-pointer"
                       style={{ anchorName } as React.CSSProperties}
                     >
-                      <tech.icon className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300" />
+                      <tech.icon aria-label={tech.name} className="w-7 h-7 text-zinc-500 dark:text-zinc-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-300" />
                       {/* Tooltip with Anchor Positioning support and absolute fallback */}
                       <div
                         style={{ "--anchor-target": anchorName } as React.CSSProperties}

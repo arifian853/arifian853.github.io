@@ -1,20 +1,9 @@
 import { MetadataRoute } from 'next';
+import { projects } from '@/lib/data/projects';
+import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://arifian.dev';
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ];
+  const paths = ['/', '/about', '/projects', '/ai', '/message', '/design'];
+  return [...paths, ...projects.map(project => `/projects/${project.id}`)]
+    .map(path => ({ url: new URL(path, SITE_URL).href }));
 }

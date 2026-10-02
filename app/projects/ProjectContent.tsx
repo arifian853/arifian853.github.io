@@ -1,12 +1,13 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m as motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { useRef } from "react"
 import { ShimmerCard } from "@/components/ui/shimmer-card"
 import { ArrowRight } from "lucide-react"
 import { getFeaturedProjects, getOlderProjects } from "@/lib/data/projects"
 import { ProjectIcon } from "@/components/ui/project-icon"
+import { ProjectListItem } from "@/components/ui/project-list-item"
 import { ProjectPopover } from "@/components/ui/project-popover"
 
 const containerVariants = {
@@ -55,7 +56,7 @@ export function ProjectContent() {
                 className="absolute -right-20 top-1/4 w-[600px] h-[600px] pointer-events-none rounded-full"
                 style={{
                     y: bgY,
-                    background: "radial-gradient(circle, rgba(112,137,168,0.06) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, color-mix(in srgb, var(--color-brand-500) 6%, transparent) 0%, transparent 70%)",
                     filter: "blur(60px)"
                 }}
             />
@@ -256,7 +257,7 @@ export function ProjectContent() {
                     })}
                 </motion.div>
 
-                {/* More Projects — editorial numbered list */}
+                {/* More Projects */}
                 {olderProjects.length > 0 && (
                     <>
                         <motion.div
@@ -275,53 +276,11 @@ export function ProjectContent() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="space-y-0"
+                            className="border-t border-border"
                         >
                             {olderProjects.map((project) => (
                                 <motion.div key={project.id} variants={cardVariants}>
-                                    <Link href={`/projects/${project.id}`}>
-                                        <div className="group py-5 px-4 -mx-4 border-b border-border hover:bg-secondary/15 transition-all duration-300 cursor-pointer">
-                                            <div className="flex items-center gap-6">
-                                                {/* Number */}
-                                                <span className="font-heading font-bold text-xl text-brand-500/50 group-hover:text-brand-500 transition-colors duration-300 w-10 shrink-0 tabular-nums">
-                                                    {formatNumber(project.id)}
-                                                </span>
-
-                                                {/* Content */}
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-3 flex-wrap">
-                                                        <h3 className="font-heading font-semibold text-base md:text-lg group-hover:text-brand-500 transition-colors duration-300">
-                                                            {project.title}
-                                                        </h3>
-                                                        <span className="text-zinc-400 dark:text-zinc-500 text-xs">
-                                                            {project.year}
-                                                        </span>
-                                                    </div>
-
-                                                    {/* Description reveal on hover */}
-                                                    <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1 max-h-0 overflow-hidden group-hover:max-h-12 transition-all duration-300 leading-relaxed">
-                                                        {truncateDescription(project.description, 120)}
-                                                    </p>
-                                                </div>
-
-                                                {/* Tech icons — fade in on hover */}
-                                                <div className="hidden md:flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    {project.tags.slice(0, 4).map((tag, tagIndex) => (
-                                                        <div
-                                                            key={tagIndex}
-                                                            className="text-brand-500"
-                                                            title={tag.name}
-                                                        >
-                                                            <ProjectIcon iconName={tag.iconName} className="w-4 h-4" />
-                                                        </div>
-                                                    ))}
-                                                </div>
-
-                                                {/* Arrow */}
-                                                <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-brand-500 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                                            </div>
-                                        </div>
-                                    </Link>
+                                    <ProjectListItem project={project} />
                                 </motion.div>
                             ))}
                         </motion.div>
